@@ -9,4 +9,7 @@ only we had a way of connecting it to the undisputed king of cloud: AWS. Enter '
 our one stop shop for C# front-end/AWS back-end solutions. Install our Visual Studio 
 extension and leapfrog months of development with a single click.
 
+<a href="https://github.com/InSciCo/LazyStack/">LazyStack Repository</a>
+
+<a href="https://inscico.github.io/LazyStack/">LazyStack Documentation</a>
 
