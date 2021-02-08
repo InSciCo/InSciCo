@@ -1,5 +1,5 @@
 # Insight Sciences Corporation (InSciCo)
-## <a href="https://https://inscico.github.io/LazyStack">LazyStack</a>
+## <a href="https://https://inscico.github.io/LazyStack/">LazyStack</a>
 LazyStack is a passion project by a couple of nerds. We love generated code but we don't love 
 the pricing models of existing low-code platforms (or being locked into their eco-system). 
 This made us ask: "What if you could field an entire application using only the 'free-tier' 
