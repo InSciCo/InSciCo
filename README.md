@@ -1,5 +1,5 @@
 # Insight Sciences Corporation (InSciCo)
-## <a href="https://inscico.github.io/LazyStack/">LazyStack</a>
+## <a href="https://lazystack.io">LazyStack</a>
 LazyStack is a passion project by a couple of nerds. We love generated code but we don't love 
 the pricing models of existing low-code platforms (or being locked into their eco-system). 
 This made us ask: "What if you could field an entire application using only the 'free-tier' 
@@ -11,9 +11,7 @@ extension and leapfrog months of development with a single click.
 
 ## Documentation
 
-<a href="https://github.com/InSciCo/LazyStack/">LazyStack Repository</a>
-
-<a href="https://inscico.github.io/LazyStack/">LazyStack Documentation</a>
+<a href="https://lazystack.io">LazyStack Documentation</a>
 
 ## LazyStack Libraries
 This repo contains a number of open-source MIT licensed libraries and tools that 
