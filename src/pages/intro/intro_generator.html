@@ -1,0 +1,79 @@
+---
+layout: docpage
+section: Introduction
+topic: Generator
+---
+{{> intro_menu}}
+<div class=lz-r-content>
+
+    <h3>LazyStack Stack Generator</h3>
+    <p>You write the REST OpenAPI specification (formerly Swagger). This defines your client facing API including
+        the operations and data schema your client may use on the API. This is where you spend most of your time using
+        LazyStack because the OpenAPI specification is used to guide the generation and update of the code projects
+        that make up your stack and update the SAM template file so that stack can be deployed to AWS. </p>
+    <p>Each time you finalize edits to your API specification or the optional SAM template, you run the LazyStack
+        generator and the following LazyStack Generation Steps are performed: </p>
+    <img src="/assets/img/LazyStackProjects.svg"/>
+    <h4>LazyStack Generation Steps</h4>
+    <ol>
+        <li>
+            <p>Update the SAM template</p>
+        </li>
+        <li>
+            <p>Generate/Update Projects:</p>
+            <ol>
+                <li>
+                    <p>Client Application SDK project</p>
+                </li>
+                <li>
+                    <p>Application API Project</p>
+                </li>
+                <li>
+                    <p>For Each API tag (Lambda/Controller):</p>
+                    <ul>
+                        <li>
+                            <p>Lambda Project - project published by AWS::Serverless::Function resource definition -
+                                references
+                                Application API Project and Controller Project</p>
+                        </li>
+                        <li>
+                            <p>Controller Project - Provides method stubs to be implemented by developer</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Application&rsquo;s local WebApi Project</p>
+                    <ol>
+                        <li>
+                            <p>References Application Api Project and Controller Project(s)</p>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <h4>Now It's Your Turn to Write Some Code </h4>
+    <p>We provide a Getting Started Tutorial based on a version of the ubiquitous PetStore API. This tutorial takes
+        you
+        through installing LazyStack and building your first stack. </p>
+    <p>LazyStack doesn&rsquo;t require you to adopt any particular Source Control, Continuous Integration or
+        Continuous
+        Deployment service. You can run through our tutorial without using anything but your AWS account, AWS CLI (or
+        Visual Studio integration) and LazyStack itself. </p>
+    <h3>On the Software Development Life Cycle (SDLC)</h3>
+    <p>As you start to move toward fielding a production stack you inevitably start to manage different versions of
+        your
+        stack; at a minimum this might include separate stacks for Development, Test and Production. To manage
+        separate
+        stacks and the promotion of changes among them, without going crazy, you need a process and a set of tools to
+        implement that process.</p>
+    <p>In our experience, the requirements on the SDLC process used by a startup and that used by an enterprise are
+        wildly different. We strive to make LazyStack easy to integrate into any of those processes. </p>
+    <p>Since startups may not require or afford the overhead of sophisticated SDLC tooling, we provide a LazyStack
+        SDLC
+        tutorial supporting a minimal process with common tools like Visual Studio, AWS Visual Studio Toolkit, AWS SAM
+        CLI
+        and GitHub.</p>
+    <p>Multiple contributors can work on LazyStack generated application stacks at the same time. The LazyStack SDLC
+        tutorial demonstrates coordination among multiple contributors to your application stack project.</p>
+</div>

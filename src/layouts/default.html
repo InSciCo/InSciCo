@@ -1,0 +1,37 @@
+{{!-- This is the base layout for your project, and will be used on every page unless specified. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LazyStack</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#{{page}}").addClass("is-active");
+      console.log("hello");
+    });
+    </script>
+</head>
+
+<body class="default">
+
+  {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+  <!--This is a horrible way of implementing this and is an insult to responsive web design... welp... deadlines so TOO BAD!-->
+  <div class=bigcenter-outer>
+    <div class=bigcenter-inner>
+      {{>legal_notice}}
+{{> body}}
+    </div>
+  </div>
+
+  <script 
+  src="/assets/js/app.js">
+  </script>
+</body>
+
+</html>

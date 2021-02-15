@@ -1,0 +1,29 @@
+---
+layout: docpage
+section: Tutorial
+topic: Publish to Aws
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Publish PetStoreDev stack to AWS</h3>
+    <p>In this step we will publish our stack to AWS.</p>
+    <ol>
+        <li>Open the Stacks\Dev folder in the Visual Studio solution explorer pane.</li>
+        <li>Right Click on the serverless.template file. The Context Menu appears.</li>
+        <li>Select Publish to AWS Lambda. The "Publish AWS Serverless Application" dialog appears.</li>
+        <li>Enter the Stack Name: PetStoreDev.</li>
+        <li>Specify an S3 Bucket to use or create a new one.</li>
+        <li>Click the Publish button. The "Publish AWS Serverless Application" dialog appears and shows
+            a processing log as it processes your serverless.template file and associated projects.
+            When the serverless.template and projects have been processed the dialog closes.</li>
+        <li>A new Visual Studio editor tab named Stack:PetStore is opened. This tab shows you the 
+            progress of your stack update. You will see the status change to UPDATE COMPLETE once 
+            the publishing step is finished. </li>
+        <li>Select Tools &RightArrow; LazyStack - Generate Stacks\Dev\AwsSettings.json. A LazyStack.log 
+            tab opens and LazyStack log messages are displayed. A AwsSettings.json file is added 
+        to the Stacks\Dev folder.</li>
+    </ol>   
+
+    <h5>Summary</h5>
+    <p>We published our stack to AWS and can now use those resources.</p>
+</div>

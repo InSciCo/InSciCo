@@ -1,0 +1,29 @@
+---
+layout: docpage
+section: Generator
+topic: Package References
+---
+{{> generator_menu}}
+<div class=lz-r-content>
+    <h3>ProjectOptions Directive</h3>
+    <h4>PackageReferences</h4>
+    <p>Add or override package references using the PackageReferences directive. 
+    Package references look like this:
+    </p>
+    <pre><code class="language-yaml">ProjectOptions:    
+  LambdaProjects:
+    PackageReferences:
+      AWSSDK.S3: "3.3.110.58"
+      AWSSDK.Extensions.NETCore.Setup: "3.3.100.1"
+      Amazon.Lambda.AspNetCoreServer: "5.1.0"</code></pre>
+  <p>PackageReferences may be applied to a project type, as in the LambdaProjects 
+    example above, or be applied to specific projects.
+  </p>
+  <h5>Project Types</h5>
+  <ul>
+    <li>ControllerProjects</li>
+    <li>LambdaProjects</li>
+    <li>ClientSDKProjects</li>
+    <li>WebApiProjects</li>
+  </ul>        
+</div>

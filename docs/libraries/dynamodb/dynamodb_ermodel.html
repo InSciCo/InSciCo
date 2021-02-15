@@ -1,0 +1,470 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#dynamodb_ermodel").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="//assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="//assets/img/pic12.jpg"></img>
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                    <div style="position:fixed;top:21px;left:16px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px; max-width: 223px;">
+                        <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                    </div>
+                    
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Libraries</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_overview.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="lz-r-sectionitem">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/generator_overview.html">
+                            <span class="">Generator</span>
+                        </a>
+                      </li>
+                
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">DynamoDB Overview</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+    <ul class="vertical menu dropdown">
+        <li>
+        <li>
+            <a  href="/libraries/libraries_overview.html">
+                <span class="">Overview</span>
+            </a>
+        </li>
+    
+        <li>
+            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">
+                <span class="">LazyStackAuth</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">AuthMessages</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">AuthProvider</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">AuthProcess</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">LzHttpClient</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">
+                <span class="">GetAwsSettings</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/dynamodb/dynamodb_overview.html">
+                <span class="">DynamoDBRepo</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/dynamodb/dynamodb_ermodel.html">&nbsp;&nbsp;&nbsp;
+                <span class="lz-r-topicitem">PetStore ER Model</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/libraries/dynamodb/dynamodb_intro.html">&nbsp;&nbsp;&nbsp;
+                <span class="">DynamoDB Intro</span>
+            </a>
+        </li>
+
+    </ul>
+</div><div class=lz-r-content>
+    <h3>DynamoDB PetStore ER Model</h3>
+    <p>The OpenApi PetStore.yaml schema specification defines "only" the form of the data to be exchanged among the service and 
+        client. The actual data may be stored in a different form in the service database and queries performed by the service 
+        on that database return the data in the form specified in the schema specification. To better understand the nature 
+        of the data exchanged in the PetStore application, we can derive a more general Entity Relation (ER) model of that data.
+        This model will be used to discuss how data is eventually stored in the DynamoDB NoSQL database.
+    </p>
+    <p>Here is a simple "crow's foot" ER model derived from the <a href="/stacks/stacks_openapi.html">PetStore OpenApi specification</a> 
+    components section.</p>
+    <img src="/assets/img/PetStoreERD.svg">
+
+    <p></p>
+    <p><i> Note: A cursory examination of this PetStore application ER model uncovers its incomplete coverage for even the most 
+        rudimentary order process one might actually implement. For instance, what happens if an order is canceled? What happens if the 
+        pet becomes unavailable for some other reason that being sold? Is it really OK for a Pet to have no category 
+        assigned to it? Should the Tag entity allow multiple Tags having the same Name? Should the Category entity allow for multiple 
+        Categories having the same Name?
+    </i></p>
+    <p>However flawed this ER model may be, it is a "sufficient" model for our discussion as it demonstrates many important data relations used 
+        in most real applications:
+        <ul>
+            <li>Many to Many: Pet &RightArrow; PetTag &leftarrow; Tag</li>
+            <li>One or More Pet &rightarrow; PhotoUrl</li>
+            <li>Zero or More: Pet &rightarrow; Category</li>
+            <li>Enumeration: 
+                <ul>
+                    <li>Pet &rightarrow; PetStatus</li>
+                    <li>Order &rightarrow; OrderStatus</li>
+                </ul>
+            </li>
+        </ul>
+    </p>
+
+<p><i>Note: Normally, we would start with an ER model and generate the OpenApi components specification from that. Here we have 
+    an existing OpenApi specification and will explain how that specification implements the ER model we derived from that 
+    OpenApi specification. </i></p>
+
+<h4>Many to Many</h4> 
+<p>A Tag entity is related to zero or more PetTag entities and the Pet entity is related to zero or more PetTag entities. 
+   This creates a Many to Many relation among the Pet and Tag entities.</p>
+<p>Here is the components section of the PetStore.yaml file defining the Pet and Tag entities.</p>
+<pre><code class="language-yaml">openapi: 3.0.0
+...
+components:
+    schemas:
+        Pet:
+            type: object
+            required:
+            - name
+            - photoUrls
+            properties:
+                id:
+                    type: integer
+                    format: int64
+                category:
+                    $ref: '#/components/schemas/Category'
+                name:
+                    type: string
+                    example: doggie
+                photoUrls:
+                    type: array
+                    items:
+                        type: string
+                tags:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Tag'
+                petStatus:
+                    type: string
+                    description: pet status in the store
+                    $ref: '#/components/schemas/PetStatus'
+                createUtcTick:
+                    type: integer
+                    format: int64
+                updateUtcTick:
+                    type: integer
+                    format: int64
+        Tag:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int64
+                name:
+                    type: string
+</code></pre>
+<p>The Pet.tags property is an array of zero or more Tag entities where Tag entities are associated with zero or more Pet entities. 
+    In the ER model this is modeled with a join entity called PetTag.</p>
+<p>The generated schema classes supporting this OpenApi specification of Pet and Tag look like this:</p>
+<pre><code class="language-csharp">namespace PetStoreSchema.Models
+{
+    using System = global::System;
+     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.3.0 (Newtonsoft.Json v12.0.0.2)")]
+    public partial class Pet 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("category", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Category Category { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("photoUrls", Required = Newtonsoft.Json.Required.Always)]
+        public System.Collections.Generic.ICollection&lt;string> PhotoUrls { get; set; } = new System.Collections.ObjectModel.Collection&lt;string>();
+    
+        [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection&lt;Tag> Tags { get; set; }
+    
+        /// <summary>pet status in the store</summary>
+        [Newtonsoft.Json.JsonProperty("petStatus", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public PetStatus PetStatus { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("createUtcTick", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long CreateUtcTick { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("updateUtcTick", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long UpdateUtcTick { get; set; }
+    
+        private System.Collections.Generic.IDictionary&lt;string, object> _additionalProperties = new System.Collections.Generic.Dictionary&lt;string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary&lt;string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    }
+}
+
+namespace PetStoreSchema.Models
+{
+    using System = global::System;
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.3.0 (Newtonsoft.Json v12.0.0.2)")]
+    public partial class Tag 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        private System.Collections.Generic.IDictionary&lt;string, object> _additionalProperties = new System.Collections.Generic.Dictionary&lt;string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary&lt;string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    }
+}</code></pre>
+
+<p>This schema is a "denormalized" view of the many to many Pet and Tag entity relation specified in the ER model. 
+    Remember that this OpenApi specification, and the resultant C# classes, only specifies the form of the 
+    <strong>data transferred</strong> among the host and client. These entities might be stored in a different 
+    form in a database and the query process may generate this denormalized form.</p>
+<h5>Pet & Tag Alternative Representations</h5>
+<p>There is no single "best" representation for the data to be transferred among the host and client - there is an optimal 
+    representation for each specific use-case. For instance, instead of specifying Tag objects in the Pet.Tags array, you might 
+    instead just specify an array of Tag.Id values in Pet.Tags. Your client might then also request a list of all Tag objects 
+    and you would "join" the entities locally to display Tag Names. This might be a better approach if you already needed to 
+    download all the Tag objects anyway to support providing these tags for selection in a filter or some other process where 
+    all the tags needed to be available. Just because you can return a deeply denormalized view of the data doesn't mean it's 
+    either the "best" or most "efficient" approach.</p>
+
+<h4>One or More</h4>
+<p>The Pet entity has one or more PhotoUrls. In the OpenApi specification, the Pet photoUrls property is an array of strings. 
+    The requirement of at least one photoUrl is specified by component.schemas.Pet.required.photoUrls. The difference between this One or More 
+    relation and the Many to Many relation is that the PhotoUrl entities are not not related to more than one Pet entity. 
+</p>
+
+<h4>Zero or More</h4>
+<p>The Category entity is related to zero or more Pet entities. Here is the component.schema.Category object specification:</p>
+<pre><code class="language-csharp">
+namespace PetStoreSchema.Models
+{
+    using System = global::System;
+     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.3.0 (Newtonsoft.Json v12.0.0.2)")]
+    public partial class Category 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        private System.Collections.Generic.IDictionary&lt;string, object> _additionalProperties = new System.Collections.Generic.Dictionary&lt;string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary&lt;string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    }
+}
+</code></pre>
+<p></p>
+
+<h4>Enumeration</h4>
+<p>Enumerations are directly supported in the OpenApi specification. Consider the OpenApi PetStatus object:</p>
+<pre><code class="language-yaml">       PetStatus:
+            type: string
+            description: pet status in the store
+            enum:
+            - available
+            - pending
+            - sold
+</code></pre>
+
+<p>And the generated class:</p>
+<pre><code class="language-csharp">
+namespace PetStoreSchema.Models
+{
+    using System = global::System;
+    /// <summary>pet status in the store</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.3.0 (Newtonsoft.Json v12.0.0.2)")]
+    public enum PetStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"available")]
+        Available = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"pending")]
+        Pending = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"sold")]
+        Sold = 2,
+    }
+}
+</code></pre> 
+<p>The Pet class Pet.PetStatus property is of type enum PetStatus. This property is stored as an integer in the Json format. Converting 
+    among the integer and enumeration representation is facilitated by the Newtonsoft annotation in the Pet class:
+</p>
+<pre><code class="language-csharp">namespace PetStoreSchema.Models
+{
+    using System = global::System;
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.3.0 (Newtonsoft.Json v12.0.0.2)")]
+    public partial class Pet 
+    {
+        ...
+        /// <summary>pet status in the store</summary>
+        [Newtonsoft.Json.JsonProperty("petStatus", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public PetStatus PetStatus { get; set; }
+        ...
+    }
+}</code></pre>
+
+<p></p>
+<h4>Summary</h4>
+<p>The OpenApi PetStore.yaml specification "only" defines the form of the data exchanged among the service and client. We derived an ER model 
+    from the OpenApi PetStore.yaml specification which describes the more general relations that exist among the application entities. 
+    The ER model contained "Many to Many", "One or More", "Zero or More", and "Enumeration" relations. We examined the the specific 
+    way each of these relations were satisfied in this OpenApi specification. 
+</p>
+<p>There are many ways the data in the underlying ER model could be exchanged among the service and client. The optimal form of this data 
+    should take is use-case specific.
+</p>
+<p>The OpenApi PetStore.yaml specification is not optimized for a real client application. It was only designed to illustrate some of the 
+    ways relations might be denormalized for transfer among a service and client.
+</p>
+
+
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

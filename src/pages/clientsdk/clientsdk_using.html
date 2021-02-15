@@ -1,0 +1,92 @@
+---
+layout: docpage
+section: ClientSDK
+topic: Using the ClientSDK
+---
+{{> clientsdk_menu}}
+<div class=lz-r-content>
+    <h3>Using Client Projects</h3>
+    <p>LazyStack makes it painless to configure and call your application stack from a client application. Consider 
+        the following simple console application:
+    </p>
+    <pre class="line-numbers"><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Reflection;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+
+using LazyStackAuth;
+using PetStoreClientSDK;
+using PetStoreSchema.Models;
+
+namespace PetStoreConsoleApp
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            // Read embedded resources
+            using var awsSettingsStream = 
+                typeof(IAuthProcess).Assembly.GetManifestResourceStream("LazyStackAuth.AuthMessages.json");
+
+            using var methodMapStream = 
+                typeof(PetStore).Assembly.GetManifestResourceStream("PetStoreClientSDK.MethodMap.json");
+
+            using var authMessagesStream = 
+                typeof(Program).Assembly.GetManifestResourceStream("PetStoreConsoleApp.Dev_AwsSettings.json");
+
+            // Build Configuration
+            IConfiguration appConfig = new ConfigurationBuilder()
+                .AddJsonStream(awsSettingsStream)
+                .AddJsonStream(methodMapStream)
+                .AddJsonStream(authMessagesStream)
+                .Build();
+
+            // Initialize IAuthProvider interface for AWS Cognito
+            var authProvider = new AuthProviderCognito(appConfig); 
+            // Initialize IAuthProcess interface to use IAuthProvider
+            var authProcess = new AuthProcess(appConfig, authProvider); 
+
+            // Initialize LzHttpClient to use IAuthProcess. It also 
+            // reads appConfig sections AwsSettings and MethodMap.
+            var lzHttpClient = new LzHttpClient(appConfig, authProvider); 
+            var petStore = new PetStore(lzHttpClient); 
+
+            // Login and perform a call against the AWS Stack
+            try
+            {
+                // Sign in with existing user against Cognito
+                var result = await authProcess.StartSignInAsync();
+                authProcess.Login = Console.ReadLine();
+                result = await authProcess.VerifyLoginAsync(); 
+                authProcess.Password = Console.ReadLine();
+                result = await authProcess.VerifyPasswordAsync(); 
+
+                // Call ApiGateway and output results to console
+                var pets = await petStore.FindPetsByStatusAsync(new List<PetStatus> { PetStatus.Available });
+
+                foreach (var pet in pets)
+                    Console.WriteLine(JsonConvert.SerializeObject(pet));
+
+                if (pets.Count == 0)
+                    Console.WriteLine("No Pets Found");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+                return;
+            }
+
+            Console.ReadKey();
+        }
+    }
+}</code></pre>
+    <p>In this simple example we have omitted error handling so we can focus on the key steps involved in 
+        using the client libraries and settings file. For a more robust example of a console app using 
+    LazyStack see the <a href="/tutorial/tutorial_consoleapp.html">Tutorial Console App</a></p>
+    <p>The tutorial example includes a full implementation of the authentication process and using the 
+        local WebApi in addition to using the ApiGateway.</p>
+   
+</div>

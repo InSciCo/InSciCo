@@ -1,0 +1,62 @@
+---
+layout: docpage
+section: Introduction
+topic: Simplify_Debug
+---
+{{> intro_menu}}
+<div class=lz-r-content>
+    <h3>Making Serverless Easy to Debug</h3>
+    <p>When we code our applications we want to be able to easily debug both the client and services code;
+        <strong>at
+            the same time</strong>! Both the SAM CLI and AWS Visual Studio Toolkit provide some minimalist support for
+        running lambda&rsquo;s locally; but we wanted an easier to use and more powerful debugging solution for
+        developing
+        complex services. It turns out the tools we needed to do that are available for .NET!</p>
+    <p>Because we implement access to our application logic in AspNetCore.ControllerBase classes we can use those
+        controllers in both lambda functions and a local WebApi Server.</p>
+    <p>Here is what we want to accomplish on the developer&rsquo;s workstation.</p>
+    <img src="/assets/img/LazyStackDualHeadOverview.svg"/>
+    
+    <p>From our desktop we want to be able to:</p>
+    <ul>
+        <li>
+            <p>Run a Local WebAPI that presents the same API to the Application Client that our SAM stack presents and
+                allow
+                that local WebAPI implementation to access the same resources (ex: DynamoDB and S3) as those used by the
+                SAM
+                stack.</p>
+        </li>
+        <li>
+            <p>Debug the client application - for instance using Visual Studio. The client calls Cognito to authenticate
+                and
+                authorize. Then makes calls to the local WebAPI Server.</p>
+        </li>
+        <li>
+            <p>Debug the application controllers code - for instance using Visual Studio. Calls initiated in the client
+                can
+                be traced through the controllers code when received by the local WebAPI server. The controllers code
+                use
+                the
+                developer&rsquo;s local AWS credentials to access resources like DynamoDB and S3 in AWS but can access
+                the
+                request headers to gather information on the client user identity. </p>
+        </li>
+        <li>
+            <p>Reuse the application controllers code, <strong>without change</strong>, in both the SAM stack and Local
+                WebAPI server implementations.</p>
+        </li>
+    </ul>
+    <p>One important difference between the WebAPI server and the Lambda(s) in your Serverless Stack is that routes
+        in
+        your OpenAPI may, and often should, point to different Lambda functions. AWS limits the number of API Gateway
+        routes that may reference a single Lambda. </p>
+    <p>In contrast, the local WebAPI server hosts ALL of the API routes. For local debugging, having all your routes
+        serviced by the same local server is a feature, not a limitation. There are times when this distinction must
+        be
+        considered, for example, when you want to debug code where multiple instances of a lambda function in the
+        cloud
+        accessing the same database record at the same time - this is not possible to test with a local WebAPI as
+        there
+        is
+        only one &ldquo;instance&rdquo; of the lambda function. </p>
+</div>

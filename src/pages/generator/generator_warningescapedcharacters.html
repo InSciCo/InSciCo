@@ -1,0 +1,35 @@
+---
+layout: docpage
+section: Generator
+topic: Warning Escaped Characters
+---
+{{> generator_menu}}
+<div class=lz-r-content>
+  <h3>ProjectOptions Directive</h3>
+
+    <h4>Warning - Escaped Characters</h4>
+    <p>LazyStack is using yaml files to hold configuration information. You should be aware 
+      of and avoid side effects of string handling differences between Yaml and the XML 
+      format used in Microsoft .csproj files.
+    </p>
+    <p>From the yaml specification:</p>
+    <em>5.7. Escaped Characters</em>
+    <p>All non-printable characters must be escaped. YAML escape sequences use the “\” 
+      notation common to most modern computer languages. Each escape sequence must be parsed 
+      into the appropriate Unicode character. The original escape sequence is a presentation 
+      detail and must not be used to convey content information.  <em>Note that escape sequences 
+      are only interpreted in double-quoted scalars.</em> In all other scalar styles, the “\” 
+      character has no special meaning and non-printable characters are not available.</p>
+    
+    <p>This is important when adding references and other strings containing backslash characters 
+      to your yaml files. Consider the following ProjectReferences example:
+    </p>
+<pre><code class="language-yaml">  ControllerProjects:
+    ProjectReferences:
+    - ..\..\PetStoreRepo\PetStoreRepo.csproj</code></pre>
+<p>The string is not quoted! If you did use double quotes for this 
+  string, the backslash would be interpreted as an escape prefikx - not what you 
+  wanted! If you have spaces in your string, you may use single quotes instead 
+  of double quotes.
+</p>
+</div>

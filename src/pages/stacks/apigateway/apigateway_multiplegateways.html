@@ -1,0 +1,124 @@
+---
+layout: docpage
+section: Stacks
+topic: Multiple Gateways
+---
+{{> stacks_menu}}
+
+<div class=lz-r-content>
+    <h3>Using Multiple ApiGateways</h3>
+    <p>LazyStack can generate stacks with one or more ApiGateways. This is normally done to optimize
+        the cost and security for different functionality in your app. Here is an example where
+        we provide two ApiGateways and map our OpenApi routes to four tags. Your application may
+        have very different security requirements; but this example should give you a good idea of
+        the flexibility you have to address your specific requirements.
+    </p>
+    <p>Your OpenApi tags must reflect the security requirement. This is best understood by example. Here's an 
+        OpenApiSpec snippet with four tags that allow us to specify some routes need to be handled in a "secure" way.
+    </p>
+    <pre><code class="language-yaml"># PetStore.yaml
+openapi: 3.0.0
+info:
+... 
+tags:
+- name: order
+- name: orderSecure
+- name: pet
+- name: petSecure
+...</code></pre>
+    <p>Each tag generates a Lambda Function project and AWS Resource.</p>
+    <table>
+        <tr class="text-left">
+            <th>Tag</th>
+            <th>Project</th>
+            <th>AWS Resource</th>
+        </tr>
+        <tr>
+            <td>order</td>
+            <td>Order.csproj</td>
+            <td>Order <br/> AWS::Serverless:Function</td>
+        </tr>
+        <tr>
+            <td>orderSecure</td>
+            <td>OrderSecure.csproj</td>
+            <td>OrderSecure<br/> AWS::Serverless:Function</td>
+        </tr>
+        <tr>
+            <td>pet</td>
+            <td>Pet.csproj</td>
+            <td>Pet<br/> AWS::Serverless:Function</td>
+        </tr>
+        <tr>
+            <td>petSecure</td>
+            <td>PetSecure.csproj</td>
+            <td>PetSecure<br/> AWS::Serverless:Function</td>
+        </tr>    
+    </table>
+    
+    
+    <p>Next you we map the tags to ApiGateways that provide the desired security. This is accomplished using 
+        the ApiTagMap directive in the LazyStack.yaml file:
+    </p>
+    <pre><code class="language-yaml"># LazyStack.yaml
+ApiTagMap: 
+    ApiSecure:
+    - orderSecure
+    HttpApiSecure:
+    - pet
+    - order
+    - petSecure</code></pre>
+    <table>
+        <tr class="text-left">
+            <th>Tag</th>
+            <th>Project</th>
+            <th>AWS Resource</th>
+            <th>ApiGateway</th>
+        </tr>
+        <tr>
+            <td>order</td>
+            <td>Order.csproj</td>
+            <td>Order <br/> AWS::Serverless:Function</td>
+            <td>HttpApiSecure<br/>AWS::ApiGateway::HttpApi</td>
+        </tr>
+        <tr>
+            <td>orderSecure</td>
+            <td>OrderSecure.csproj</td>
+            <td>OrderSecure<br/> AWS::Serverless:Function</td>
+            <td>ApiSecure<br/>AWS::ApiGateway::Api</td>
+        </tr>
+        <tr>
+            <td>pet</td>
+            <td>Pet.csproj</td>
+            <td>Pet<br/> AWS::Serverless:Function</td>
+            <td>HttpApiSecure<br/>AWS::ApiGateway::HttpApi</td>
+        </tr>
+        <tr>
+            <td>petSecure</td>
+            <td>PetSecure.csproj</td>
+            <td>PetSecure<br/> AWS::Serverless:Function</td>
+            <td>HttpApiSecure<br/>AWS::ApiGateway::HttpApi</td>
+        </tr>    
+    </table>
+    <p>The references to HttpApiSecure and HttpApiSecure will cause these predefined ApiGateways resources to be included
+        in your application's serverless.template file. The lambdas will be configured to be called from the ApiGateway they are 
+        mapped to as shown in the following diagram:
+    </p>
+    <img src="/assets/img/MultipleApiGateways.svg"/>
+    <p></p>
+    <p>The ApiGateways, not the Lambda Functions, provide end-point security in this model. The Lambda Functions are provisioned to 
+        allow access only from the ApiGateway they are associated with.
+    </p>
+    <ul>
+        <li>ApiSecure - Client computes unique signature for each request. Signature is in HttpRequest Authorization header. </li>
+        <li>HttpApiSecure - Client acquires single JWT token. JWT token is in HttpRequest Authorization header.</li>
+    </ul>
+    
+    <p>The LazyStackAuth and ClientSDK libraries handle the signing of HttpRequests for you.</p>
+    
+    <strong>Routes</strong>
+    <p>The final step in configuring your security is to assign one of the four tags to each of the routes in your 
+        OpenApi specification. The LazyStack ClientSDK will ensure the route associated with the tag is available in the 
+        correct ApiGateway and the correct security is applied to that route.
+    </p>
+    <p></p>
+</div>

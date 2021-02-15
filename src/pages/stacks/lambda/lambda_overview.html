@@ -1,0 +1,51 @@
+---
+layout: docpage
+section: Stacks
+topic: Overview
+---
+{{> stacks_menu}}
+<div class=lz-r-content>
+    <h3>Lambda Overview</h3>
+    <p>
+        Lambda functions are implemented as C# projects leveraging the AWS AspNetCoreServer class. This
+        class allows Lambda Functions to act like standard .NET Core WepApi services where calls from
+        an AWS ApiGateway are directed to AspNet Controller methods.
+    </p>
+    <p>
+        LazyStack calls the NSwag C# generator to generate C# AspNet Controller projects from the
+        applications OpenApi specification. LazyStack also updates Lambda Project references to 
+        reference the appropriate Controller projects.
+    </p>
+    <ul>
+        <li>Each OpenApi <strong>tag</strong> generates:
+            <ul>
+                <li>Controller project.</li>
+                <li>Lambda Function project referencing the Controller project.</li>
+                <li>AWS::Serverless::Function resource in the serverless.template file.</li>
+            </ul>
+        </li>
+        <li>Each OpenApi <strong>route</strong> (Path object + Operation object) is associated with a tag and generates:
+            <ul>
+                <li>Lambda Function Event for the tag's AWS::Serverless::Function resource.</li>
+                <li>Controller class method for handling the Lambda Function Event.</li>
+            </ul>
+        </li>
+        <li>Each OpenApi component (schema) generates a class definition in the Schema project.</li>
+    </ul>
+    <p><em>If you are not familiar with OpenApi and in particular how OpenApi tags are specified, you might review the
+            <a href="https://swagger.io/specification/">OpenApi Specification</a>. However, the examples in this 
+            documentation and the Tutorial make their use clear. The PetStore OpenApi specification used throughout 
+            our documentation and tutorial is similar to the OpenApi PetStore specification example.
+        </em></p>
+    
+    <p>LazyStack Lambda Functions are C# projects. When you publish your serverless stack, these projects
+        are packaged up and copied into S3 storage. When a Lambda Function is called, AWS provisions an execution
+        container using the appropriate packaged project from S3.
+    </p>
+    
+    <h4>Example</h4>
+    <p>In the PetStore OpenApi example, we have four OpenApi tags: order, orderSecure, pet and petSecure. LazyStack will generate/update
+        the following projects:</p>
+        <img src="/assets/img/GeneratedProjects.svg"/>
+    
+</div>

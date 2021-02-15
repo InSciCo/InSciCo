@@ -1,0 +1,40 @@
+---
+layout: docpage
+section: Introduction
+topic: Security
+---
+{{> intro_menu}}
+<div class=lz-r-content>
+    <h3>Security First</h3>
+    <p>We have a background working in the FinTech, Investing and Casino industries which are all highly regulated.
+        Building applications in these industries requires conforming to strict coding standards and passing security
+        audits. Code generation with tools like LazyStack reduces the time and effort required to produce software
+        that complies with these standards and makes passing security audits far less difficult.</p>
+    <p>In general, if you can demonstrate a code generation process produces secure code and infrastructure then you
+        need only audit the code generation process - not the code it generates. Also, if a problem is found and fixed
+        in the code generation process then it is easy to roll out a security update with confidence.</p>
+    <p>Should you care? The software development landscape is changing rapidly with the introduction of privacy
+        regulations and now any industry which collects and manages consumer data must &ldquo;up their game&rdquo; to
+        avoid substantial regulatory fines for non-compliance or breach. One of the guiding principles of LazyStack is
+        security-first development. Cloud providers like AWS, Google and Azure take security very seriously and if you
+        use their services correctly you get a huge boost toward fielding a secure application stack. </p>
+    <h4></h4>AWS Security Notes</h4>
+    <p>If you have used AWS Services in the past you may have noticed that we don&rsquo;t show a VPC in the AWS
+        stack.
+        This is not an oversight. AWS Services use secure signed messaging to communicate with each other so they
+        don&rsquo;t need to be inside an AWS Virtual Private Cloud to be secure. Your client only calls externally
+        available routes published by the API Gateway, Cognito and STS and these connections may be secured using
+        signed messages as well.</p>
+    <p>As simple as it is, this is a scalable, robust and secure application stack. Other, more advanced stacks
+        using a VPC may be defined and used when necessary. For example, using AWS Relational Database Services
+        (RDS) instead of DynamoDB would require a VPC because the DB connection routes must be inside a VPC to be
+        secure from a compliance standpoint; AWS RDS do not support the same secured signed messaging that native
+        AWS services use. For instance, connecting to an AWS RDS MySQL instance isn&rsquo;t really any different than
+        connecting to your own instance of MySQL - thus, accepted practice stipulates such connections should be
+        secured in a VPC. </p>
+    <p>While specifying a VPC does introduce more complexity in the SAM template file, the LazyStack process remains
+        the same. If you can start with the simple stack and move to a stack using a VPC later, we recommend doing so.
+        You don&rsquo;t incur technical debt by starting with a simple stack. The single biggest factor to consider here
+        is usually the choice of database.
+    </p>
+</div>

@@ -1,0 +1,124 @@
+---
+layout: docpage
+section: Tutorial
+topic: PetStore Test
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>PetStoreTests Project</h3>
+    <p>In this step we will create a PetStoreTest project to perform an integration test against the 
+        PetStoreDev stack. We will test:</p>
+    <ul>
+        <li>Application SignUp - using the LazyStackAuth library. </li>
+        <li>Application SignIn - using the LazyStackAuth library. </li>
+        <li>Calling the stack using the PetStore - defined in the PetStoreClientSDK library.</li>
+    </ul>
+    
+    <h4>Create PetStoreTests Project</h4>
+    <ol>
+        <li>Right Click on "Solution PetStore" in the Solution Explorer pane. The Context Menu appears.</li>
+        <li>Select "Add &RightArrow; New Project" from the context menu. The "Add new project" dialog appears.</li>
+        <li>Type "MSTEST Test Project (.NET Core)" into the search field. The project template is listed.</li>
+        <li>Double Click on the template list item. The "Configure your project" dialog appears.</li>
+        <li>Edit project name to read "PetStoreTests".</li>
+        <li>Click the Create button. The test project is added to your solution.</li>
+    </ol>
+    
+    <h4>Configure PetStoreTests Project</h4>
+    <ol >
+        <li>Add the following project references:
+            <ul>
+                <li>LazyStackAuth</li>
+                <li>PetStoreClientSDK</li>
+            </ul>
+        </li>
+        <li>Add the following package references:
+            <ul>
+                <li>Microsoft.Extensions.Configuration.UserSecrets</li>
+                <li>Microsoft.Extensions.DependencyInjection</li>
+            </ul>
+        </li>
+        
+        <li>Add embedded AwsSettings.json resource.
+            <ol type="a">
+                <li>Double Click on the PetStoreTests project in the Solution Explorer. The csproj file opens in an 
+                    editor tab.</li>
+                <li>Insert the following Item Group into the csproj file.
+                    <pre><code class="language-xml">
+  &lt;ItemGroup>
+    &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
+  &lt;/ItemGroup>                        
+                    </code></pre>
+                </li>
+                <li>Save the file.</li>
+            </ol>
+        </li>
+    </ol>
+    <h4>Configure a Gmail Account</h4>
+    <ol>
+        <li>Create a new Gmail account. The test suite needs a Gmail account it can send verification codes to. We suggest
+            you create a Gmail account just for this purpose and not use any existing Gmail account.</li>
+        <li>Open your Google Account Settings.</li>
+        <li>Select Security from menu.</li>
+        <li>Select "Less secure app access" and turn on access.</li>
+    </ol>
+    <h4>Configure Visual Studio Secrets</h4>
+    <ol>
+        <li>Right Click on PetStoreTest project in solution explorer. The Context Menu appears.</li>
+        <li>Select "Manage User Secrets". A secrets.json editor tab opens.</li>
+        <li>Enter your Gmail credentials in this format: <br/>
+<pre><code class="language-json">{
+    "Gmail": {
+    "Email": "myemail@gmail.com",
+    "Password": "mypassword"
+    }
+}</code></pre>
+        </li>
+        <li>Save your edits.</li>
+        </li>
+    </ol>
+    <p></p>
+    
+    <h4>Implement Tests</h4>
+    <ol>
+        <li>Delete the PetStoreTests UnitTest1.cs file.</li>
+        <li>Download <a href="/assets/tutorial/PetStoreIntegrationTest.cs" download>PetStoreIntegrationTest.cs</a> and 
+            then move it into the PetStoreTests project.</li>
+    </ol>
+    <h4>Run Tests</h4>
+    <ol>
+        <li>Select View &RightArrow; Test Explorer. The Test Explorer panel appears.</li>
+        <li>Run Tests. The integration test completes successfully.</li>
+    </ol>
+    <h4>Step Summary</h4>
+    <p>In this step we created a Integration test project and ran our first tests against 
+        the published stack.
+    </p>
+    <p>Reviewing the contents of the PetStoreIntegrationTest.cs class may yield valuable 
+        insights into how you should use the libraries in your client apps. Take note of the 
+    following implementation elements:</p>
+    <ul>
+        <li><a href="/clientsdk/clientsdk_awssettings.html">AwsSettings.json</a> is an embedded resource that is loaded by ConfigurationBuilder. This embedded resource 
+            references \Stacks\Dev\AwsSettings.json. In a client app, you would introduce condition logic in the 
+            csproj file to use \Stacks\Prod\AwsSettings.json for release builds or just distribute the AwsSettings.json 
+            file separately to developers using the PetStoreClientSDK.
+        </li>
+        <li><a href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages.json</a> is a embedded resource that is loaded by ConfigurationBuilder. Extend 
+            this file with new message sets by language to localize the messages emitted by the AuthProcess class.
+            This test does not demonstrate the use of AuthProcess messages but later Tutorial steps will.
+        </li>
+        <li>Dependency injection is used in this test to demonstrate the service registration of 
+            IAuthProcess and IAuthProvider. 
+        </li>
+        <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
+            to see much more extensive integration tests for AuthProcess, view the LazyStack solution 
+            on GitHub. Also read the <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a> documentation for 
+            more details.
+        </li>
+        <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a> class implements the logic necessary for 
+            your client to make secure calls to the AWS Stack ApiGateways. The LzHttpClient class uses the Aws, LoadApis and 
+            MethodMap sections in the appConfig.
+        </li>
+    </ul>
+    <p></p>
+</div>

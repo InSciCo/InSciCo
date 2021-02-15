@@ -1,0 +1,129 @@
+---
+layout: docpage
+section: Tutorial
+topic: PetStore
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Building the PetStore Solution</h3>
+    <p>In this lesson step we will build the initial PetStore solution.</p>
+    <p>Create LazyStackTutorial Folder. We will be creating the Microsoft PetStore solution
+        under this folder. 
+    </p>
+    <h4>Create PetStore solution</h4>
+    <ol>
+        <li>Launch Visual Studio.</li>
+        <li>Click on Create a new project. The "Create a new project" dialog appears.</li>
+        <li>Type "LazyStackWebApi" into the search field. A list of project templates is presented.</li>
+        <li>Double Click on the LazyStackWebApi project template. The "Configure your new project" dialog appears.</li>
+        <li>Enter "PetStore" as the Project Name.</li>
+        <li>Edit the Location to point to the LazyStackTutorial folder.</li>
+        <li>Click on the Create button. A solution with your PetStore WebApi project is created.</li>
+        <li>Select Visual Studio menuitem Build &RightArrow; Rebuild Solution. The solution compiles successfully.</li>
+    </ol>
+    
+    <h4>Add LazyStackAuth Project</h4>
+    <ol>
+        <li>Right Click on "Solution 'PetStore'"" in solution explorer. The context menu appears.</li>
+        <li>Select Add &RightArrow; New Project. The "Add a new project" dialog appears.</li>
+        <li>Type "LazyStackAuth" into the search field. A list of project templates is presented.</li>
+        <li>Double Click on the LazyStackAuth project. template. The "Configure your new project dialog appears.</li>
+        <li>Enter "LazyStackAuth" as the project Name. Note the default name was "LazyStackAuth1"</li>
+        <li>Click on the Create button. The LazyStackAuth project appears in your Solution Explorer.</li>
+        <li>Select Visual Studio menuitem Build &RightArrow; Rebuild Solution. The solution compiles successfully.</li>
+    </ol>
+
+    <h4>Download PetStore.yaml and run LazyStack Generator</h4>
+    <ol>
+        <li><a href="/assets/tutorial/PetStore.yaml" download="PetStore.yaml">Click to Download PetStore.yaml file</a></li>
+        <li>Move PetStore.yaml from your Downloads folder to the PetStore Solution root folder.</li>
+        <li>Select Visual Studio menuitem "Tools/LazyStack - Generate Projects". Multiple projects and solution folders
+            are created.
+            <ul>
+                <li>Controllers folder
+                    <ul>
+                        <li>OrderController project</li>
+                        <li>OrderSecureController project</li>
+                        <li>PetController project</li>
+                        <li>PetSecureController project</li>
+                    </ul>
+                </li>
+                <li>Lambdas folder
+                    <ul>
+                        <li>Order project</li>
+                        <li>OrderSecure project</li>
+                        <li>Pet project</li>
+                        <li>PetSecure project</li>
+                    </ul>
+                </li>
+                <li>"Solution Items" folder
+                    <ul>
+
+                        <li>LazyStack.yaml</li>
+                        <li>LocalApis.json</li>
+                        <li>PetStore.yaml</li>
+                        <li>SAM_Review.yaml</li>
+                    </ul>
+                </li>
+                <li>Stacks folder
+                    <ul>
+                        <li>Dev folder
+                            <ul>
+                                <li>serverless.template</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                <li>PetStoreClientSDK project</li>
+                <li>PetStoreSchema project</li>
+            </ul>
+        </li>
+    </ol>
+    <p>Note the PetStore.yaml file you dropped into the Solution's root folder is now visible in the 
+        "Solution Items" solution folder. LazyStack also created default LazyStack.yaml and default LocalApis.yaml 
+        files for you and these are also in the "Solution Items" solution folder. 
+    </p>
+    <h4>Edit the LazyStack.yaml file</h4>
+    <p>The Generate Projects command created a default LazyStack.yaml file in your solution's root 
+        folder. The file is now visible in the "Solution Items" folder in the solution explorer. We 
+        need to update it with your AWS profile and AWS region. Your initial LazyStack.yaml file should 
+        look like this:
+    </p>
+<pre><code class="language-yaml"># LazyStack Version 1.0.0
+Stacks:
+    Dev:
+    ProfileName: default
+    RegionName: us-east-1
+    StackName: PetStoreDev 
+    Stage: Dev
+    UriCodeTarget: Debug/netcoreapp3.1
+</code></pre>
+<ol>
+    <li>Open the LazyStack.yaml file.</li>
+    <li>Edit the ProfileName.
+        <p>You may modify the ProfileName if you are not using the profile "default" - 
+            Note: the profile "default" is created by the AWS CLI is install unless you specify some 
+            other named profile.</p>
+    </li>
+    <li>Edit the RegionName.</li>
+    <li>Save the file.</li>
+</ol>
+
+<h4>Step Summary</h4>
+<p>In this lesson step we created a PetStore solution using the LazyStackWebApi project template, 
+    downloaded a OpenApi Specification called PetStore.yaml and then used the Tools &RightArrow; LazyStack - 
+    Generate Projects to generate projects and configuration files for our stack. We then updated the 
+    LazyStack.yaml file AWS ProfileName and RegionName.
+</p>
+
+<p> LazyStack Generate Projects generates one serverless.template file for each environment. In this case, 
+    we have one Stacks Environment called "Dev" so a serverless.template file is generated in the 
+    Stacks\Dev folder. In addition, a SAM_Review.yaml file was generated in the "Solution Items" folder. This 
+    file is just like a serverless.template file but without environment specific content inserted. Since 
+    the SAM_Review.yaml file has a "yaml" file extension the file is beautified with color coding etc. The 
+    SAM_Review.yaml file is not used in any further processing - it is there only to make reviewing the core
+    contents of your serverless.template files easier. This is helpful because the serverless.template files 
+    are treated as plain text files in the Visual Studio editor and are thus less readable.
+</p>
+
+</div>

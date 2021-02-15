@@ -1,0 +1,68 @@
+---
+layout: docpage
+section: Stacks
+topic: Cognito
+---
+{{> stacks_menu}}
+<div class=lz-r-content>
+    <h3>Cognito</h3>
+    <p>"Amazon Cognito handles user authentication and authorization for your web and mobile apps. 
+        With user pools, you can easily and securely add sign-up and sign-in functionality to your 
+        apps. With identity pools (federated identities), your apps can get temporary credentials 
+        that grant users access to specific AWS resources, whether the users are anonymous or are 
+        signed in." <a href="https://docs.aws.amazon.com/cognito/?id=docs_gateway">AWS Cognito</a></p>
+    
+    <p>Does Cognito live up to this billing? Well yes, but there is a steep learning curve where you need to understand
+        how AWS Cognito resources interact with other AWS resources and it can be a challenge to understand
+        the breadth of configuration and process options available in AWS Cognito. LazyStack eliminates this painful learning 
+        curve by generating the necessary AWS resource specifications in the serverless.template for you.
+    </p>
+    
+    <h4>HttpApiSecure</h4>
+    <p>When you use the predefined secure ApiGateway HttpApiSecure, LazyStack creates the following resource in the 
+        serverless.template SAM specification:</p>
+    <ul>
+        <li>AWS::Serverless::HttpApi</li>
+        <li>AWS::Cognito::UserPool</li>
+        <li>AWS::Cognito::UserPoolClient</li>
+        <li>AWS::Cognito::IdentityPool</li>
+    </ul>
+    
+    <h4>ApiSecure</h4>
+    <p>When you use the predefined secure ApiGateway ApiSecure, LazyStack creates the following resources in the 
+        serverless.template SAM specification:</p>
+    <ul>
+        <li>AWS::Serverless::Api</li>
+        <li>AWS::Cognito::UserPool</li>
+        <li>AWS::Cognito::UserPoolClient</li>
+        <li>AWS::Cognito::IdentityPool</li>
+        <li>AWS::Cognito::IdentityPoolRoleAttachment</li>
+        <li>AWS::IAM::Role</li>
+    </ul>
+
+    <h4>User Pool</h4>
+    <p>The AWS::Cognito::UserPool resource is a user directory. It is used to authenticate users and often referred to as
+        an Authentication Provider. You can use UserPool Federation to allow users to authenticate from other
+        authentication providers like Facebook, Google, Login with Amazon, Sign in with Apple, and SAML providers.
+        The current LazyStackAuth library supports only Cognito sign-in, but support for using Cognito User Pool
+        federation with other authentication providers like Facebook and Google is planned. 
+    </p>
+    <h4>Identity Pool</h4>
+    <p>The AWS::Cognito::IdentityPool is a federated identity manager. When used, it also enables additional services
+        we care about:</p>
+    <ul>
+        <li><strong>Cognito Sync</strong> - syncing data across user devices</li>
+        <li><strong>Secure AWS::Serverless::Api</strong> - sign HttpRequests with Signature Version 4 process</li>
+    </ul>
+
+    <h4>Cognito Configuration Strategy</h4>
+    <p>The hardest challenge of Cognito is digging through tons of documentation and getting everything configured 
+        properly. LazyStack configures your application stack with what we intend to be a <em>future-proof</em> strategy. 
+        For instance, it is possible to implement an application stack using only Cognito User Pools if you are willing 
+        to forgo access to the more secure AwsVer4 signing of HttpRequests. By using both User Pools and Identity Pools, 
+        you can use any of the ApiGateway models. Since LazyStack has already set up the AWS Resources and provided the 
+        LazyStackAuth library, there isn't any compelling reason to take the short cut of using only Cognito User Pools, 
+        so IdentityPools are defined for both ApiSecure and HttpApiSecure ApiGateways.
+    </p>
+
+</div>

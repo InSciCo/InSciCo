@@ -1,0 +1,41 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h3>Visual Studio Extension</h3>
+    <p>Coming Soon - the visual studio extension will be on the marketplace soon, we just need to finalize our 
+        code signing certificate. In the meantime, you can download it <a href="/assets/LazyStackVsExt.vsix">here</a>. 
+        The download is a vsix file. Just double click it and it will launch the Visual Studio extension install process.
+        
+    </p>
+    <p>Install LazyStack from the Visual Studio Marketplace. Once installed, a new Tools/Invoke 
+        LazyStack menu item will be available. In addition, new project templates "LazyStackWebApi Template" 
+        and "LazyStackAuth Template" are available. LazyStack is very simple to use. Our Tutorial takes you through all the 
+        steps but here are the steps in brief:
+    </p>
+    <ul>
+        <li>Install the AWS Toolkit for Visual Studio from the visual Studio Marketplace.</li>
+        <li>Install LazyStack Visual Studio Extension from the Visual Studio Marketplace.</li>
+        <li>Create a new project using the LazyStackWebApi Template.</li>
+        <li>Author an OpenApi specification for your application stack and place it in the solution folder.</li>
+        <li>Place any required LazyStack Directives in the LazyStack.yaml configuration file.</li>
+        <li>Use the "Tools/Invoke LazyStack - Generate Projects" menu option. Application projects will be generated.</li>
+        <li>Implement service-side application code for the the generated Controller Interfaces.</li>
+        <li>Add a LazyStackAuth project to your solution</li>
+        <li>Create a client application that references the generated application ClientSDK and LazyStackAuth project.</li>
+        <li>Right-click on the generated serverless.template file in solution folder and select Publish to AWS Lambda</li>
+        <li>Use the "Tools/Invoke LazyStack - Generate Stacks\Dev\AwsSettings.json" menu option. 
+            a AwsSettings file will be generated.</li>
+        <li>Update client application to use the AwsSettings file as an embedded resource.</li>
+        <li>Update your client application to initialize and use the LazyStackAuth and ClientSDK projects.</li>
+        <li>Test your service-side application code using the local WebApi and/or AWS Stack.</li>
+    </ul>
+    <p>Our Tutorial takes you through all these steps in detail. Or, you can just clone the LazyStackPetStoreTutorial 
+        repo from GitHub and review the projects in it.
+    </p>
+
+</div>
+ 
