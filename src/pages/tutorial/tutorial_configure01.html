@@ -20,6 +20,18 @@ topic: Configure LazyStack
     </li>
     <li>Use <a href="/generator/generator_awsresources.html">AwsResources</a> directive to define AWS::DynamoDB::Table resource for our stack.</li>
 </ul>
+<p>When you execute LazyStack - Generate Projects, the following projects are regenerated:</p>
+<ul>
+  <li>Controller projects</li>
+  <li>Lambda projects</li>
+  <li>PetStoreClientSDK project</li>
+  <li>PetStoreSchema project</li>
+</ul>
+<p>These generated projects should not be edited as your changes would be lost.</p>
+<p>In addition to the generated projects, portions of the WebApi project "PetStore" are updated with each execution of 
+  LazyStack - Generate Projects. 
+</p>
+<p>LazyStack - Generate Projects does not update or modify any other projects in your solution.</p>
 <h4>Update LazyStack.yaml and Generate Projects</h4>
 <ol>
    <li>Download this <a href="/assets/tutorial/LazyStack01.yaml" download="LazyStack.yaml">LazyStack.yaml</a> file and move it into the 

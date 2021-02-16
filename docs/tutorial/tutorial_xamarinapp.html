@@ -213,21 +213,14 @@
                 <li>PetStoreMobileApp.iOS</li>
             </ul>
         </li>
+        <li>Use the NuGet package manager to update each of these three projects to use the 
+            later versions of the Nuget Xamarin Forms package and Nuget Xamarin Essentials package.
+        </li>
     </ol>
+    <p>Note: You will see project errors in the solution after creating the </p>
     <ul>
     <h4>Configure the PetStoreMobileApp Project</h4>
     <ol>
-        <li>Add the following project references:
-            <ul>
-                <li>LazyStackAuth</li>
-                <li>PetStoreClientSDK</li>
-            </ul>
-        </li>
-        <li>Add the following package reference:
-            <ul>
-                <li>Microsoft.Extensions.Configuration.Json</li>
-            </ul>
-        </li>
         <li>Double Click on the PetStoreMobileApp project. The project's csproj file opens in an editor tab.</li>
         <li>Change the TargetFramework from "netstandard2.0" to "netstandard2.1".</li>
         <li>Insert the following ItemGroup into the csproj file.
@@ -239,7 +232,17 @@
             </code></pre>
         </li>        
         <li>Save the file.</li>
-        <li>Use Manage Nuget Packages to ensure you have the latest Xamarin Forms and Xamarin Essentials packages.</li>
+        <li>Add the following project references:
+            <ul>
+                <li>LazyStackAuth</li>
+                <li>PetStoreClientSDK</li>
+            </ul>
+        </li>
+        <li>Add the following NuGet package reference:
+            <ul>
+                <li>Microsoft.Extensions.Configuration.Json</li>
+            </ul>
+        </li>
     </ol>
     <h4>Configure the PetStoreMobileApp.Android Project</h4>
     <ol>
@@ -247,12 +250,6 @@
         <li>Select "Properties". The properties tab opens.</li>
         <li>In the Application page, make sure the "Compile using Andriod Version:"" is set to "Android 10.0(Q).</li>
         <li>Ctrl-S to save the properties.</li>
-        <li>Use Manage Nuget Packages to ensure you have the latest Xamarin Forms and Xamarin Essentials packages.</li>
-    </ol>
-    <p></p>
-    <h4>Configure the PetStoreMobileApp.iOS Project</h4>
-    <ol>
-        <li>Use Manage Nuget Packages to ensure you have the latest Xamarin Forms and Xamarin Essentials packages.</li>
     </ol>
     <p></p>
     <h4>Implement Pages</h4>
