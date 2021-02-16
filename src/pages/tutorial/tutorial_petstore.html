@@ -15,7 +15,7 @@ topic: PetStore
     <p>If you are new to AWS then you may want to review <a href="https://aws.amazon.com/getting-started/">Getting Started with AWS</a></p>
 
     <p><strong>This tutorial assumes you are using the Windows Visual Studio IDE.</strong></p>
-    <h4>Create PetStore solution</h4>
+    <h4>1.1 Create PetStore solution</h4>
     <ol>
         <li>Launch Visual Studio.</li>
         <li>Click on Create a new project. The "Create a new project" dialog appears.</li>
@@ -27,7 +27,7 @@ topic: PetStore
         <li>Select Visual Studio menuitem Build &RightArrow; Rebuild Solution. The solution compiles successfully.</li>
     </ol>
     
-    <h4>Add LazyStackAuth Project</h4>
+    <h4>1.2 Add LazyStackAuth Project</h4>
     <ol>
         <li>Right Click on "Solution 'PetStore'"" in solution explorer. The context menu appears.</li>
         <li>Select Add &RightArrow; New Project. The "Add a new project" dialog appears.</li>
@@ -38,7 +38,7 @@ topic: PetStore
         <li>Select Visual Studio menuitem Build &RightArrow; Rebuild Solution. The solution compiles successfully.</li>
     </ol>
 
-    <h4>Download PetStore.yaml and run LazyStack Generator</h4>
+    <h4>1.3 Download PetStore.yaml and run LazyStack Generator</h4>
     <ol>
         <li><a href="/assets/tutorial/PetStore.yaml" download="PetStore.yaml">Click to Download PetStore.yaml file</a></li>
         <li>Move PetStore.yaml from your Downloads folder to the PetStore Solution root folder.</li>
@@ -88,7 +88,7 @@ topic: PetStore
         "Solution Items" solution folder. LazyStack also created default LazyStack.yaml and default LocalApis.yaml 
         files for you and these are also in the "Solution Items" solution folder. 
     </p>
-    <h4>Edit the LazyStack.yaml file</h4>
+<h4>1.4 Edit the LazyStack.yaml file</h4>
     <p>The Generate Projects command created a default LazyStack.yaml file in your solution's root 
         folder. The file is now visible in the "Solution Items" folder in the solution explorer. We 
         need to update it with your AWS profile and AWS region. Your initial LazyStack.yaml file should 
@@ -113,7 +113,7 @@ Stacks:
     <li>Edit the RegionName.</li>
     <li>Save the file.</li>
 </ol>
-<h4>Review the SAM_Review.yaml</h4>
+<h4>1.5 Review the SAM_Review.yaml</h4>
 <p>The SAM_Review.yaml file was generated in the "Solution Items" folder. This 
     file is just like a serverless.template file but without environment specific content inserted. Since 
     the SAM_Review.yaml file has a "yaml" file extension the file is beautified with color coding etc. The 
@@ -123,14 +123,14 @@ Stacks:
 <p>You never edit the SAM_Review.yaml file directly.</p>
 <ol>
     <li>Open the Solution Items\SAM_Review.yaml file.</li>
-    <li>Review contents.</li>
+    <li>Review contents. No need to understand all this content now.</li>
 </ol>
 <p>The SAM_Review.yaml file will be updated with new content as we add and configure AWS stack resources during the tutorial.
     This file is regenerated each time you execute LazyStack -- Generate Projects.
 
 </p>
 
-<h4>Review serverless.template file</h4>
+<h4>1.6 Review serverless.template file</h4>
 <p> LazyStack Generate Projects process generates one serverless.template file for each environment. In this case, 
     we have one Stacks Environment called "Dev" so a serverless.template file is generated in the 
     Stacks\Dev folder. 
@@ -138,7 +138,7 @@ Stacks:
 <p>You want to review the SAM template we will later publish to AWS. You never edit this file directly.</p>
 <ol>
     <li>Open the Stacks\Dev\serverless.template file.</li>
-    <li>Review contents.</li>
+    <li>Review contents. No need to understand all this content now.</li>
 </ol>
 <p>The serverless.template file will be updated with new content as we add and configure AWS stack resources during the tutorial.
     This file is regenerated each time you execute LazyStack -- Generate Projects.
