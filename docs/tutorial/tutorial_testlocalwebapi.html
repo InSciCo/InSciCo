@@ -200,7 +200,13 @@
 <h4>5.1 Test WebApi using Browser</h4>
 <ol>
     <li>Set the startup project to PetStore and select PetStore instead of IIS Express.</li>
-    <li>Start Debugging the PetStore project. A browser tab opens showing the Swagger PetStoreAPI.</li>
+    <li>Start Debugging the PetStore project. A browser tab opens showing the Swagger PetStoreAPI.
+        <ul>
+            <li>You may see a Security Warning dialog regarding the installation of a certificate 
+                for "localhost". Select "yes" if this dialog appears.
+            </li>
+        </ul>
+    </li>
     <li>Execute the "/pet/seedPets" call. Two pets are added to the DynamoDB table.</li>
     <li>Execute /pet/findByStatus with petStatus = 0. Two pet records are returned in the Response body.</li>
     <li>Stop Debugging.</li>
