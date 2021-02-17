@@ -47,6 +47,7 @@ function clean(done) {
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy() {
+  gulp.src('src/pages/CNAME').pipe(gulp.dest(PATHS.dist)); // Support AWS CNAME file requirement
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.dist + '/assets'));
 }
