@@ -132,7 +132,7 @@
     <ul class="vertical menu dropdown">
         <li >
             <a  href="/intro/intro.html">
-                <span class="lz-r-topicitem">Welcome</span>
+                <span class="lz-r-topicitem">Executive Overview</span>
             </a>
         </li>
         <li>
@@ -163,17 +163,63 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>Welcome to LazyStack</h3>
+    <h3>LazyStack Executive Overview</h3>
 <p> LazyStack's mission is to enable technical entrepreneurs to quickly field
     mobile and web applications leveraging scalable cloud-based resources at the lowest initial cost, without sacrificing
-    security, scalability or features. </p>
-<p>LazyStack&rsquo;s technical goal is to generate reliable &ldquo;commercial-grade infrastructure&rdquo; and
-    glue code to dramatically increase productivity, reduce application bugs, and minimize Dev-Ops issues.</p>
+    security, scalability or features. LazyStack leverages the AWS Serverless Application Model (SAM) to enable you to 
+    build and deploy "application stacks" in the AWS cloud.</p>
+    <p>It is best practice to create an API specification that defines all the service features available on your AWS Stack. Your 
+        client application uses this specification to implement calls to the AWS Stack. The amount of 
+        "plumbing" code and AWS stack configuration necessary to implement a feature rich API specification is often quite large. 
+        Plumbing code connects the client app and AWS Lambda function implementing a stack feature. 
+        Plumbing code is repetitive and "boring" to write, making it an excellent candidate for code generation. 
+        In addition, writing complete and correct "SAM" templates used to deploy a stack on AWS is tedious and 
+        requires an intimate knowledge of AWS resources. </p>
+   
+    </p>LazyStack eliminates labor intensive and error prone coding and template development so see real business 
+     benefits:</p>
+<ul>
+    <li>Clear Requirements
+        <ul>
+            <li>An API specification reduces misunderstandings and wasted implementation cycles.</li>
+            <li>API specifications can be versioned, making it simple to manage incremental improvement in a product.</li>
+            <li>API specifications make it easy to partner with other parties.</li>
+            <li>API specifications make it easier to explain technical concepts to business stakeholders.</li>
+            <li>Tools exist to help author effective API specifications.</li>
+        </ul>
+    </li>
+    <p></p>
+    <li>Lower Cost Development
+        <ul>
+            <li>Expensive hand-coding of "boring" plumbing code is eliminated.</li>
+            <li>Innovation is easier because new plumbing code and templates are automatically generated when the API specification changes.</li>
+            <li>Generated code is consistent, bug-free and reliably compliant to best-practices.</li>
+            <li>Developers are freed up to work on features that can't be generated.</li>
+            <li>Generated code is far less expensive to test and verify.</li>
+            <li>LazyStack publishes a number of open-source MIT licensed libraries to kick-start your app development.</li>
+        </ul>
+    </li>
+    <p></p>
+    <li>Lower Cost DevOps 
+        <ul>
+            <li>Leverages AWS Serverless Application Model - generates AWS SAM templates from API Specification.</li>
+            <li>Generated templates demonstrate correct configuration of AWS resources.</li>
+            <li>Generated templates are consistent, bug-free and reliably compliant to best-practices.</li>
+            <li>Generated templates can be easily extended with hand-coded resource specifications.</li>
+            <li>Manage Dev, Test and Prod stacks with simple Software Development Life Cycle (SDLC).</li>
+            <li>LazyStack easily integrates with advanced SDLC like CI services as business grows.</li>
+        </ul>
+    </li>
+</ul>
+    <p>LazyStack makes innovation faster and less expensive by reducing the costs associated with code and 
+        stack configuration changes. LazyStack accelerates your time-to-market so you start monetizing your 
+        app earlier. Leveraging the AWS Serverless Application Model ensures your app has the potential to 
+        scale reliably and quickly and launch at low cost using AWS free-tier services.</p>
+</ul>
+<h4>What is LazyStack?</h4>
 <p>LazyStack ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model
     (SAM) configuration and C# projects necessary to stand up a fully featured commercial-grade application stack
     in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.</p>
-
-<h4>What is LazyStack?</h4>
 <p>LazyStack is comprised of a free stack generator tool and some MIT licensed open-source support libraries.</p>
 <ul>
     <li>LazyStack Generator - Free Visual Studio IDE Extension, and Free DOTNET CLI Tool </li>
