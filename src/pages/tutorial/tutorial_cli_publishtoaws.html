@@ -1,0 +1,31 @@
+---
+layout: docpage
+section: Tutorial
+topic: Publish to Aws
+tutorial: CLI
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Publish PetStoreCLIDev stack to AWS</h3>
+    <h4>4.1 Publish</h4>
+    <p>In this step we will publish our stack to AWS.</p>
+    <ol>
+        <li>Create an s3 bucket - you only need to do this the first time you publish.
+            <pre><code class="language-bash">aws s3api create-bucket --bucket petstorecli --region us-east-1 --acl private</code></pre>
+        </li>
+        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI), and use AWS SAM CLI to deploy your stack to AWS.
+            <pre><code class="language-bash">sam deploy -t .\Stacks\Dev\serverless.template --stack-name PetStoreCLIDev --s3-bucket petstorecli --capabilities  CAPABILITY_NAMED_IAM</code></pre>
+            The PetStoreCLIDev stack is deployed to AWS.
+        </li>
+    </ol>
+    <h4>4.2 Generate AwsSettings.json file</h4>
+    <ol>
+        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI), and execute "lazystack settings".
+            <pre><code class="language-bash">lazystack settings PetStoreCLIDev .\Stacks\Dev\AwsSettings.json</code></pre>
+            An AwsSettings.json file is placed in the Stacks\Dev folder. This file contains the configuration settings 
+        necessary for client apps to use the PetStoreCLIDev AWS Stack.</li>
+    </ol>    
+    <p></p>
+    <h5>Step Summary</h5>
+    <p>We published our stack to AWS, generated an AwsSettings.json file and can now use those resources.</p>
+</div>

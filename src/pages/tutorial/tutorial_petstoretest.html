@@ -2,6 +2,7 @@
 layout: docpage
 section: Tutorial
 topic: PetStore Test
+tutorial: VS
 ---
 {{> tutorial_menu}}
 <div class=lz-r-content>
@@ -13,8 +14,32 @@ topic: PetStore Test
         <li>Application SignIn - using the LazyStackAuth library. </li>
         <li>Calling the stack using the PetStore - defined in the PetStoreClientSDK library.</li>
     </ul>
+
+    <h4>6.1 Configure a Gmail Account</h4>
+    <p>The automated tests we will create in this step require a gmail account. AWS Cognito will email authorization codes 
+        to that gmail account during the tests. For instance, the sign-up process will email the new user a 
+        authorization code. Our sign-up process test must log into the user's gmail account, find the email containing 
+        the authorization code and then use that code to finalize the sign-up process. </p>
+        <p>AWS Cognito requires each user to have a unique email address. We don't want to create a new 
+            email address each time we run the tests and deleting users from the Cognito User Pool is not
+            convenient or always what we what.
+        </p>
+        <p>Lucky for us, gmail has a nifty feature that allows you to use an email address 
+        alias. For example, if you email address is myemail@gmaili.com, you can send email to that address with 
+        the alias myemail+01@gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
+        This means we can use a single gmail account to create and test multiple AWS Cognito accounts where each 
+        of the AWS Cognito accounts is associated with a unique gmail address alias.
+        </p>
+    <ol>
+        <li>Create a new Gmail account. We suggest you create a Gmail account just for this purpose and not use 
+            any existing Gmail account.</li>
+        <li>Open your Google Account Settings.</li>
+        <li>Select Security from menu.</li>
+        <li>Select "Less secure app access" and turn on access.</li>
+    </ol>
+    <p></p>
     
-    <h4>6.1 Create PetStoreTests Project</h4>
+    <h4>6.2 Create PetStoreTests Project</h4>
     <ol>
         <li>Right Click on "Solution PetStore" in the Solution Explorer pane. The Context Menu appears.</li>
         <li>Select "Add &RightArrow; New Project" from the context menu. The "Add new project" dialog appears.</li>
@@ -24,11 +49,10 @@ topic: PetStore Test
         <li>Click the Create button. The test project is added to your solution.</li>
     </ol>
     
-    <h4>6.2 Configure PetStoreTests Project</h4>
+    <h4>6.3 Configure PetStoreTests Project</h4>
     <ol >
         <li>Add the following project references:
             <ul>
-                <li>LazyStackAuth</li>
                 <li>PetStoreClientSDK</li>
             </ul>
         </li>
@@ -54,14 +78,6 @@ topic: PetStore Test
                 <li>Save the file.</li>
             </ol>
         </li>
-    </ol>
-    <h4>6.3 Configure a Gmail Account</h4>
-    <ol>
-        <li>Create a new Gmail account. The test suite needs a Gmail account it can send verification codes to. We suggest
-            you create a Gmail account just for this purpose and not use any existing Gmail account.</li>
-        <li>Open your Google Account Settings.</li>
-        <li>Select Security from menu.</li>
-        <li>Select "Less secure app access" and turn on access.</li>
     </ol>
     <h4>6.4 Configure Visual Studio Secrets</h4>
     <ol>
@@ -111,14 +127,18 @@ topic: PetStore Test
         <li>Dependency injection is used in this test to demonstrate the service registration of 
             IAuthProcess and IAuthProvider. 
         </li>
-        <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
-            to see much more extensive integration tests for AuthProcess, view the LazyStack solution 
-            on GitHub. Also read the <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a> documentation for 
-            more details.
-        </li>
-        <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a> class implements the logic necessary for 
-            your client to make secure calls to the AWS Stack ApiGateways. The LzHttpClient class uses the Aws, LoadApis and 
-            MethodMap sections in the appConfig.
+        <li><a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a> is an important 
+            library in this project.
+            <ul>
+                <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
+                    to see much more extensive integration tests for AuthProcess, view the 
+                    <a href="https://github.com/InSciCo/LazyStack" {{>newtab}}>LazyStack</a> repo on GitHub.
+                </li>
+                <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a> class implements the logic necessary for 
+                    your client to make secure calls to the AWS Stack ApiGateways. The LzHttpClient class uses the Aws, LoadApis and 
+                    MethodMap sections in the appConfig.
+                </li>
+            </ul>
         </li>
     </ul>
     <p></p>

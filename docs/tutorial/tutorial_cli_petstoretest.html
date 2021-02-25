@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#tutorial_cli_petstoretest").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                    <div style="position:fixed;top:21px;left:16px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px; max-width: 223px;">
+                        <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                    </div>
+                    
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Tutorial</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_overview.html">
+                          <span class="lz-r-sectionitem">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/generator_overview.html">
+                            <span class="">Generator</span>
+                        </a>
+                      </li>
+                
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">PetStore Test</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+    <ul class="vertical menu dropdown">
+        <li >
+            <a  href="/tutorial/tutorial_overview.html">
+                <span class="">Visual Studio Tutorial</span>
+            </a>
+        </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">8) Xamarin App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
+
+        <li >
+            <a  href="/tutorial/tutorial_cli_overview.html">
+                <span class="">.NET CLI Tutorial</span>
+            </a>
+        </li>
+        <div style="display: inline">
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="lz-r-topicitem">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+        </div>
+
+
+
+    </ul>
+</div>
+<div class=lz-r-content>
+    <h3>PetStoreTests Project</h3>
+    <p>In this step we will create a PetStoreTest project to perform an integration test against the 
+        PetStoreDev stack. We will test:</p>
+    <ul>
+        <li>Application SignUp - using the LazyStackAuth library. </li>
+        <li>Application SignIn - using the LazyStackAuth library. </li>
+        <li>Calling the stack using the PetStore - defined in the PetStoreClientSDK library.</li>
+    </ul>
+    <h4>6.1 Configure a Gmail Account</h4>
+    <p>The automated tests we will create in this step require a gmail account. AWS Cognito will email authorization codes 
+        to that gmail account during the tests. For instance, the sign-up process will email the new user a 
+        authorization code. Our sign-up process test must log into the user's gmail account, find the email containing 
+        the authorization code and then use that code to finalize the sign-up process. </p>
+        <p>AWS Cognito requires each user to have a unique email address. We don't want to create a new 
+            email address each time we run the tests and deleting users from the Cognito User Pool is not
+            convenient or always what we what.
+        </p>
+        <p>Lucky for us, gmail has a nifty feature that allows you to use an email address 
+        alias. For example, if you email address is myemail@gmaili.com, you can send email to that address with 
+        the alias myemail+01@gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
+        This means we can use a single gmail account to create and test multiple AWS Cognito accounts where each 
+        of the AWS Cognito accounts is associated with a unique gmail address alias.
+        </p>
+    <ol>
+        <li>Create a new Gmail account. We suggest you create a Gmail account just for this purpose and not use 
+            any existing Gmail account.</li>
+        <li>Open your Google Account Settings.</li>
+        <li>Select Security from menu.</li>
+        <li>Select "Less secure app access" and turn on access.</li>
+    </ol>
+    <p></p>
+    
+    <h4>6.2 Create PetStoreTests Project</h4>
+    <ol>
+        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI) and use dotnet to add the new project to the solution.
+            <pre><code class="language-bash">dotnet new mstest -o PetStoreTests</code></pre>
+            <pre><code class="language-bash">dotnet sln add PetStoreTests\PetStoreTests.csproj</code></pre>
+            The new PetStoreTests project is added to your solution.
+        </li>
+    </ol>
+    <h4>6.3 Generate User-Secrets GUID</h4>
+    <ul>
+        <li>CD to the solution folder (LazyStackTutorial\PetStoreCLI) and install the dotnet GUID tool if it is not already installed:
+            <pre><code class="language-bash">dotnet tool install -g dotnet-guid</code></pre>
+        </li>
+        <li>Use the guid tool to generate a new GUID:
+            <pre><code class="language-bash">guid</code></pre>
+            A guid is printed to the console. Make a note of this GUID as you will need it in the next step.
+        </li>
+    </ul>
+    <h4>6.4 Configure PetStoreTests Project</h4>
+    <ol >
+        <li>Copy this content into the PetStoreTests.csproj file, then replace the UserSecretisId value 
+            with the guid you generated in the previous step:
+            <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
+    &lt;PropertyGroup>
+        &lt;TargetFramework>net5.0&lt;/TargetFramework>
+        &lt;IsPackable>false&lt;/IsPackable>
+        &lt;UserSecretsId>4270b588-c2ce-4c08-91bb-58aa1901134c&lt;/UserSecretsId>
+    &lt;/PropertyGroup>
+
+    &lt;ItemGroup>
+        &lt;PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+        &lt;PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
+        &lt;PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
+        &lt;PackageReference Include="coverlet.collector" Version="1.3.0" />
+        &lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+        &lt;PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+        &lt;ProjectReference Include="..\PetStoreRepo\PetStoreRepo.csproj" />
+        &lt;ProjectReference Include="..\PetStoreCLIClientSDK\PetStoreCLIClientSDK.csproj" />
+        &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />   
+    &lt;/ItemGroup>                        
+                    
+&lt;/Project>
+              </code></pre>
+        </li>
+           <li>Save the file.</li>
+        </li>
+        <li>Build the project.
+            <pre><code class="language-bash">dotnet build</code></pre>
+        </li>
+        <li>Set Gmail:Email user secret value:
+            <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@gmail.com" </code></pre>
+        </li>
+        <li>Set Gmail:Password user secret value:
+            <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Password" "maypassword" </code></pre>
+        </li>
+    </ol>
+    
+    <h4>6.4 Implement Tests</h4>
+    <ol>
+        <li>Delete the PetStoreTests UnitTest1.cs file.</li>
+        <li>Download <a href="/assets/tutorial/PetStoreIntegrationTestCLI.cs" download="PetStoreIntegrationTest.cs">PetStoreIntegrationTest.cs</a> and 
+            then move it into the PetStoreTests project.</li>
+            <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI) and build the project.
+                <pre><code class="language-bash">dotnet build</code></pre>
+            </li>
+    </ol>
+    <h4>6.6 Run Tests</h4>
+    <ol>
+        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI) and run the tests:
+            <pre><code class="language-bash">dotnet test PetStoreTests</code></pre>
+        </li>
+        <li>The integration test completes successfully.</li>
+    </ol>
+    <h4>6.7 Step Summary</h4>
+    <p>In this step we created a Integration test project and ran our first tests against 
+        the published stack.
+    </p>
+    <p>Reviewing the contents of the PetStoreIntegrationTest.cs class may yield valuable 
+        insights into how you should use the libraries in your client apps. Take note of the 
+    following implementation elements:</p>
+    <ul>
+        <li><a href="/clientsdk/clientsdk_awssettings.html">AwsSettings.json</a> is an embedded resource that is loaded by ConfigurationBuilder. This embedded resource 
+            references \Stacks\Dev\AwsSettings.json. In a client app, you would introduce condition logic in the 
+            csproj file to use \Stacks\Prod\AwsSettings.json for release builds or just distribute the AwsSettings.json 
+            file separately to developers using the PetStoreClientSDK.
+        </li>
+        <li><a href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages.json</a> is a embedded resource that is loaded by ConfigurationBuilder. Extend 
+            this file with new message sets by language to localize the messages emitted by the AuthProcess class.
+            This test does not demonstrate the use of AuthProcess messages but later Tutorial steps will.
+        </li>
+        <li>Dependency injection is used in this test to demonstrate the service registration of 
+            IAuthProcess and IAuthProvider. 
+        </li>
+        <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
+            to see much more extensive integration tests for AuthProcess, view the LazyStack solution 
+            on GitHub. Also read the <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a> documentation for 
+            more details.
+        </li>
+        <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a> class implements the logic necessary for 
+            your client to make secure calls to the AWS Stack ApiGateways. The LzHttpClient class uses the Aws, LoadApis and 
+            MethodMap sections in the appConfig.
+        </li>
+    </ul>
+    <p></p>
+</div>
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

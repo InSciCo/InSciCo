@@ -2,6 +2,7 @@
 layout: docpage
 section: Tutorial
 topic: Test Local WebApi
+tutorial: VS
 ---
 {{> tutorial_menu}}
 <div class=lz-r-content>
@@ -23,7 +24,7 @@ topic: Test Local WebApi
     <li>Execute /pet/findByStatus with petStatus = 0. Two pet records are returned in the Response body.</li>
     <li>Stop Debugging.</li>
 </ol>
-<h5>Summary</h5>
+<h5>Step Summary</h5>
 <p>In this step we launched the local WebApi (PetStore) project and then made calls against it using the local server's 
     Swagger page. Our call to "/pet/seedPets" executed the PetStoreRepo project's PetRepo.SeedPetsAsync() method.
     The local WebApi (PetStore) project used your local AWS credentials to access the PetStoreDev stack DynamoDB resource.

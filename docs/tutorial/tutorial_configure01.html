@@ -11,7 +11,6 @@
     <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
     <link href="/assets/theme/lessons.css" rel="stylesheet"/>
 
-   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
     <script>
@@ -114,7 +113,6 @@
                             <span class="">Contact</span>
                         </a>
                       </li>
-                
                     </ul>
                 </div>            </div>
             <div class=lz-r-legal-notice style="max-width:1500px;">
@@ -132,71 +130,126 @@
     <ul class="vertical menu dropdown">
         <li >
             <a  href="/tutorial/tutorial_overview.html">
-                <span class="">Overview</span>
+                <span class="">Visual Studio Tutorial</span>
             </a>
         </li>
+        <div style="display: inline">
+            <li >
+                <a  href="/tutorial/tutorial_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="lz-r-topicitem">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">8) Xamarin App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
 
         <li >
-            <a  href="/tutorial/tutorial_petstore.html">
-                <span class="">1) PetStore</span>
+            <a  href="/tutorial/tutorial_cli_overview.html">
+                <span class="">.NET CLI Tutorial</span>
             </a>
         </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_controllers.html">
-                <span class="">2) Implement Controllers</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_configure01.html">
-                <span class="lz-r-topicitem">3) Configure LazyStack</span>
-            </a>
-        </li>
-        
-        <li >
-            <a  href="/tutorial/tutorial_publishtoaws.html">
-                <span class="">4) Publish to AWS</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_testlocalwebapi.html">
-                <span class="">5) Test Local WebApi</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
 
 
-        <li >
-            <a  href="/tutorial/tutorial_petstoretest.html">
-                <span class="">6) PetStore Test</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_consoleapp.html">
-                <span class="">7) Console App</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_xamarinapp.html">
-                <span class="">8) Xamarin App</span>
-            </a>
-        </li>
+        </div>
 
-        <li >
-            <a  href="/tutorial/tutorial_blazorapp.html">
-                <span class="">9) Blazor App</span>
-            </a>
-        </li>
+
 
     </ul>
 </div>
 <div class=lz-r-content>
 <h3>Configure LazyStack Projects and DynamoDB</h3>
-<p>In this step we make some additions to the LazyStack.yaml file to support the use of DynamoDB. Before we look at 
-    the configuration directives in detail, here is a high-level summary of what we need to do:
+<p>In this step we make some additions to the LazyStack.yaml file to support the use of DynamoDB and configure 
+  the Lambda and WebApi projects to reference the new PetStoreRepo project. Before we look at 
+    the LazyStack.yaml configuration directives in detail, here is a high-level summary of what we need to do:
 </p>
 <ul>
     <li>Use <a href="/generator/generator_apitagmap.html">ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
@@ -225,18 +278,17 @@
 <ol>
    <li>Download this <a href="/assets/tutorial/LazyStack01.yaml" download="LazyStack.yaml">LazyStack.yaml</a> file and move it into the 
     solution's root folder.</li>
-    <li>Update the LazyStack.yaml file ProfileName and RegionName values.</li>
+    <li>Open the LazyStack.yaml file and edit the ProfileName and RegionName values if necessary.</li>
     <li>Save the LazyStack.yaml file.</li>
     <li>Select Tools &RightArrow; LazyStack - Generate Projects. 
         <p>The LazyStack.log tab opens and logs are produced as Projects and generated files are updated.</p>
     </li> 
     <li>Rebuild Solution. All projects in the solution are compiled successfully.</li>
 </ol>
-<h4>3.2 Update WebApi project (PetStore in this case) launchSettings.json file</h4>
+<h4>3.2 Update WebApi project (PetStore) launchSettings.json file</h4>
 <ol>
     <li>Open the PetStore\Properties\launchSettings.json file.</li>
     <li>Add the "TABLE_NAME" environmental variable as shown below on line 25.</li>
-</ol>
 <pre class="line-numbers"><code class="language-json">
 {
     "iisSettings": {
@@ -267,6 +319,8 @@
     }
   }
 </code></pre>
+<li>Save the file.</li>
+</ol>
 <p></p>
 <h4>Step Summary</h4>
 <p>In this step we updated the LazyStack.yaml file to create a DynamoDB resource and configure the 

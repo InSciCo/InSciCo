@@ -2,6 +2,7 @@
 layout: docpage
 section: Tutorial
 topic: Implement Controllers
+tutorial: VS
 ---
 {{> tutorial_menu}}
 <div class=lz-r-content>
@@ -10,25 +11,11 @@ topic: Implement Controllers
         In most applications we have a persistence layer, often called the repository layer. In this
         tutorial we create a PetStoreRepo project to use DynamoDB to store our data and
         then configure our Controller classes to use that PetStoreRepo. Since our PetStoreRepo will use 
-        AWS DynamoDB, we provide a project template called LazyStackDynamoDBRepo that implements generic 
-        Create, Read, Update, Delete and List (CRUDL) operations on the Amazon DynamoDB. We will use 
-        this LazyStackDynamoDBRepo in our PetStoreRepo project.
+        AWS DynamoDB, we use the LazyStackDynamoDBRepo NuGet package that implements generic 
+        Create, Read, Update, Delete and List (CRUDL) operations on the Amazon DynamoDB. 
     </p>
-    <h4>2.1 Create the DynamoDBRepo project</h4>
-    <ol>
-        <li>Right Click on the "Solution PetStore" item in the solution explorer. The context menu appears.</li>
-        <li>Select Add &RightArrow; New Project. The "Add a new project" dialog appears.</li>
-        <li>Type "LazyStackDynamoDBRepo" into the search field. A list of project templates is presented.</li>
-        <li>Double Click on the LazyStackDynamoDBRepo project template. The "Configure your new project" dialog appears.</li>
-        <li>Enter "DynamoDBRepo" as the Project Name.</li>
-        <li>Click on the Create button. A solution with your DynamoDBRepo project is created.</li>
-        <li>Select Visual Studio menuitem Build &RightArrow; Rebuild Solution. The solution compiles successfully.</li>
-    </ol>
-    <p><i>The DynamoDB project implements a very generalized and highly-reusable strategy for managing tables in 
-        DynamoDB. See the LazyStack <a href="/libraries/dynamodb/dynamodb_overview.html">DynamoDB</a> documentation for more details.
-    </i></p>
 
-    <h4>2.2 Create the PetStoreRepo project</h4>
+    <h4>2.1 Create the PetStoreRepo project</h4>
     <ol>
         <li>Create PetStoreRepo project from "C# Class Library (.NET Core)" template.
             <ol type="a">
@@ -40,6 +27,15 @@ topic: Implement Controllers
                 </li>
                 <li>Enter PetStoreRepo" as the project name.</li>
                 <li>Click the Create button. The project is created with a default class Class1.cs.</li>
+            </ol>
+        </li>
+        <li>Add Package References
+            <ol type="a">
+                <li >Right click on Dependencies. The context menu appears.</li>
+                <li>Select Manage NuGet Packages. the NuGet: PetStoreRepo tab appears.</li>
+                <li>Select Browse.</li>
+                <li>Type "LazyStack" into the search field. The LazyStackDynamoDBRepo package is listed.</li>
+                <li>Select the LazyStackDynamoDBRepo package and then click on the Install button. The package is installed.</li>
             </ol>
         </li>
         <li>Delete the Class1.cs file from the PetStoreRepo project.</li>
@@ -64,7 +60,6 @@ topic: Implement Controllers
                         <li>OrderSecureController</li>
                         <li>PetController</li>
                         <li>PetSecureController</li>
-                        <li>DynamoDBRepo</li>
                     </ul>
                 </li>
                 <li>Click the OK button. </li>
@@ -72,15 +67,13 @@ topic: Implement Controllers
         <li>Build the project. The project builds successfully.</li>
     </ol>
     <h4>Step Summary</h4>
-    <p>In this step we implemented controller logic by:</p>
+    <p>In this step we implemented the PetStoreRepo project by:</p>
     <ul>
-        <li>Creating a DynamoDBRepo project using the 
-            LazyStackDynamoDB project template.</li>
         <li>Creating a PetStoreRepo project using the C# Class(.NET Core) Library template.</li>
+        <li>Referencing the LazyStackDynamoDBRepo NuGet package generated controller projects.</li>
         <li>Implementing the PetStoreRepo repository logic with the CategoryRepo.cs, OrderRepo.cs, PetRepo.cs and 
             TagRepo.cs files.
         </li>
-        <li>Configuring the PetStoreRepo projects references.</li>
     </ul>
 
 </div>

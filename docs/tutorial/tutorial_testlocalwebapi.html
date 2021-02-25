@@ -11,7 +11,6 @@
     <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
     <link href="/assets/theme/lessons.css" rel="stylesheet"/>
 
-   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
     <script>
@@ -114,7 +113,6 @@
                             <span class="">Contact</span>
                         </a>
                       </li>
-                
                     </ul>
                 </div>            </div>
             <div class=lz-r-legal-notice style="max-width:1500px;">
@@ -132,64 +130,118 @@
     <ul class="vertical menu dropdown">
         <li >
             <a  href="/tutorial/tutorial_overview.html">
-                <span class="">Overview</span>
+                <span class="">Visual Studio Tutorial</span>
             </a>
         </li>
+        <div style="display: inline">
+            <li >
+                <a  href="/tutorial/tutorial_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="lz-r-topicitem">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">8) Xamarin App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
 
         <li >
-            <a  href="/tutorial/tutorial_petstore.html">
-                <span class="">1) PetStore</span>
+            <a  href="/tutorial/tutorial_cli_overview.html">
+                <span class="">.NET CLI Tutorial</span>
             </a>
         </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_controllers.html">
-                <span class="">2) Implement Controllers</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_configure01.html">
-                <span class="">3) Configure LazyStack</span>
-            </a>
-        </li>
-        
-        <li >
-            <a  href="/tutorial/tutorial_publishtoaws.html">
-                <span class="">4) Publish to AWS</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_testlocalwebapi.html">
-                <span class="lz-r-topicitem">5) Test Local WebApi</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
 
 
-        <li >
-            <a  href="/tutorial/tutorial_petstoretest.html">
-                <span class="">6) PetStore Test</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_consoleapp.html">
-                <span class="">7) Console App</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_xamarinapp.html">
-                <span class="">8) Xamarin App</span>
-            </a>
-        </li>
+        </div>
 
-        <li >
-            <a  href="/tutorial/tutorial_blazorapp.html">
-                <span class="">9) Blazor App</span>
-            </a>
-        </li>
+
 
     </ul>
 </div>
@@ -212,7 +264,7 @@
     <li>Execute /pet/findByStatus with petStatus = 0. Two pet records are returned in the Response body.</li>
     <li>Stop Debugging.</li>
 </ol>
-<h5>Summary</h5>
+<h5>Step Summary</h5>
 <p>In this step we launched the local WebApi (PetStore) project and then made calls against it using the local server's 
     Swagger page. Our call to "/pet/seedPets" executed the PetStoreRepo project's PetRepo.SeedPetsAsync() method.
     The local WebApi (PetStore) project used your local AWS credentials to access the PetStoreDev stack DynamoDB resource.

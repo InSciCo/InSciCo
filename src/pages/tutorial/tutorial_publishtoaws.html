@@ -2,6 +2,7 @@
 layout: docpage
 section: Tutorial
 topic: Publish to Aws
+tutorial: VS
 ---
 {{> tutorial_menu}}
 <div class=lz-r-content>
@@ -22,11 +23,16 @@ topic: Publish to Aws
         <li>A new Visual Studio editor tab named Stack:PetStore is opened. This tab shows you the 
             progress of your stack update. You will see the status change to UPDATE COMPLETE once 
             the publishing step is finished. </li>
+    </ol>
+
+    <h4>4.2 Generate AwsSettings.json file</h4>
+    <ol>
         <li>Select Tools &RightArrow; LazyStack - Generate Stacks\Dev\AwsSettings.json. A LazyStack.log 
             tab opens and LazyStack log messages are displayed. A AwsSettings.json file is added 
-        to the Stacks\Dev folder.</li>
+        to the Stacks\Dev folder. This file contains the configuration settings 
+        necessary for client apps to use the PetStoreDev AWS Stack.</li>
     </ol>   
 
-    <h5>Summary</h5>
-    <p>We published our stack to AWS and can now use those resources.</p>
+    <h5>Step Summary</h5>
+    <p>We published our stack to AWS, generated an AwsSettings.json file and can now use those resources.</p>
 </div>

@@ -1,0 +1,206 @@
+---
+layout: docpage
+section: Tutorial
+topic: PetStore
+tutorial: CLI
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Building the PetStoreCLI Solution</h3>
+    <p>In this lesson step we will build the initial PetStore solution using the .NET CLI LazyStack Tool.</p>
+
+    <p>Before you get started with the tutorial, be sure to review the <a href="/installation/installation_netcorecli.html">LazyStack Install Prerequisites</a></p>
+    <p>If you are new to AWS then you may want to review <a href="https://aws.amazon.com/getting-started/" {{> newtab}}>Getting Started with AWS</a></p>
+    <p><strong>This tutorial assumes you are using the .NET CLI.</strong></p>
+    
+    <h4>1.1 Create PetStoreCLI solution</h4>
+    <ol>
+        <li>Open a Command Prompt.</li>
+        <li>Use .NET CLI to create a solution with a WebApi project in it.
+        <pre><code class="language-shellsession">mkdir LazyStackTutorial</code></pre>
+        <pre><code class="language-shellsession">cd LazyStackTutorial</code></pre>
+        <pre><code class="language-shellsession"></code>mkdir PetStoreCLI</pre>
+        <pre><code class="language-shellsession"></code>dotnet new sln</pre>
+        <pre><code class="language-shellsession"></code>dotnet new webapi -o PetStoreCLI</pre>
+        <pre><code class="language-shellsession"></code>dotnet sln add PetStoreCLI\PetStoreCLI.csproj</pre>
+        You now have a PetStoreCLI Solution with a PetStoreCLI WebApi project in it.</li>
+        <li>Build the solution.
+            <pre><code class="language-bash">> dotnet build</code></pre>
+             The solution compiles successfully.</li>
+        <li>Download <a href="/assets/tutorial/ConfigureSvcs.cs" download>ConfigureSvcs.cs</a> and place it into the PetStoreCLI project folder.</li>
+        <li>Edit the WebApi project to use ConfigureSvcs.cs.
+            <ul>Edit PetStoreCLI\Startup.cs
+                Note line numbers 4 and 19
+                <pre class="line-numbers"><code class="language-csharp">...
+namespace PetStoreCLI
+{
+    public partial class Startup // NOTE addition of partial 
+    {
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
+        {
+            ConfigureSvcs(services); // NOTE insertion of call to ConfigureSvcs method
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "PetStoreAPI", Version = "v1" });
+            });
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "PetStore V1");
+            });
+
+            app.Run(async (context) => await Task.Run(() => context.Response.Redirect("/swagger")));
+
+        }
+    }
+}</code></pre>
+            </ul>
+        </li>
+        <li>Remove the PetStoreCLI\Controllers\WeatherForecastController.cs file.</li>
+        <li>Remove the PetStoreCLI\WeatherForecast.cs file.</li>
+        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI). Rebuild the solution.
+            <pre><code class="language-bash">dotnet build</code></pre>
+             The solution compiles successfully.</li>
+        </li>
+    </ol>
+
+
+    <h4>1.2 Download PetStoreCLI.yaml and run LazyStack Generator</h4>
+    <ol>
+        <li>Download the <a href="/assets/tutorial/PetStore.yaml" download="PetStoreCLI.yaml">PetStoreCLI.yaml</a> file and place it into 
+            the PetStoreCLI solution folder</li>
+        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI) and run the LazyStack generator:
+            <pre><code class="language-bash">lazystack projects</code></pre>
+            Multiple projects and configuration files are created.
+            <ul>
+                <li>Controllers folder
+                    <ul>
+                        <li>OrderController project</li>
+                        <li>OrderSecureController project</li>
+                        <li>PetController project</li>
+                        <li>PetSecureController project</li>
+                    </ul>
+                </li>
+                <li>Lambdas folder
+                    <ul>
+                        <li>Order project</li>
+                        <li>OrderSecure project</li>
+                        <li>Pet project</li>
+                        <li>PetSecure project</li>
+                    </ul>
+                </li>
+                <li>Solution items (placed in solution's root folder)
+                    <ul>
+
+                        <li>LazyStack.yaml</li>
+                        <li>LocalApis.json</li>
+                        <li>PetStore.yaml</li>
+                        <li>SAM_Review.yaml</li>
+                    </ul>
+                </li>
+                <li>Stacks folder
+                    <ul>
+                        <li>Dev folder
+                            <ul>
+                                <li>serverless.template</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                <li>PetStoreCLIClientSDK project</li>
+                <li>PetStoreCLISchema project</li>
+            </ul>
+        </li>
+    </ol>
+
+<h4>1.3 Edit the LazyStack.yaml file</h4>
+    <p>The "lazystack projects" command created a default LazyStack.yaml file in your solution's root 
+        folder. You may need to update it with your AWS profile and AWS region. Your initial LazyStack.yaml file should 
+        look like this:
+    </p>
+<pre><code class="language-yaml"># LazyStack Version 1.0.0
+Stacks:
+    Dev:
+    ProfileName: default
+    RegionName: us-east-1
+    StackName: PetStoreCLIDev 
+    Stage: Dev
+    UriCodeTarget: Debug/netcoreapp3.1
+    ...
+</code></pre>
+<ol>
+    <li>Open the LazyStack.yaml file.</li>
+    <li>Edit the ProfileName.
+        <p>You may modify the ProfileName if you are not using the profile "default" - 
+            Note: the profile "default" is created by the AWS CLI install unless you specify some 
+            other named profile.</p>
+    </li>
+    <li>Edit the RegionName if you are not using the "us-east-1" region.</li>
+    <li>Save the file.</li>
+</ol>
+<h4>1.4 Review the SAM_Review.yaml</h4>
+<p>The SAM_Review.yaml file was generated in the solution folder. This file contains the stack configuration 
+    without stack environment specific content inserted. Stack environments might include Dev, Test and Prod. Fully 
+    constituted templates are placed in the serverless.template files placed in the stack environment folder. 
+    For instance, the Stacks\Dev\serverless.template file is the template you will later use to publish the PetStoreDev 
+    stack to AWS. 
+    </p>
+<p>You never edit the SAM_Review.yaml file directly.</p>
+<o>
+    <li>Open the SAM_Review.yaml file.</li>
+    <li>Review contents. No need to understand all this content now.</li>
+</ol>
+<p>The SAM_Review.yaml file will be updated with new content as we add and configure AWS stack resources during the tutorial.
+    This file is regenerated each time you execute "lazystack projects".
+</p>
+
+<h4>1.5 Review serverless.template file</h4>
+<p> The "lazystack projects" commands generates one serverless.template file for each environment. In this case, 
+    we have one Stacks Environment called "Dev" so a serverless.template file is generated in the 
+    Stacks\Dev folder. 
+</p>
+<p>You want to review the SAM template we will later publish to AWS. You never edit this file directly.</p>
+<ol>
+    <li>Open the Stacks\Dev\serverless.template file.</li>
+    <li>Review contents. No need to understand all this content now.</li>
+</ol>
+<p>The serverless.template file will be updated with new content as we add and configure AWS stack resources during the tutorial.
+    This file is regenerated each time you execute "lazystack projects".
+</p>
+
+<h4>Step Summary</h4>
+<p>In this lesson step we created a PetStore solution using the WebApi project template, 
+    downloaded a OpenApi Specification called PetStore.yaml and then used the .NET CLI Tool "lazystack projects"  to generate projects 
+    and configuration files for our stack. We then updated the LazyStack.yaml file AWS ProfileName and RegionName.
+</p>
+
+</div>

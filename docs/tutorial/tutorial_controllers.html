@@ -11,7 +11,6 @@
     <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
     <link href="/assets/theme/lessons.css" rel="stylesheet"/>
 
-   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
     <script>
@@ -114,7 +113,6 @@
                             <span class="">Contact</span>
                         </a>
                       </li>
-                
                     </ul>
                 </div>            </div>
             <div class=lz-r-legal-notice style="max-width:1500px;">
@@ -132,64 +130,118 @@
     <ul class="vertical menu dropdown">
         <li >
             <a  href="/tutorial/tutorial_overview.html">
-                <span class="">Overview</span>
+                <span class="">Visual Studio Tutorial</span>
             </a>
         </li>
+        <div style="display: inline">
+            <li >
+                <a  href="/tutorial/tutorial_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="lz-r-topicitem">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">8) Xamarin App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
 
         <li >
-            <a  href="/tutorial/tutorial_petstore.html">
-                <span class="">1) PetStore</span>
+            <a  href="/tutorial/tutorial_cli_overview.html">
+                <span class="">.NET CLI Tutorial</span>
             </a>
         </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_controllers.html">
-                <span class="lz-r-topicitem">2) Implement Controllers</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_configure01.html">
-                <span class="">3) Configure LazyStack</span>
-            </a>
-        </li>
-        
-        <li >
-            <a  href="/tutorial/tutorial_publishtoaws.html">
-                <span class="">4) Publish to AWS</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_testlocalwebapi.html">
-                <span class="">5) Test Local WebApi</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
 
 
-        <li >
-            <a  href="/tutorial/tutorial_petstoretest.html">
-                <span class="">6) PetStore Test</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_consoleapp.html">
-                <span class="">7) Console App</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/tutorial/tutorial_xamarinapp.html">
-                <span class="">8) Xamarin App</span>
-            </a>
-        </li>
+        </div>
 
-        <li >
-            <a  href="/tutorial/tutorial_blazorapp.html">
-                <span class="">9) Blazor App</span>
-            </a>
-        </li>
+
 
     </ul>
 </div>
@@ -199,25 +251,11 @@
         In most applications we have a persistence layer, often called the repository layer. In this
         tutorial we create a PetStoreRepo project to use DynamoDB to store our data and
         then configure our Controller classes to use that PetStoreRepo. Since our PetStoreRepo will use 
-        AWS DynamoDB, we provide a project template called LazyStackDynamoDBRepo that implements generic 
-        Create, Read, Update, Delete and List (CRUDL) operations on the Amazon DynamoDB. We will use 
-        this LazyStackDynamoDBRepo in our PetStoreRepo project.
+        AWS DynamoDB, we use the LazyStackDynamoDBRepo NuGet package that implements generic 
+        Create, Read, Update, Delete and List (CRUDL) operations on the Amazon DynamoDB. 
     </p>
-    <h4>2.1 Create the DynamoDBRepo project</h4>
-    <ol>
-        <li>Right Click on the "Solution PetStore" item in the solution explorer. The context menu appears.</li>
-        <li>Select Add &RightArrow; New Project. The "Add a new project" dialog appears.</li>
-        <li>Type "LazyStackDynamoDBRepo" into the search field. A list of project templates is presented.</li>
-        <li>Double Click on the LazyStackDynamoDBRepo project template. The "Configure your new project" dialog appears.</li>
-        <li>Enter "DynamoDBRepo" as the Project Name.</li>
-        <li>Click on the Create button. A solution with your DynamoDBRepo project is created.</li>
-        <li>Select Visual Studio menuitem Build &RightArrow; Rebuild Solution. The solution compiles successfully.</li>
-    </ol>
-    <p><i>The DynamoDB project implements a very generalized and highly-reusable strategy for managing tables in 
-        DynamoDB. See the LazyStack <a href="/libraries/dynamodb/dynamodb_overview.html">DynamoDB</a> documentation for more details.
-    </i></p>
 
-    <h4>2.2 Create the PetStoreRepo project</h4>
+    <h4>2.1 Create the PetStoreRepo project</h4>
     <ol>
         <li>Create PetStoreRepo project from "C# Class Library (.NET Core)" template.
             <ol type="a">
@@ -229,6 +267,15 @@
                 </li>
                 <li>Enter PetStoreRepo" as the project name.</li>
                 <li>Click the Create button. The project is created with a default class Class1.cs.</li>
+            </ol>
+        </li>
+        <li>Add Package References
+            <ol type="a">
+                <li >Right click on Dependencies. The context menu appears.</li>
+                <li>Select Manage NuGet Packages. the NuGet: PetStoreRepo tab appears.</li>
+                <li>Select Browse.</li>
+                <li>Type "LazyStack" into the search field. The LazyStackDynamoDBRepo package is listed.</li>
+                <li>Select the LazyStackDynamoDBRepo package and then click on the Install button. The package is installed.</li>
             </ol>
         </li>
         <li>Delete the Class1.cs file from the PetStoreRepo project.</li>
@@ -253,7 +300,6 @@
                         <li>OrderSecureController</li>
                         <li>PetController</li>
                         <li>PetSecureController</li>
-                        <li>DynamoDBRepo</li>
                     </ul>
                 </li>
                 <li>Click the OK button. </li>
@@ -261,15 +307,13 @@
         <li>Build the project. The project builds successfully.</li>
     </ol>
     <h4>Step Summary</h4>
-    <p>In this step we implemented controller logic by:</p>
+    <p>In this step we implemented the PetStoreRepo project by:</p>
     <ul>
-        <li>Creating a DynamoDBRepo project using the 
-            LazyStackDynamoDB project template.</li>
         <li>Creating a PetStoreRepo project using the C# Class(.NET Core) Library template.</li>
+        <li>Referencing the LazyStackDynamoDBRepo NuGet package generated controller projects.</li>
         <li>Implementing the PetStoreRepo repository logic with the CategoryRepo.cs, OrderRepo.cs, PetRepo.cs and 
             TagRepo.cs files.
         </li>
-        <li>Configuring the PetStoreRepo projects references.</li>
     </ul>
 
 </div>

@@ -15,6 +15,15 @@ ApiTagMap:
   ApiSecure: 
   - orderSecure
 
+NugetPackageVersions:
+  Amazon.Lambda.AspNetCoreServer: "5.2.0"
+  AWSSDK.Extensions.NETCore.Setup: "3.3.101"
+  JsonSubTypes: "1.8.0"
+  LazyStackAuth: "1.0.0"
+  Newtonsoft.Json: "12.0.3"
+  Swashbuckle.AspNetCore: "5.6.2"    
+  System.ComponentModel.Annotations: "5.0.0"
+
 ProjectOptions:
   PetStoreClientSDK:
     Properties:
@@ -22,11 +31,26 @@ ProjectOptions:
       RepositoryUrl: https://github.com/USER_ID/REPO_ID.git
       PackageReleaseNotes: 'Minor update'
 
+  ClientSDKProjects:
+    PackageReferences:
+      LazyStackAuth:
+      System.ComponentModel.Annotations: 
+      JsonSubTypes: 
+      Newtonsoft.Json: 
+
+  SchemaProjects:
+    PackageReferences:
+      Newtonsoft.Json: 
+
   LambdaProjects:
-      
+    Runtime: "dotnetcore3.1"
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: 
+      Amazon.Lambda.AspNetCoreServer: 
+
     ProjectReferences:
     - ..\..\PetStoreRepo\PetStoreRepo.csproj
-
+            
     ServiceRegistrations:
     - services.AddSingleton<PetStoreRepo.Models.PetRepo>(); 
     - services.AddSingleton<PetStoreRepo.Models.IPetRepo>(x => x.GetRequiredService<PetStoreRepo.Models.PetRepo>()); 
@@ -56,6 +80,10 @@ ProjectOptions:
             Fn::GetAtt: LZDDB01.Arn              
 
   WebApiProjects:
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: 
+      Swashbuckle.AspNetCore:   
+
     ServiceRegistrations:
     - services.AddSingleton<PetStoreRepo.Models.PetRepo>(); 
     - services.AddSingleton<PetStoreRepo.Models.IPetRepo>(x => x.GetRequiredService<PetStoreRepo.Models.PetRepo>()); 
@@ -69,10 +97,8 @@ ProjectOptions:
     - services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
     - services.AddAWSService<Amazon.DynamoDBv2.IAmazonDynamoDB>();
 
-
     ProjectReferences:
     - ..\PetStoreRepo\PetStoreRepo.csproj
-
 
 AwsResources:
   Pet:
