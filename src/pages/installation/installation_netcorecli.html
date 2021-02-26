@@ -11,17 +11,21 @@ topic: GettingStarted
 
     <h4>Prerequisites</h4>
     <ul>
-      <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" rel="noopener noreferrer">AWS Account</a></li>
-        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" rel="noopener noreferrer">AWS CLI</a></li>
-        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" target="_blank" rel="noopener noreferrer">AWS SAM CLI</a></li>
-        <li><a href="https://dotnet.microsoft.com/download" target="_blank" rel="noopener noreferrer">.NET 5.0</a></li>
+      <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" 
+        rel="noopener noreferrer">Create AWS Account</a></li>
+        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" 
+            rel="noopener noreferrer">Install AWS CLI</a></li>
+        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
+            target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>
+        <li><a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank" rel="noopener noreferrer">Install .NET 5.0 SDK</a> 
+        - make sure you have the SDK installed, not just the runtime.</li>
     </ul>  
 
-    <p>To install the LazyStack CLI Tool, open a console and issue this command:</p>
-<pre><code class="language-bash">$ netcore tool install lazystackapp -g
+    <p>After you have the prerequisites installed, install the LazyStack CLI Tool. Open a console and issue this command:</p>
+<pre><code class="language-bash">dotnet tool install lazystackapp -g
 </code></pre>
     <p>To update to the latest LazyStack generator, open a console and issue this command</p>
-    <pre><code class="language-bash">$ netcore tool update lazystackapp -g
+    <pre><code class="language-bash">dotnet tool update lazystackapp -g
 </code></pre>    
 <h4>LazyStack Tool Synopsis</h4>
 <h5>Generate Projects</h5>
@@ -34,46 +38,9 @@ topic: GettingStarted
     a .yaml suffix.</p>
 
 <h5>Generate AwsSettings file</h5>
-<pre><code class="language-bash">lazystack settings &lt;stackname> [&lt;filepath>] [-n &lt;profilename>]</code></pre>
+<pre><code class="language-bash">lazystack settings &lt;stackname> [&lt;filepath>] [-p &lt;profilename>]</code></pre>
 <p>This command uses AWS Cloud Formation to retrieve settings from the specified &lt;stackname> and then write these settings 
     out to "AwsSettings.json" or to the specified &lt;filepath>. Your "default" AWS profile will be used unless you specify 
     a different profile with the -n option.
 </p>
-<h4>Quick Start</h4>
-<ol>
-    <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" rel="noopener noreferrer">Create AWS Account</a></li>
-    <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" rel="noopener noreferrer">Install AWS CLI</a></li>
-    <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>
-    <li><a href="https://dotnet.microsoft.com/download" target="_blank" rel="noopener noreferrer">Install .NET 5.0</a></li>
-    <li>Open a command window and install the .NET LazyStack Tool
-        <ul>
-            <ul>
-                <li><pre><code class="language-bash">$ netcore tool install lazystackapp -g</code></pre>Projects and configuration files are generated and added to solution.</li>
-           </ul>
-        </ul>
-    </li>
-    <li>Create a new project using the LazyStackWebApi Template.</li>
-    <li>Author an OpenApi specification for your application stack and place it in the solution folder.</li>
-    <li>Open a Command Window and cd to the solution folder and use the .NET CLI Tool to generate projects.</li>
-        <ul>
-            <li><pre><code class="language-bash">$ lazystack projects</code></pre>Projects and configuration files are generated and added to solution.</li>
-       </ul>
-    <li>Update LazyStack Directives in the LazyStack.yaml configuration file in the solution folder.</li>
-    <li>Implement service-side application code for the the generated Controller Interfaces.</li>
-    <li>Create a client application that references the generated application ClientSDK and uses the LazyStackAuth Nuget package.</li>
-    <li>Using AWS Dashboard or AWS CLI, create an s3 bucket for deployments.</li>
-    <li>Open a Command Window and cd to the stack folder you want to deploy. Example &lt;solutionfolder>\Stacks\Dev
-        <ul>
-            <li><pre><code class="language-bash">$ sam deploy -t serverless.template --stackname &ltstackname> --s3-bucket &lt;s3bucket></code></pre></li>
-            Your stack is published. See <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-deploy.html" target="_blank" rel="noopener noreferrer">here</a> for sam deploy documentation
-        </ul>
-    </li>
-    <li>Open a Command Window and cd to the stack folder you want to generate an AwsSettings.json file for. Example &lt;solutionfolder>\Stacks\Dev
-        <ul>
-            <li><pre><code class="language-bash">$ lazystack settings &lt;stackname></code></pre></li>
-        </ul> 
-        An AwsSettings file will be generated.</li>
-    <li>Update client application to use the AwsSettings file as an embedded resource.</li>
-
-</ol>
 </div>
