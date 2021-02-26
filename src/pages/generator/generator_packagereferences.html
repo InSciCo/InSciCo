@@ -13,11 +13,14 @@ topic: Package References
     <pre><code class="language-yaml">ProjectOptions:    
   LambdaProjects:
     PackageReferences:
-      AWSSDK.S3: "3.3.110.58"
       AWSSDK.Extensions.NETCore.Setup: "3.3.100.1"
-      Amazon.Lambda.AspNetCoreServer: "5.1.0"</code></pre>
+      Amazon.Lambda.AspNetCoreServer: ""</code></pre>
   <p>PackageReferences may be applied to a project type, as in the LambdaProjects 
     example above, or be applied to specific projects.
+  </p>
+  <p>When the PackageReference version number is supplied then that version will be used. If the 
+    PackageReference version number is an empty value, then the version number will be looked up 
+    in the <a href="/generator/generator_nugetpackageversions.html">NugetPackageVersions</a>.
   </p>
   <h5>Project Types</h5>
   <ul>
