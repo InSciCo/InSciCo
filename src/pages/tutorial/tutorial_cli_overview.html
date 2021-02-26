@@ -7,11 +7,31 @@ tutorial: CLI
 {{> tutorial_menu}}
 <div class=lz-r-content>
     <h3>LazyStack .NET CLI Tutorial</h3>
-    <p>This tutorial assumes the use of .NET CLI 5 or newer. It is robust and meant to touch on all 
+    <p>This tutorial assumes the use of .NET 5.0 SDK. It is robust and meant to touch on all 
         the important aspects of building a real application stack and core components of a client application that 
         calls that stack. We use the ubiquitous OpenApi PetStore sample specification with 
         a few changes necessary to illustrate important AWS/LazyStack features.
     </p>
+
+    <h4>Prerequisites</h4>
+    <ul>
+      <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" 
+        rel="noopener noreferrer">Create AWS Account</a></li>
+        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" 
+            rel="noopener noreferrer">Install AWS CLI</a></li>
+        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
+            target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>
+        <li><a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank" rel="noopener noreferrer">Install .NET 5.0 SDK</a> 
+        - make sure you have the SDK installed, not just the runtime.</li>
+    </ul>  
+
+    <p>After you have the prerequisites installed, install the LazyStack CLI Tool. Open a console and issue this command:</p>
+<pre><code class="language-bash">dotnet tool install lazystackapp -g
+</code></pre>
+    <p>To update to the latest LazyStack generator, open a console and issue this command</p>
+    <pre><code class="language-bash">dotnet tool update lazystackapp -g
+</code></pre>        
+
     <p>Here are the tutorial lessons:</p>
     <ol>
         <li>Create PetStore solution</li>

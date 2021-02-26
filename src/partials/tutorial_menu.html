@@ -4,10 +4,16 @@
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+   
     <ul class="vertical menu dropdown">
         <li >
+            <a  href="/tutorial/tutorial_intro.html">
+                <span class="{{#ifpage 'tutorial_intro'}}lz-r-topicitem{{/ifpage}}">Tutorials</span>
+            </a>
+        </li>        
+        <li >
             <a  href="/tutorial/tutorial_overview.html">
-                <span class="{{#ifpage 'tutorial_overview'}}lz-r-topicitem{{/ifpage}}">Visual Studio Tutorial</span>
+                <span class="{{#ifpage 'tutorial_overview'}}lz-r-topicitem{{/ifpage}}">Visual Studio (Windows)</span>
             </a>
         </li>
         <div style="display: {{#ifequal tutorial 'VS'}}inline{{else}}none{{/ifequal}}">
@@ -69,7 +75,7 @@
 
         <li >
             <a  href="/tutorial/tutorial_cli_overview.html">
-                <span class="{{#ifpage 'tutorial_cli_overview'}}lz-r-topicitem{{/ifpage}}">.NET CLI Tutorial</span>
+                <span class="{{#ifpage 'tutorial_cli_overview'}}lz-r-topicitem{{/ifpage}}">DotNet CLI</span>
             </a>
         </li>
         <div style="display: {{#ifequal tutorial 'CLI'}}inline{{else}}none{{/ifequal}}">

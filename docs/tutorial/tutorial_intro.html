@@ -15,7 +15,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#getawssettings_getawssettings").addClass("is-active");
+            $("#tutorial_intro").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -49,7 +49,7 @@
                 </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
                   data-hide-for="medium">
                   <button class="menu-icon" type="button" data-toggle></button>
-                  <div class="title-bar-title" style="padding-left: 8px;">Libraries</div>
+                  <div class="title-bar-title" style="padding-left: 8px;">Tutorial</div>
                 </div>
                 
                 <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
@@ -85,13 +85,13 @@
                 
                       <li id="tutorialdocs">
                         <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
+                          <span class="lz-r-sectionitem">Tutorial</span>
                         </a>
                       </li>
                 
                       <li id="libraries">
                         <a href="/libraries/libraries_overview.html">
-                          <span class="lz-r-sectionitem">Libraries</span>
+                          <span class="">Libraries</span>
                         </a>
                       </li>
                 
@@ -123,84 +123,146 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Libraries</div>
+    <div class="title-bar-title">Overview</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+   
     <ul class="vertical menu dropdown">
-        <li>
-        <li>
-            <a  href="/libraries/libraries_overview.html">
-                <span class="">Overview</span>
+        <li >
+            <a  href="/tutorial/tutorial_intro.html">
+                <span class="lz-r-topicitem">Tutorials</span>
+            </a>
+        </li>        
+        <li >
+            <a  href="/tutorial/tutorial_overview.html">
+                <span class="">Visual Studio (Windows)</span>
             </a>
         </li>
-    
-        <li>
-            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">
-                <span class="">LazyStackAuth</span>
-            </a>
-        </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AuthMessages</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AuthProvider</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AuthProcess</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">LzHttpClient</span>
-            </a>
-        </li>
 
-        <li>
-            <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">
-                <span class="lz-r-topicitem">GetAwsSettings</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/dynamodb/dynamodb_overview.html">
-                <span class="">DynamoDBRepo</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/dynamodb/dynamodb_ermodel.html">&nbsp;&nbsp;&nbsp;
-                <span class="">PetStore ER Model</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/tutorial/tutorial_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">8) Xamarin App</span>
+                </a>
+            </li>
 
-        <li>
-            <a  href="/libraries/dynamodb/dynamodb_intro.html">&nbsp;&nbsp;&nbsp;
-                <span class="">DynamoDB Intro</span>
+            <li >
+                <a  href="/tutorial/tutorial_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
+
+        <li >
+            <a  href="/tutorial/tutorial_cli_overview.html">
+                <span class="">DotNet CLI</span>
             </a>
         </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_configure01.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+        </div>
+
+
 
     </ul>
-</div><div class=lz-r-content>
-    <h4>LazyStackGetAwsSettings App</h4>
-    <p>The LazyStackGetAwsSettings console app project is a tool that uses AWS CloudFormation to query the contents 
-        of a published AWS Stack and then generate a json file containing the information necessary 
-        for your client to connect to and use Cognito Authentication Provider provisioned in that stack.
+</div>
+<div class=lz-r-content>
+    <h3>LazyStack Tutorials</h3>
+    <p>The LazyStack tutorials are robust and meant to touch on all the important aspects of building 
+        a real application stack and core components of a client application that 
+        calls that stack. We use the ubiquitous OpenApi PetStore sample specification with 
+        a few changes necessary to illustrate important AWS/LazyStack features.
     </p>
-    <p>This utility produces AwsSettings.json files as those produced by the LazyStack Visual Studio 
-        extension and CLI tools.</p>
-    <p>This tool is useful if you are using the LazyStackAuth library but not using the LazyStack Generator to 
-        generate your stacks.
-    </p>    
+    <ul>
+        <li><a href="/tutorial/tutorial_overview.html">Visual Studio Tutorial (Windows)</a></li>
+        <li><a href="/tutorial/tutorial_cli_overview.html">DotNet CLI Tutorial</a></li>
+        <li>Visual Studio (Mac) -- coming soon</li>
+    </ul>
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
