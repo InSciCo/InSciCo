@@ -15,7 +15,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#tutorial_cli_overview").addClass("is-active");
+            $("#tutorial_vswin_xamarinapp").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -123,7 +123,7 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Overview</div>
+    <div class="title-bar-title">Xamarin App</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
@@ -139,7 +139,7 @@
                 <span class="">Visual Studio (Windows)</span>
             </a>
         </li>
-        <div style="display: none">
+        <div style="display: inline">
             <li >
                 <a  href="/tutorial/tutorial_vswin_petstore.html">&nbsp;&nbsp;&nbsp;
                     <span class="">1) PetStore</span>
@@ -185,7 +185,7 @@
 
             <li >
                 <a  href="/tutorial/tutorial_vswin_xamarinapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="">8) Xamarin App</span>
+                    <span class="lz-r-topicitem">8) Xamarin App</span>
                 </a>
             </li>
 
@@ -198,10 +198,10 @@
 
         <li >
             <a  href="/tutorial/tutorial_cli_overview.html">
-                <span class="lz-r-topicitem">DotNet CLI</span>
+                <span class="">DotNet CLI</span>
             </a>
         </li>
-        <div style="display: inline">
+        <div style="display: none">
             <li >
                 <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
                     <span class="">1) PetStore</span>
@@ -252,46 +252,142 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>LazyStack .NET CLI Tutorial</h3>
-    <p>This tutorial assumes the use of .NET 5.0 SDK. It is robust and meant to touch on all 
-        the important aspects of building a real application stack and core components of a client application that 
-        calls that stack. We use the ubiquitous OpenApi PetStore sample specification with 
-        a few changes necessary to illustrate important AWS/LazyStack features.
+    <h3>Create a Xamarin Forms App</h3>
+    <p>In this step we will create a Xamarin app with a fully functional Authentication process 
+        and one simple page with content produced by a call against the PetStore class. 
     </p>
-
-    <h4>Prerequisites</h4>
-    <ul>
-      <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" 
-        rel="noopener noreferrer">Create AWS Account</a></li>
-        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" 
-            rel="noopener noreferrer">Install AWS CLI</a></li>
-        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
-            target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>
-        <li><a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank" rel="noopener noreferrer">Install .NET 5.0 SDK</a> 
-        - make sure you have the SDK installed, not just the runtime.</li>
-    </ul>  
-
-    <p>After you have the prerequisites installed, install the LazyStack CLI Tool. Open a console and issue this command:</p>
-<pre><code class="language-bash">dotnet tool install lazystackapp -g
-</code></pre>
-    <p>To update to the latest LazyStack generator, open a console and issue this command</p>
-    <pre><code class="language-bash">dotnet tool update lazystackapp -g
-</code></pre>        
-
-    <p>Here are the tutorial lessons:</p>
+    <h4>8.1 Create the PetStoreMobileApp Project(s)</h4>
     <ol>
-        <li>Create PetStore solution</li>
-        <li>Implement Controllers</li>
-        <li>Configure LazyStack</li>
-        <li>Publish Stack to AWS</li>
-        <li>Test local WebApi</li>
-        <li>Create a PetStoreTests project</li>
-        <li>Create a Console App</li>
+        <li>Right Click on "Solution PetStore" in the Solution Explorer. The context menu appears.</li>
+        <li>Select "Add &RightArrow; New Project". The "Add new project" page appears.</li>
+        <li>Type "Mobile App (Xamarin.Forms)" in the search field. The project template is listed.</li>
+        <li>Select the "Mobile App (Xamarin.Forms)" template and click the Next button. The Configure your new project page appears.</li>
+        <li>Edit the project name to read "PetStoreMobileApp".</li>
+        <li>Click on the Create button.  The "New Mobile App" dialog appears.</li>
+        <li>Select the "Blank" app option</li>
+        <li>Ensure only the Android target is selected.</li>
+        <li>Click on the Create button. The PetStoreMobileApp and PetStoreMobileApp.Andriod projects are created.</li>
+
+        <li>Use the NuGet package manager to update each of these three projects to use the 
+            later versions of the Nuget Xamarin Forms package and Nuget Xamarin Essentials package.
+        </li>
     </ol>
-    <p>Lessons 1-4 are mandatory. Lessons 5-7 are optional and can be done in any order.</p>
-    <p>It may take between 1 and 3 hours to complete the tutorial.</p>
-    <p>For a fast review, you can simply clone the <a href="https://github.com/InSciCo/LazyStackTutorial" target="_blank" rel="noopener noreferrer">LazyStackTutorial repo</a> from GitHub 
-        and explore the code as you read through the tutorial lessons.
+    <h4>8.2 Update the PetStoreMobileApp Project</h4>
+    <p>In this tutorial we implement a very simple two page Xamarin app. The HomePage implements user sign up and authentication. Once 
+        the user is authenticated the page presents a "See Pets" button that navigates to a page showing pets available.</p>
+    <ol>
+        <li>Double Click on the PetStoreMobileApp project. The project's csproj file opens in an editor tab.</li>
+        <li>Replace the contents of the csproj file with this content:
+            <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
+
+    &lt;PropertyGroup>
+        &lt;TargetFramework>netstandard2.1&lt;/TargetFramework>
+        &lt;ProduceReferenceAssembly>true&lt;/ProduceReferenceAssembly>
+    &lt;/PropertyGroup>
+    
+    &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        &lt;DebugType>portable&lt;/DebugType>
+        &lt;DebugSymbols>true&lt;/DebugSymbols>
+    &lt;/PropertyGroup>
+    
+    &lt;ItemGroup>
+        &lt;PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+        &lt;PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+        &lt;PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    &lt;/ItemGroup>
+    
+    &lt;ItemGroup>
+        &lt;ProjectReference Include="..\..\PetStoreClientSDK\PetStoreClientSDK.csproj" />
+    &lt;/ItemGroup>
+    
+    &lt;ItemGroup>
+        &lt;EmbeddedResource Include="..\..\Stacks\Dev\AwsSettings.json" />
+        &lt;EmbeddedResource Include="..\..\LocalApis.json" />
+    &lt;/ItemGroup>
+    
+    &lt;ItemGroup>
+        &lt;EmbeddedResource Update="Views\ItemsPage.xaml">
+        &lt;Generator>MSBuild:Compile&lt;/Generator>
+        &lt;/EmbeddedResource>
+    &lt;/ItemGroup>
+    
+&lt;/Project></code></pre>
+        </li>        
+        <li>Save the file.</li>
+        <li>Right click on the MainPage.xaml file and select Delete. The MainPage.xaml and MainPage.xaml.cs files are deleted from the project and disk.</li>
+        <li>Right click on the App.xaml file and select Delete. The App.xaml and App.xaml.cs files are deleted from the project and disk.</li>
+        <li>Download <a href="/assets/tutorial/VSWin/App.xaml" download>App.xaml</a> and move it into the PetStoreMobileApp project folder using Windows Explorer. Use 
+            Windows Explorer instead of dropping the file into Visual Studio to avoid Visual Studio trying to create an App.xaml.cs file for you.
+        </li>
+        <li>Download <a href="/assets/tutorial/VSWin/App.xaml.cs" download>App.xaml.cs</a> and move it into the PetStoreMobileApp project folder using Windows Explorer.</li>
+        <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
+        <li>Select Add &rightarrow; New Folder. A new folder is added to the project. Edit the folder name to read "Views".</li>
+        <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
+        <li>Select Add &rightarrow; New Folder. A new folder is added to the project. Edit the folder name to read "ViewModels".</li>
+        <li>Download the following files and move them into the PetStoreMobileApp/ViewModel folder.
+            <ul>
+                <li><a href="/assets/tutorial/VSWin/BaseViewModel.cs" download>BaseViewModel.cs</a></li>
+                <li><a href="/assets/tutorial/VSWin/ItemsViewModel.cs" download>ItemsViewModel.cs</a></li>
+                <li><a href="/assets/tutorial/VSWin/MainPageViewModel.cs" download>MainPageViewModel.cs</a></li>
+            </ul>
+        </li>
+        <li>Add a Views folder </li>
+        <li>Download the following files and move them into the PetStoreMobileApp/ViewModel folder using Windows Explorer.
+            <ul>
+                <li><a href="/assets/tutorial/VSWin/ItemsPage.xaml" download>ItemsPage.xaml</a></li>
+                <li><a href="/assets/tutorial/VSWin/ItemsPage.xaml.cs" download>ItemsPage.xaml.cs</a></li>
+                <li><a href="/assets/tutorial/VSWin/MainPage.xaml" download>MainPage.xaml</a></li>
+                <li><a href="/assets/tutorial/VSWin/MainPage.xaml.cs" download>MainPage.xaml.cs</a></li>
+            </ul>
+        </li>
+
+    </ol>
+
+    <h4>8.3 Update to the latest Xamarin packages.</h4>
+    <ol>
+        <li>Right click on the PetStore solution. The context menu appears.</li>
+        <li>Select "Manage Nuget Packages for Solution". The "Nuget - Solution" tab opens.</li>
+        <li>Select "Nuget - Solution &rightarrow; Updates". Available Nuget Package updates are listed.</li>
+        <li>If Xamarin.Essentials or Xamarin.Forms is listed, click the checkboxes next to them and then click the Update button. The latest Xamarin packages are 
+            now referenced in the PetStoreMobileApp and PetStoreMobileApp.Android projects.
+        </li>
+    </ol>
+    <h4>8.4 Configure the PetStoreMobileApp.Android Project</h4>
+    <p>You may need to update the PetStoreMobileApp.Android project to use a newer TargetFrameworkVersion.</p>
+    <ol>
+        <li>Right click on the PetStoreMobileApp.Android project. The context menu appears.</li>
+        <li>Select "Properties". The PetStoreMobileApp.Android properties tab opens.</li>
+        <li>Select the latest installed Target Framework - for instance "Android 10.0". A dialog appears asking if you are sure you want to 
+            change the Target Framework. Click the Yes button.
+        </li>
+    </ol>
+    <h4>8.5 Add Hero Image Resource to PetStoreMobileApp.Android Project</h4>
+    <ol>
+        <ul>
+            <li>Download <a href="/assets/tutorial/VSWin/LazyLogo800x800.png" download>LazyLogo800x800.png</a> and move it into the 
+            PetStoreMobileLapp.Android/Resources/drawable folder. If you move this file by dragging it onto the drawable folder 
+        in the Visual Studio Solution Explorer, it will be automatically added to the folder. If you move it using Windows Explorer, 
+        you may have to use Add Existing File to get Visual Studio to "see" this file.</li>
+        </ul>
+    </ol>
+
+    <p></p>
+    <h4>8.6 Run App</h4>
+    <p></p>
+    <ol>
+        <li>Right Click on the PetStoreMobileApp.Andriod project. The context menu appears.</li>
+        <li>Select "Set as Startup Project".</li>
+        <li>Debug the project. The Android emulator opens and the App launches.</li>
+        <li>Sign In</li>
+        <li>Click the "See Pets" button to see a list of Pets retrieved from the PetStoreDev stack.</li>
+    </ol>
+
+    <p></p>
+    <h4>Step Summary</h4>
+    <p>In this step we started with a simple Xamarin two page application to demonstrate
+        authentication services against AWS Cognito using the LazyStackAuth library. In addition, we used the 
+        PetStore class from the PetStoreClientSDK library to make secure calls against the PetStoreDev 
+        stack to show the available pet inventory.
     </p>
 </div>
             <div id=hacky-privacy-spacer></div>

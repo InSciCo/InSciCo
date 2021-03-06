@@ -15,7 +15,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#tutorial_cli_overview").addClass("is-active");
+            $("#tutorial_vswin_configure").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -123,7 +123,7 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Overview</div>
+    <div class="title-bar-title">Configure LazyStack</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
@@ -139,7 +139,7 @@
                 <span class="">Visual Studio (Windows)</span>
             </a>
         </li>
-        <div style="display: none">
+        <div style="display: inline">
             <li >
                 <a  href="/tutorial/tutorial_vswin_petstore.html">&nbsp;&nbsp;&nbsp;
                     <span class="">1) PetStore</span>
@@ -154,7 +154,7 @@
 
             <li >
                 <a  href="/tutorial/tutorial_vswin_configure.html">&nbsp;&nbsp;&nbsp;
-                    <span class="">3) Configure LazyStack</span>
+                    <span class="lz-r-topicitem">3) Configure LazyStack</span>
                 </a>
             </li>
             
@@ -198,10 +198,10 @@
 
         <li >
             <a  href="/tutorial/tutorial_cli_overview.html">
-                <span class="lz-r-topicitem">DotNet CLI</span>
+                <span class="">DotNet CLI</span>
             </a>
         </li>
-        <div style="display: inline">
+        <div style="display: none">
             <li >
                 <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
                     <span class="">1) PetStore</span>
@@ -252,48 +252,89 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>LazyStack .NET CLI Tutorial</h3>
-    <p>This tutorial assumes the use of .NET 5.0 SDK. It is robust and meant to touch on all 
-        the important aspects of building a real application stack and core components of a client application that 
-        calls that stack. We use the ubiquitous OpenApi PetStore sample specification with 
-        a few changes necessary to illustrate important AWS/LazyStack features.
-    </p>
-
-    <h4>Prerequisites</h4>
-    <ul>
-      <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" 
-        rel="noopener noreferrer">Create AWS Account</a></li>
-        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" 
-            rel="noopener noreferrer">Install AWS CLI</a></li>
-        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
-            target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>
-        <li><a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank" rel="noopener noreferrer">Install .NET 5.0 SDK</a> 
-        - make sure you have the SDK installed, not just the runtime.</li>
-    </ul>  
-
-    <p>After you have the prerequisites installed, install the LazyStack CLI Tool. Open a console and issue this command:</p>
-<pre><code class="language-bash">dotnet tool install lazystackapp -g
+<h3>Configure LazyStack Projects and DynamoDB</h3>
+<p>In this step we make some additions to the LazyStack.yaml file to support the use of DynamoDB and configure 
+  the Lambda and WebApi projects to reference the new PetStoreRepo project. Before we look at 
+    the LazyStack.yaml configuration directives in detail, here is a high-level summary of what we need to do:
+</p>
+<ul>
+    <li>Use <a href="/generator/generator_apitagmap.html">ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
+    <li>Use <a href="/generator/generator_projectoptions.html">ProjectOptions</a> directive to configure these project options
+        <ul>
+            <li><a href="/generator/generator_properties.html">Properties</a></li>
+            <li><a href="/generator/generator_projectreferences.html">ProjectReferences</a> - tell Lambda projects and WebApi projects about the new PetStoreRepo project.</li>
+            <li><a href="/generator/generator_serviceregistrations.html">ServiceRegistrations</a> - use dependency injection to get instances of PetStoreRepo and DynamoDB.</li>
+        </ul>
+    </li>
+    <li>Use <a href="/generator/generator_awsresources.html">AwsResources</a> directive to define AWS::DynamoDB::Table resource for our stack.</li>
+</ul>
+<p>When you execute LazyStack - Generate Projects, the following projects are regenerated:</p>
+<ul>
+  <li>Controller projects</li>
+  <li>Lambda projects</li>
+  <li>PetStoreClientSDK project</li>
+  <li>PetStoreSchema project</li>
+</ul>
+<p>These generated projects should not be edited as your changes would be lost.</p>
+<p>In addition to the generated projects, portions of the WebApi project "PetStore" are updated with each execution of 
+  LazyStack - Generate Projects. 
+</p>
+<p>LazyStack - Generate Projects does not update or modify any other projects in your solution.</p>
+<h4>3.1 Update LazyStack.yaml and Generate Projects</h4>
+<ol>
+   <li>Download this <a href="/assets/tutorial/VSWin/LazyStack.yaml" download="LazyStack.yaml">LazyStack.yaml</a> file and move it into the 
+    solution's root folder.</li>
+    <li>Open the LazyStack.yaml file and edit the ProfileName and RegionName values if necessary.</li>
+    <li>Save the LazyStack.yaml file.</li>
+    <li>Select Tools &RightArrow; LazyStack - Generate Projects. 
+        <p>The LazyStack.log tab opens and logs are produced as Projects and generated files are updated.</p>
+    </li> 
+    <li>Rebuild Solution. All projects in the solution are compiled successfully.</li>
+</ol>
+<h4>3.2 Update WebApi project (PetStore) launchSettings.json file</h4>
+<ol>
+    <li>Open the PetStore\Properties\launchSettings.json file.</li>
+    <li>Add the "TABLE_NAME" environmental variable as shown below on line 25.</li>
+<pre class="line-numbers"><code class="language-json">
+{
+    "iisSettings": {
+      "windowsAuthentication": false, 
+      "anonymousAuthentication": true, 
+      "iisExpress": {
+        "applicationUrl": "http://localhost:62817",
+        "sslPort": 44399
+      }
+    },
+    "profiles": {
+      "IIS Express": {
+        "commandName": "IISExpress",
+        "launchBrowser": true,
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "PetStore": {
+        "commandName": "Project",
+        "launchBrowser": true,
+        "applicationUrl": "https://localhost:5001;http://localhost:5000",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development",
+          "TABLE_NAME": "PetStoreDev-DB"
+        }
+      }
+    }
+  }
 </code></pre>
-    <p>To update to the latest LazyStack generator, open a console and issue this command</p>
-    <pre><code class="language-bash">dotnet tool update lazystackapp -g
-</code></pre>        
-
-    <p>Here are the tutorial lessons:</p>
-    <ol>
-        <li>Create PetStore solution</li>
-        <li>Implement Controllers</li>
-        <li>Configure LazyStack</li>
-        <li>Publish Stack to AWS</li>
-        <li>Test local WebApi</li>
-        <li>Create a PetStoreTests project</li>
-        <li>Create a Console App</li>
-    </ol>
-    <p>Lessons 1-4 are mandatory. Lessons 5-7 are optional and can be done in any order.</p>
-    <p>It may take between 1 and 3 hours to complete the tutorial.</p>
-    <p>For a fast review, you can simply clone the <a href="https://github.com/InSciCo/LazyStackTutorial" target="_blank" rel="noopener noreferrer">LazyStackTutorial repo</a> from GitHub 
-        and explore the code as you read through the tutorial lessons.
-    </p>
-</div>
+<li>Save the file.</li>
+</ol>
+<p></p>
+<h4>Step Summary</h4>
+<p>In this step we updated the LazyStack.yaml file to create a DynamoDB resource and configure the 
+    WebApi (PetStore) project and Lambdas projects to reference the PetStoreRepo project. We also 
+    inserted an environment variable "TABLE_NAME" in the WebApi project's launchSettings.json file to 
+    reference a table called "PetStoreDev-DB" in the DynamoDb resource.
+</p>
+</div> 
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
             <script src="/assets/prism/prism.js"></script>
