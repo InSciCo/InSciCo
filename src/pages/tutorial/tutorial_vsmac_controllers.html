@@ -1,0 +1,86 @@
+---
+layout: docpage
+section: Tutorial
+topic: Implement Controllers
+tutorial: VSMac
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Implement PetStore application Controllers</h3>
+    <p>In this lesson step we will add controller logic to the Controller projects in the PetStoreMac solution.
+        In most applications we have a persistence layer, often called the repository layer. In this
+        tutorial we create a PetStoreRepo project to use DynamoDB to store our data and
+        then configure our Controller classes to use that PetStoreRepo. Since our PetStoreRepo will use 
+        AWS DynamoDB, we use the LazyStackDynamoDBRepo NuGet package that implements generic 
+        Create, Read, Update, Delete and List (CRUDL) operations on the Amazon DynamoDB. 
+    </p>
+
+    <h4>2.1 Create the PetStoreRepo project</h4>
+    <ol>
+        <li>Create PetStoreRepo project from "C# Class Library (.NET Core)" template.
+            <ol type="a">
+                <li>Right Click on Solution PetStore item in the solution explorer. The context menu appears.</li>
+                <li>Select the Add &RightArrow; New Project context menu item. The "Choose a template for 
+                    your new project" dialog appears.</li>
+                <li>Select the "Web and Console &rightarrow; Library &rightarrow; Class Library" project template. </li>
+                <li>Click the Next button. The next page in the "Configure your new Class Library" page is
+                    presented.
+                </li>
+                <li>Set the Target Framework to ".NET Core 3.1" and press the Next button. The second page of the 
+                    "Configure your new Class Library" dialog appears.
+                </li>
+                <li>Enter "PetStoreRepo" int the Project Name field.</li>
+                <li>Click the Create button.</li>
+
+                <li>Click the Create button. The project is created with a default class Class1.cs.</li>
+            </ol>
+        </li>
+        <li>Add Package References
+            <ol type="a">
+                <li >Right click on Dependencies. The context menu appears.</li>
+                <li>Select Manage NuGet Packages. the NuGet: PetStoreRepo tab appears.</li>
+                <li>Select Browse.</li>
+                <li>Type "LazyStack" into the search field. The LazyStackDynamoDBRepo package is listed.</li>
+                <li>Select the LazyStackDynamoDBRepo package and then click on the Add Package button. The package 
+                    is installed.</li>
+            </ol>
+        </li>
+        <li>Delete the Class1.cs file from the PetStoreRepo project.</li>
+        <li>Right Click on the PetStoreRepo project. The context menu appears.</li>
+        <li>Select Add &RightArrow; New Folder. The "New Folder" dialog appears,.</li>
+        <li>Enter "Models" as the folder name and press the Add button.</li>
+        <li>Click on the following class files to download them and then move them into the Models folder.
+            <ul>
+                <li><a href="/assets/tutorial/VSMac/CategoryRepoMac.cs" download>CategoryRepo.cs</a></li>
+                <li><a href="/assets/tutorial/VSMac/OrderRepoMac.cs" download>OrderRepo.cs</a></li>
+                <li><a href="/assets/tutorial/VSMac/PetRepoMac.cs" download>PetRepo.cs</a></li>
+                <li><a href="/assets/tutorial/VSMac/TagRepoMac.cs" download>TagRepo.cs</a></li>
+            </ul>
+        </li>
+        <li>Add PetStoreRepo Project References
+            <ol type="a">
+                <li>Right click on Dependencies. The context menu appears.</li>
+                <li>Select Add Project Reference. The Reference Manager dialog appears.</li>
+                <li>Select these projects:
+                    <ul>
+                        <li>OrderController</li>
+                        <li>OrderSecureController</li>
+                        <li>PetController</li>
+                        <li>PetSecureController</li>
+                    </ul>
+                </li>
+                <li>Click the OK button. </li>
+            </ol>
+        <li>Build the project. The project builds successfully.</li>
+    </ol>
+    <h4>Step Summary</h4>
+    <p>In this step we implemented the PetStoreRepo project by:</p>
+    <ul>
+        <li>Creating a PetStoreRepo project using the C# Class .NET Core Library template.</li>
+        <li>Referencing the LazyStackDynamoDBRepo NuGet package generated controller projects.</li>
+        <li>Implementing the PetStoreRepo repository logic with the CategoryRepo.cs, OrderRepo.cs, PetRepo.cs and 
+            TagRepo.cs files.
+        </li>
+    </ul>
+
+</div>

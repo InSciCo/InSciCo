@@ -1,0 +1,86 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h3>Lazystack for Visual Studio MacOS</h3>
+    <p>Visual Studio for Mac supports extensions but submissions to the gallery are no longer being accepted by 
+        Microsoft so we don't provide a LazyStack extesnion for Mac. Instead, we use the Visual Studio for Mac 
+        External Tools capability to make it easy to call LazyStack from the IDE. 
+    </p>
+    <p>The AWS Toolkit is not avaiable for Mac either. However, AWS provides the SAM CLI that we can use instead. Just 
+        like LazyStack, we use the Visual Studio for Mac External Tools capability to make using the SAM CLI to 
+        publish stack to AWS easy from the IDE.
+    </p>
+    <h4>Install Steps</h4>
+    <ol>
+        <li><a href="https://visualstudio.microsoft.com/downloads/" 
+            target="_blank" rel="noopener noreferrer">Install/Update Visual Studio 2019 for Mac</a>
+        </li>        <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" 
+            target="_blank" rel="noopener noreferrer">Create AWS Account</a> - skip this step if you already have an AWS account.</li>
+        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" 
+            target="_blank" rel="noopener noreferrer">Install AWS CLI</a> - skip this step if you already have the AWS CLI v2 installed.</li>
+            <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
+                target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a> - skip this step if you already have the SAM CLI installed.</li>        
+    <li>Install .NET CLI LazyStack Tool>
+    <p>Open a Terminal and issue this command:</p>
+    <pre><code class="language-bash">dotnet tool install lazystackapp -g</code></pre>
+    </li>
+
+    <li>Configure Visual Studio for Mac External Tools
+    <ol>
+        <li>Open Visual Studio for Mac</li>
+        <li>Add LazyStack -- Generate Projects tool
+            <ol type="a">
+                <li>Select Tools&rightarrow;Edit Custom Tools. The External Tools Pannel appears.</li>
+                <li>Click the Add button. "New Tool" is added to the tools list.</li>
+                <li>Select "New Tool".</li>
+                <li>Edit Title to read "LazyStack - Generate Projects"</li>
+                <li>Edit Command to read "/Users/yourlogin/.dotnet/lazystack". Be sure to replace yourlogin with your mac user name.</li>
+                <li>Edit Arguments to read "projects"</li>
+                <li>Edit Working Directory to read "${SolutionDir}"".</li>
+                <li>Make sure Use output Window is checked.</li>
+            </ol>
+        </li>
+        <li>Add SAM Publish AWS Stack tool
+            <ol type="a">
+                <li>Click the Add button. "New Tool" is added to the tools list.</li>
+                <li>Select "New Tool".</li>
+                <li>Edit Title to read "SAM Publish AWS Stack"</li>
+                <li>Edit Command to read "sam".</li>
+                <li>Edit Arguments to read "deploy -t Stacks/Dev/serverless.template --stack-name ${SolutionName}Dev --s3-bucket samimages --capabilities CAPABILITY_NAMED_IAM"</li>
+                <li>Edit Working Directory to read "${SolutionDir}"".</li>
+                <li>Make sure Use output Window is checked.</li>
+            </ol>
+        </li>
+        <li>Add LazyStack -- Generate Stacks\Dev\AwsSettings.json tool
+            <ol type="a">
+                <li>Click the Add button. "New Tool" is added to the tools list.</li>
+                <li>Select "New Tool".</li>
+                <li>Edit Title to read "LazyStack - Generate Stacks\Dev\AwsSettings.json"</li>
+                <li>Edit Command to read "/Users/yourlogin/.dotnet/lazystack". Be sure to replace yourlogin with your mac user name.</li>
+                <li>Edit Arguments to read "settings ${SolutionName}Dev Stacks/Dev/AwsSettings.json"</li>
+                <li>Edit Working Directory to read "${SolutionDir}"".</li>
+                <li>Make sure Use output Window is checked.</li>
+                <li>Click the OK button. The External Tools Pannel closes.</li>
+            </ol>
+        </li>
+        <li>Use AWS CLI to add a S3 samimages bucket
+            <ol type="a">
+                <li>Open a Terminal.</li>
+                <li>Enter the following command: (change the region to match your region)
+                    <pre><code class="language-bash">aws s3api create-bucket --bucket samimages --region us-east-1 --acl private</code></pre>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    </li>
+    </ol>
+<h4>Updating CLI LazyStack Tool</h4>
+<p>To update to the latest LazyStack generator, open a Terminal and issue this command</p>
+<pre><code class="language-bash">dotnet tool update lazystackapp -g</code></pre>     
+
+</div>
+ 

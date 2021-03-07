@@ -1,0 +1,144 @@
+---
+layout: docpage
+section: Tutorial
+topic: Console App
+tutorial: VSMac
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Create a .NET Console App</h3>
+    <p>In this step we will create a simple PetStoreConsoleApp. This console app will 
+        support all the features of AuthProcess running against AWS Cognito, initialize 
+        the PetStore library and make a simple call against the stack.
+    </p>
+    <h4>7.1 Create PetStoreConsoleApp Project</h4>
+    <ol>
+        <li>Right Click on "Solution PetStoreMac" in the Solution Explorer. The context menu appears.</li>
+        <li>Select "Add &RightArrow; New Project" from the context menu. The "Choose a template for your new project" dialog appears.</li>
+        <li>Select "Web and Console &rightarrow; App &rightarrow; Console Application" in the search field. </li>
+        <li>Click on the Next button. The "Configure your new Console Application" dialog appears.</li>
+        <li>Select ".NET 5.0" as the Target Framework and click the Next button. The next "Configure your new Console Applciation" 
+            dialog page appears.</li>
+        <li>Edit the project name to read "PetStoreConsoleApp" and click the Create button. The project is added to the solution.</li>
+    </ol>
+
+    <h4>7.2 Configure PetStoreConsoleApp Project</h4>
+    <ol>
+        <li>Add the following project References:
+            <ul>
+                <li>PetStoreMacClientSDK</li>
+            </ul>
+        </li>
+        <li>Add the following package reference:
+            <ul>
+                <li>Microsoft.Extensions.Configuration.Json</li>
+            </ul>
+        </li>
+        <li>Add embedded AwsSettings.json resource.
+            <ol type="a">
+                <li>Double Click on the PetStoreConsoleApp project in the Solution Explorer. The csproj file opens in an 
+                    editor tab.</li>
+                <li>Insert the following Item Group into the csproj file.
+                    <pre><code class="language-xml">
+  &lt;ItemGroup>
+    &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
+    &lt;EmbeddedResource Include="..\LocalApis.json" />
+  &lt;/ItemGroup>                        
+                    </code></pre>
+                </li>
+                <li>Save the file.</li>
+            </ol>
+        </li>
+    </ol>
+    <h4>7.3 Implement Program</h4>
+    <ol>
+        <li>Download <a href="/assets/tutorial/VSMac/Program.cs" download>Program.cs</a> and move it into your project, 
+        replacing the existing Program.cs.</li>
+        <li>Build project.</li>
+    </ol>
+    <p></p>
+    <h4> Run Project</h4>
+    <h5>7.4 Run Against Stack</h5>
+    <ol>
+        <li>Right Click "PetStoreConsoleApp" project in solution explorer. The context menu appears.</li>
+        <li>Select Set as Startup Project.</li>
+        <li>Debug program. A command window opens.
+            <p>Here is a sample command window session: </p>
+            <p>You can use any login, password and email you want in this tutorial step. The email must be 
+                valid so you can receive the authentication code sent to that email in the sign up step. You 
+                can sign up only once with the same email address.
+            </p>            
+        <pre><code class="language-text">Welcome to the PetStoreConsoleApp program
+Use LocalApi? y/n:n
+1. Sign Up
+2. Sign In
+3. Reset Password
+4. Quit
+>1
+Enter your Login: MyLoginName
+Enter your Password: MyPassword!
+Enter your Email address: myemail@gmail.com
+Enter authentication code: 984185
+You are Signed Up! You can now SignIn.
+1. Sign Up
+2. Sign In
+3. Reset Password
+4. Quit
+>2
+Enter your Login: MyLoginName
+Enter your current Password: MyPassword!
+1. Sign Out
+2. Update Password
+3. Update Phone
+4. Update Login
+5. Seed Pets data
+6. Get Pet 1
+7. Quit
+>5
+Pets added to database
+1. Sign Out
+2. Update Password
+3. Update Phone
+4. Update Login
+5. Seed Pets data
+6. Get Pet 1
+7. Quit
+>6
+pet: 1 Alf Available
+1. Sign Out
+2. Update Password
+3. Update Phone
+4. Update Login
+5. Seed Pets data
+6. Get Pet 1
+7. Quit
+>7</code></pre>
+    </li>
+    </ol>
+<h5>7.5 Run Against Local WebApi</h5>
+<p>In this step we launch a second instance of Visual Studio for Mac and open the </p>
+<ol>
+    <li>This assumes you have an instance of Visual Studio for Mac open on the PetStoreMac solution.</li>
+    <li>Right click on the Visual Studio icon in the MacOS dockbar. The context menuy appears.</li>
+    <li>Select "New Instance". The Visual Studio launch dialog appears.</li>
+    <li>Open the PetStoreMac solution. You now have two instances of Visual Studio for Mac opened on the PetStoreMac solution.</li>
+    <li>In the new instance, right click on the (WebApi) PetStoreMac project. The context menu appears.</li>
+    <li>Select "Start Debugging Project". The PetStoreMac project launches. This is your local 
+        WebApi.
+    </li>
+    <li>In the other instance, start debugging the PetStoreConsoleApp.</li>
+    <li>In the PetStoreConsoleApp command window. Answer 'y' to the "Use LocalApi?" prompt.
+        <p>Your authentication process still runs against the AWS stack but your calls to the 
+            PetStore library will call the Local WebApi (PetStoreMac) project. You can set debug 
+            breakpoints in both the PetStoreConsoleApp and PetStoreMac projects!
+        </p>
+    </li>
+    <li>Stop debugging in both Visual Studio instances. Close the second instance you used to 
+        run the PetStoreMac project.
+    </li>
+</ol>
+<h4>Step Summary</h4>
+<p>In this step we created a Console App project and used it to run against both the AWS Application Stack 
+    and the local WebApi (PetStoreMac) project. When running locally, we can simultaneously debug the client and WebApi projects.
+</p>
+</div>

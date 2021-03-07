@@ -1,0 +1,481 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#tutorial_vsmac_xamarinapp").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                    <div style="position:fixed;top:21px;left:16px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px; max-width: 223px;">
+                        <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                    </div>
+                    
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Tutorial</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="lz-r-sectionitem">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/generator_overview.html">
+                            <span class="">Generator</span>
+                        </a>
+                      </li>
+                
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">Xamarin App</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+   
+    <ul class="vertical menu dropdown">
+        <li >
+            <a  href="/tutorial/tutorial_intro.html">
+                <span class="">Tutorials</span>
+            </a>
+        </li>        
+        <li >
+            <a  href="/tutorial/tutorial_vswin_overview.html">
+                <span class="">Visual Studio (Windows)</span>
+            </a>
+        </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_vswin_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_configure.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_vswin_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">8) Xamarin App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vswin_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
+
+        <li >
+            <a  href="/tutorial/tutorial_vsmac_overview.html">
+                <span class="">Visual Studio (Mac)</span>
+            </a>
+        </li>
+        <div style="display: inline">
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_configure.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_xamarinapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="lz-r-topicitem">8) Xamarin App</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_vsmac_blazorapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">9) Blazor App</span>
+                </a>
+            </li>
+        </div>
+
+        <li >
+            <a  href="/tutorial/tutorial_cli_overview.html">
+                <span class="">DotNet CLI</span>
+            </a>
+        </li>
+        <div style="display: none">
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">1) PetStore</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">2) Implement Controllers</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_configure.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">3) Configure LazyStack</span>
+                </a>
+            </li>
+            
+            <li >
+                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">4) Publish to AWS</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">5) Test Local WebApi</span>
+                </a>
+            </li>
+
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">6) PetStore Test</span>
+                </a>
+            </li>
+
+            <li >
+                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
+                    <span class="">7) Console App</span>
+                </a>
+            </li>
+
+        </div>
+
+
+
+    </ul>
+</div>
+<div class=lz-r-content>
+    <h3>Create a Xamarin Forms App</h3>
+    <p>In this step we will create a Xamarin app with a fully functional Authentication process 
+        and one simple page with content produced by a call against the PetStore class. 
+    </p>
+    <h4>8.1 Create the PetStoreMobileApp Project(s)</h4>
+    <ol>
+        <li>Right Click on "Solution PetStore" in the Solution Explorer. The context menu appears.</li>
+        <li>Select "Add &RightArrow; New Project". The "Choose a template for your project" dialog appears.</li>
+        <li>Select "Multiplatform &rightarrow; App &rightarrow; Blank Forms App" and click on the Next button. 
+            The "Configure your Tabbed Forms App" dialog appears.
+        </li>
+        <li>Edit the project name to read "PetStoreMobileApp".
+        </li>
+        <li>Ensure only the iOS Target Platform is "checked".</li>
+        <li>Click on the Next button.
+            The second page of the "Configure your Blank Forms App" dialog appears.
+        </li>
+        <li>Click the Create button. A question dialog appears warning that the PetStoreMac 
+            directory already exists. Click on the "yes" button.
+        </li>
+        <li> Two projects are created:
+            <ul>
+                <li>PetStoreMobileApp -- this is the Xamarin.Forms project.</li>
+                <li>PetStoreMobileApp.iOS</li>
+            </ul>
+        </li>
+    </ol>
+
+        <h4>8.2 Update the PetStoreMobileApp Project</h4>
+        <p>In this tutorial we implement a very simple two page Xamarin app. The HomePage implements 
+            user sign up and authentication. Once the user is authenticated the page presents a "See Pets" 
+            button that navigates to a page showing pets available.</p>
+        <ol>
+            <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
+            <li>Select "Edit Project File". The project's csproj file opens in an editor tab.</li>
+            <li>Replace the contents of the csproj file with this content:
+                <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
+    
+        &lt;PropertyGroup>
+            &lt;TargetFramework>netstandard2.1&lt;/TargetFramework>
+            &lt;ProduceReferenceAssembly>true&lt;/ProduceReferenceAssembly>
+        &lt;/PropertyGroup>
+        
+        &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+            &lt;DebugType>portable&lt;/DebugType>
+            &lt;DebugSymbols>true&lt;/DebugSymbols>
+        &lt;/PropertyGroup>
+        
+        &lt;ItemGroup>
+            &lt;PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+            &lt;PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+            &lt;PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+        &lt;/ItemGroup>
+        
+        &lt;ItemGroup>
+            &lt;ProjectReference Include="..\PetStoreMacClientSDK\PetStoreMacClientSDK.csproj" />
+        &lt;/ItemGroup>
+        
+        &lt;ItemGroup>
+            &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
+            &lt;EmbeddedResource Include="..\LocalApis.json" />
+        &lt;/ItemGroup>
+        
+        &lt;ItemGroup>
+            &lt;EmbeddedResource Update="Views\ItemsPage.xaml">
+            &lt;Generator>MSBuild:Compile&lt;/Generator>
+            &lt;/EmbeddedResource>
+        &lt;/ItemGroup>
+        
+    &lt;/Project></code></pre>
+            </li>        
+            <li>Save the file.</li>
+            <li>Right click on the MainPage.xaml file and select Delete. A confirmation dialog appears. 
+                Click the Delete button. The MainPage.xaml and MainPage.xaml.cs files are deleted from 
+                the project and disk.</li>
+            <li>Right click on the App.xaml file and select Delete. A confirmation dialog appears. 
+                Click the Delete button. The App.xaml and App.xaml.cs files are deleted from the project and disk.</li>
+
+            <li>Download <a href="/assets/tutorial/VSMac/App.xaml" download>App.xaml</a> and move it into 
+                the PetStoreMobileApp project folder using Finder. Use Finder instead of dropping the file 
+                into Visual Studio to avoid Visual Studio trying to create an App.xaml.cs file for you.
+            </li>
+
+            <li>Download <a href="/assets/tutorial/VSMac/App.xaml.cs" download>App.xaml.cs</a> and move it into 
+                the PetStoreMobileApp project folder using Finder.</li>
+
+            <li>In Visual Studio, right click on the PetStoreMobileApp project. The context menu appears.</li>
+
+            <li>Select Add &rightarrow; New Folder. The New Folder dialog appears. Edit the folder 
+                name to read "Views" and click on the Add button. A new folder is added to the project.</li>
+
+            <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
+
+            <li>Select Add &rightarrow; New Folder. The New Folder dialog appers. Edit the folder name 
+                to read "ViewModels" and click on the Add button. A new folder is added to the project. </li>
+
+            <li>Download the following files and move them into the PetStoreMobileApp/ViewModel folder.
+                <ul>
+                    <li><a href="/assets/tutorial/VSMac/BaseViewModel.cs" download>BaseViewModel.cs</a></li>
+                    <li><a href="/assets/tutorial/VSMac/ItemsViewModel.cs" download>ItemsViewModel.cs</a></li>
+                    <li><a href="/assets/tutorial/VSMac/MainPageViewModel.cs" download>MainPageViewModel.cs</a></li>
+                </ul>
+            </li>
+
+            <li>Add a Views folder </li>
+
+            <li>Download the following files and move them into the PetStoreMobileApp/ViewModel folder using Finder.
+                <ul>
+                    <li><a href="/assets/tutorial/VSMac/ItemsPage.xaml" download>ItemsPage.xaml</a></li>
+                    <li><a href="/assets/tutorial/VSMac/ItemsPage.xaml.cs" download>ItemsPage.xaml.cs</a></li>
+                    <li><a href="/assets/tutorial/VSMac/MainPage.xaml" download>MainPage.xaml</a></li>
+                    <li><a href="/assets/tutorial/VSMac/MainPage.xaml.cs" download>MainPage.xaml.cs</a></li>
+                </ul>
+            </li>
+    
+        </ol>
+    
+        <h4>8.3 Update to the latest Xamarin packages.</h4>
+        <ol>
+            <li>Right click on the PetStore solution. The context menu appears.</li>
+            <li>Select "Manage Nuget Packages". The "Manage NuGet Packages - Solution" dialog  opens.</li>
+            <li>Select "Updates". Available Nuget Package updates are listed.</li>
+            <li>If Xamarin.Essentials or Xamarin.Forms is listed, click the checkboxes next to them and then 
+                click the "Update Package" button. The latest Xamarin packages are 
+                now referenced in the PetStoreMobileApp and PetStoreMobileApp.Android projects.
+            </li>
+        </ol>
+
+        <h4>8.4 Add Hero Image Resource to PetStoreMobileApp.iOS Project</h4>
+        <ol>
+            <li>Download <a href="/assets/tutorial/VSMac/LazyLogo800x800.png" download>LazyLogo800x800.png</a> 
+                    and used Finder to move it into the PetStoreMobileLapp.iOS/Resources directory.</li>
+            <li>Right click on the "PetStoreMobileApp.iOS/Resources" Solution Explorer folder. The contentext menu appears.</li>
+            <li>Select "Add &rightarrow; Existing Files" and add the new LazyLogo800x800.png file.</li>
+        </ol>
+    
+        <p></p>
+        <h4>8.5 Run App</h4>
+        <p></p>
+        <ol>
+            <li>Right Click on the PetStoreMobileApp.iOS project. The context menu appears.</li>
+            <li>Select "Set as Startup Project".</li>
+            <li>Debug the project. The Apple simulator opens and the App launches.</li>
+            <li>Sign In</li>
+            <li>Click the "See Pets" button to see a list of Pets retrieved from the PetStoreDev stack.</li>
+        </ol>
+    
+        <p></p>
+        <h4>Step Summary</h4>
+        <p>In this step we started with a simple Xamarin two page application to demonstrate
+            authentication services against AWS Cognito using the LazyStackAuth library. In addition, we used the 
+            PetStore class from the PetStoreClientSDK library to make secure calls against the PetStoreDev 
+            stack to show the available pet inventory.
+        </p>
+    </div>
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>
