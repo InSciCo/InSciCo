@@ -323,19 +323,19 @@
         <li>Calling the stack using the PetStore - defined in the PetStoreClientSDK library.</li>
     </ul>
     <h4>6.1 Configure a Gmail Account</h4>
-    <p>The automated tests we will create in this step require a gmail account. AWS Cognito will email authorization codes 
-        to that gmail account during the tests. For instance, the sign-up process will email the new user a 
-        authorization code. Our sign-up process test must log into the user's gmail account, find the email containing 
+    <p>The automated tests we will create in this step require a Gmail account. AWS Cognito will email authorization codes 
+        to that Gmail account during the tests. For instance, the sign-up process will email the new user a 
+        authorization code. Our sign-up process test must log into the user's Gmail account, find the email containing 
         the authorization code and then use that code to finalize the sign-up process. </p>
         <p>AWS Cognito requires each user to have a unique email address. We don't want to create a new 
             email address each time we run the tests and deleting users from the Cognito User Pool is not
             convenient or always what we what.
         </p>
-        <p>Lucky for us, gmail has a nifty feature that allows you to use an email address 
-        alias. For example, if you email address is myemail@gmaili.com, you can send email to that address with 
-        the alias myemail+01@gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
-        This means we can use a single gmail account to create and test multiple AWS Cognito accounts where each 
-        of the AWS Cognito accounts is associated with a unique gmail address alias.
+        <p>Lucky for us, Gmail has a nifty feature that allows you to use an email address 
+        alias. For example, if you email address is myemail@Gmaili.com, you can send email to that address with 
+        the alias myemail+01@Gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
+        This means we can use a single Gmail account to create and test multiple AWS Cognito accounts where each 
+        of the AWS Cognito accounts is associated with a unique Gmail address alias.
         </p>
     <ol>
         <li>Create a new Gmail account. We suggest you create a Gmail account just for this purpose and not use 
@@ -396,7 +396,7 @@
             <pre><code class="language-bash">dotnet build</code></pre>
         </li>
         <li>Set Gmail:Email user secret value:
-            <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@gmail.com" </code></pre>
+            <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@Gmail.com" </code></pre>
         </li>
         <li>Set Gmail:Password user secret value:
             <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Password" "maypassword" </code></pre>
@@ -427,12 +427,14 @@
         insights into how you should use the libraries in your client apps. Take note of the 
     following implementation elements:</p>
     <ul>
-        <li><a href="/clientsdk/clientsdk_awssettings.html">AwsSettings.json</a> is an embedded resource that is loaded by ConfigurationBuilder. This embedded resource 
+        <li><a href="/clientsdk/clientsdk_awssettings.html">AwsSettings.json</a> is an embedded resource that is loaded by 
+            ConfigurationBuilder. This embedded resource 
             references \Stacks\Dev\AwsSettings.json. In a client app, you would introduce condition logic in the 
             csproj file to use \Stacks\Prod\AwsSettings.json for release builds or just distribute the AwsSettings.json 
             file separately to developers using the PetStoreClientSDK.
         </li>
-        <li><a href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages.json</a> is a embedded resource that is loaded by ConfigurationBuilder. Extend 
+        <li><a href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages.json</a> is a embedded resource that 
+            is loaded by ConfigurationBuilder. Extend 
             this file with new message sets by language to localize the messages emitted by the AuthProcess class.
             This test does not demonstrate the use of AuthProcess messages but later Tutorial steps will.
         </li>
