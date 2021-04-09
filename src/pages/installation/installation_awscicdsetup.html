@@ -1,0 +1,104 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h4>AWS CI/CD Environment Overview</h4>
+
+    <p>Setting up team collaboration with Continuous Integration / Continuous Deployment can be 
+        easily accomplished using GitHub and AWS CodeBuild. 
+        <ul>
+            <li>Continuous Integration automates building and testing a codebase changes prior to submitting those 
+                changes for approval.</li>
+            <li>Continuous Deployment automates deploying "stacks" into review or production environments.</li>
+        </ul>
+    </p>
+    <h5>GitHub, Feature Branch Workflow and AWS CodeBuild</h5>
+    <p>To allow this guide to be immediately practical and easily implemented, we assumes you 
+        will use Git for version control, a GitHub account to host your Git repository, and a simple Feature Branch Workflow 
+        with GitHub Pull Requests to manage team collaboration.
+        Focusing on this popular combination allows us to offer concrete and very specific usage instructions along with
+        AWS CodeBuild projects to implement CI/CD. Other work flows and Git repository services may be used but 
+        each requires a different configuration.</p>
+
+    <img src="/assets/img/SDLCFeatureflow.svg">
+    <p></p>
+    <p>The diagrams above show how the <code class="language-bashshell">git</code> commands and GitHub 
+        Pull Requests UI perform create/merge/delete on Git branches.
+        The Branch Flow diagram show's the branches used in a simple Feature Branch Workflow. The local F1 branch 
+        is created off of the current main branch. A shared F1 branch is created to share the new feature in 
+        development. Next, the shared F1 branch is merged into the main branch and the main branch is tagged 
+        with a version number. And finally, both the local and shared F1 branches are deleted.
+    </p> 
+    <p>Here is a more detailed narrative for this workflow:</p>
+    <ol>
+        <li>Start Feature F1
+            <ol type="a">
+                <li>Developers solution folder is updated with latest content from main.</li>
+                <li>Developer creates a local branch F1 off of remote main branch to work on a new feature.</li>
+            </ol>
+        </li>
+        <li>Local Dev on F1 <br> 
+            Each developer has their own AWS Account. They can use the AWS SAM CLI or the AWS Toolkit for 
+            Visual Studio (Windows) IDE to publish the stack to their own account. This allows rapid 
+            iteration and integration tests.
+        </li>
+        <li>Create PR for F1
+            <ol type = "a">
+                <li>Developer edits code in solution folder.</li>
+                <li>Developer publishes stack to their own account directly from their Solution Folder.</li>
+                <li>Developer pushes F1 as a tracked branch (-u) to GitHub shared repository.</li>
+                <li>Developer creates GitHub Pull Request. GitHub generates a PULL_REQUEST_CREATED event.</li>
+                <li>AWS responds to event by running GitHubReviewCreateUpdate CodeBuild project:
+                    <ol type="i">
+                        <li>Branch F1 is checked out to CodeBuild Container</li>
+                        <li>dotnet build --Configuration Release # Build Solution</li>
+                        <li>dotnet test # Test Solution</li>
+                        <li>sam deploy ... # Create/Update the 'F1' AWS stack in Review Account</li>
+                    </ol>
+                </li>
+                <li>Reviewer reviews F1 code and published F1 stack.</li>
+            </ol>
+        </li>
+        <li>Update PR for F1
+            <ol type="a">
+                <li>Developer updates code to incorporate suggestions from PR Reviewer(s).</li>
+                <li>Developer publishes stack to their own account directly from their Solution Folder.</li>
+                <li>Developer pushes F1 to GitHub shared repository. GitHub generates a PULL_REQUEST_UPDATED event.</li>
+                <li>AWS responds to event by running GitHubReviewCreateUpdate CodeBuild project:
+                    <ol type="i">
+                        <li>Branch F1 is checked out to CodeBuild Container</li>
+                        <li>dotnet build --Configuration Release # Build Solution</li>
+                        <li>dotnet test # Test Solution</li>
+                        <li>sam deploy ... # Create/Update the 'F1' AWS stack in Review Account</li>
+                    </ol>
+                </li>
+                <li>Reviewer review F1 code and published 'F1' stack.</li>
+            </ol>
+        </li>
+        <li>Merge PR for F1
+            <ol type="a">
+                <li>Delete the 'F1' AWS Stack in Review Account</li>
+                <li>Update the 'Prod' AWS Stack in the Prod Account</li>
+            </ol>
+        </li>
+        <li>Finish Up F1
+            <ol type="a">
+                <li>Delete the local F1 branch</li>
+                <li>Checkout the latest main branch</li>
+    
+            </ol>
+        </li>
+    </ol>
+
+    <p>For more information on Git, the Feature Branch Workflow, and AWS CodeBuild; please review these helpful documentation:
+        <ul>
+            <li><a href="">Git</a></li>
+            <li><a href="">Git Feature Branch Workflow</a></li>
+            <li><a href="">AWS CodeBuild</a></li>
+        </ul>
+    </p>
+
+</div>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#deploy_awsbasics").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                
+                    <div style=
+                        "position:fixed; 
+                        top: 17px;
+                        left: 16px;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .71);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Deploy</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/generator_overview.html">
+                            <span class="">Generator</span>
+                        </a>
+                      </li>
+                
+                      <li id="deploy">
+                        <a href="/deploy/deploy_overview.html">
+                            <span class="lz-r-sectionitem">Deploy</span>
+                        </a>
+                      </li>
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">Overview</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+    <ul class="vertical menu dropdown">
+        <li >
+            <a  href="/deploy/deploy_overview.html">
+                <span class="">Deployment Overview</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/deploy/deploy_awsbasics.html"> &nbsp;&nbsp;&nbsp;
+                <span class="lz-r-topicitem">AWS Account Basics</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/deploy/deploy_checklist.html">&nbsp;&nbsp;&nbsp;
+                <span class="">Deployment Checklist</span>
+            </a>
+        </li>      
+        <li >
+            <a  href="/deploy/deploy_petstore.html">&nbsp;&nbsp;&nbsp;
+                <span class="">PetStore Stack Deployment</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/deploy/deploy_lazystack.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">LazyStack Deployment</span>
+            </a>
+        </li>
+    </ul>
+</div><div class=lz-r-content>
+    <h3>AWS Basics</h3>
+    <p>This document is intended for those in technology roles, such as chief technology 
+        officers (CTOs), architects, developers, and operations team members. 
+    </p>
+    <p>The quick checklist is:</p>
+    <ul>
+        <li>Create an AWS Account. (This creates your root user.)</li>
+        <li>Create an individual IAM user (Don't use your root user credentials!). </li>
+        <li>Create an Organization.</li>
+        <li>Create a SubAccount for Production. Create a production IAM user.</li>
+        <li>Create a SubAccount for each Developer. Create a developer IAM user.</li>
+    </ul>
+
+    <h4>Security Best Practices in IAM</h4>
+    <p>"To help secure your AWS resources, follow these recommendations for the AWS Identity and Access Management (IAM) service." <br>
+        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" target="_blank" rel="noopener noreferrer">Security best practices in IAM</a>
+    </p>
+    
+    <p><strong>This IAM reference is critical and provides concrete and very specific IAM usage guidelines.</strong> Since they are 
+        so important, I repeat them here for reference:</p>
+    <ul>
+        <li>Lock away your AWS account root user access keys</li>
+        <li>Create individual IAM users</li>
+        <li>Use groups to assign permissions to IAM users</li>
+        <li>Grant least privilege</li>
+        <li>Get started using permissions with AWS managed policies</li>
+        <li>Use customer managed policies instead of inline policies</li>
+        <li>Use access levels to review IAM permissions</li>
+        <li>Configure a strong password policy for your users</li>
+        <li>Enable MFA</li>
+        <li>Use roles for applications that run on Amazon EC2 instances</li>
+        <li>Use roles to delegate permissions</li>
+        <li>Do not share access keys</li>
+        <li>Rotate credentials regularly</li>
+        <li>Remove unnecessary credentials</li>
+        <li>Use policy conditions for extra security</li>
+        <li>Monitor activity in your AWS account</li>
+    </ul>
+
+    <p>Click <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" target="_blank" rel="noopener noreferrer">here</a> 
+        to review these 
+        practices in more detail.
+    </p>
+
+
+    <h4>AWS Organization</h4>
+    <p>"AWS Organizations helps you centrally manage and govern your environment as you grow 
+        and scale your AWS resources. Using AWS Organizations, you can programmatically create 
+        new AWS accounts and allocate resources, group accounts to organize your workflows, 
+        apply policies to accounts or groups for governance, and simplify billing by using 
+        a single payment method for all of your accounts." <br><a href="https://aws.amazon.com/organizations/"
+        target="_blank" rel="noopener noreferrer">AWS Organizations</a>
+        <p><strong>We recommend using Organizations to create multiple accounts to support
+            separation of concerns and make it more convenient to define and manage IAM Roles 
+            for development, test and production stacks.
+        </strong></p>
+    </p>
+
+    <h4>AWS Well-Architected Guidance</h4>
+    <p>"The AWS Well-Architected Framework describes the key concepts, design principles, 
+        and architectural best practices for designing and running workloads in the cloud. 
+        By answering a set of foundational questions, you learn how well your architecture 
+        aligns with cloud best practices and are provided guidance for making improvements." <br> 
+        <a href="https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc"
+        target="_blank" rel="noopener noreferrer">AWS Well-Architected</a></p>
+
+    
+    <h4>Serverless Applications Lens - AWS Well-Architected</h4>
+    <p>"This document describes the Serverless Applications Lens for the AWS Well-Architected Framework. 
+        The document covers common serverless applications scenarios and identifies key elements to 
+        ensure that your workloads are architected according to best practices." <br>
+        <a href="https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/welcome.html?did=wp_card&trk=wp_card" 
+        target="_blank" rel="noopener noreferrer">
+            Serverless Applications Lens - AWS Well-Architected</a>
+    </p>
+    <p>We strongly recommend that you read this whitepaper as it provides you with insights on what 
+        additional serverless resources you can use in your serverless stacks and what considerations 
+        you need to keep in mind when doing so.
+    </p>
+</div>    
+    
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

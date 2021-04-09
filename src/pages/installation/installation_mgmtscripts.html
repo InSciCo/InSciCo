@@ -1,0 +1,41 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h4>Management Scripts Setup</h4>
+    <p>Prerequisites: AWS Mgmt Account Setup complete<br>
+    Estimated time: 2 minutes, Cost: none<br>
+    Perform this step on the Management Workstation.</p>
+    <p>We provide PowerShell scripts to automate various steps in the setup and management 
+        of your AWS Organization. You will not need to learn PowerShell scripting to use 
+        these scripts.
+    </p>
+    <p>The scripts call the AWS CLI to configure your AWS Organization. They are easy to 
+        read and heavily commented. We encourage you to read through the scripts and 
+        follow the documentation links provided in the scripts to learn more about the 
+        powerful commands in the AWS CLI.
+    </p>
+    <ol>
+
+    <!-- Install PowerShell -->
+    <li><a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.1" {{>newtab}}>
+        Install PowerShell<br></a></li>
+    <br>
+    <li>Download the following scripts and move them into your OrgMgmt folder (replace "Org" with your OrgCode):
+        <ul>
+            <li><a href="" download>CreateOrganization.ps1</a></li>
+            <li><a href="" download>CreateDevAccount.ps1</a></li>
+            <li><a href="" download>CreateReviewAccount.ps1</a></li>
+            <li><a href="" download>CreateProdAccount.ps1</a></li>
+            <li><a href="" download>CreateCodePipeline.ps1</a></li>
+        </ul>
+    
+    </li>
+</ol>
+<h4>Step Summary</h4>
+<p>In this step we installed PowerShell and downloaded LazyStack management scripts.</p>
+
+</div>

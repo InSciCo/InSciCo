@@ -1,0 +1,338 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#installation_awsrevsetupsteps").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                
+                    <div style=
+                        "position:fixed; 
+                        top: 17px;
+                        left: 16px;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .71);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Install</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/generator_overview.html">
+                            <span class="">Generator</span>
+                        </a>
+                      </li>
+                
+                      <li id="deploy">
+                        <a href="/deploy/deploy_overview.html">
+                            <span class="">Deploy</span>
+                        </a>
+                      </li>
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">GettingStarted</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+    <ul class="vertical menu dropdown">
+        <li >
+            <a  href="/installation/installation_overview.html">
+                <span class="">Overview</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_aws.html">
+                <span class="">AWS Getting Started</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsexistingacct.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Use Existing AWS Account</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Mgmt Account Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Organization Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Mgmt. Scripts Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsorgsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Organization Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Dev Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Dev Profile Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="lz-r-topicitem">Review Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prod Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awscicdsetup.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">CI/CD Orverview</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">CI/CD Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">
+                <span class="">Visual Studio Windows</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_mac_visualstudio.html">
+                <span class="">Visual Studio Mac</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_netcorecli.html">
+                <span class="">.NET CLI Tool</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class=lz-r-content>
+
+   <h4>AWS Review Account Setup </h4>
+   <p>Prerequisites: Organization Setup completed<br>
+      Estimated Time: 2 minutes, Costs: none<br>
+      Perform this step on the Management Workstation</p>
+
+      <ol>
+         <li>Open a PowerShell Terminal.</li>
+         <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+         <li>Execute the CreateRevAccount.ps1 script:
+             <pre><code class="language-bashshell">. .\CreateRevAcct.ps1</code></pre>
+                     Here is a script run with sample inputs:
+                     <pre><code class="language-bashshell">
+ CreateRevAcct.ps1 - V1.0.0
+ This script adds a Review account to the OrgRevOU Organizational Unit.
+ Note: Press return to accept a default value.
+ Enter your OrgCode (ex: Lz): Az
+ Enter your AWS CLI Management Account Profile (default: AzMgmt):
+ Enter the Review OU (default: AzRevOU):
+ Enter the Review Account Name (default: AzRev): 
+ Note: Make a note of the password you use below as it will not be stored anywhere.
+ Enter the Review IAM User Password: ********
+ Enter the Review IAM User Name (default: AzRev):
+ Note: An email address can only be associated with one AWS Account. 
+ Enter an Email Address for the new account's Root User: me+AzRev@gmail.com
+ Please Review and Confirm the following:
+     OrgCode: Az
+     Management Account Profile: AzMgmt
+     Review OU: AzRevOU
+     Review Account to be created: AzRev
+     Review Account IAM User Name: AzRev
+     Review Organization Unit: AzRevOU
+     Email Address for Account's Root User: me+AzRev@gmail.com 
+ Confirm y/n: y 
+ Processing Starting
+ Creating AzRevAccess profile and associating it with the AzMgmt profile 
+     - This profile allows the IAM User AzMgmt to administer the AzRev account from the CLI.
+ Creating Review Account AzRev 
+     - Checking for successful account creation. TryCount=1 
+     - AzRev account creation successful. AccountId: 123456789123
+     - Moving AzRev account to AzRevOU organizational unit
+ Creating Administrators Group in AzRev account 
+     - Adding policy AdministratorAccess 
+ Creating IAM User AzRev in the AzRev account.
+     - Adding the AzRev profile.
+     - Adding the IAM User AzRev to the Administrators group in the AzRev account.
+ Processing Complete</code></pre>
+         </li>
+     </ol> 
+
+<h5>Step Summary</h5>
+<p>In this step we used the CreateRevAcct.ps1 script to create a Review Account under 
+   the Review Organization Unit. We added a Administrators group to the account with 
+   AdministratorAccess permissions. We added an IAM User for the account and added that 
+   user to the Administrators group. We created a AWS CLI profile allowing the Management 
+   Account IAM User to manage the Review account with the OrganizationAccountAccessRole 
+   policy.
+</p>
+<p>The IAM User created for this account will be used by the CI/CD process.</p>
+
+<h3>Publishing Stacks to Review Account</h4>
+<p>Using the Management Workstation (which has a profile allowing administrative 
+   access to the Review Account, you can publish stacks using either the AWS SAM CLI 
+   or the Visual Studio IDE (Windows) AWS Toolkit Extensions.
+</p>
+
+</div>
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

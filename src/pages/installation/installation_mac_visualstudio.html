@@ -6,25 +6,22 @@ topic: GettingStarted
 {{> installation_menu}}
 <div class=lz-r-content>
     <h3>LazyStack for Visual Studio MacOS</h3>
+    <p>Prerequisites: AWS Account with AWS CLI Installed</p>
     <p>Visual Studio for Mac supports extensions but submissions to the gallery are no longer being accepted by 
         Microsoft so we don't provide a LazyStack extension for Mac. Instead, we use the Visual Studio for Mac 
         External Tools capability to make it easy to call LazyStack from the IDE. 
     </p>
-    <p>The AWS Toolkit is not available for Mac either. However, AWS provides the SAM CLI that we can use instead. Just 
-        like LazyStack, we use the Visual Studio for Mac External Tools capability to make using the SAM CLI to 
-        publish stack to AWS easy from the IDE.
+    <p>The AWS Toolkit is not available for Mac either. However, AWS provides the SAM CLI that we can use instead. 
+        We use the Visual Studio for Mac External Tools capability to use the SAM CLI to 
+        publish stacks.
     </p>
     <h4>Install Steps</h4>
     <ol>
         <li><a href="https://visualstudio.microsoft.com/downloads/" 
             target="_blank" rel="noopener noreferrer">Install/Update Visual Studio 2019 for Mac</a>
-        </li>        <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" 
-            target="_blank" rel="noopener noreferrer">Create AWS Account</a> - skip this step if you already have an AWS account.</li>
-        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" 
-            target="_blank" rel="noopener noreferrer">Install AWS CLI</a> - skip this step if you already have the AWS CLI v2 installed.</li>
-            <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
+        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
                 target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a> - skip this step if you already have the SAM CLI installed.</li>        
-    <li>Install .NET CLI LazyStack Tool>
+    <li>Install .NET CLI LazyStack Tool
     <p>Open a Terminal and issue this command:</p>
     <pre><code class="language-bash">dotnet tool install lazystackapp -g</code></pre>
     </li>

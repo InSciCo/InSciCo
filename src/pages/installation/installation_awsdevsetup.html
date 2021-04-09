@@ -1,0 +1,117 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h3>AWS Developer Environment Overview</h4>
+    <p>The steps outlined in this guide create your AWS Management account, a Root Organization, 
+        a Development Organization Unit, and a Developer Account. Here is what we will be creating:
+    </p>
+
+    <img src="/assets/img/AwsDevSetup2.svg">  
+    
+    <p></p>
+    <p>Note the nesting of the structural elements of this environment:</p> 
+    <ul>
+        <li>Root Organization
+            <ul>
+                <li>Org Policies</li>
+                <li>Management Account</li>
+                <li>Development Organization Unit
+                    <ul>
+                        <li>Dev Policies</li>
+                        <li>Development Account - (Member Account)
+                            <ul>
+                                <li>Serverless Stack(s)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>    
+    </ul>
+    <p>This simple environment is sufficient to allow the developer to build and publish 
+        ASW Serverless stacks to their development account using the AWS SAM CLI or 
+        Visual Studio (Windows) IDE AWS Toolkit extension.
+    </p>
+    <h5>Insight: </h5>
+    <ul>
+        <li>You are not limited to one Development Account. You can add additional 
+            Development Accounts to this Development Organization Unit as you need 
+            them. Please only add one at this time as the default number of accounts 
+            allowed in an Organization is 4. You may request a higher limit.
+        </li>
+        <li>The account shows DynamoDB and S3 outside the serverless stack. 
+            These services are shared for all stacks in that account. For instance, if you 
+            have two stacks that both use DynamoDB, they should each use different tables
+            to segregate their data.</li>
+    </ul>     
+
+    <h5>AWS Users</h5>
+    <p>Accounts have users and users often have different privileges. Here are the users 
+        we will be creating:
+    </p>
+
+    <img src="/assets/img/AwsDevSetup.svg">  
+    <p></p>
+    <ul>
+        <li>Management Account - there is only ever one Management account in an organization
+            <ul>
+                <li>Root User - this user is rarely used. This account is logged into using 
+                    an email address and password. You can, and should, also set this account 
+                    up to use MFA.
+                </li>
+                <li>Admin User - an IAM user assigned to a security group allowing required 
+                    administrative actions. IAM users login to using an Account ID, User Name,
+                    and password. You can, and should, also set this user up to use MFA.
+                </li>
+            </ul>
+        </li>
+        <br>
+        <li>LzDevJoe Account - this is a member account, there can be multiple member accounts
+            <ul>
+                <li>Root User - this user is rarely used.  This account is logged into using 
+                    an email address and password. You can, and should, also set this account 
+                    up to use MFA. Root User access need not be provided to the developer.
+                </li>
+                <li>LzDevJoe - an IAM User assigned to the Developer group. Note that these 
+                    are rather broad permissions as the developer is using these permissions 
+                    to publish Serverless stacks from their desktop.
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p></p>
+
+    <h5>Account Naming</h5>
+    <p>When you are signed into the AWS Console, you are always logged into an "account". Accounts 
+        have unique Account ID numbers but you see the account name in the top bar of the 
+        console. Account names are not unique! To make it really easy to keep track of which AWS 
+        Organization Account you are currently working in, we recommend the following account 
+        naming convention: &lt;OrganizationName>&lt;OrganizationUnitName>[&lt;UserName>].
+    </p>
+    <p>In this setup guide we assume you will create new AWS accounts using the following names:
+    </p>
+    <ul>
+        <li>Organization Name: Lz</li>
+        </li>
+    </ul>
+
+    <h5>Email Accounts</h5>
+    <p>Creating account root users require unique email addresses. We will be creating four 
+        accounts (two in the first Development Setup step and two more in the Production Setup step) 
+        so we will need four unique email addresses. 
+        We will assume the use 
+        of a Gmail account called me@gmail.com in these examples. Gmail allows you to use dynamic aliases 
+        with your gmail account.</p>
+    <p></p>
+    <p>For example, me+lzdev@gmail.com is considered by AWS to be a different 
+            email address than me+lzdev01@gmail.com. Any email sent to me+lzdev01@gmai.com will show up in your 
+            me@gmail.com inbox. Throughout these guides we will use this dynamic email alias feature to 
+            create unique email addresses where necessary.</p>
+    <p> If you are using a corporate email system that 
+            does not provide dynamic email addresses, you will need to create email aliases in that 
+            system. </p>
+</div>

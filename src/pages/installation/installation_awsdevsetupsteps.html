@@ -1,0 +1,96 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h4>Developer Account Setup</h4>
+    <p>Prerequisites: Organization Setup complete<br>
+        Estimated Time: 2 minutes, Costs: none<br>
+        Perform this step on the Management Workstation</p>
+    <p>In this step we will run the CreateDevAccount script to create a new Developer 
+        Member Account belonging to the AWS organization and move this account into the OrgDevOU 
+        Organizational Unit. The script will also update our local workstation to 
+    </p>
+    <ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+        <li>Execute the CreateDevAccount.ps1 script:
+            <pre><code class="language-bashshell">. .\CreateDevAcct.ps1</code></pre>
+                    Here is a script run with sample inputs:
+                    <pre><code class="language-bashshell">
+CreateDevAcct.ps1 - V1.0.0
+This script adds a development account to the Dev Organizational Unit.
+Note: Press return to accept a default value.
+Enter your OrgCode (ex: Lz): Az
+Enter your AWS CLI Management Account Profile (default: AzMgmt):
+Enter the Development OU (default: AzDevOU):
+Enter the Developer's Handle (ex: Joe): Joe
+Enter the Developer's Account Name (default: AzDevJoe): 
+Enter the Developer's IAM User Name (default: AzDevJoe):
+Note: An email address can only be associated with one AWS Account. 
+Enter an Email Address for the new account's Root User: me+AzDevJoe@gmail.com
+Please Review and Confirm the following:
+    OrgCode: Az
+    Management Account Profile: AzMgmt
+    Development OU: AzDevOU
+    Development Account to be created: AzDevJoe
+    Development Account IAM User Name: AzDevJoe
+    Development Organization Unit: AzDevOU
+    Email Address for Account's Root User: me+AzDevJoe@gmail.com 
+Confirm y/n: y 
+Processing Starting
+Creating AzDevJoeAccess profile and associating it with the AzMgmt profile 
+    - This profile allows the IAM User AzMgmt to administer the AzDevJoe account from the CLI.
+Creating Development Account AzDevJoe 
+    - Checking for successful account creation. TryCount=1 
+    - AzDevJoe account creation successful. AccountId: 123456789123
+    - Moving AzDevJoe account to AzDevOU organizational unit
+Creating Developers Group in AzDevJoe account 
+    - Adding policy PowerUsersAccess 
+    - Adding policy IAMUserChangePassword
+    - Adding policy SS1 -- Serverless Stack SS1 (IAM Permissions)
+    - Adding policy SS2 -- Serverless Stack SS2 (IAM Permissions)
+    - Adding policy SS3 -- Serverless Stack SS3 (IAM Permissions)
+Creating IAM User AzDevJoe in the AzDevJoe account.
+    - Adding the AzDevJoe profile.
+    - Adding the IAM User AzDevJoe to the Developers group in the AzDevJoe account.
+Writing AzDevJoe_welcome.txt file. Send this text file to the Developer.
+Processing Complete</code></pre>
+        </li>
+    </ol> 
+    <p>The welcome.txt file has content that looks something like this:
+        <pre><code class="language-bashshell">
+    AWS Account Console: https://123456789012.signin.aws.amazon.com/console
+    IAM User: AzDevJoe
+    Temporary Password: 93939aA!
+    Please login, you will required to reset your password.
+    Please login as soon as you can.
+    Create access keys for your workstation:
+    Proceed to the IAM Console.
+    ... 
+
+    Your account is provisioned to all deployment of three Serverless Stacks 
+    having the following names:
+    SS1 
+    SS2
+    SS3
+    Note: Predefined stack names are necessary for assignment of IAM Permissions
+        </code></pre>
+    </p>
+
+    <h5>Step Summary</h5>
+    <p>In this step we used the CreateDevAcct.ps1 script to create a new Dev Account 
+        and move that account into the Dev Organizational Unit. The script also 
+        created a Developers group and in the new Dev Account, created a new IAM 
+        User for the developer and assigned that IAM User to the Developers group. The 
+        Developers Group contains a policy allow the developer to publish up to 
+        three Serverless Stacks with the pre-defined names SS1, SS2, SS3.
+    </p>
+    <p>The pre-defined Serverless Stack names are required to associate necessary 
+        IAM permissions to the Developers IAM User account to successfully publish 
+        Serverless Stacks.
+    </p>
+       
+</div>

@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#deploy_checklist").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                
+                    <div style=
+                        "position:fixed; 
+                        top: 17px;
+                        left: 16px;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .71);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Deploy</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/generator_overview.html">
+                            <span class="">Generator</span>
+                        </a>
+                      </li>
+                
+                      <li id="deploy">
+                        <a href="/deploy/deploy_overview.html">
+                            <span class="lz-r-sectionitem">Deploy</span>
+                        </a>
+                      </li>
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">Overview</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
+    <ul class="vertical menu dropdown">
+        <li >
+            <a  href="/deploy/deploy_overview.html">
+                <span class="">Deployment Overview</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/deploy/deploy_awsbasics.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Account Basics</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/deploy/deploy_checklist.html">&nbsp;&nbsp;&nbsp;
+                <span class="lz-r-topicitem">Deployment Checklist</span>
+            </a>
+        </li>      
+        <li >
+            <a  href="/deploy/deploy_petstore.html">&nbsp;&nbsp;&nbsp;
+                <span class="">PetStore Stack Deployment</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/deploy/deploy_lazystack.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">LazyStack Deployment</span>
+            </a>
+        </li>
+    </ul>
+</div><div class=lz-r-content>
+    <h3>Deployment Checklist</h3>
+    <p>When you build stacks, you should use the following checklist to ensure you have 
+        addressed security, performance and cost concerns. If you are releasing the stack 
+        for others to deploy, we recommend you document the deployment checklist in a 
+        deployment guide. 
+    </p>
+    <p>Note: Items with an &diams; are not usually required in a pure serverless stack.</p>
+    <ul>
+        <li>Deployment Guide Documentation
+            <ul>
+                <li>Introduction
+                    <ul>
+                        <li>Describe Use-Cases for software</li>
+                        <li>Deployment Resources</li>
+                        <li>Deployment Options</li>
+                    </ul>
+                </li>
+                <li>Prerequisites and Requirements
+                    <ul>
+                        <li>Technical Prerequisites</li>
+                        <li>Specialized Skills or Knowledge Required</li>
+                        <li>Environment Configurations</li>
+                    </ul>
+                </li>
+                <li>Architecture Diagrams
+                    <ul>
+                        <li>AWS services and relationships among them.</li>
+                        <li>Customer Data storage is labeled</li>
+                        <li>Diagrams use AWS Simple Icons</li>
+                        <li>&diams; Networking:
+                            <ul>
+                                <li>&diams; VPCs</li>
+                                <li>&diams; subnets</li>
+                                <li>&diams; security groups</li>
+                                <li>&diams; NACLs</li>
+                                <li>&diams; Ingress/egress mappings</li>
+                            </ul>
+                        </li>
+                        <li>Integration Points
+                            <ul>
+                                <li>Third-party assets/APIs</li>
+                                <li>&diams; On-premises/hybrid assets</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Security
+                    <ul>
+                        <li>Links to IAM and IAM best practices documentation</li>
+                        <li>Attestation that stack does not require root privileges to deployment or operation</li>
+                        <li>Attestation that stack follows least privilege for access granted as part of deployment</li>
+                        <li>List any public resources with bucket policies allowing public access</li>
+                        <li>List and describe any IAM role and policy user is instructed to create</li>
+                        <li>List and describe the purpose and location of any key the user is instructed to create</li>
+                        <li>Provide clear instructions on maintaining any stored secretes stored in AWS Secrets Manager</li>
+                        <li>Provide details on where customer sensitive data is stored</li>
+                        <li>Provide details on data encryption configuration used in data stores</li>
+                        <li>Provide links to any third-party stacks that need to be deployed with this stack</li>
+                    </ul>
+                </li>
+                <li>Costs 
+                    <ul>
+                        <li>List billable services included in stack and indicate if the service is mandatory/optional</li>
+                        <li>Provide operational cost and licensing cost</li>
+                    </ul>
+                </li>
+                <li>Sizing 
+                    <ul>
+                        <li>&diams; Guidance for EC2 Instance type and size selection</li>
+                        <li>&diams; Guidance for EBS volume type and size selection</li>
+                        <li>&diams; Guidance on instance size selection for managed AWS Services</li>
+                        <li>Guidance on AWS DynamoDB read and write capacity unit estimates</li>
+                    </ul>
+                </li>
+                <li>Deployment Assets 
+                    <ul>
+                        <li>Setting up automated backups</li>
+                        <li>Restoring data from a backup</li>
+                        <li>Step-by-step instruction for recovering from service failure</li>
+                        <li>Step-by-step instructions for recovering from AZ failure</li>
+                        <li>Managing service limits for Disaster Recovery</li>
+                        <li>Document Recovery Time Objective (RTO)</li>
+                        <li>Document Recovery Point Objective (RPO)</li>
+                    </ul>
+                </li>
+                <li>Routine Maintenance 
+                    <ul>
+                        <li>Step-by-step guide for rotating programmatic system credentials and cryptographic keys</li>
+                        <li>Prescriptive guidance for software patches and upgrades</li>
+                        <li>Prescriptive guidance for managing licenses</li>
+                        <li>Prescriptive guidance for managing AWS Service Limits</li>
+                    </ul>
+                </li>
+                <li>Emergency Maintenance 
+                    <ul>
+                        <li>Step-by-step instructions on handling fault conditions</li>
+                        <li>Step-by-step instructions on recovering the software</li>
+                    </ul>
+                </li>
+                <li>Support 
+                    <ul> 
+                        <li>How to receive support</li>
+                        <li>Technical Support Tiers</li>
+                        <li>Service Level Agreement by Tier</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

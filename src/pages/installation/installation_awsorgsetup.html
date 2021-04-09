@@ -1,0 +1,108 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h3>AWS Organization Setup (optional)</h4>
+    <p>Prerequisites: AWS Mgmt Account Setup complete.</p>
+    <p>The objective of this setup guide is to configure a fully functional AWS Organization supporting 
+        collaborative Serverless Stack development, publishing review stacks, and 
+        publishing production stacks. </p>
+    <p>We recommend that you setup an AWS Organization. It doesn't take long to complete and 
+        will educate you on many important AWS concepts as well as give you a solid foundation for 
+        your ongoing work. The remainder of this page describes how your AWS Organization will look 
+        after setup.
+    </p>
+
+    <h4>AWS Organizational Units and Member Accounts</h4>
+            <p>
+            We create an AWS Organization containing three Organizational Units (OU): 
+            LzDevOU, LzRevOU and LzProdOU. Each OU contains one or more Member Accounts. When complete, 
+            your AWS Organization will look something like this:</p>
+            <img src="/assets/img/AwsCICDSetup_new.svg">  
+
+        <p></p>
+
+        <h5>Insight: </h5>
+        <ul>
+            <li>We prefix each account in our organization with a short "OrdCode" to make working 
+                with multiple organizations less confusing.
+            </li>
+            <li>DynamoDB and S3 are provisioned in the account, not inside the serverless stack. 
+                These services are shared for all stacks in that account. For instance, if you 
+                have two stacks that both use DynamoDB, they should each use different tables
+                to segregate their data.</li>
+            <li>This environment uses AWS CodePipelines integrated with GitHub webhooks to publish 
+                stacks to the Review Account or Production Account when a Pull Request is processed. 
+                <ul>
+                    <li>Review CodePipeline
+                        <ul>
+                            <li>Opening Pull Request automatically publishes a review stack.</li>
+                            <li>Closing Pull Request automatically deletes the review stack.</li>
+                        </ul>
+                    </li>
+                    <li>Prod CodePipeline
+                        <ul>
+                            <li>Opening PUll Request automatically publishes review stack.</li>
+                            <li>Approving Pull Request creates/updates production stack.</li>
+                            <li>Closing Pull request automatically deletes the review stack.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>This CI/CD setup does not require or provide per developer CI/CD 
+                pipelines. However, you can easily implement these pipelines using techniques 
+                described in this CI/CD Setup step.
+            </li>
+            <li>There are a multitude of different tools and workflow patterns for CI/CD. If 
+                you are new to CI/CD, this setup will provide enough understanding to to 
+                evaluate other CI/CD solutions if this example solution falls short of 
+                your requirements.
+            </li>
+            <li>There are many Git repository services that you can use instead of GitHub. GitHub 
+                was selected only because it is so widely used by the .NET community. Some other 
+                popular Git repositories include BitBucket, GitLab and AWS CodeCommit. 
+            </li>
+        </li>
+    
+        </ul> 
+
+<h4>AWS Users and AWS CLI Profiles</h4>
+<p>Each Account has a Root User and one or more IAM Users. Root users sign into an account 
+    using their email address and password. IAM User sign into the account using the 
+    AccountID, UserName and Password. You can, and should, add MFA to Root User access and 
+    IAM User access.
+</p>
+<p>The AWS CLI allows programmatic access to Accounts using credentials stored in "profiles" 
+    on your workstation. Since an organization has multiple accounts, we use "named" profiles 
+    when issuing AWS CLI commands to ensure we always update the correct account. 
+    The AWS CLI allows the creation of a "default" profile. We recommend that this be used 
+    with care on a workstation with access to multiple accounts. For instance, we do not 
+    recommend that the AWS Organization Management Account credentials be stored in the 
+    AWS CLI "default" profile.
+</p>
+<p>When complete, your organization's AWS Root Users and IAM Users will look something 
+    like this:</p>
+<img src="/assets/img/AwsCICDSetup_new2.svg">
+<p></p>
+<h5>Insights:</h5>
+<ul>
+    <li>Root User access to the Management Account is infrequent and largely relegated to actions one 
+        would take in the AWS Console.
+    </li>
+    <li>We only create AWS CLI Profiles for IAM Users.</li>    
+    <li>Root User access to Member Accounts is very-rarely necessary and these login-credentials should not be shared.</li>
+    <li>The IAM User LzMgmt can assume the OrganizationAccountAccessRole to administer Member Accounts. For example,
+        the AWS CLI Profiles LzDevJoeAccess, LzRevAccess, and LzProdAccess are used to administer the 
+        corresponding Member Account from the LzMgmt Management Account when using the AWS CLI.
+    </li>
+    <li>Root Users sign-in with at least an email address and password. An email address can be used
+        with only one AWS account. Use email address aliases to be a root user in different AWS accounts.
+    </li>
+    <li>IAM users sign-in with at least an account#, user name, and password. The user-name is unique 
+        within the account.</li>
+</ul>        
+
+</div>

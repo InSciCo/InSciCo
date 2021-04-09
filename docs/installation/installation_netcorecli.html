@@ -128,11 +128,18 @@
                         </a>
                       </li>
                 
+                      <li id="deploy">
+                        <a href="/deploy/deploy_overview.html">
+                            <span class="">Deploy</span>
+                        </a>
+                      </li>
                       <li id="roadmap">
                         <a href="/roadmap/roadmap_overview.html">
                             <span class="">RoadMap</span>
                         </a>
                       </li>
+                
+                
                 
                       <li id="contact">
                         <a href="/contact/contact_contact.html">
@@ -159,11 +166,85 @@
                 <span class="">Overview</span>
             </a>
         </li>
+
+        <li >
+            <a  href="/installation/installation_aws.html">
+                <span class="">AWS Getting Started</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsexistingacct.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Use Existing AWS Account</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Mgmt Account Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Organization Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Mgmt. Scripts Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsorgsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Organization Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Dev Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Dev Profile Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Review Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prod Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awscicdsetup.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">CI/CD Orverview</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">CI/CD Setup</span>
+            </a>
+        </li>
+
         <li >
             <a  href="/installation/installation_visualstudio.html">
                 <span class="">Visual Studio Windows</span>
             </a>
         </li>
+
         <li >
             <a  href="/installation/installation_mac_visualstudio.html">
                 <span class="">Visual Studio Mac</span>
@@ -179,21 +260,19 @@
 </div>
 <div class=lz-r-content>
     <h3>.NET CLI Tool</h3>
-    <p>The LazyStack generator is available as a .NET CLI Tool. Use this tool if you are not using Visual Studio (Windows) for development or 
+    <p>Prerequisites: AWS Account with AWS CLI Installed</p>
+    <p>The LazyStack generator is available as a .NET CLI Tool. Use this tool if you are not using 
+        Visual Studio (Windows) for development or 
         need to automate deployment tasks.</p>
-
+    <p>The .NET CLI Tool and Visual Studio Code make a great combination for cross platform work.</p>
     <h4>Install Steps</h4>
     <ol>
-      <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank" rel="noopener noreferrer"
-        >Create AWS Account</a> - skip this step if you already have an AWS Account.</li>
-        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html" target="_blank" rel="noopener noreferrer"
-            >Install AWS CLI</a> - skip this step if you have the AWS CLI v2 installed.</li>
         <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
             target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a> - skip this step if you have the SAM CLI installed.</li>
         <li><a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank" rel="noopener noreferrer">
             Install .NET 5.0 SDK</a> 
         - make sure you have the SDK installed, not just the runtime.</li>
-        <li>>Open a console and issue this command:
+        <li>Open a console and issue this command:
         <pre><code class="language-bash">dotnet tool install lazystackapp -g</code></pre>
         </li>
 </ol>  

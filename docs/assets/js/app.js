@@ -131,7 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onImagesLoaded", function() { return onImagesLoaded; });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+function _typeof2(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
 
 
@@ -444,9 +444,7 @@ function ignoreMousedisappear(handler) {
   };
 }
 
-var foundation_core_utils =
-/*#__PURE__*/
-Object.freeze({
+var foundation_core_utils = /*#__PURE__*/Object.freeze({
   rtl: rtl,
   GetYoDigits: GetYoDigits,
   RegExpEscape: RegExpEscape,
@@ -1778,9 +1776,7 @@ function init() {
   this.addEventListener && this.addEventListener('touchstart', onTouchStart, false);
 }
 
-var SpotSwipe =
-/*#__PURE__*/
-function () {
+var SpotSwipe = /*#__PURE__*/function () {
   function SpotSwipe($) {
     _classCallCheck(this, SpotSwipe);
 
@@ -2153,9 +2149,7 @@ Triggers.init = function ($, Foundation) {
 // {function} _destroy (replaces previous destroy)
 
 
-var Plugin =
-/*#__PURE__*/
-function () {
+var Plugin = /*#__PURE__*/function () {
   function Plugin(element, options) {
     _classCallCheck(this, Plugin);
 
@@ -2217,9 +2211,7 @@ function getPluginName(obj) {
  */
 
 
-var Abide =
-/*#__PURE__*/
-function (_Plugin) {
+var Abide = /*#__PURE__*/function (_Plugin) {
   _inherits(Abide, _Plugin);
 
   function Abide() {
@@ -3161,9 +3153,7 @@ Abide.defaults = {
  * @requires foundation.util.keyboard
  */
 
-var Accordion =
-/*#__PURE__*/
-function (_Plugin) {
+var Accordion = /*#__PURE__*/function (_Plugin) {
   _inherits(Accordion, _Plugin);
 
   function Accordion() {
@@ -3610,9 +3600,7 @@ Accordion.defaults = {
  * @requires foundation.util.nest
  */
 
-var AccordionMenu =
-/*#__PURE__*/
-function (_Plugin) {
+var AccordionMenu = /*#__PURE__*/function (_Plugin) {
   _inherits(AccordionMenu, _Plugin);
 
   function AccordionMenu() {
@@ -4000,9 +3988,7 @@ AccordionMenu.defaults = {
  * @requires foundation.util.box
  */
 
-var Drilldown =
-/*#__PURE__*/
-function (_Plugin) {
+var Drilldown = /*#__PURE__*/function (_Plugin) {
   _inherits(Drilldown, _Plugin);
 
   function Drilldown() {
@@ -4736,9 +4722,7 @@ function nextItem(item, array) {
   }
 }
 
-var Positionable =
-/*#__PURE__*/
-function (_Plugin) {
+var Positionable = /*#__PURE__*/function (_Plugin) {
   _inherits(Positionable, _Plugin);
 
   function Positionable() {
@@ -4970,9 +4954,7 @@ Positionable.defaults = {
  * @requires foundation.util.triggers
  */
 
-var Dropdown =
-/*#__PURE__*/
-function (_Positionable) {
+var Dropdown = /*#__PURE__*/function (_Positionable) {
   _inherits(Dropdown, _Positionable);
 
   function Dropdown() {
@@ -5458,9 +5440,7 @@ Dropdown.defaults = {
  * @requires foundation.util.touch
  */
 
-var DropdownMenu =
-/*#__PURE__*/
-function (_Plugin) {
+var DropdownMenu = /*#__PURE__*/function (_Plugin) {
   _inherits(DropdownMenu, _Plugin);
 
   function DropdownMenu() {
@@ -6000,9 +5980,7 @@ DropdownMenu.defaults = {
  * @requires foundation.util.imageLoader if equalizer contains images
  */
 
-var Equalizer =
-/*#__PURE__*/
-function (_Plugin) {
+var Equalizer = /*#__PURE__*/function (_Plugin) {
   _inherits(Equalizer, _Plugin);
 
   function Equalizer() {
@@ -6384,9 +6362,7 @@ Equalizer.defaults = {
  * @requires foundation.util.mediaQuery
  */
 
-var Interchange =
-/*#__PURE__*/
-function (_Plugin) {
+var Interchange = /*#__PURE__*/function (_Plugin) {
   _inherits(Interchange, _Plugin);
 
   function Interchange() {
@@ -6655,9 +6631,7 @@ Interchange.SPECIAL_QUERIES = {
  * @module foundation.smoothScroll
  */
 
-var SmoothScroll =
-/*#__PURE__*/
-function (_Plugin) {
+var SmoothScroll = /*#__PURE__*/function (_Plugin) {
   _inherits(SmoothScroll, _Plugin);
 
   function SmoothScroll() {
@@ -6819,9 +6793,7 @@ SmoothScroll.defaults = {
  * @requires foundation.util.triggers
  */
 
-var Magellan =
-/*#__PURE__*/
-function (_Plugin) {
+var Magellan = /*#__PURE__*/function (_Plugin) {
   _inherits(Magellan, _Plugin);
 
   function Magellan() {
@@ -7142,9 +7114,7 @@ Magellan.defaults = {
  * @requires foundation.util.triggers
  */
 
-var OffCanvas =
-/*#__PURE__*/
-function (_Plugin) {
+var OffCanvas = /*#__PURE__*/function (_Plugin) {
   _inherits(OffCanvas, _Plugin);
 
   function OffCanvas() {
@@ -7921,9 +7891,7 @@ OffCanvas.defaults = {
  * @requires foundation.util.touch
  */
 
-var Orbit =
-/*#__PURE__*/
-function (_Plugin) {
+var Orbit = /*#__PURE__*/function (_Plugin) {
   _inherits(Orbit, _Plugin);
 
   function Orbit() {
@@ -8548,9 +8516,7 @@ var MenuPlugins = {
  * @requires foundation.util.mediaQuery
  */
 
-var ResponsiveMenu =
-/*#__PURE__*/
-function (_Plugin) {
+var ResponsiveMenu = /*#__PURE__*/function (_Plugin) {
   _inherits(ResponsiveMenu, _Plugin);
 
   function ResponsiveMenu() {
@@ -8691,9 +8657,7 @@ ResponsiveMenu.defaults = {};
  * @requires foundation.util.motion
  */
 
-var ResponsiveToggle =
-/*#__PURE__*/
-function (_Plugin) {
+var ResponsiveToggle = /*#__PURE__*/function (_Plugin) {
   _inherits(ResponsiveToggle, _Plugin);
 
   function ResponsiveToggle() {
@@ -8860,9 +8824,7 @@ ResponsiveToggle.defaults = {
  * @requires foundation.util.motion if using animations
  */
 
-var Reveal =
-/*#__PURE__*/
-function (_Plugin) {
+var Reveal = /*#__PURE__*/function (_Plugin) {
   _inherits(Reveal, _Plugin);
 
   function Reveal() {
@@ -9579,9 +9541,7 @@ Reveal.defaults = {
  * @requires foundation.util.touch
  */
 
-var Slider =
-/*#__PURE__*/
-function (_Plugin) {
+var Slider = /*#__PURE__*/function (_Plugin) {
   _inherits(Slider, _Plugin);
 
   function Slider() {
@@ -10377,9 +10337,7 @@ function baseLog(base, value) {
  */
 
 
-var Sticky =
-/*#__PURE__*/
-function (_Plugin) {
+var Sticky = /*#__PURE__*/function (_Plugin) {
   _inherits(Sticky, _Plugin);
 
   function Sticky() {
@@ -10956,9 +10914,7 @@ function emCalc(em) {
  */
 
 
-var Tabs =
-/*#__PURE__*/
-function (_Plugin) {
+var Tabs = /*#__PURE__*/function (_Plugin) {
   _inherits(Tabs, _Plugin);
 
   function Tabs() {
@@ -11521,9 +11477,7 @@ Tabs.defaults = {
  * @requires foundation.util.triggers
  */
 
-var Toggler =
-/*#__PURE__*/
-function (_Plugin) {
+var Toggler = /*#__PURE__*/function (_Plugin) {
   _inherits(Toggler, _Plugin);
 
   function Toggler() {
@@ -11713,9 +11667,7 @@ Toggler.defaults = {
  * @requires foundation.util.triggers
  */
 
-var Tooltip =
-/*#__PURE__*/
-function (_Positionable) {
+var Tooltip = /*#__PURE__*/function (_Positionable) {
   _inherits(Tooltip, _Positionable);
 
   function Tooltip() {
@@ -12242,9 +12194,7 @@ var MenuPlugins$1 = {
  * @requires foundation.tabs
  */
 
-var ResponsiveAccordionTabs =
-/*#__PURE__*/
-function (_Plugin) {
+var ResponsiveAccordionTabs = /*#__PURE__*/function (_Plugin) {
   _inherits(ResponsiveAccordionTabs, _Plugin);
 
   function ResponsiveAccordionTabs(element, options) {
@@ -12603,10 +12553,10 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /*!
- * jQuery JavaScript Library v3.3.1
+ * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -12616,7 +12566,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2018-01-20T17:24Z
+ * Date: 2020-05-04T22:49Z
  */
 (function (global, factory) {
   "use strict";
@@ -12648,10 +12598,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   "use strict";
 
   var arr = [];
-  var document = window.document;
   var getProto = Object.getPrototypeOf;
   var _slice = arr.slice;
-  var concat = arr.concat;
+  var flat = arr.flat ? function (array) {
+    return arr.flat.call(array);
+  } : function (array) {
+    return arr.concat.apply([], array);
+  };
   var push = arr.push;
   var indexOf = arr.indexOf;
   var class2type = {};
@@ -12673,22 +12626,37 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     return obj != null && obj === obj.window;
   };
 
+  var document = window.document;
   var preservedScriptAttributes = {
     type: true,
     src: true,
+    nonce: true,
     noModule: true
   };
 
-  function DOMEval(code, doc, node) {
+  function DOMEval(code, node, doc) {
     doc = doc || document;
     var i,
+        val,
         script = doc.createElement("script");
     script.text = code;
 
     if (node) {
       for (i in preservedScriptAttributes) {
-        if (node[i]) {
-          script[i] = node[i];
+        // Support: Firefox 64+, Edge 18+
+        // Some browsers don't support the "nonce" property on scripts.
+        // On the other hand, just using `getAttribute` is not enough as
+        // the `nonce` attribute is reset to an empty string whenever it
+        // becomes browsing-context connected.
+        // See https://github.com/whatwg/html/issues/2369
+        // See https://html.spec.whatwg.org/#nonce-attributes
+        // The `node.getAttribute` check was added for the sake of
+        // `jQuery.globalEval` so that it can fake a nonce-containing node
+        // via an object.
+        val = node[i] || node.getAttribute && node.getAttribute(i);
+
+        if (val) {
+          script.setAttribute(i, val);
         }
       }
     }
@@ -12709,16 +12677,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   // unguarded in another place, it seems safer to define global only for this module
 
 
-  var version = "3.3.1",
+  var version = "3.5.1",
       // Define a local copy of jQuery
   jQuery = function jQuery(selector, context) {
     // The jQuery object is actually just the init constructor 'enhanced'
     // Need init if jQuery is called (just allow error to be thrown if not included)
     return new jQuery.fn.init(selector, context);
-  },
-      // Support: Android <=4.0 only
-  // Make sure we trim BOM and NBSP
-  rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+  };
 
   jQuery.fn = jQuery.prototype = {
     // The current version of jQuery being used
@@ -12767,6 +12732,16 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     },
     last: function last() {
       return this.eq(-1);
+    },
+    even: function even() {
+      return this.pushStack(jQuery.grep(this, function (_elem, i) {
+        return (i + 1) % 2;
+      }));
+    },
+    odd: function odd() {
+      return this.pushStack(jQuery.grep(this, function (_elem, i) {
+        return i % 2;
+      }));
     },
     eq: function eq(i) {
       var len = this.length,
@@ -12818,22 +12793,26 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       if ((options = arguments[i]) != null) {
         // Extend the base object
         for (name in options) {
-          src = target[name];
-          copy = options[name]; // Prevent never-ending loop
+          copy = options[name]; // Prevent Object.prototype pollution
+          // Prevent never-ending loop
 
-          if (target === copy) {
+          if (name === "__proto__" || target === copy) {
             continue;
           } // Recurse if we're merging plain objects or arrays
 
 
           if (deep && copy && (jQuery.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
-            if (copyIsArray) {
-              copyIsArray = false;
-              clone = src && Array.isArray(src) ? src : [];
-            } else {
-              clone = src && jQuery.isPlainObject(src) ? src : {};
-            } // Never move original objects, clone them
+            src = target[name]; // Ensure proper type for the source value
 
+            if (copyIsArray && !Array.isArray(src)) {
+              clone = [];
+            } else if (!copyIsArray && !jQuery.isPlainObject(src)) {
+              clone = {};
+            } else {
+              clone = src;
+            }
+
+            copyIsArray = false; // Never move original objects, clone them
 
             target[name] = jQuery.extend(deep, clone, copy); // Don't bring in undefined values
           } else if (copy !== undefined) {
@@ -12875,8 +12854,6 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       return typeof Ctor === "function" && fnToString.call(Ctor) === ObjectFunctionString;
     },
     isEmptyObject: function isEmptyObject(obj) {
-      /* eslint-disable no-unused-vars */
-      // See https://github.com/eslint/eslint/issues/6125
       var name;
 
       for (name in obj) {
@@ -12885,9 +12862,12 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
       return true;
     },
-    // Evaluates a script in a global context
-    globalEval: function globalEval(code) {
-      DOMEval(code);
+    // Evaluates a script in a provided context; falls back to the global one
+    // if not specified.
+    globalEval: function globalEval(code, options, doc) {
+      DOMEval(code, {
+        nonce: options && options.nonce
+      }, doc);
     },
     each: function each(obj, callback) {
       var length,
@@ -12910,10 +12890,6 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       }
 
       return obj;
-    },
-    // Support: Android <=4.0 only
-    trim: function trim(text) {
-      return text == null ? "" : (text + "").replace(rtrim, "");
     },
     // results is for internal usage only
     makeArray: function makeArray(arr, results) {
@@ -12993,7 +12969,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       } // Flatten any nested arrays
 
 
-      return concat.apply([], ret);
+      return flat(ret);
     },
     // A global GUID counter for objects
     guid: 1,
@@ -13007,7 +12983,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   } // Populate the class2type map
 
 
-  jQuery.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "), function (i, name) {
+  jQuery.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "), function (_i, name) {
     class2type["[object " + name + "]"] = name.toLowerCase();
   });
 
@@ -13028,14 +13004,14 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
   var Sizzle =
   /*!
-   * Sizzle CSS Selector Engine v2.3.3
+   * Sizzle CSS Selector Engine v2.3.5
    * https://sizzlejs.com/
    *
-   * Copyright jQuery Foundation and other contributors
+   * Copyright JS Foundation and other contributors
    * Released under the MIT license
-   * http://jquery.org/license
+   * https://js.foundation/
    *
-   * Date: 2016-08-08
+   * Date: 2020-03-14
    */
   function (window) {
     var i,
@@ -13066,6 +13042,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         classCache = createCache(),
         tokenCache = createCache(),
         compilerCache = createCache(),
+        nonnativeSelectorCache = createCache(),
         sortOrder = function sortOrder(a, b) {
       if (a === b) {
         hasDuplicate = true;
@@ -13077,7 +13054,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     hasOwn = {}.hasOwnProperty,
         arr = [],
         pop = arr.pop,
-        push_native = arr.push,
+        pushNative = arr.push,
         push = arr.push,
         slice = arr.slice,
         // Use a stripped-down indexOf as it's faster than native
@@ -13094,15 +13071,16 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
       return -1;
     },
-        booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+        booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|" + "ismap|loop|multiple|open|readonly|required|scoped",
         // Regular expressions
     // http://www.w3.org/TR/css3-selectors/#whitespace
     whitespace = "[\\x20\\t\\r\\n\\f]",
-        // http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
-    identifier = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
+        // https://www.w3.org/TR/css-syntax-3/#ident-token-diagram
+    identifier = "(?:\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
         // Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
     attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace + // Operator (capture 2)
-    "*([*^$|!~]?=)" + whitespace + // "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
+    "*([*^$|!~]?=)" + whitespace + // "Attribute values must be CSS identifiers [capture 5]
+    // or strings [capture 3 or capture 4]"
     "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" + whitespace + "*\\]",
         pseudos = ":(" + identifier + ")(?:\\((" + // To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
     // 1. quoted (capture 3; capture 4 or capture 5)
@@ -13114,7 +13092,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         rtrim = new RegExp("^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g"),
         rcomma = new RegExp("^" + whitespace + "*," + whitespace + "*"),
         rcombinators = new RegExp("^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace + "*"),
-        rattributeQuotes = new RegExp("=" + whitespace + "*([^\\]'\"]*?)" + whitespace + "*\\]", "g"),
+        rdescend = new RegExp(whitespace + "|>"),
         rpseudo = new RegExp(pseudos),
         ridentifier = new RegExp("^" + identifier + "$"),
         matchExpr = {
@@ -13129,6 +13107,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       // We use this for POS matching in `select`
       "needsContext": new RegExp("^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i")
     },
+        rhtml = /HTML$/i,
         rinputs = /^(?:input|select|textarea|button)$/i,
         rheader = /^h\d$/i,
         rnative = /^[^{]+\{\s*\[native \w/,
@@ -13137,15 +13116,15 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         rsibling = /[+~]/,
         // CSS escapes
     // http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
-    runescape = new RegExp("\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig"),
-        funescape = function funescape(_, escaped, escapedWhitespace) {
-      var high = "0x" + escaped - 0x10000; // NaN means non-codepoint
-      // Support: Firefox<24
-      // Workaround erroneous numeric interpretation of +"0x"
-
-      return high !== high || escapedWhitespace ? escaped : high < 0 ? // BMP codepoint
-      String.fromCharCode(high + 0x10000) : // Supplemental Plane codepoint (surrogate pair)
-      String.fromCharCode(high >> 10 | 0xD800, high & 0x3FF | 0xDC00);
+    runescape = new RegExp("\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\([^\\r\\n\\f])", "g"),
+        funescape = function funescape(escape, nonHex) {
+      var high = "0x" + escape.slice(1) - 0x10000;
+      return nonHex ? // Strip the backslash prefix from a non-hex escape sequence
+      nonHex : // Replace a hexadecimal escape sequence with the encoded Unicode code point
+      // Support: IE <=11+
+      // For values outside the Basic Multilingual Plane (BMP), manually construct a
+      // surrogate pair
+      high < 0 ? String.fromCharCode(high + 0x10000) : String.fromCharCode(high >> 10 | 0xD800, high & 0x3FF | 0xDC00);
     },
         // CSS string/identifier serialization
     // https://drafts.csswg.org/cssom/#common-serializing-idioms
@@ -13171,8 +13150,8 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     unloadHandler = function unloadHandler() {
       setDocument();
     },
-        disabledAncestor = addCombinator(function (elem) {
-      return elem.disabled === true && ("form" in elem || "label" in elem);
+        inDisabledFieldset = addCombinator(function (elem) {
+      return elem.disabled === true && elem.nodeName.toLowerCase() === "fieldset";
     }, {
       dir: "parentNode",
       next: "legend"
@@ -13182,13 +13161,14 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     try {
       push.apply(arr = slice.call(preferredDoc.childNodes), preferredDoc.childNodes); // Support: Android<4.0
       // Detect silently failing push.apply
+      // eslint-disable-next-line no-unused-expressions
 
       arr[preferredDoc.childNodes.length].nodeType;
     } catch (e) {
       push = {
         apply: arr.length ? // Leverage slice if possible
         function (target, els) {
-          push_native.apply(target, slice.call(els));
+          pushNative.apply(target, slice.call(els));
         } : // Support: IE<9
         // Otherwise append directly
         function (target, els) {
@@ -13221,10 +13201,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
 
       if (!seed) {
-        if ((context ? context.ownerDocument || context : preferredDoc) !== document) {
-          setDocument(context);
-        }
-
+        setDocument(context);
         context = context || document;
 
         if (documentIsHTML) {
@@ -13267,19 +13244,30 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           } // Take advantage of querySelectorAll
 
 
-          if (support.qsa && !compilerCache[selector + " "] && (!rbuggyQSA || !rbuggyQSA.test(selector))) {
-            if (nodeType !== 1) {
-              newContext = context;
-              newSelector = selector; // qSA looks outside Element context, which is not what we want
-              // Thanks to Andrew Dupont for this workaround technique
-              // Support: IE <=8
-              // Exclude object elements
-            } else if (context.nodeName.toLowerCase() !== "object") {
-              // Capture the context ID, setting it first if necessary
-              if (nid = context.getAttribute("id")) {
-                nid = nid.replace(rcssescape, fcssescape);
-              } else {
-                context.setAttribute("id", nid = expando);
+          if (support.qsa && !nonnativeSelectorCache[selector + " "] && (!rbuggyQSA || !rbuggyQSA.test(selector)) && ( // Support: IE 8 only
+          // Exclude object elements
+          nodeType !== 1 || context.nodeName.toLowerCase() !== "object")) {
+            newSelector = selector;
+            newContext = context; // qSA considers elements outside a scoping root when evaluating child or
+            // descendant combinators, which is not what we want.
+            // In such cases, we work around the behavior by prefixing every selector in the
+            // list with an ID selector referencing the scope context.
+            // The technique has to be used as well when a leading combinator is used
+            // as such selectors are not recognized by querySelectorAll.
+            // Thanks to Andrew Dupont for this technique.
+
+            if (nodeType === 1 && (rdescend.test(selector) || rcombinators.test(selector))) {
+              // Expand context for sibling selectors
+              newContext = rsibling.test(selector) && testContext(context.parentNode) || context; // We can use :scope instead of the ID hack if the browser
+              // supports it & if we're not changing the context.
+
+              if (newContext !== context || !support.scope) {
+                // Capture the context ID, setting it first if necessary
+                if (nid = context.getAttribute("id")) {
+                  nid = nid.replace(rcssescape, fcssescape);
+                } else {
+                  context.setAttribute("id", nid = expando);
+                }
               } // Prefix every selector in the list
 
 
@@ -13287,22 +13275,20 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
               i = groups.length;
 
               while (i--) {
-                groups[i] = "#" + nid + " " + toSelector(groups[i]);
+                groups[i] = (nid ? "#" + nid : ":scope") + " " + toSelector(groups[i]);
               }
 
-              newSelector = groups.join(","); // Expand context for sibling selectors
-
-              newContext = rsibling.test(selector) && testContext(context.parentNode) || context;
+              newSelector = groups.join(",");
             }
 
-            if (newSelector) {
-              try {
-                push.apply(results, newContext.querySelectorAll(newSelector));
-                return results;
-              } catch (qsaError) {} finally {
-                if (nid === expando) {
-                  context.removeAttribute("id");
-                }
+            try {
+              push.apply(results, newContext.querySelectorAll(newSelector));
+              return results;
+            } catch (qsaError) {
+              nonnativeSelectorCache(selector, true);
+            } finally {
+              if (nid === expando) {
+                context.removeAttribute("id");
               }
             }
           }
@@ -13469,7 +13455,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
             return elem.isDisabled === disabled || // Where there is no isDisabled, check manually
 
             /* jshint -W018 */
-            elem.isDisabled !== !disabled && disabledAncestor(elem) === disabled;
+            elem.isDisabled !== !disabled && inDisabledFieldset(elem) === disabled;
           }
 
           return elem.disabled === disabled; // Try to winnow out elements that can't be disabled before trusting the disabled property.
@@ -13525,10 +13511,12 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
      */
 
     isXML = Sizzle.isXML = function (elem) {
-      // documentElement is verified for cases where it doesn't yet exist
-      // (such as loading iframes in IE - #4833)
-      var documentElement = elem && (elem.ownerDocument || elem).documentElement;
-      return documentElement ? documentElement.nodeName !== "HTML" : false;
+      var namespace = elem.namespaceURI,
+          docElem = (elem.ownerDocument || elem).documentElement; // Support: IE <=8
+      // Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
+      // https://bugs.jquery.com/ticket/4833
+
+      return !rhtml.test(namespace || docElem && docElem.nodeName || "HTML");
     };
     /**
      * Sets document-related variables once based on the current document
@@ -13541,31 +13529,48 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       var hasCompare,
           subWindow,
           doc = node ? node.ownerDocument || node : preferredDoc; // Return early if doc is invalid or already selected
+      // Support: IE 11+, Edge 17 - 18+
+      // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+      // two documents; shallow comparisons work.
+      // eslint-disable-next-line eqeqeq
 
-      if (doc === document || doc.nodeType !== 9 || !doc.documentElement) {
+      if (doc == document || doc.nodeType !== 9 || !doc.documentElement) {
         return document;
       } // Update global variables
 
 
       document = doc;
       docElem = document.documentElement;
-      documentIsHTML = !isXML(document); // Support: IE 9-11, Edge
+      documentIsHTML = !isXML(document); // Support: IE 9 - 11+, Edge 12 - 18+
       // Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
+      // Support: IE 11+, Edge 17 - 18+
+      // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+      // two documents; shallow comparisons work.
+      // eslint-disable-next-line eqeqeq
 
-      if (preferredDoc !== document && (subWindow = document.defaultView) && subWindow.top !== subWindow) {
+      if (preferredDoc != document && (subWindow = document.defaultView) && subWindow.top !== subWindow) {
         // Support: IE 11, Edge
         if (subWindow.addEventListener) {
           subWindow.addEventListener("unload", unloadHandler, false); // Support: IE 9 - 10 only
         } else if (subWindow.attachEvent) {
           subWindow.attachEvent("onunload", unloadHandler);
         }
-      }
+      } // Support: IE 8 - 11+, Edge 12 - 18+, Chrome <=16 - 25 only, Firefox <=3.6 - 31 only,
+      // Safari 4 - 5 only, Opera <=11.6 - 12.x only
+      // IE/Edge & older browsers don't support the :scope pseudo-class.
+      // Support: Safari 6.0 only
+      // Safari 6.0 supports :scope but it's an alias of :root there.
+
+
+      support.scope = assert(function (el) {
+        docElem.appendChild(el).appendChild(document.createElement("div"));
+        return typeof el.querySelectorAll !== "undefined" && !el.querySelectorAll(":scope fieldset div").length;
+      });
       /* Attributes
       ---------------------------------------------------------------------- */
       // Support: IE<8
       // Verify that getAttribute really returns attributes and not properties
       // (excepting IE8 booleans)
-
 
       support.attributes = assert(function (el) {
         el.className = "i";
@@ -13698,11 +13703,12 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         // Build QSA regex
         // Regex strategy adopted from Diego Perini
         assert(function (el) {
-          // Select is set to empty string on purpose
+          var input; // Select is set to empty string on purpose
           // This is to test IE's treatment of not explicitly
           // setting a boolean content attribute,
           // since its presence should be enough
           // https://bugs.jquery.com/ticket/12359
+
           docElem.appendChild(el).innerHTML = "<a id='" + expando + "'></a>" + "<select id='" + expando + "-\r\\' msallowcapture=''>" + "<option selected=''></option></select>"; // Support: IE8, Opera 11-12.16
           // Nothing should be selected when empty strings follow ^= or $= or *=
           // The test attribute must be unknown in Opera but "safe" for WinRT
@@ -13721,6 +13727,19 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
           if (!el.querySelectorAll("[id~=" + expando + "-]").length) {
             rbuggyQSA.push("~=");
+          } // Support: IE 11+, Edge 15 - 18+
+          // IE 11/Edge don't find elements on a `[name='']` query in some cases.
+          // Adding a temporary attribute to the document before the selection works
+          // around the issue.
+          // Interestingly, IE 10 & older don't seem to have the issue.
+
+
+          input = document.createElement("input");
+          input.setAttribute("name", "");
+          el.appendChild(input);
+
+          if (!el.querySelectorAll("[name='']").length) {
+            rbuggyQSA.push("\\[" + whitespace + "*name" + whitespace + "*=" + whitespace + "*(?:''|\"\")");
           } // Webkit/Opera - :checked should return selected option elements
           // http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
           // IE8 throws error here and will not see later tests
@@ -13735,7 +13754,12 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
           if (!el.querySelectorAll("a#" + expando + "+*").length) {
             rbuggyQSA.push(".#.+[+~]");
-          }
+          } // Support: Firefox <=3.6 - 5 only
+          // Old Firefox doesn't throw on a badly-escaped identifier.
+
+
+          el.querySelectorAll("\\\f");
+          rbuggyQSA.push("[\\r\\n\\f]");
         });
         assert(function (el) {
           el.innerHTML = "<a href='' disabled='disabled'></a>" + "<select disabled='disabled'><option/></select>"; // Support: Windows 8 Native Apps
@@ -13762,7 +13786,8 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
           if (el.querySelectorAll(":disabled").length !== 2) {
             rbuggyQSA.push(":enabled", ":disabled");
-          } // Opera 10-11 does not throw on post-comma invalid pseudos
+          } // Support: Opera 10 - 11 only
+          // Opera 10-11 does not throw on post-comma invalid pseudos
 
 
           el.querySelectorAll("*,:x");
@@ -13823,18 +13848,30 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         if (compare) {
           return compare;
         } // Calculate position if both inputs belong to the same document
+        // Support: IE 11+, Edge 17 - 18+
+        // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+        // two documents; shallow comparisons work.
+        // eslint-disable-next-line eqeqeq
 
 
-        compare = (a.ownerDocument || a) === (b.ownerDocument || b) ? a.compareDocumentPosition(b) : // Otherwise we know they are disconnected
+        compare = (a.ownerDocument || a) == (b.ownerDocument || b) ? a.compareDocumentPosition(b) : // Otherwise we know they are disconnected
         1; // Disconnected nodes
 
         if (compare & 1 || !support.sortDetached && b.compareDocumentPosition(a) === compare) {
           // Choose the first element that is related to our preferred document
-          if (a === document || a.ownerDocument === preferredDoc && contains(preferredDoc, a)) {
+          // Support: IE 11+, Edge 17 - 18+
+          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+          // two documents; shallow comparisons work.
+          // eslint-disable-next-line eqeqeq
+          if (a == document || a.ownerDocument == preferredDoc && contains(preferredDoc, a)) {
             return -1;
-          }
+          } // Support: IE 11+, Edge 17 - 18+
+          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+          // two documents; shallow comparisons work.
+          // eslint-disable-next-line eqeqeq
 
-          if (b === document || b.ownerDocument === preferredDoc && contains(preferredDoc, b)) {
+
+          if (b == document || b.ownerDocument == preferredDoc && contains(preferredDoc, b)) {
             return 1;
           } // Maintain original order
 
@@ -13858,7 +13895,14 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
             bp = [b]; // Parentless nodes are either documents or disconnected
 
         if (!aup || !bup) {
-          return a === document ? -1 : b === document ? 1 : aup ? -1 : bup ? 1 : sortInput ? indexOf(sortInput, a) - indexOf(sortInput, b) : 0; // If the nodes are siblings, we can do a quick check
+          // Support: IE 11+, Edge 17 - 18+
+          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+          // two documents; shallow comparisons work.
+
+          /* eslint-disable eqeqeq */
+          return a == document ? -1 : b == document ? 1 :
+          /* eslint-enable eqeqeq */
+          aup ? -1 : bup ? 1 : sortInput ? indexOf(sortInput, a) - indexOf(sortInput, b) : 0; // If the nodes are siblings, we can do a quick check
         } else if (aup === bup) {
           return siblingCheck(a, b);
         } // Otherwise we need full lists of their ancestors for comparison
@@ -13883,7 +13927,14 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
         return i ? // Do a sibling check if the nodes have a common ancestor
         siblingCheck(ap[i], bp[i]) : // Otherwise nodes in our document sort first
-        ap[i] === preferredDoc ? -1 : bp[i] === preferredDoc ? 1 : 0;
+        // Support: IE 11+, Edge 17 - 18+
+        // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+        // two documents; shallow comparisons work.
+
+        /* eslint-disable eqeqeq */
+        ap[i] == preferredDoc ? -1 : bp[i] == preferredDoc ? 1 :
+        /* eslint-enable eqeqeq */
+        0;
       };
       return document;
     };
@@ -13893,15 +13944,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     };
 
     Sizzle.matchesSelector = function (elem, expr) {
-      // Set document vars if needed
-      if ((elem.ownerDocument || elem) !== document) {
-        setDocument(elem);
-      } // Make sure that attribute selectors are quoted
+      setDocument(elem);
 
-
-      expr = expr.replace(rattributeQuotes, "='$1']");
-
-      if (support.matchesSelector && documentIsHTML && !compilerCache[expr + " "] && (!rbuggyMatches || !rbuggyMatches.test(expr)) && (!rbuggyQSA || !rbuggyQSA.test(expr))) {
+      if (support.matchesSelector && documentIsHTML && !nonnativeSelectorCache[expr + " "] && (!rbuggyMatches || !rbuggyMatches.test(expr)) && (!rbuggyQSA || !rbuggyQSA.test(expr))) {
         try {
           var ret = matches.call(elem, expr); // IE 9's matchesSelector returns false on disconnected nodes
 
@@ -13910,7 +13955,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           elem.document && elem.document.nodeType !== 11) {
             return ret;
           }
-        } catch (e) {}
+        } catch (e) {
+          nonnativeSelectorCache(expr, true);
+        }
       }
 
       return Sizzle(expr, document, null, [elem]).length > 0;
@@ -13918,7 +13965,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
     Sizzle.contains = function (context, elem) {
       // Set document vars if needed
-      if ((context.ownerDocument || context) !== document) {
+      // Support: IE 11+, Edge 17 - 18+
+      // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+      // two documents; shallow comparisons work.
+      // eslint-disable-next-line eqeqeq
+      if ((context.ownerDocument || context) != document) {
         setDocument(context);
       }
 
@@ -13927,7 +13978,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
     Sizzle.attr = function (elem, name) {
       // Set document vars if needed
-      if ((elem.ownerDocument || elem) !== document) {
+      // Support: IE 11+, Edge 17 - 18+
+      // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+      // two documents; shallow comparisons work.
+      // eslint-disable-next-line eqeqeq
+      if ((elem.ownerDocument || elem) != document) {
         setDocument(elem);
       }
 
@@ -14129,17 +14184,20 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
             }
 
             result += "";
+            /* eslint-disable max-len */
+
             return operator === "=" ? result === check : operator === "!=" ? result !== check : operator === "^=" ? check && result.indexOf(check) === 0 : operator === "*=" ? check && result.indexOf(check) > -1 : operator === "$=" ? check && result.slice(-check.length) === check : operator === "~=" ? (" " + result.replace(rwhitespace, " ") + " ").indexOf(check) > -1 : operator === "|=" ? result === check || result.slice(0, check.length + 1) === check + "-" : false;
+            /* eslint-enable max-len */
           };
         },
-        "CHILD": function CHILD(type, what, argument, first, last) {
+        "CHILD": function CHILD(type, what, _argument, first, last) {
           var simple = type.slice(0, 3) !== "nth",
               forward = type.slice(-4) !== "last",
               ofType = what === "of-type";
           return first === 1 && last === 0 ? // Shortcut for :nth-*(n)
           function (elem) {
             return !!elem.parentNode;
-          } : function (elem, context, xml) {
+          } : function (elem, _context, xml) {
             var cache,
                 uniqueCache,
                 outerCache,
@@ -14280,7 +14338,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           var input = [],
               results = [],
               matcher = compile(selector.replace(rtrim, "$1"));
-          return matcher[expando] ? markFunction(function (seed, matches, context, xml) {
+          return matcher[expando] ? markFunction(function (seed, matches, _context, xml) {
             var elem,
                 unmatched = matcher(seed, null, xml, []),
                 i = seed.length; // Match elements unmatched by `matcher`
@@ -14290,7 +14348,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
                 seed[i] = !(matches[i] = elem);
               }
             }
-          }) : function (elem, context, xml) {
+          }) : function (elem, _context, xml) {
             input[0] = elem;
             matcher(input, null, xml, results); // Don't keep the element (issue #299)
 
@@ -14306,7 +14364,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         "contains": markFunction(function (text) {
           text = text.replace(runescape, funescape);
           return function (elem) {
-            return (elem.textContent || elem.innerText || getText(elem)).indexOf(text) > -1;
+            return (elem.textContent || getText(elem)).indexOf(text) > -1;
           };
         }),
         // "Whether an element is represented by a :lang() selector
@@ -14360,6 +14418,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           // Accessing this property makes selected-by-default
           // options in Safari work properly
           if (elem.parentNode) {
+            // eslint-disable-next-line no-unused-expressions
             elem.parentNode.selectedIndex;
           }
 
@@ -14403,10 +14462,10 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         "first": createPositionalPseudo(function () {
           return [0];
         }),
-        "last": createPositionalPseudo(function (matchIndexes, length) {
+        "last": createPositionalPseudo(function (_matchIndexes, length) {
           return [length - 1];
         }),
-        "eq": createPositionalPseudo(function (matchIndexes, length, argument) {
+        "eq": createPositionalPseudo(function (_matchIndexes, length, argument) {
           return [argument < 0 ? argument + length : argument];
         }),
         "even": createPositionalPseudo(function (matchIndexes, length) {
@@ -14428,7 +14487,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           return matchIndexes;
         }),
         "lt": createPositionalPseudo(function (matchIndexes, length, argument) {
-          var i = argument < 0 ? argument + length : argument;
+          var i = argument < 0 ? argument + length : argument > length ? length : argument;
 
           for (; --i >= 0;) {
             matchIndexes.push(i);
@@ -14808,7 +14867,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
             len = elems.length;
 
         if (outermost) {
-          outermostContext = context === document || context || outermost;
+          // Support: IE 11+, Edge 17 - 18+
+          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+          // two documents; shallow comparisons work.
+          // eslint-disable-next-line eqeqeq
+          outermostContext = context == document || context || outermost;
         } // Add elements passing elementMatchers directly to results
         // Support: IE<9, Safari
         // Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
@@ -14816,9 +14879,12 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
         for (; i !== len && (elem = elems[i]) != null; i++) {
           if (byElement && elem) {
-            j = 0;
+            j = 0; // Support: IE 11+, Edge 17 - 18+
+            // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+            // two documents; shallow comparisons work.
+            // eslint-disable-next-line eqeqeq
 
-            if (!context && elem.ownerDocument !== document) {
+            if (!context && elem.ownerDocument != document) {
               setDocument(elem);
               xml = !documentIsHTML;
             }
@@ -15041,7 +15107,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       el.firstChild.setAttribute("value", "");
       return el.firstChild.getAttribute("value") === "";
     })) {
-      addHandle("value", function (elem, name, isXML) {
+      addHandle("value", function (elem, _name, isXML) {
         if (!isXML && elem.nodeName.toLowerCase() === "input") {
           return elem.defaultValue;
         }
@@ -15357,7 +15423,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     parents: function parents(elem) {
       return dir(elem, "parentNode");
     },
-    parentsUntil: function parentsUntil(elem, i, until) {
+    parentsUntil: function parentsUntil(elem, _i, until) {
       return dir(elem, "parentNode", until);
     },
     next: function next(elem) {
@@ -15372,10 +15438,10 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     prevAll: function prevAll(elem) {
       return dir(elem, "previousSibling");
     },
-    nextUntil: function nextUntil(elem, i, until) {
+    nextUntil: function nextUntil(elem, _i, until) {
       return dir(elem, "nextSibling", until);
     },
-    prevUntil: function prevUntil(elem, i, until) {
+    prevUntil: function prevUntil(elem, _i, until) {
       return dir(elem, "previousSibling", until);
     },
     siblings: function siblings(elem) {
@@ -15385,7 +15451,10 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       return _siblings(elem.firstChild);
     },
     contents: function contents(elem) {
-      if (nodeName(elem, "iframe")) {
+      if (elem.contentDocument != null && // Support: IE 11+
+      // <object> elements with no `data` attribute has an object
+      // `contentDocument` with a `null` prototype.
+      getProto(elem.contentDocument)) {
         return elem.contentDocument;
       } // Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
       // Treat the template element as a regular one in browsers that
@@ -15683,7 +15752,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         {
           var fns = arguments;
           return jQuery.Deferred(function (newDefer) {
-            jQuery.each(tuples, function (i, tuple) {
+            jQuery.each(tuples, function (_i, tuple) {
               // Map tuples (progress, done, fail) to arguments (done, fail, progress)
               var fn = isFunction(fns[tuple[4]]) && fns[tuple[4]]; // deferred.progress(function() { bind to newDefer or newDefer.notify })
               // deferred.done(function() { bind to newDefer or newDefer.resolve })
@@ -16013,7 +16082,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         } else {
           bulk = fn;
 
-          fn = function fn(elem, key, value) {
+          fn = function fn(elem, _key, value) {
             return bulk.call(jQuery(elem), value);
           };
         }
@@ -16042,7 +16111,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   var rmsPrefix = /^-ms-/,
       rdashAlpha = /-([a-z])/g; // Used by camelCase as callback to replace()
 
-  function fcamelCase(all, letter) {
+  function fcamelCase(_all, letter) {
     return letter.toUpperCase();
   } // Convert dashed to camelCase; used by the css and data modules
   // Support: IE <=9 - 11, Edge 12 - 15
@@ -16484,6 +16553,25 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   var pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source;
   var rcssNum = new RegExp("^(?:([+-])=|)(" + pnum + ")([a-z%]*)$", "i");
   var cssExpand = ["Top", "Right", "Bottom", "Left"];
+  var documentElement = document.documentElement;
+
+  var isAttached = function isAttached(elem) {
+    return jQuery.contains(elem.ownerDocument, elem);
+  },
+      composed = {
+    composed: true
+  }; // Support: IE 9 - 11+, Edge 12 - 18+, iOS 10.0 - 10.2 only
+  // Check attachment across shadow DOM boundaries when possible (gh-3504)
+  // Support: iOS 10.0-10.2 only
+  // Early iOS 10 versions support `attachShadow` but not `getRootNode`,
+  // leading to errors. We need to check for `getRootNode`.
+
+
+  if (documentElement.getRootNode) {
+    isAttached = function isAttached(elem) {
+      return jQuery.contains(elem.ownerDocument, elem) || elem.getRootNode(composed) === elem.ownerDocument;
+    };
+  }
 
   var isHiddenWithinTree = function isHiddenWithinTree(elem, el) {
     // isHiddenWithinTree might be called from jQuery#filter function;
@@ -16494,26 +16582,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     // Support: Firefox <=43 - 45
     // Disconnected elements can have computed display: none, so first confirm that elem is
     // in the document.
-    jQuery.contains(elem.ownerDocument, elem) && jQuery.css(elem, "display") === "none";
-  };
-
-  var swap = function swap(elem, options, callback, args) {
-    var ret,
-        name,
-        old = {}; // Remember the old values, and insert the new ones
-
-    for (name in options) {
-      old[name] = elem.style[name];
-      elem.style[name] = options[name];
-    }
-
-    ret = callback.apply(elem, args || []); // Revert the old values
-
-    for (name in options) {
-      elem.style[name] = old[name];
-    }
-
-    return ret;
+    isAttached(elem) && jQuery.css(elem, "display") === "none";
   };
 
   function adjustCSS(elem, prop, valueParts, tween) {
@@ -16528,7 +16597,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         initial = currentValue(),
         unit = valueParts && valueParts[3] || (jQuery.cssNumber[prop] ? "" : "px"),
         // Starting value computation is required for potential unit mismatches
-    initialInUnit = (jQuery.cssNumber[prop] || unit !== "px" && +initial) && rcssNum.exec(jQuery.css(elem, prop));
+    initialInUnit = elem.nodeType && (jQuery.cssNumber[prop] || unit !== "px" && +initial) && rcssNum.exec(jQuery.css(elem, prop));
 
     if (initialInUnit && initialInUnit[3] !== unit) {
       // Support: Firefox <=54
@@ -16668,12 +16737,37 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     }
   });
   var rcheckableType = /^(?:checkbox|radio)$/i;
-  var rtagName = /<([a-z][^\/\0>\x20\t\r\n\f]+)/i;
-  var rscriptType = /^$|^module$|\/(?:java|ecma)script/i; // We have to close these tags to support XHTML (#13200)
+  var rtagName = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i;
+  var rscriptType = /^$|^module$|\/(?:java|ecma)script/i;
+
+  (function () {
+    var fragment = document.createDocumentFragment(),
+        div = fragment.appendChild(document.createElement("div")),
+        input = document.createElement("input"); // Support: Android 4.0 - 4.3 only
+    // Check state lost if the name is set (#11217)
+    // Support: Windows Web Apps (WWA)
+    // `name` and `type` must use .setAttribute for WWA (#14901)
+
+    input.setAttribute("type", "radio");
+    input.setAttribute("checked", "checked");
+    input.setAttribute("name", "t");
+    div.appendChild(input); // Support: Android <=4.1 only
+    // Older WebKit doesn't clone checked state correctly in fragments
+
+    support.checkClone = div.cloneNode(true).cloneNode(true).lastChild.checked; // Support: IE <=11 only
+    // Make sure textarea (and checkbox) defaultValue is properly cloned
+
+    div.innerHTML = "<textarea>x</textarea>";
+    support.noCloneChecked = !!div.cloneNode(true).lastChild.defaultValue; // Support: IE <=9 only
+    // IE <=9 replaces <option> tags with their contents when inserted outside of
+    // the select element.
+
+    div.innerHTML = "<option></option>";
+    support.option = !!div.lastChild;
+  })(); // We have to close these tags to support XHTML (#13200)
+
 
   var wrapMap = {
-    // Support: IE <=9 only
-    option: [1, "<select multiple='multiple'>", "</select>"],
     // XHTML parsers do not magically insert elements in the
     // same way that tag soup parsers do. So we cannot shorten
     // this by omitting <tbody> or other required elements.
@@ -16682,11 +16776,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     tr: [2, "<table><tbody>", "</tbody></table>"],
     td: [3, "<table><tbody><tr>", "</tr></tbody></table>"],
     _default: [0, "", ""]
-  }; // Support: IE <=9 only
-
-  wrapMap.optgroup = wrapMap.option;
+  };
   wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
-  wrapMap.th = wrapMap.td;
+  wrapMap.th = wrapMap.td; // Support: IE <=9 only
+
+  if (!support.option) {
+    wrapMap.optgroup = wrapMap.option = [1, "<select multiple='multiple'>", "</select>"];
+  }
 
   function getAll(context, tag) {
     // Support: IE <=9 - 11 only
@@ -16725,7 +16821,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         tmp,
         tag,
         wrap,
-        contains,
+        attached,
         j,
         fragment = context.createDocumentFragment(),
         nodes = [],
@@ -16781,11 +16877,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         continue;
       }
 
-      contains = jQuery.contains(elem.ownerDocument, elem); // Append to fragment
+      attached = isAttached(elem); // Append to fragment
 
       tmp = getAll(fragment.appendChild(elem), "script"); // Preserve script evaluation history
 
-      if (contains) {
+      if (attached) {
         setGlobalEval(tmp);
       } // Capture executables
 
@@ -16804,28 +16900,6 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     return fragment;
   }
 
-  (function () {
-    var fragment = document.createDocumentFragment(),
-        div = fragment.appendChild(document.createElement("div")),
-        input = document.createElement("input"); // Support: Android 4.0 - 4.3 only
-    // Check state lost if the name is set (#11217)
-    // Support: Windows Web Apps (WWA)
-    // `name` and `type` must use .setAttribute for WWA (#14901)
-
-    input.setAttribute("type", "radio");
-    input.setAttribute("checked", "checked");
-    input.setAttribute("name", "t");
-    div.appendChild(input); // Support: Android <=4.1 only
-    // Older WebKit doesn't clone checked state correctly in fragments
-
-    support.checkClone = div.cloneNode(true).cloneNode(true).lastChild.checked; // Support: IE <=11 only
-    // Make sure textarea (and checkbox) defaultValue is properly cloned
-
-    div.innerHTML = "<textarea>x</textarea>";
-    support.noCloneChecked = !!div.cloneNode(true).lastChild.defaultValue;
-  })();
-
-  var documentElement = document.documentElement;
   var rkeyEvent = /^key/,
       rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
       rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
@@ -16836,8 +16910,19 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
   function returnFalse() {
     return false;
+  } // Support: IE <=9 - 11+
+  // focus() and blur() are asynchronous, except when they are no-op.
+  // So expect focus to be synchronous when the element is already active,
+  // and blur to be synchronous when the element is not already active.
+  // (focus and blur are always synchronous in other supported browsers,
+  // this just defines when we can count on it).
+
+
+  function expectSync(elem, type) {
+    return elem === safeActiveElement() === (type === "focus");
   } // Support: IE <=9 only
-  // See #13393 for more info
+  // Accessing document.activeElement can throw unexpectedly
+  // https://bugs.jquery.com/ticket/13393
 
 
   function safeActiveElement() {
@@ -16924,9 +17009,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           type,
           namespaces,
           origType,
-          elemData = dataPriv.get(elem); // Don't attach events to noData or text/comment nodes (but allow plain objects)
+          elemData = dataPriv.get(elem); // Only attach events to objects that accept data
 
-      if (!elemData) {
+      if (!acceptData(elem)) {
         return;
       } // Caller can pass in an object of custom data in lieu of the handler
 
@@ -16950,7 +17035,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
 
       if (!(events = elemData.events)) {
-        events = elemData.events = {};
+        events = elemData.events = Object.create(null);
       }
 
       if (!(eventHandle = elemData.handle)) {
@@ -17098,8 +17183,6 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       }
     },
     dispatch: function dispatch(nativeEvent) {
-      // Make a writable jQuery.Event from the native event object
-      var event = jQuery.event.fix(nativeEvent);
       var i,
           j,
           ret,
@@ -17107,7 +17190,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           handleObj,
           handlerQueue,
           args = new Array(arguments.length),
-          handlers = (dataPriv.get(this, "events") || {})[event.type] || [],
+          // Make a writable jQuery.Event from the native event object
+      event = jQuery.event.fix(nativeEvent),
+          handlers = (dataPriv.get(this, "events") || Object.create(null))[event.type] || [],
           special = jQuery.event.special[event.type] || {}; // Use the fix-ed jQuery.Event rather than the (read-only) native event
 
       args[0] = event;
@@ -17132,9 +17217,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         j = 0;
 
         while ((handleObj = matched.handlers[j++]) && !event.isImmediatePropagationStopped()) {
-          // Triggered event must either 1) have no namespace, or 2) have namespace(s)
-          // a subset or equal to those in the bound event (both can have no namespace).
-          if (!event.rnamespace || event.rnamespace.test(handleObj.namespace)) {
+          // If the event is namespaced, then each handler is only invoked if it is
+          // specially universal or its namespaces are a superset of the event's.
+          if (!event.rnamespace || handleObj.namespace === false || event.rnamespace.test(handleObj.namespace)) {
             event.handleObj = handleObj;
             event.data = handleObj.data;
             ret = ((jQuery.event.special[handleObj.origType] || {}).handle || handleObj.handler).apply(matched.elem, args);
@@ -17248,36 +17333,38 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         // Prevent triggered image.load events from bubbling to window.load
         noBubble: true
       },
-      focus: {
-        // Fire native event if possible so blur/focus sequence is correct
-        trigger: function trigger() {
-          if (this !== safeActiveElement() && this.focus) {
-            this.focus();
-            return false;
-          }
-        },
-        delegateType: "focusin"
-      },
-      blur: {
-        trigger: function trigger() {
-          if (this === safeActiveElement() && this.blur) {
-            this.blur();
-            return false;
-          }
-        },
-        delegateType: "focusout"
-      },
       click: {
-        // For checkbox, fire native event so checked state will be right
-        trigger: function trigger() {
-          if (this.type === "checkbox" && this.click && nodeName(this, "input")) {
-            this.click();
-            return false;
-          }
+        // Utilize native event to ensure correct state for checkable inputs
+        setup: function setup(data) {
+          // For mutual compressibility with _default, replace `this` access with a local var.
+          // `|| data` is dead code meant only to preserve the variable through minification.
+          var el = this || data; // Claim the first handler
+
+          if (rcheckableType.test(el.type) && el.click && nodeName(el, "input")) {
+            // dataPriv.set( el, "click", ... )
+            leverageNative(el, "click", returnTrue);
+          } // Return false to allow normal processing in the caller
+
+
+          return false;
         },
-        // For cross-browser consistency, don't fire native .click() on links
+        trigger: function trigger(data) {
+          // For mutual compressibility with _default, replace `this` access with a local var.
+          // `|| data` is dead code meant only to preserve the variable through minification.
+          var el = this || data; // Force setup before triggering a click
+
+          if (rcheckableType.test(el.type) && el.click && nodeName(el, "input")) {
+            leverageNative(el, "click");
+          } // Return non-false to allow normal event-path propagation
+
+
+          return true;
+        },
+        // For cross-browser consistency, suppress native .click() on links
+        // Also prevent it if we're currently inside a leveraged native-event stack
         _default: function _default(event) {
-          return nodeName(event.target, "a");
+          var target = event.target;
+          return rcheckableType.test(target.type) && target.click && nodeName(target, "input") && dataPriv.get(target, "click") || nodeName(target, "a");
         }
       },
       beforeunload: {
@@ -17290,7 +17377,83 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         }
       }
     }
-  };
+  }; // Ensure the presence of an event listener that handles manually-triggered
+  // synthetic events by interrupting progress until reinvoked in response to
+  // *native* events that it fires directly, ensuring that state changes have
+  // already occurred before other listeners are invoked.
+
+  function leverageNative(el, type, expectSync) {
+    // Missing expectSync indicates a trigger call, which must force setup through jQuery.event.add
+    if (!expectSync) {
+      if (dataPriv.get(el, type) === undefined) {
+        jQuery.event.add(el, type, returnTrue);
+      }
+
+      return;
+    } // Register the controller as a special universal handler for all event namespaces
+
+
+    dataPriv.set(el, type, false);
+    jQuery.event.add(el, type, {
+      namespace: false,
+      handler: function handler(event) {
+        var notAsync,
+            result,
+            saved = dataPriv.get(this, type);
+
+        if (event.isTrigger & 1 && this[type]) {
+          // Interrupt processing of the outer synthetic .trigger()ed event
+          // Saved data should be false in such cases, but might be a leftover capture object
+          // from an async native handler (gh-4350)
+          if (!saved.length) {
+            // Store arguments for use when handling the inner native event
+            // There will always be at least one argument (an event object), so this array
+            // will not be confused with a leftover capture object.
+            saved = _slice.call(arguments);
+            dataPriv.set(this, type, saved); // Trigger the native event and capture its result
+            // Support: IE <=9 - 11+
+            // focus() and blur() are asynchronous
+
+            notAsync = expectSync(this, type);
+            this[type]();
+            result = dataPriv.get(this, type);
+
+            if (saved !== result || notAsync) {
+              dataPriv.set(this, type, false);
+            } else {
+              result = {};
+            }
+
+            if (saved !== result) {
+              // Cancel the outer synthetic event
+              event.stopImmediatePropagation();
+              event.preventDefault();
+              return result.value;
+            } // If this is an inner synthetic event for an event with a bubbling surrogate
+            // (focus or blur), assume that the surrogate already propagated from triggering the
+            // native event and prevent that from happening again here.
+            // This technically gets the ordering wrong w.r.t. to `.trigger()` (in which the
+            // bubbling surrogate propagates *after* the non-bubbling base), but that seems
+            // less bad than duplication.
+
+          } else if ((jQuery.event.special[type] || {}).delegateType) {
+            event.stopPropagation();
+          } // If this is a native event triggered above, everything is now in order
+          // Fire an inner synthetic event with the original arguments
+
+        } else if (saved.length) {
+          // ...and capture the result
+          dataPriv.set(this, type, {
+            value: jQuery.event.trigger( // Support: IE <=9 - 11+
+            // Extend with the prototype to reset the above stopImmediatePropagation()
+            jQuery.extend(saved[0], jQuery.Event.prototype), saved.slice(1), this)
+          }); // Abort handling of the native event
+
+          event.stopImmediatePropagation();
+        }
+      }
+    });
+  }
 
   jQuery.removeEvent = function (elem, type, handle) {
     // This "if" is needed for plain objects
@@ -17384,6 +17547,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     shiftKey: true,
     view: true,
     "char": true,
+    code: true,
     charCode: true,
     key: true,
     keyCode: true,
@@ -17426,7 +17590,30 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
       return event.which;
     }
-  }, jQuery.event.addProp); // Create mouseenter/leave events using mouseover/out and event-time checks
+  }, jQuery.event.addProp);
+  jQuery.each({
+    focus: "focusin",
+    blur: "focusout"
+  }, function (type, delegateType) {
+    jQuery.event.special[type] = {
+      // Utilize native event if possible so blur/focus sequence is correct
+      setup: function setup() {
+        // Claim the first handler
+        // dataPriv.set( this, "focus", ... )
+        // dataPriv.set( this, "blur", ... )
+        leverageNative(this, type, expectSync); // Return false to allow normal processing in the caller
+
+        return false;
+      },
+      trigger: function trigger() {
+        // Force setup before trigger
+        leverageNative(this, type); // Return non-false to allow normal event-path propagation
+
+        return true;
+      },
+      delegateType: delegateType
+    };
+  }); // Create mouseenter/leave events using mouseover/out and event-time checks
   // so that event delegation works in jQuery.
   // Do the same for pointerenter/pointerleave and pointerover/pointerout
   //
@@ -17502,13 +17689,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       });
     }
   });
-  var
-  /* eslint-disable max-len */
-  // See https://github.com/eslint/eslint/issues/3229
-  rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
-
-  /* eslint-enable */
-  // Support: IE <=10 - 11, Edge 12 - 13 only
+  var // Support: IE <=10 - 11, Edge 12 - 13 only
   // In IE/Edge using regex groups here causes severe slowdowns.
   // See https://connect.microsoft.com/IE/feedback/details/1736512/
   rnoInnerhtml = /<script|<style|<link/i,
@@ -17541,7 +17722,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   }
 
   function cloneCopyEvent(src, dest) {
-    var i, l, type, pdataOld, pdataCur, udataOld, udataCur, events;
+    var i, l, type, pdataOld, udataOld, udataCur, events;
 
     if (dest.nodeType !== 1) {
       return;
@@ -17549,13 +17730,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
 
     if (dataPriv.hasData(src)) {
-      pdataOld = dataPriv.access(src);
-      pdataCur = dataPriv.set(dest, pdataOld);
+      pdataOld = dataPriv.get(src);
       events = pdataOld.events;
 
       if (events) {
-        delete pdataCur.handle;
-        pdataCur.events = {};
+        dataPriv.remove(dest, "handle events");
 
         for (type in events) {
           for (i = 0, l = events[type].length; i < l; i++) {
@@ -17586,7 +17765,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
   function domManip(collection, args, callback, ignored) {
     // Flatten any nested arrays
-    args = concat.apply([], args);
+    args = flat(args);
     var fragment,
         first,
         scripts,
@@ -17653,11 +17832,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
             if (rscriptType.test(node.type || "") && !dataPriv.access(node, "globalEval") && jQuery.contains(doc, node)) {
               if (node.src && (node.type || "").toLowerCase() !== "module") {
                 // Optional AJAX dependency, but won't run scripts if not present
-                if (jQuery._evalUrl) {
-                  jQuery._evalUrl(node.src);
+                if (jQuery._evalUrl && !node.noModule) {
+                  jQuery._evalUrl(node.src, {
+                    nonce: node.nonce || node.getAttribute("nonce")
+                  }, doc);
                 }
               } else {
-                DOMEval(node.textContent.replace(rcleanScript, ""), doc, node);
+                DOMEval(node.textContent.replace(rcleanScript, ""), node, doc);
               }
             }
           }
@@ -17679,7 +17860,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       }
 
       if (node.parentNode) {
-        if (keepData && jQuery.contains(node.ownerDocument, node)) {
+        if (keepData && isAttached(node)) {
           setGlobalEval(getAll(node, "script"));
         }
 
@@ -17692,7 +17873,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
   jQuery.extend({
     htmlPrefilter: function htmlPrefilter(html) {
-      return html.replace(rxhtmlTag, "<$1></$2>");
+      return html;
     },
     clone: function clone(elem, dataAndEvents, deepDataAndEvents) {
       var i,
@@ -17700,7 +17881,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           srcElements,
           destElements,
           clone = elem.cloneNode(true),
-          inPage = jQuery.contains(elem.ownerDocument, elem); // Fix IE cloning issues
+          inPage = isAttached(elem); // Fix IE cloning issues
 
       if (!support.noCloneChecked && (elem.nodeType === 1 || elem.nodeType === 11) && !jQuery.isXMLDoc(elem)) {
         // We eschew Sizzle here for performance reasons: https://jsperf.com/getall-vs-sizzle/2
@@ -17928,6 +18109,25 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     return view.getComputedStyle(elem);
   };
 
+  var swap = function swap(elem, options, callback) {
+    var ret,
+        name,
+        old = {}; // Remember the old values, and insert the new ones
+
+    for (name in options) {
+      old[name] = elem.style[name];
+      elem.style[name] = options[name];
+    }
+
+    ret = callback.call(elem); // Revert the old values
+
+    for (name in options) {
+      elem.style[name] = old[name];
+    }
+
+    return ret;
+  };
+
   var rboxStyle = new RegExp(cssExpand.join("|"), "i");
 
   (function () {
@@ -17954,9 +18154,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
       boxSizingReliableVal = roundPixelMeasures(divStyle.width) === 36; // Support: IE 9 only
       // Detect overflow:scroll screwiness (gh-3699)
+      // Support: Chrome <=64
+      // Don't get tricked when zoom affects offsetWidth (gh-4029)
 
       div.style.position = "absolute";
-      scrollboxSizeVal = div.offsetWidth === 36 || "absolute";
+      scrollboxSizeVal = roundPixelMeasures(div.offsetWidth / 3) === 12;
       documentElement.removeChild(container); // Nullify the div so it wouldn't be stored in the memory and
       // it will also be a sign that checks already performed
 
@@ -17971,6 +18173,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         boxSizingReliableVal,
         scrollboxSizeVal,
         pixelBoxStylesVal,
+        reliableTrDimensionsVal,
         reliableMarginLeftVal,
         container = document.createElement("div"),
         div = document.createElement("div"); // Finish early in limited (non-browser) environments
@@ -18004,6 +18207,29 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       scrollboxSize: function scrollboxSize() {
         computeStyleTests();
         return scrollboxSizeVal;
+      },
+      // Support: IE 9 - 11+, Edge 15 - 18+
+      // IE/Edge misreport `getComputedStyle` of table rows with width/height
+      // set in CSS while `offset*` properties report correct values.
+      // Behavior in IE 9 is more subtle than in newer versions & it passes
+      // some versions of this test; make sure not to make it pass there!
+      reliableTrDimensions: function reliableTrDimensions() {
+        var table, tr, trChild, trStyle;
+
+        if (reliableTrDimensionsVal == null) {
+          table = document.createElement("table");
+          tr = document.createElement("tr");
+          trChild = document.createElement("div");
+          table.style.cssText = "position:absolute;left:-11111px";
+          tr.style.height = "1px";
+          trChild.style.height = "9px";
+          documentElement.appendChild(table).appendChild(tr).appendChild(trChild);
+          trStyle = window.getComputedStyle(tr);
+          reliableTrDimensionsVal = parseInt(trStyle.height) > 3;
+          documentElement.removeChild(table);
+        }
+
+        return reliableTrDimensionsVal;
       }
     });
   })();
@@ -18025,7 +18251,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     if (computed) {
       ret = computed.getPropertyValue(name) || computed[name];
 
-      if (ret === "" && !jQuery.contains(elem.ownerDocument, elem)) {
+      if (ret === "" && !isAttached(elem)) {
         ret = jQuery.style(elem, name);
       } // A tribute to the "awesome hack by Dean Edwards"
       // Android Browser returns percentage for some values,
@@ -18071,6 +18297,39 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     };
   }
 
+  var cssPrefixes = ["Webkit", "Moz", "ms"],
+      emptyStyle = document.createElement("div").style,
+      vendorProps = {}; // Return a vendor-prefixed property or undefined
+
+  function vendorPropName(name) {
+    // Check for vendor prefixed names
+    var capName = name[0].toUpperCase() + name.slice(1),
+        i = cssPrefixes.length;
+
+    while (i--) {
+      name = cssPrefixes[i] + capName;
+
+      if (name in emptyStyle) {
+        return name;
+      }
+    }
+  } // Return a potentially-mapped jQuery.cssProps or vendor prefixed property
+
+
+  function finalPropName(name) {
+    var final = jQuery.cssProps[name] || vendorProps[name];
+
+    if (final) {
+      return final;
+    }
+
+    if (name in emptyStyle) {
+      return name;
+    }
+
+    return vendorProps[name] = vendorPropName(name) || name;
+  }
+
   var // Swappable if display is none or starts with table
   // except "table", "table-cell", or "table-caption"
   // See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
@@ -18084,42 +18343,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       cssNormalTransform = {
     letterSpacing: "0",
     fontWeight: "400"
-  },
-      cssPrefixes = ["Webkit", "Moz", "ms"],
-      emptyStyle = document.createElement("div").style; // Return a css property mapped to a potentially vendor prefixed property
+  };
 
-  function vendorPropName(name) {
-    // Shortcut for names that are not vendor prefixed
-    if (name in emptyStyle) {
-      return name;
-    } // Check for vendor prefixed names
-
-
-    var capName = name[0].toUpperCase() + name.slice(1),
-        i = cssPrefixes.length;
-
-    while (i--) {
-      name = cssPrefixes[i] + capName;
-
-      if (name in emptyStyle) {
-        return name;
-      }
-    }
-  } // Return a property mapped along what jQuery.cssProps suggests or to
-  // a vendor prefixed property.
-
-
-  function finalPropName(name) {
-    var ret = jQuery.cssProps[name];
-
-    if (!ret) {
-      ret = jQuery.cssProps[name] = vendorPropName(name) || name;
-    }
-
-    return ret;
-  }
-
-  function setPositiveNumber(elem, value, subtract) {
+  function setPositiveNumber(_elem, value, subtract) {
     // Any relative (+/-) values have already been
     // normalized at this point
     var matches = rcssNum.exec(value);
@@ -18171,7 +18397,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     if (!isBorderBox && computedVal >= 0) {
       // offsetWidth/offsetHeight is a rounded sum of content, padding, scroll gutter, and border
       // Assuming integer scroll gutter, subtract the rest and round down
-      delta += Math.max(0, Math.ceil(elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] - computedVal - delta - extra - 0.5));
+      delta += Math.max(0, Math.ceil(elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] - computedVal - delta - extra - 0.5 // If offsetWidth/offsetHeight is unknown, then we can't determine content-box scroll gutter
+      // Use an explicit zero to avoid NaN (gh-3964)
+      )) || 0;
     }
 
     return delta;
@@ -18180,9 +18408,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   function getWidthOrHeight(elem, dimension, extra) {
     // Start with computed style
     var styles = getStyles(elem),
+        // To avoid forcing a reflow, only fetch boxSizing if we need it (gh-4322).
+    // Fake content-box until we know it's needed to know the true value.
+    boxSizingNeeded = !support.boxSizingReliable() || extra,
+        isBorderBox = boxSizingNeeded && jQuery.css(elem, "boxSizing", false, styles) === "border-box",
+        valueIsBorderBox = isBorderBox,
         val = curCSS(elem, dimension, styles),
-        isBorderBox = jQuery.css(elem, "boxSizing", false, styles) === "border-box",
-        valueIsBorderBox = isBorderBox; // Support: Firefox <=54
+        offsetProp = "offset" + dimension[0].toUpperCase() + dimension.slice(1); // Support: Firefox <=54
     // Return a confounding non-pixel value or feign ignorance, as appropriate.
 
     if (rnumnonpx.test(val)) {
@@ -18191,19 +18423,30 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       }
 
       val = "auto";
-    } // Check for style in case a browser which returns unreliable values
-    // for getComputedStyle silently falls back to the reliable elem.style
+    } // Support: IE 9 - 11 only
+    // Use offsetWidth/offsetHeight for when box sizing is unreliable.
+    // In those cases, the computed value can be trusted to be border-box.
 
 
-    valueIsBorderBox = valueIsBorderBox && (support.boxSizingReliable() || val === elem.style[dimension]); // Fall back to offsetWidth/offsetHeight when value is "auto"
+    if ((!support.boxSizingReliable() && isBorderBox || // Support: IE 10 - 11+, Edge 15 - 18+
+    // IE/Edge misreport `getComputedStyle` of table rows with width/height
+    // set in CSS while `offset*` properties report correct values.
+    // Interestingly, in some cases IE 9 doesn't suffer from this issue.
+    !support.reliableTrDimensions() && nodeName(elem, "tr") || // Fall back to offsetWidth/offsetHeight when value is "auto"
     // This happens for inline elements with no explicit setting (gh-3571)
-    // Support: Android <=4.1 - 4.3 only
+    val === "auto" || // Support: Android <=4.1 - 4.3 only
     // Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
+    !parseFloat(val) && jQuery.css(elem, "display", false, styles) === "inline") && // Make sure the element is visible & connected
+    elem.getClientRects().length) {
+      isBorderBox = jQuery.css(elem, "boxSizing", false, styles) === "border-box"; // Where available, offsetWidth/offsetHeight approximate border box dimensions.
+      // Where not available (e.g., SVG), assume unreliable box-sizing and interpret the
+      // retrieved value as a content box dimension.
 
-    if (val === "auto" || !parseFloat(val) && jQuery.css(elem, "display", false, styles) === "inline") {
-      val = elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)]; // offsetWidth/offsetHeight provide border-box values
+      valueIsBorderBox = offsetProp in elem;
 
-      valueIsBorderBox = true;
+      if (valueIsBorderBox) {
+        val = elem[offsetProp];
+      }
     } // Normalize "" and auto
 
 
@@ -18235,6 +18478,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       "flexGrow": true,
       "flexShrink": true,
       "fontWeight": true,
+      "gridArea": true,
+      "gridColumn": true,
+      "gridColumnEnd": true,
+      "gridColumnStart": true,
+      "gridRow": true,
+      "gridRowEnd": true,
+      "gridRowStart": true,
       "lineHeight": true,
       "opacity": true,
       "order": true,
@@ -18283,9 +18533,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         if (value == null || value !== value) {
           return;
         } // If a number was passed in, add the unit (except for certain CSS properties)
+        // The isCustomProp check can be removed in jQuery 4.0 when we only auto-append
+        // "px" to a few hardcoded values.
 
 
-        if (type === "number") {
+        if (type === "number" && !isCustomProp) {
           value += ret && ret[3] || (jQuery.cssNumber[origName] ? "" : "px");
         } // background-* props affect original clone's values
 
@@ -18351,7 +18603,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       return val;
     }
   });
-  jQuery.each(["height", "width"], function (i, dimension) {
+  jQuery.each(["height", "width"], function (_i, dimension) {
     jQuery.cssHooks[dimension] = {
       get: function get(elem, computed, extra) {
         if (computed) {
@@ -18371,11 +18623,16 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       set: function set(elem, value, extra) {
         var matches,
             styles = getStyles(elem),
-            isBorderBox = jQuery.css(elem, "boxSizing", false, styles) === "border-box",
-            subtract = extra && boxModelAdjustment(elem, dimension, extra, isBorderBox, styles); // Account for unreliable border-box dimensions by comparing offset* to computed and
+            // Only read styles.position if the test has a chance to fail
+        // to avoid forcing a reflow.
+        scrollboxSizeBuggy = !support.scrollboxSize() && styles.position === "absolute",
+            // To avoid forcing a reflow, only fetch boxSizing if we need it (gh-3991)
+        boxSizingNeeded = scrollboxSizeBuggy || extra,
+            isBorderBox = boxSizingNeeded && jQuery.css(elem, "boxSizing", false, styles) === "border-box",
+            subtract = extra ? boxModelAdjustment(elem, dimension, extra, isBorderBox, styles) : 0; // Account for unreliable border-box dimensions by comparing offset* to computed and
         // faking a content-box to get border and padding (gh-3699)
 
-        if (isBorderBox && support.scrollboxSize() === styles.position) {
+        if (isBorderBox && scrollboxSizeBuggy) {
           subtract -= Math.ceil(elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] - parseFloat(styles[dimension]) - boxModelAdjustment(elem, dimension, "border", false, styles) - 0.5);
         } // Convert to pixels if value adjustment is needed
 
@@ -18517,7 +18774,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         // Use .style if available and use plain properties where available.
         if (jQuery.fx.step[tween.prop]) {
           jQuery.fx.step[tween.prop](tween);
-        } else if (tween.elem.nodeType === 1 && (tween.elem.style[jQuery.cssProps[tween.prop]] != null || jQuery.cssHooks[tween.prop])) {
+        } else if (tween.elem.nodeType === 1 && (jQuery.cssHooks[tween.prop] || tween.elem.style[finalPropName(tween.prop)] != null)) {
           jQuery.style(tween.elem, tween.prop, tween.now + tween.unit);
         } else {
           tween.elem[tween.prop] = tween.now;
@@ -19061,7 +19318,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         type = undefined;
       }
 
-      if (clearQueue && type !== false) {
+      if (clearQueue) {
         this.queue(type || "fx", []);
       }
 
@@ -19140,7 +19397,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       });
     }
   });
-  jQuery.each(["toggle", "show", "hide"], function (i, name) {
+  jQuery.each(["toggle", "show", "hide"], function (_i, name) {
     var cssFn = jQuery.fn[name];
 
     jQuery.fn[name] = function (speed, easing, callback) {
@@ -19346,7 +19603,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       return name;
     }
   };
-  jQuery.each(jQuery.expr.match.bool.source.match(/\w+/g), function (i, name) {
+  jQuery.each(jQuery.expr.match.bool.source.match(/\w+/g), function (_i, name) {
     var getter = attrHandle[name] || jQuery.find.attr;
 
     attrHandle[name] = function (elem, name, isXML) {
@@ -19900,7 +20157,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         lastElement = cur;
         event.type = i > 1 ? bubbleType : special.bindType || type; // jQuery handler
 
-        handle = (dataPriv.get(cur, "events") || {})[event.type] && dataPriv.get(cur, "handle");
+        handle = (dataPriv.get(cur, "events") || Object.create(null))[event.type] && dataPriv.get(cur, "handle");
 
         if (handle) {
           handle.apply(cur, data);
@@ -20000,7 +20257,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
       jQuery.event.special[fix] = {
         setup: function setup() {
-          var doc = this.ownerDocument || this,
+          // Handle: regular nodes (via `this.ownerDocument`), window
+          // (via `this.document`) & document (via `this`).
+          var doc = this.ownerDocument || this.document || this,
               attaches = dataPriv.access(doc, fix);
 
           if (!attaches) {
@@ -20010,7 +20269,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
           dataPriv.access(doc, fix, (attaches || 0) + 1);
         },
         teardown: function teardown() {
-          var doc = this.ownerDocument || this,
+          var doc = this.ownerDocument || this.document || this,
               attaches = dataPriv.access(doc, fix) - 1;
 
           if (!attaches) {
@@ -20025,7 +20284,9 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   }
 
   var location = window.location;
-  var nonce = Date.now();
+  var nonce = {
+    guid: Date.now()
+  };
   var rquery = /\?/; // Cross-browser xml parsing
 
   jQuery.parseXML = function (data) {
@@ -20089,7 +20350,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       // If value is a function, invoke it and use its return value
       var value = isFunction(valueOrFunction) ? valueOrFunction() : valueOrFunction;
       s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value == null ? "" : value);
-    }; // If an array was passed in, assume that it is an array of form elements.
+    };
+
+    if (a == null) {
+      return "";
+    } // If an array was passed in, assume that it is an array of form elements.
 
 
     if (Array.isArray(a) || a.jquery && !jQuery.isPlainObject(a)) {
@@ -20122,7 +20387,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
         var type = this.type; // Use .is( ":disabled" ) so that fieldset[disabled] works
 
         return this.name && !jQuery(this).is(":disabled") && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !rcheckableType.test(type));
-      }).map(function (i, elem) {
+      }).map(function (_i, elem) {
         var val = jQuery(this).val();
 
         if (val == null) {
@@ -20537,14 +20802,14 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
               responseHeaders = {};
 
               while (match = rheaders.exec(responseHeadersString)) {
-                responseHeaders[match[1].toLowerCase()] = match[2];
+                responseHeaders[match[1].toLowerCase() + " "] = (responseHeaders[match[1].toLowerCase() + " "] || []).concat(match[2]);
               }
             }
 
-            match = responseHeaders[key.toLowerCase()];
+            match = responseHeaders[key.toLowerCase() + " "];
           }
 
-          return match == null ? null : match;
+          return match == null ? null : match.join(", ");
         },
         // Raw string
         getAllResponseHeaders: function getAllResponseHeaders() {
@@ -20669,7 +20934,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
         if (s.cache === false) {
           cacheURL = cacheURL.replace(rantiCache, "$1");
-          uncached = (rquery.test(cacheURL) ? "&" : "?") + "_=" + nonce++ + uncached;
+          uncached = (rquery.test(cacheURL) ? "&" : "?") + "_=" + nonce.guid++ + uncached;
         } // Put hash and anti-cache on the URL that will be requested (gh-1732)
 
 
@@ -20782,6 +21047,11 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
         if (responses) {
           response = ajaxHandleResponses(s, jqXHR, responses);
+        } // Use a noop converter for missing script
+
+
+        if (!isSuccess && jQuery.inArray("script", s.dataTypes) > -1) {
+          s.converters["text script"] = function () {};
         } // Convert no matter what (that way responseXXX fields are always set)
 
 
@@ -20866,7 +21136,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       return jQuery.get(url, undefined, callback, "script");
     }
   });
-  jQuery.each(["get", "post"], function (i, method) {
+  jQuery.each(["get", "post"], function (_i, method) {
     jQuery[method] = function (url, data, callback, type) {
       // Shift arguments if data argument was omitted
       if (isFunction(data)) {
@@ -20885,8 +21155,17 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       }, jQuery.isPlainObject(url) && url));
     };
   });
+  jQuery.ajaxPrefilter(function (s) {
+    var i;
 
-  jQuery._evalUrl = function (url) {
+    for (i in s.headers) {
+      if (i.toLowerCase() === "content-type") {
+        s.contentType = s.headers[i] || "";
+      }
+    }
+  });
+
+  jQuery._evalUrl = function (url, options, doc) {
     return jQuery.ajax({
       url: url,
       // Make this explicit, since user can override this through ajaxSetup (#11264)
@@ -20895,7 +21174,15 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       cache: true,
       async: false,
       global: false,
-      "throws": true
+      // Only evaluate the response if it is successful (gh-4126)
+      // dataFilter is not invoked for failure responses, so using it instead
+      // of the default converter is kludgy but it works.
+      converters: {
+        "text script": function textScript() {}
+      },
+      dataFilter: function dataFilter(response) {
+        jQuery.globalEval(response, options, doc);
+      }
     });
   };
 
@@ -21131,13 +21418,13 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   }); // Bind script tag hack transport
 
   jQuery.ajaxTransport("script", function (s) {
-    // This transport only deals with cross domain requests
-    if (s.crossDomain) {
+    // This transport only deals with cross domain or forced-by-attrs requests
+    if (s.crossDomain || s.scriptAttrs) {
       var script, _callback2;
 
       return {
         send: function send(_, complete) {
-          script = jQuery("<script>").prop({
+          script = jQuery("<script>").attr(s.scriptAttrs || {}).prop({
             charset: s.scriptCharset,
             src: s.url
           }).on("load error", _callback2 = function callback(evt) {
@@ -21165,7 +21452,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   jQuery.ajaxSetup({
     jsonp: "callback",
     jsonpCallback: function jsonpCallback() {
-      var callback = oldCallbacks.pop() || jQuery.expando + "_" + nonce++;
+      var callback = oldCallbacks.pop() || jQuery.expando + "_" + nonce.guid++;
       this[callback] = true;
       return callback;
     }
@@ -21344,14 +21631,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     }
 
     return this;
-  }; // Attach a bunch of functions for handling common AJAX events
-
-
-  jQuery.each(["ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSuccess", "ajaxSend"], function (i, type) {
-    jQuery.fn[type] = function (fn) {
-      return this.on(type, fn);
-    };
-  });
+  };
 
   jQuery.expr.pseudos.animated = function (elem) {
     return jQuery.grep(jQuery.timers, function (fn) {
@@ -21407,6 +21687,14 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       if ("using" in options) {
         options.using.call(elem, props);
       } else {
+        if (typeof props.top === "number") {
+          props.top += "px";
+        }
+
+        if (typeof props.left === "number") {
+          props.left += "px";
+        }
+
         curElem.css(props);
       }
     }
@@ -21550,7 +21838,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   // getComputedStyle returns percent when specified for top/left/bottom/right;
   // rather than make the css module depend on the offset module, just check for it here
 
-  jQuery.each(["top", "left"], function (i, prop) {
+  jQuery.each(["top", "left"], function (_i, prop) {
     jQuery.cssHooks[prop] = addGetHookIf(support.pixelPosition, function (elem, computed) {
       if (computed) {
         computed = curCSS(elem, prop); // If curCSS returns percentage, fallback to offset
@@ -21596,16 +21884,10 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
       };
     });
   });
-  jQuery.each(("blur focus focusin focusout resize scroll click dblclick " + "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " + "change select submit keydown keypress keyup contextmenu").split(" "), function (i, name) {
-    // Handle event binding
-    jQuery.fn[name] = function (data, fn) {
-      return arguments.length > 0 ? this.on(name, null, data, fn) : this.trigger(name);
+  jQuery.each(["ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSuccess", "ajaxSend"], function (_i, type) {
+    jQuery.fn[type] = function (fn) {
+      return this.on(type, fn);
     };
-  });
-  jQuery.fn.extend({
-    hover: function hover(fnOver, fnOut) {
-      return this.mouseenter(fnOver).mouseleave(fnOut || fnOver);
-    }
   });
   jQuery.fn.extend({
     bind: function bind(types, data, fn) {
@@ -21620,8 +21902,20 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     undelegate: function undelegate(selector, types, fn) {
       // ( namespace ) or ( selector, types [, fn] )
       return arguments.length === 1 ? this.off(selector, "**") : this.off(types, selector || "**", fn);
+    },
+    hover: function hover(fnOver, fnOut) {
+      return this.mouseenter(fnOver).mouseleave(fnOut || fnOver);
     }
-  }); // Bind a function to a context, optionally partially applying any
+  });
+  jQuery.each(("blur focus focusin focusout resize scroll click dblclick " + "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " + "change select submit keydown keypress keyup contextmenu").split(" "), function (_i, name) {
+    // Handle event binding
+    jQuery.fn[name] = function (data, fn) {
+      return arguments.length > 0 ? this.on(name, null, data, fn) : this.trigger(name);
+    };
+  }); // Support: Android <=4.0 only
+  // Make sure we trim BOM and NBSP
+
+  var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g; // Bind a function to a context, optionally partially applying any
   // arguments.
   // jQuery.proxy is deprecated to promote standards (specifically Function#bind)
   // However, it is not slated for removal any time soon
@@ -21679,6 +21973,10 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     // ...but misinterprets leading-number strings, particularly hex literals ("0x...")
     // subtraction forces infinities to NaN
     !isNaN(obj - parseFloat(obj));
+  };
+
+  jQuery.trim = function (text) {
+    return text == null ? "" : (text + "").replace(rtrim, "");
   }; // Register as a named AMD module, since jQuery can be concatenated with other
   // files that may use define, but not via a proper concatenation script that
   // understands anonymous AMD modules. A named AMD is safest and most robust
@@ -21719,7 +22017,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
   // and CommonJS for browser emulators (#13566)
 
 
-  if (!noGlobal) {
+  if (typeof noGlobal === "undefined") {
     window.jQuery = window.$ = jQuery;
   }
 
@@ -21770,11 +22068,11 @@ module.exports = function (module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /**
  * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
- * @version v5.1.2
+ * @version v5.2.10
  * @link https://github.com/ten1seven/what-input
  * @license MIT
  */
@@ -21920,23 +22218,13 @@ module.exports = function (module) {
 
         var currentInput = 'initial'; // last used input intent
 
-        var currentIntent = currentInput; // check for sessionStorage support
-        // then check for session variables and use if available
+        var currentIntent = currentInput; // UNIX timestamp of current event
 
-        try {
-          if (window.sessionStorage.getItem('what-input')) {
-            currentInput = window.sessionStorage.getItem('what-input');
-          }
+        var currentTimestamp = Date.now(); // check for a `data-whatpersist` attribute on either the `html` or `body` elements, defaults to `true`
 
-          if (window.sessionStorage.getItem('what-intent')) {
-            currentIntent = window.sessionStorage.getItem('what-intent');
-          }
-        } catch (e) {} // event buffer timer
+        var shouldPersist = 'false'; // form input types
 
-
-        var eventTimer = null; // form input types
-
-        var formInputs = ['input', 'select', 'textarea']; // empty array for holding callback functions
+        var formInputs = ['button', 'input', 'select', 'textarea']; // empty array for holding callback functions
 
         var functionList = []; // list of modifier keys commonly used with the mouse and
         // can be safely ignored to prevent false keyboard detection
@@ -21958,11 +22246,10 @@ module.exports = function (module) {
           MSPointerMove: 'pointer',
           pointerdown: 'pointer',
           pointermove: 'pointer',
-          touchstart: 'touch' // boolean: true if touch buffer is active
+          touchstart: 'touch',
+          touchend: 'touch' // boolean: true if the page is being scrolled
 
         };
-        var isBuffering = false; // boolean: true if the page is being scrolled
-
         var isScrolling = false; // store current mouse position
 
         var mousePos = {
@@ -21986,7 +22273,8 @@ module.exports = function (module) {
             }
           });
           window.addEventListener('test', null, opts);
-        } catch (e) {}
+        } catch (e) {} // fail silently
+
         /*
          * set up
          */
@@ -21996,8 +22284,6 @@ module.exports = function (module) {
           // add correct mouse wheel event mapping to `inputMap`
           inputMap[detectWheel()] = 'mouse';
           addListeners();
-          doUpdate('input');
-          doUpdate('intent');
         };
         /*
          * events
@@ -22010,7 +22296,8 @@ module.exports = function (module) {
           // and are treated separately
           var options = supportsPassive ? {
             passive: true
-          } : false; // pointer events (mouse, pen, touch)
+          } : false;
+          document.addEventListener('DOMContentLoaded', setPersist); // pointer events (mouse, pen, touch)
 
           if (window.PointerEvent) {
             window.addEventListener('pointerdown', setInput);
@@ -22024,7 +22311,7 @@ module.exports = function (module) {
             window.addEventListener('mousemove', setIntent); // touch events
 
             if ('ontouchstart' in window) {
-              window.addEventListener('touchstart', eventBuffer, options);
+              window.addEventListener('touchstart', setInput, options);
               window.addEventListener('touchend', setInput);
             }
           } // mouse wheel
@@ -22032,52 +22319,69 @@ module.exports = function (module) {
 
           window.addEventListener(detectWheel(), setIntent, options); // keyboard events
 
-          window.addEventListener('keydown', eventBuffer);
-          window.addEventListener('keyup', eventBuffer); // focus events
+          window.addEventListener('keydown', setInput);
+          window.addEventListener('keyup', setInput); // focus events
 
           window.addEventListener('focusin', setElement);
           window.addEventListener('focusout', clearElement);
+        }; // checks if input persistence should happen and
+        // get saved state from session storage if true (defaults to `false`)
+
+
+        var setPersist = function setPersist() {
+          shouldPersist = !(docElem.getAttribute('data-whatpersist') || document.body.getAttribute('data-whatpersist') === 'false');
+
+          if (shouldPersist) {
+            // check for session variables and use if available
+            try {
+              if (window.sessionStorage.getItem('what-input')) {
+                currentInput = window.sessionStorage.getItem('what-input');
+              }
+
+              if (window.sessionStorage.getItem('what-intent')) {
+                currentIntent = window.sessionStorage.getItem('what-intent');
+              }
+            } catch (e) {// fail silently
+            }
+          } // always run these so at least `initial` state is set
+
+
+          doUpdate('input');
+          doUpdate('intent');
         }; // checks conditions before updating new input
 
 
         var setInput = function setInput(event) {
-          // only execute if the event buffer timer isn't running
-          if (!isBuffering) {
-            var eventKey = event.which;
-            var value = inputMap[event.type];
+          var eventKey = event.which;
+          var value = inputMap[event.type];
 
-            if (value === 'pointer') {
-              value = pointerType(event);
-            }
+          if (value === 'pointer') {
+            value = pointerType(event);
+          }
 
-            var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
-            var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
-            var shouldUpdate = value === 'keyboard' && eventKey && (ignoreMatch || specificMatch) || value === 'mouse' || value === 'touch';
+          var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
+          var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
+          var shouldUpdate = value === 'keyboard' && eventKey && (ignoreMatch || specificMatch) || value === 'mouse' || value === 'touch'; // prevent touch detection from being overridden by event execution order
 
-            if (currentInput !== value && shouldUpdate) {
-              currentInput = value;
+          if (validateTouch(value)) {
+            shouldUpdate = false;
+          }
 
-              try {
-                window.sessionStorage.setItem('what-input', currentInput);
-              } catch (e) {}
+          if (shouldUpdate && currentInput !== value) {
+            currentInput = value;
+            persistInput('input', currentInput);
+            doUpdate('input');
+          }
 
-              doUpdate('input');
-            }
+          if (shouldUpdate && currentIntent !== value) {
+            // preserve intent for keyboard interaction with form fields
+            var activeElem = document.activeElement;
+            var notFormInput = activeElem && activeElem.nodeName && (formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1 || activeElem.nodeName.toLowerCase() === 'button' && !checkClosest(activeElem, 'form'));
 
-            if (currentIntent !== value && shouldUpdate) {
-              // preserve intent for keyboard typing in form fields
-              var activeElem = document.activeElement;
-              var notFormInput = activeElem && activeElem.nodeName && formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1;
-
-              if (notFormInput) {
-                currentIntent = value;
-
-                try {
-                  window.sessionStorage.setItem('what-intent', currentIntent);
-                } catch (e) {}
-
-                doUpdate('intent');
-              }
+            if (notFormInput) {
+              currentIntent = value;
+              persistInput('intent', currentIntent);
+              doUpdate('intent');
             }
           }
         }; // updates the doc and `inputTypes` array with new input
@@ -22090,26 +22394,19 @@ module.exports = function (module) {
 
 
         var setIntent = function setIntent(event) {
-          // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
-          detectScrolling(event); // only execute if the event buffer timer isn't running
-          // or scrolling isn't happening
+          var value = inputMap[event.type];
 
-          if (!isBuffering && !isScrolling) {
-            var value = inputMap[event.type];
+          if (value === 'pointer') {
+            value = pointerType(event);
+          } // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
 
-            if (value === 'pointer') {
-              value = pointerType(event);
-            }
 
-            if (currentIntent !== value) {
-              currentIntent = value;
+          detectScrolling(event); // only execute if scrolling isn't happening
 
-              try {
-                window.sessionStorage.setItem('what-intent', currentIntent);
-              } catch (e) {}
-
-              doUpdate('intent');
-            }
+          if ((!isScrolling && !validateTouch(value) || isScrolling && event.type === 'wheel' || event.type === 'mousewheel' || event.type === 'DOMMouseScroll') && currentIntent !== value) {
+            currentIntent = value;
+            persistInput('intent', currentIntent);
+            doUpdate('intent');
           }
         };
 
@@ -22133,21 +22430,15 @@ module.exports = function (module) {
           currentElement = null;
           docElem.removeAttribute('data-whatelement');
           docElem.removeAttribute('data-whatclasses');
-        }; // buffers events that frequently also fire mouse events
+        };
 
-
-        var eventBuffer = function eventBuffer(event) {
-          // set the current input
-          setInput(event); // clear the timer if it happens to be running
-
-          window.clearTimeout(eventTimer); // set the isBuffering to `true`
-
-          isBuffering = true; // run the timer
-
-          eventTimer = window.setTimeout(function () {
-            // if the timer runs out, set isBuffering back to `false`
-            isBuffering = false;
-          }, 100);
+        var persistInput = function persistInput(which, value) {
+          if (shouldPersist) {
+            try {
+              window.sessionStorage.setItem('what-' + which, value);
+            } catch (e) {// fail silently
+            }
+          }
         };
         /*
          * utilities
@@ -22161,12 +22452,20 @@ module.exports = function (module) {
             // treat pen like touch
             return event.pointerType === 'pen' ? 'touch' : event.pointerType;
           }
+        }; // prevent touch detection from being overridden by event execution order
+
+
+        var validateTouch = function validateTouch(value) {
+          var timestamp = Date.now();
+          var touchIsValid = value === 'mouse' && currentInput === 'touch' && timestamp - currentTimestamp < 200;
+          currentTimestamp = timestamp;
+          return touchIsValid;
         }; // detect version of mouse wheel event to use
-        // via https://developer.mozilla.org/en-US/docs/Web/Events/wheel
+        // via https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event
 
 
         var detectWheel = function detectWheel() {
-          var wheelType = void 0; // Modern browsers support "wheel"
+          var wheelType = null; // Modern browsers support "wheel"
 
           if ('onwheel' in document.createElement('div')) {
             wheelType = 'wheel';
@@ -22198,12 +22497,35 @@ module.exports = function (module) {
         };
 
         var detectScrolling = function detectScrolling(event) {
-          if (mousePos['x'] !== event.screenX || mousePos['y'] !== event.screenY) {
+          if (mousePos.x !== event.screenX || mousePos.y !== event.screenY) {
             isScrolling = false;
-            mousePos['x'] = event.screenX;
-            mousePos['y'] = event.screenY;
+            mousePos.x = event.screenX;
+            mousePos.y = event.screenY;
           } else {
             isScrolling = true;
+          }
+        }; // manual version of `closest()`
+
+
+        var checkClosest = function checkClosest(elem, tag) {
+          var ElementPrototype = window.Element.prototype;
+
+          if (!ElementPrototype.matches) {
+            ElementPrototype.matches = ElementPrototype.msMatchesSelector || ElementPrototype.webkitMatchesSelector;
+          }
+
+          if (!ElementPrototype.closest) {
+            do {
+              if (elem.matches(tag)) {
+                return elem;
+              }
+
+              elem = elem.parentElement || elem.parentNode;
+            } while (elem !== null && elem.nodeType === 1);
+
+            return null;
+          } else {
+            return elem.closest(tag);
           }
         };
         /*
@@ -22256,6 +22578,9 @@ module.exports = function (module) {
             if (position || position === 0) {
               functionList.splice(position, 1);
             }
+          },
+          clearStorage: function clearStorage() {
+            window.sessionStorage.clear();
           }
         };
       }();
@@ -22310,7 +22635,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/timothymay/Repos/InSciCo/src/assets/js/app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\tmay\repos\InSciCo\src\assets\js\app.js */"./src/assets/js/app.js");
 
 
 /***/ })

@@ -1,0 +1,88 @@
+---
+layout: docpage
+section: Deploy
+topic: Overview
+---
+{{> deploy_menu}}
+<div class=lz-r-content>
+    <h3>AWS Basics</h3>
+    <p>This document is intended for those in technology roles, such as chief technology 
+        officers (CTOs), architects, developers, and operations team members. 
+    </p>
+    <p>The quick checklist is:</p>
+    <ul>
+        <li>Create an AWS Account. (This creates your root user.)</li>
+        <li>Create an individual IAM user (Don't use your root user credentials!). </li>
+        <li>Create an Organization.</li>
+        <li>Create a SubAccount for Production. Create a production IAM user.</li>
+        <li>Create a SubAccount for each Developer. Create a developer IAM user.</li>
+    </ul>
+
+    <h4>Security Best Practices in IAM</h4>
+    <p>"To help secure your AWS resources, follow these recommendations for the AWS Identity and Access Management (IAM) service." <br>
+        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" {{>newtab}}>Security best practices in IAM</a>
+    </p>
+    
+    <p><strong>This IAM reference is critical and provides concrete and very specific IAM usage guidelines.</strong> Since they are 
+        so important, I repeat them here for reference:</p>
+    <ul>
+        <li>Lock away your AWS account root user access keys</li>
+        <li>Create individual IAM users</li>
+        <li>Use groups to assign permissions to IAM users</li>
+        <li>Grant least privilege</li>
+        <li>Get started using permissions with AWS managed policies</li>
+        <li>Use customer managed policies instead of inline policies</li>
+        <li>Use access levels to review IAM permissions</li>
+        <li>Configure a strong password policy for your users</li>
+        <li>Enable MFA</li>
+        <li>Use roles for applications that run on Amazon EC2 instances</li>
+        <li>Use roles to delegate permissions</li>
+        <li>Do not share access keys</li>
+        <li>Rotate credentials regularly</li>
+        <li>Remove unnecessary credentials</li>
+        <li>Use policy conditions for extra security</li>
+        <li>Monitor activity in your AWS account</li>
+    </ul>
+
+    <p>Click <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" {{>newtab}}>here</a> 
+        to review these 
+        practices in more detail.
+    </p>
+
+
+    <h4>AWS Organization</h4>
+    <p>"AWS Organizations helps you centrally manage and govern your environment as you grow 
+        and scale your AWS resources. Using AWS Organizations, you can programmatically create 
+        new AWS accounts and allocate resources, group accounts to organize your workflows, 
+        apply policies to accounts or groups for governance, and simplify billing by using 
+        a single payment method for all of your accounts." <br><a href="https://aws.amazon.com/organizations/"
+        {{>newtab}}>AWS Organizations</a>
+        <p><strong>We recommend using Organizations to create multiple accounts to support
+            separation of concerns and make it more convenient to define and manage IAM Roles 
+            for development, test and production stacks.
+        </strong></p>
+    </p>
+
+    <h4>AWS Well-Architected Guidance</h4>
+    <p>"The AWS Well-Architected Framework describes the key concepts, design principles, 
+        and architectural best practices for designing and running workloads in the cloud. 
+        By answering a set of foundational questions, you learn how well your architecture 
+        aligns with cloud best practices and are provided guidance for making improvements." <br> 
+        <a href="https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc"
+        {{>newtab}}>AWS Well-Architected</a></p>
+
+    
+    <h4>Serverless Applications Lens - AWS Well-Architected</h4>
+    <p>"This document describes the Serverless Applications Lens for the AWS Well-Architected Framework. 
+        The document covers common serverless applications scenarios and identifies key elements to 
+        ensure that your workloads are architected according to best practices." <br>
+        <a href="https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/welcome.html?did=wp_card&trk=wp_card" 
+        {{>newtab}}>
+            Serverless Applications Lens - AWS Well-Architected</a>
+    </p>
+    <p>We strongly recommend that you read this whitepaper as it provides you with insights on what 
+        additional serverless resources you can use in your serverless stacks and what considerations 
+        you need to keep in mind when doing so.
+    </p>
+</div>    
+    

@@ -1,0 +1,73 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h3>Getting Started with AWS</h4>
+    <p>This setup guide includes the following steps:
+        <ol>
+            <li>Use Existing AWS Account</li>
+            <li>AWS Management Account setup - (recommended)</li>
+            <li>Create AWS Organization - (optional) comprehensive SDLC environment
+                <ol type="a">
+                    <li>Mgmt. Scripts Setup</li>
+                    <li>Organization Setup</li>
+                    <li>Developer Account(s) Setup</li>
+                    <li>Review Account Setup</li>
+                    <li>Production Account Setup</li>
+                    <li>Continuous Integration / Continuous Deployment (CI/CD) Setup</li>
+                </ol>
+            </li>
+        </ol>
+    </p>
+
+    <h4>AWS Management Account Setup</h4>
+    <p>Create your AWS Management Account. You can run the LazyStack tutorial 
+        in the Management Account for a quick POC before proceeding with AWS Organization Setup.
+    </p>
+    <h5>Insights:</h5>
+    <ul>
+        <li>AWS changed the term "Master Account" to "Management Account". The terms are equivalent.</li>
+        <li>You may use an existing AWS Account to run the LazyStack tutorial if you have AdministratorAccess 
+            in that account, have installed the AWS CLI, and have used "aws configure" to create 
+            a profile to access that account.</li>
+        <li>If you proceed to the AWS Organization Setup step, each developer will have their own Member 
+            Account in which they may run the LazyStack tutorial. Once you set up your AWS Organization,
+            the Management Account should only be used for administering the AWS Organization 
+            and Member Accounts.</li>
+    </ul>
+
+    <h4>Workstations</h4>  
+    <p>Management Workstation - This guide assume you have a single "Management" 
+        workstation and single IAM User assigned to manage the Organization. If you 
+        want to add additional Management Workstation/Users, this is easily accomplished but 
+        is not part of the setup guide. Most of the setup in this guide is performed 
+        on the Management Workstation.
+    </p>
+    <p>Development Workstation - This guide assumes you have one or more "Development"
+        workstations. <strong>A Development Workstation can also be a Management Workstation.</strong>
+    </p>
+    <p>Each step in the guide indicates which Workstation the step should be performed on. If 
+        you are setting up the organization and doing development on the same Workstation, then 
+        you can ignore this distinction as your Workstation is both a Management and Development 
+        Workstation.
+    </p>
+
+    <h5>Insights</h5>
+    <ul>
+        <li>The defining characteristic of the Management Workstation is that it has AWS CLI Profiles 
+            for an IAM User with permissions to administer all the accounts in an Organization. 
+        </li>
+        <li>The defining characteristic of the Development Workstation is that it has AWS CLI Profiles 
+            for an IAM User with permissions to perform limited administration of a Development Account.
+        </li>
+        <li>When a Management Workstation is also A Development Workstation the the AWS CLI Profiles
+            available include both the profiles for administration and profiles for development. The 
+            Workstation user must switch among those profiles as necessary based on the tasks they
+            need to perform.
+        </li>
+    </ul>
+
+</div>

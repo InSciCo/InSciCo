@@ -1,0 +1,74 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+
+   <h4>AWS Production Account Setup </h4>
+   <p>Prerequisites: Organization Setup completed<br>
+      Estimated Time: 2 minutes, Costs: none<br>
+      Perform this step on the Management Workstation</p>
+
+      <ol>
+         <li>Open a PowerShell Terminal.</li>
+         <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+         <li>Execute the CreateProdAccount.ps1 script:
+             <pre><code class="language-bashshell">. .\CreateProdAcct.ps1</code></pre>
+                     Here is a script run with sample inputs:
+                     <pre><code class="language-bashshell">
+ CreateRevAcct.ps1 - V1.0.0
+ This script adds a Production account to the OrgProdOU Organizational Unit.
+ Note: Press return to accept a default value.
+ Enter your OrgCode (ex: Lz): Az
+ Enter your AWS CLI Management Account Profile (default: AzMgmt):
+ Enter the Prod OU (default: AzProdOU):
+ Enter the Prod Account Name (default: AzProd): 
+ Enter the Prod IAM User Name (default: AzProd):
+ Note: Make a note of the password you use below as it will not be stored anywhere.
+ Enter the Prod IAM User Password: ********
+ Note: An email address can only be associated with one AWS Account. 
+ Enter an Email Address for the new account's Root User: me+AzProd@gmail.com
+ Please Review and Confirm the following:
+     OrgCode: Az
+     Management Account Profile: AzMgmt
+     Prod OU: AzProdOU
+     Prod Account to be created: AzProd
+     Prod Account IAM User Name: AzProd 
+     Prod Organization Unit: AzProdOU
+     Email Address for Account's Root User: me+AzProd@gmail.com 
+ Confirm y/n: y 
+ Processing Starting
+ Creating AzRevAccess profile and associating it with the AzMgmt profile 
+     - This profile allows the IAM User AzMgmt to administer the AzProd account from the CLI.
+ Creating Prod Account AzProd  
+     - Checking for successful account creation. TryCount=1 
+     - AzProd account creation successful. AccountId: 123456789123
+     - Moving AzProd account to AzProdOU organizational unit
+ Creating Administrators Group in AzProd account 
+     - Adding policy AdministratorAccess 
+ Creating IAM User AzProd in the AzProd account.
+     - Adding the AzProd profile.
+     - Adding the IAM User AzProd to the Administrators group in the AzProd account.
+ Processing Complete</code></pre>
+         </li>
+     </ol> 
+     
+     <h5>Step Summary</h5>
+     <p>In this step we used the CreateProdAcct.ps1 script to create a Prod Account under 
+        the Prod Organization Unit. We added a Administrators group to the account with 
+        AdministratorAccess permissions. We added an IAM User for the account and added that 
+        user to the Administrators group. We created a AWS CLI profile allowing the Management 
+        Account IAM User to manage the Prod account with the OrganizationAccountAccessRole 
+        policy.
+     </p>
+     <p>The IAM User created for this account will be used by the CI/CD process.</p>
+
+     <h3>Publishing Stacks to Prod Account</h4>
+      <p>Using the Management Workstation (which has a profile allowing administrative 
+         access to the Prod Account, you can publish stacks using either the AWS SAM CLI 
+         or the Visual Studio IDE (Windows) AWS Toolkit Extensions.
+      </p>
+      
+</div>
