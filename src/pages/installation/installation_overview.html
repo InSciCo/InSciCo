@@ -6,27 +6,32 @@ topic: GettingStarted
 {{> installation_menu}}
 <div class=lz-r-content>
     <h3>Installation Overview</h4>
-
-    <p>We provide installation instructions for most everything you need to build and deploy 
-        AWS serverless stacks with .NET. 
-    </p>
     
+    <h4>LazyStack AWS Software Management Framework (SMF)</h4>
+    <p>We provide all scripts, templates, and instructions to setup a complete Software 
+        Development, Testing and Deployment tool chain on AWS. This includes:</p>
+        <ul>
+            <li>AWS Management Account</li>
+            <li>AWS Organizational Units for Development, Test and Production</li>
+            <li>Developer(s) Account</li>
+            <li>Test Account - with Continuous Integration and Continuous Deployment</li>
+            <li>Production Account  - with Continuous Integration and Continuous Deployment</li>
+        </ul>
+    <p>The LazyStack Development Tools do not require that you use the SMF. We strongly suggest 
+        that you implement the SMF if you do not already have an existing Software Management 
+        tool chain and intend to field a production application.</p>
+
+    <h4>Quick & Dirty</h4>
+    <p>You can run through the LazyStack tutorial in an AWS account with Administrative access. 
+        This is handy if you are evaluating only the LazyStack Tools and intend to use those 
+        tools in an existing Software Management tool chain later on. The LazyStack AWS SMF is 
+        not required by the LazyStack Tools.
+    </p>
+
+    <h4>LazyStack Development Tools</h4>
+
     <ul>
-        <li>AWS Getting Started - provides a step by step guide to building your AWS environment
-            <ul>
-                <li>AWS Management Account Setup</li>
-                <li>AWS Organization Setup - (optional) setup for a practical SDLC
-                    <ul>
-                        <li>Organization with Organizational Units for Dev, Review, Prod</li>
-                        <li>Developer Account(s)</li>
-                        <li>Review Account</li>
-                        <li>Production Account</li>
-                        <li>Continuous Integration / Continuous Deployment</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>Visual Studio Windows - installation for Visual Studio IDE for Window</li>
+        <li>Studio Windows - installation for Visual Studio IDE for Windows</li>
         <li>Visual Studio Mac - installation for Visual Studio IDE for Mac</li>
         <li>.NET CLI Tool - installation for non-IDE users (Visual Studio Code users should use this)</li>
     </ul>
@@ -36,7 +41,7 @@ topic: GettingStarted
         We will continue to enhance and publish the free version going forward to support small business and 
         entrepreneur efforts to field commercial grade applications quickly at a very low cost.
     </p>
-    <h5>No Lock In</h5>
+    <h4>No Lock In</h4>
     <ul>
         <li><strong>Maintenance</strong> - The stack configurations and generated code can be manually maintained and enhanced 
             so there is no code "lock-in".</li>

@@ -7,68 +7,62 @@ topic: GettingStarted
 <div class=lz-r-content>
 
    <h4>AWS Review Account Setup </h4>
-   <p>Prerequisites: Organization Setup completed<br>
+   <p>Prerequisites: AWS Org. Setup Part 1 complete.<br>
       Estimated Time: 2 minutes, Costs: none<br>
       Perform this step on the Management Workstation</p>
 
       <ol>
          <li>Open a PowerShell Terminal.</li>
-         <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
-         <li>Execute the CreateRevAccount.ps1 script:
-             <pre><code class="language-bashshell">. .\CreateRevAcct.ps1</code></pre>
+         <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
+         <li>Execute the CreateTestAccount.ps1 script:
+             <pre><code class="language-bashshell">. .\CreateTestAcct.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
- CreateRevAcct.ps1 - V1.0.0
- This script adds a Review account to the OrgRevOU Organizational Unit.
+ CreateTestAcct.ps1 - V1.0.0
+ This script adds a Test account to the OrgTestOU Organizational Unit.
  Note: Press return to accept a default value.
  Enter your OrgCode (ex: Lz): Az
  Enter your AWS CLI Management Account Profile (default: AzMgmt):
- Enter the Review OU (default: AzRevOU):
- Enter the Review Account Name (default: AzRev): 
+ Enter the Test OU (default: AzTestOU):
+ Enter the Test Account Name (default: AzTest): 
  Note: Make a note of the password you use below as it will not be stored anywhere.
- Enter the Review IAM User Password: ********
- Enter the Review IAM User Name (default: AzRev):
+ Enter the Test IAM User Password: ********
+ Enter the Test IAM User Name (default: AzTest):
  Note: An email address can only be associated with one AWS Account. 
- Enter an Email Address for the new account's Root User: me+AzRev@gmail.com
+ Enter an Email Address for the new account's Root User: me+AzTest@gmail.com
  Please Review and Confirm the following:
      OrgCode: Az
      Management Account Profile: AzMgmt
-     Review OU: AzRevOU
-     Review Account to be created: AzRev
-     Review Account IAM User Name: AzRev
-     Review Organization Unit: AzRevOU
-     Email Address for Account's Root User: me+AzRev@gmail.com 
+     Test OU: AzTestOU
+     Test Account to be created: AzTest
+     Test Account IAM User Name: AzTest
+     Test Organization Unit: AzTestOU
+     Email Address for Account's Root User: me+AzTest@gmail.com 
  Confirm y/n: y 
  Processing Starting
- Creating AzRevAccess profile and associating it with the AzMgmt profile 
-     - This profile allows the IAM User AzMgmt to administer the AzRev account from the CLI.
- Creating Review Account AzRev 
+ Creating AzTestAccess profile and associating it with the AzMgmt profile 
+     - This profile allows the IAM User AzMgmt to administer the AzTest account from the CLI.
+ Creating Test Account AzTest
      - Checking for successful account creation. TryCount=1 
-     - AzRev account creation successful. AccountId: 123456789123
-     - Moving AzRev account to AzRevOU organizational unit
- Creating Administrators Group in AzRev account 
+     - AzTest account creation successful. AccountId: 123456789123
+     - Moving AzTest account to AzTestOU organizational unit
+ Creating Administrators Group in AzTest account 
      - Adding policy AdministratorAccess 
- Creating IAM User AzRev in the AzRev account.
-     - Adding the AzRev profile.
-     - Adding the IAM User AzRev to the Administrators group in the AzRev account.
+ Creating IAM User AzTest in the AzTest account.
+     - Adding the AzTest profile.
+     - Adding the IAM User AzTest to the Administrators group in the AzTest account.
  Processing Complete</code></pre>
          </li>
      </ol> 
 
 <h5>Step Summary</h5>
-<p>In this step we used the CreateRevAcct.ps1 script to create a Review Account under 
-   the Review Organization Unit. We added a Administrators group to the account with 
+<p>In this step we used the CreateTestAcct.ps1 script to create a Test Account under 
+   the Test Organization Unit. We added a Administrators group to the account with 
    AdministratorAccess permissions. We added an IAM User for the account and added that 
    user to the Administrators group. We created a AWS CLI profile allowing the Management 
-   Account IAM User to manage the Review account with the OrganizationAccountAccessRole 
+   Account IAM User to manage the Test account with the OrganizationAccountAccessRole 
    policy.
 </p>
 <p>The IAM User created for this account will be used by the CI/CD process.</p>
-
-<h3>Publishing Stacks to Review Account</h4>
-<p>Using the Management Workstation (which has a profile allowing administrative 
-   access to the Review Account, you can publish stacks using either the AWS SAM CLI 
-   or the Visual Studio IDE (Windows) AWS Toolkit Extensions.
-</p>
 
 </div>

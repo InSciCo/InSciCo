@@ -5,15 +5,18 @@ topic: GettingStarted
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h3>Use Existing AWS Account</h3>
-    <p>If you just want to run through the LazyStack tutorial, you can use an existing AWS 
+    <h3>Quick & Dirty - no SMF</h3>
+    <p>If you just want to run through the LazyStack Tools tutorial, you can use an existing AWS 
         Account having Administrative privileges.</p>
-
-    <p>It is possible to invite existing accounts to join an AWS Organization. If you have an account 
-        in which you are current doing development, it may make more sense to create a new 
-        Management Account and AWS Organization and then later invite your existing account 
-        to join that organization.
+    <p>We strongly recommend following the LazyStack Software Management Framework (SMF) install 
+        steps to get the most out of LazyStack. We believe this is the best approach even if you 
+        intend to later integrate the LazyStack tools into an existing Software Management process
+        as the SMF illustrates some important use-case implementation that may be of some help later.
     </p>
 
-    <p><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html" {{>newtab}}>Install the AWS CLI</a> and configure it to access your existing account.</p>
+    <ol>
+        <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html" {{>newtab}}>Install the AWS CLI</a> and configure it to access your existing account.</li>
+        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
+            {{> newtab}}>Install AWS SAM CLI</a></li>        
+    </ol>
 </div>

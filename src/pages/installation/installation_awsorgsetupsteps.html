@@ -10,16 +10,11 @@ topic: GettingStarted
        Estimated Time: 2 minutes, Costs: none<br>
        Perform this step on the Management Workstation.</p>
    <p>In this step we will use the CreateOrganization.ps1 script to 
-       create an AWS Organization, and three AWS Organizational Units :
-       <ul>
-           <li>OrgDevOU</li>
-           <li>OrgReviewOU</li>
-           <li>OrgProdOU</li>
-       </ul>
+       create an AWS Organization, and the OrgDev Organizational Unit.
    </p>
    <ol>
        <li>Open a PowerShell Terminal.</li>
-       <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+       <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
        <li>Issue the following command:
            <pre><code class="language-bashshell">. .\CreateOrganization.ps1</code></pre>
            You will be prompted for your OrgCode and confirmation of the AWS CLI Profile to use. 
@@ -36,21 +31,16 @@ Please Review and Confirm the following:
     Management Account Profile: AzMgmt 
     AWS Organizational Units to be created:
         - AzDevOU
-        - AzRevOU
-        - AzProdOU
 Continue y/n: y 
 Processing Starting 
 Creating Organization 
 Creating Organizational Units: 
     - AzDevOU created 
-    - AzRevOU created 
-    - AzProdOU created
 Processing Complete</code></pre>
        </li>
    </ol>
 <h5>Step Summary</h5>
-<p>In this step we created our AWS Organization and Organizational Units for 
-    Dev, Review and Prod.
+<p>In this step we created our AWS Organization and the OrgDevOU Organizational Unit.
 </p>
 
 

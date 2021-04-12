@@ -5,65 +5,61 @@ topic: GettingStarted
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h3>Getting Started with AWS</h4>
-    <p>This setup guide includes the following steps:
-        <ol>
-            <li>Use Existing AWS Account</li>
-            <li>AWS Management Account setup - (recommended)</li>
-            <li>Create AWS Organization - (optional) comprehensive SDLC environment
-                <ol type="a">
-                    <li>Mgmt. Scripts Setup</li>
-                    <li>Organization Setup</li>
-                    <li>Developer Account(s) Setup</li>
-                    <li>Review Account Setup</li>
-                    <li>Production Account Setup</li>
-                    <li>Continuous Integration / Continuous Deployment (CI/CD) Setup</li>
-                </ol>
-            </li>
-        </ol>
+    <h3>LazyStack AWS Software Management Framework</h4>
+    <p>Follow this guide to setup a complete Software Development, Test and Deployment tool chain 
+        using AWS Services and GitHub. This tool chain implements Git Feature Branch Workflow with 
+        GitHub Pull Requests driving Continuous Integration and Continuous Deployment of Review 
+        and Production AWS Stacks. We break this process into two parts. You can run the 
+        LazyStack Tools Tutorial after completing Part 1 and then proceed with Part 2 to setup 
+        a complete Development, Test and Production tool chain.
+    </p>
+    <h4>AWS Organization Setup Part 1</h4>
+    <p>In Part 1 you create your AWS Organization with a single Organizational Unit (OrgDevOU) 
+        and your first developer account in that OU. This is setup is enough to proceed with 
+        the LazyStack Tutorial.
     </p>
 
-    <h4>AWS Management Account Setup</h4>
-    <p>Create your AWS Management Account. You can run the LazyStack tutorial 
-        in the Management Account for a quick POC before proceeding with AWS Organization Setup.
+    <img src="/assets/img/LazyStackSMF1.svg" width="100%">
+    <p></p>
+    <h4>AWS Organization Setup Part 2</h4>
+    <p>In Part 2 you implement the rest of the Software Management Framework to support collaborative 
+        development and Continuous Integration and Continuous Deployment of Test and Production 
+        stacks. Part 2 assumes we are integrating with GitHub for software management.
     </p>
+    <img src="/assets/img/LazyStackSMF2.svg" width="100%">
+    <p></p>
     <h5>Insights:</h5>
     <ul>
         <li>AWS changed the term "Master Account" to "Management Account". The terms are equivalent.</li>
-        <li>You may use an existing AWS Account to run the LazyStack tutorial if you have AdministratorAccess 
-            in that account, have installed the AWS CLI, and have used "aws configure" to create 
-            a profile to access that account.</li>
-        <li>If you proceed to the AWS Organization Setup step, each developer will have their own Member 
-            Account in which they may run the LazyStack tutorial. Once you set up your AWS Organization,
-            the Management Account should only be used for administering the AWS Organization 
-            and Member Accounts.</li>
     </ul>
 
     <h4>Workstations</h4>  
     <p>Management Workstation - This guide assume you have a single "Management" 
         workstation and single IAM User assigned to manage the Organization. If you 
         want to add additional Management Workstation/Users, this is easily accomplished but 
-        is not part of the setup guide. Most of the setup in this guide is performed 
+        is not part of the setup guide. Most of the setup steps in this guide are performed 
         on the Management Workstation.
     </p>
     <p>Development Workstation - This guide assumes you have one or more "Development"
         workstations. <strong>A Development Workstation can also be a Management Workstation.</strong>
     </p>
-    <p>Each step in the guide indicates which Workstation the step should be performed on. If 
+    <p><strong>Each step in the guide indicates which Workstation the step should be performed on. If 
         you are setting up the organization and doing development on the same Workstation, then 
         you can ignore this distinction as your Workstation is both a Management and Development 
-        Workstation.
+        Workstation.</strong>
     </p>
 
     <h5>Insights</h5>
     <ul>
+        <li>We recommend that you use a short "organization code" (OrgCode) to prefix all organizational units 
+            and  accounts and users in your AWS Organization. For instance, we recommend that you name your AWS Management Account something like "OrgMgmt" - replacing "Org" with your own "OrgCode".</li>
         <li>The defining characteristic of the Management Workstation is that it has AWS CLI Profiles 
             for an IAM User with permissions to administer all the accounts in an Organization. 
         </li>
         <li>The defining characteristic of the Development Workstation is that it has AWS CLI Profiles 
             for an IAM User with permissions to perform limited administration of a Development Account.
         </li>
-        <li>When a Management Workstation is also A Development Workstation the the AWS CLI Profiles
+        <li>When a Management Workstation is also a Development Workstation the AWS CLI Profiles
             available include both the profiles for administration and profiles for development. The 
             Workstation user must switch among those profiles as necessary based on the tasks they
             need to perform.

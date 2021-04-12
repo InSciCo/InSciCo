@@ -128,11 +128,6 @@
                         </a>
                       </li>
                 
-                      <li id="deploy">
-                        <a href="/deploy/deploy_overview.html">
-                            <span class="">Deploy</span>
-                        </a>
-                      </li>
                       <li id="roadmap">
                         <a href="/roadmap/roadmap_overview.html">
                             <span class="">RoadMap</span>
@@ -161,6 +156,8 @@
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
     <ul class="vertical menu dropdown">
+
+
         <li >
             <a  href="/installation/installation_overview.html">
                 <span class="">Overview</span>
@@ -168,16 +165,17 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_aws.html">
-                <span class="">AWS Getting Started</span>
+            <a  href="/installation/installation_awsexistingacct.html">
+                <span class="">Quick & Dirty</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsexistingacct.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">Use Existing AWS Account</span>
+            <a  href="/installation/installation_aws.html">
+                <span class="">LazyStack AWS SMF</span>
             </a>
         </li>
+
 
         <li >
             <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;
@@ -187,7 +185,7 @@
 
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Organization Setup</span>
+                <span class="">AWS Org. Setup Part 1</span>
             </a>
         </li>
 
@@ -216,6 +214,12 @@
         </li>
 
         <li >
+            <a  href="/installation/installation_awsorgsetup2.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Org. Setup Part 2</span>
+            </a>
+        </li>
+
+        <li >
             <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Review Acct Setup</span>
             </a>
@@ -240,22 +244,29 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_visualstudio.html">
+            <a  href="/installation/installation_devtools.html">
+                <span class="">LazyStack Dev Tools</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
+                <span class="">.NET CLI Tool</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
                 <span class="">Visual Studio Windows</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_mac_visualstudio.html">
+            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;
                 <span class="">Visual Studio Mac</span>
             </a>
         </li>
 
-        <li >
-            <a  href="/installation/installation_netcorecli.html">
-                <span class="">.NET CLI Tool</span>
-            </a>
-        </li>
+
     </ul>
 </div>
 <div class=lz-r-content>
@@ -297,7 +308,7 @@
         <li>Local Dev on F1 <br> 
             Each developer has their own AWS Account. They can use the AWS SAM CLI or the AWS Toolkit for 
             Visual Studio (Windows) IDE to publish the stack to their own account. This allows rapid 
-            iteration and integration tests.
+            iteration and integration tests in a completely isolated "sandbox".
         </li>
         <li>Create PR for F1
             <ol type = "a">

@@ -128,11 +128,6 @@
                         </a>
                       </li>
                 
-                      <li id="deploy">
-                        <a href="/deploy/deploy_overview.html">
-                            <span class="">Deploy</span>
-                        </a>
-                      </li>
                       <li id="roadmap">
                         <a href="/roadmap/roadmap_overview.html">
                             <span class="">RoadMap</span>
@@ -195,29 +190,62 @@
 </div>
 <div class=lz-r-content>
     <h3>LazyStack Executive Overview</h3>
-<p> LazyStack's mission is to enable technical entrepreneurs to quickly field
-    mobile and web applications leveraging scalable cloud-based resources at the lowest initial cost, without sacrificing
-    security, scalability or features. LazyStack leverages the AWS Serverless Application Model (SAM) to enable you to 
-    build and deploy "application stacks" in the AWS cloud.</p>
+<p> LazyStack's mission is to enable technical entrepreneurs to quickly field mobile and web applications leveraging 
+    scalable cloud-based resources at the lowest initial cost, without sacrificing security, scalability or features. 
+    LazyStack provides all the necessary setup instruction and tools necessary develop, test, maintain and deploy AWS 
+    Serverless Application Model (SAM) "application stacks".</p>
+    <img src="/assets/img/LazyStackMission.svg" width="100%">
+    <p></p>
+    <h4>LazyStack Software Management Framework (SMF)</h4>
+    <p>Managing software development can be hard. Developing the tools, practices and documentation necessary to effectively 
+        manage software development can be even harder. The LazyStack SMF includes the tools, templates, scripts, practices,
+        and examples to set up an effective Software Management Framework with AWS Serverless Stacks in mind. Use our "suggested" SMF to get 
+        started quickly with effective best-practices or just review our SMF for hints on how to integrate the 
+        LazyStack development tools into your existing Software Management Practices. </p>
+    <img src="/assets/img/LazyStackSMS.svg" width="100%">        
+    <p></p>
+    <p> LazyStack SMF includes:</p>
+    <ul>
+        <li>Secure AWS Organization and Accounts following all AWS best practices</li>
+        <li>Integrated Software Source Management using GitHub, integrated with AWS and development tools</li>
+        <li>Team coordination using the popular Feature Branch Workflow with GitHub Pull Requests (Pull Requests are requests by 
+            developers for approval of new features)
+        </li>
+        <li>Application quality assurance with Continuous Integration (CI)</li>
+        <li>Timely production updates with Continuous Deployment (CD)</li>
+        <li>Rapid development/prototyping leveraging individual AWS Developer accounts/sandboxes</li>
+    </ul>
+
+    <p></p>
+    <h4>LazyStack Model Driven Development (MDD) Tools</h4>
+    <p>LazyStack MDD brings three great technologies together to delivery apps at the lowest cost and fastest time-to-market.</p>
     <img src="/assets/img/ThreeGreatTechnologies.svg" width="100%">
     <p></p>
-    <p>It is best practice to create an API specification that defines all the service features available on your AWS Stack. Your 
-        client application uses this specification to implement calls to the AWS Stack. The amount of 
-        "plumbing" code and AWS stack configuration necessary to implement a feature rich API specification is often quite large. 
-        Plumbing code connects the client app and AWS Lambda function implementing a stack feature. 
-        Plumbing code is "repetitive", making it an excellent candidate for code generation. 
-        In addition, writing complete and correct "SAM" templates used to deploy a stack on AWS is tedious and 
-        requires an intimate knowledge of AWS resources. </p>
-   
-    </p>LazyStack eliminates labor intensive and error prone coding and template development so your team sees real business 
-     benefits:</p>
+    <p>Model Driven Development generates code and resource configurations from a "specification" document. The code can be 
+        regenerated when the specification document is updated or the code generation "pattern" is improved. This increases the 
+        responsiveness of the development process to changing requirements in features or underlying technologies.
+    </p>
+    <p>Model Driven Development reduces costs for initial code development and ongoing code maintenance. Web and mobile clients 
+        communicate with Internet services that publish a Application Program Interface (API). These APIs define each 
+        available operation and the types of data that may be exchanged. A common "language" for defining an 
+        service API is the OpenAPI specification. </p>
+
+        <p>Reading an OpenAPI specification is not difficult so they are an ideal tool for business stakeholders 
+            and the development team to collaborate on application features dependant on the client calling the service. It is 
+        often useful to enumerate the API operations an application feature will use. This improves the stakeholders understanding 
+        of how the application works and allows developers to better estimate and execute feature implementation.</p>
+
+        <p>LazyStack MDD tools ingest an OpenAPI specification and then generates all the plumbing code and AWS Resource specifications necessary 
+        to deploy and use AWS Serverless application stacks. This Model Driven Development (MDD) approach improves the management of your application 
+        requirements, and lowers development and DevOps costs. LazyStack reduces hand coding and manual AWS resource configuration so you see 
+        real business benefits:</p>
 <ul>
     <li>Clear Requirements
         <ul>
             <li>An API specification reduces misunderstandings and wasted implementation cycles.</li>
             <li>API specifications can be versioned, making it simple to manage incremental improvement in a product.</li>
             <li>API specifications make it easy to partner with other parties.</li>
-            <li>API specifications make it easier to explain technical concepts to business stakeholders.</li>
+            <li>API specifications make it easier to discuss application features with business stakeholders.</li>
             <li>Tools exist to help author effective API specifications.</li>
         </ul>
     </li>
@@ -239,8 +267,7 @@
             <li>Generated templates demonstrate correct configuration of AWS resources.</li>
             <li>Generated templates are consistent, bug-free and reliably compliant to best-practices.</li>
             <li>Generated templates can be easily extended with hand-coded resource specifications.</li>
-            <li>Manage Dev, Test and Prod stacks with simple Software Development Life Cycle (SDLC).</li>
-            <li>LazyStack easily integrates with advanced SDLC like CI services as business grows.</li>
+            <li>Manage Dev, Test and Prod stacks with AWS CodeBuild Continuous Integration and Continuous Deployment.</li>
         </ul>
     </li>
 </ul>

@@ -128,11 +128,6 @@
                         </a>
                       </li>
                 
-                      <li id="deploy">
-                        <a href="/deploy/deploy_overview.html">
-                            <span class="">Deploy</span>
-                        </a>
-                      </li>
                       <li id="roadmap">
                         <a href="/roadmap/roadmap_overview.html">
                             <span class="">RoadMap</span>
@@ -161,6 +156,8 @@
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
     <ul class="vertical menu dropdown">
+
+
         <li >
             <a  href="/installation/installation_overview.html">
                 <span class="">Overview</span>
@@ -168,16 +165,17 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_aws.html">
-                <span class="">AWS Getting Started</span>
+            <a  href="/installation/installation_awsexistingacct.html">
+                <span class="">Quick & Dirty</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsexistingacct.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">Use Existing AWS Account</span>
+            <a  href="/installation/installation_aws.html">
+                <span class="">LazyStack AWS SMF</span>
             </a>
         </li>
+
 
         <li >
             <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;
@@ -187,7 +185,7 @@
 
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
-                <span class="lz-r-topicitem">AWS Organization Setup</span>
+                <span class="lz-r-topicitem">AWS Org. Setup Part 1</span>
             </a>
         </li>
 
@@ -216,6 +214,12 @@
         </li>
 
         <li >
+            <a  href="/installation/installation_awsorgsetup2.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">AWS Org. Setup Part 2</span>
+            </a>
+        </li>
+
+        <li >
             <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Review Acct Setup</span>
             </a>
@@ -240,45 +244,50 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_visualstudio.html">
+            <a  href="/installation/installation_devtools.html">
+                <span class="">LazyStack Dev Tools</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
+                <span class="">.NET CLI Tool</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
                 <span class="">Visual Studio Windows</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_mac_visualstudio.html">
+            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;
                 <span class="">Visual Studio Mac</span>
             </a>
         </li>
 
-        <li >
-            <a  href="/installation/installation_netcorecli.html">
-                <span class="">.NET CLI Tool</span>
-            </a>
-        </li>
+
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>AWS Organization Setup (optional)</h4>
+    <h3>AWS Organization Setup</h4>
     <p>Prerequisites: AWS Mgmt Account Setup complete.</p>
-    <p>The objective of this setup guide is to configure a fully functional AWS Organization supporting 
-        collaborative Serverless Stack development, publishing review stacks, and 
-        publishing production stacks. </p>
-    <p>We recommend that you setup an AWS Organization. It doesn't take long to complete and 
-        will educate you on many important AWS concepts as well as give you a solid foundation for 
-        your ongoing work. The remainder of this page describes how your AWS Organization will look 
-        after setup.
+
+    <p>We break the AWS Setup process up into 2 parts. Completing this Part 1 implements the 
+        "bones" of your AWS organization and creates your first developer account; this is all you need to  
+         proceed with the LazyStack Tutorial. Completing Part 2 implements the Test and 
+         Production accounts with Continuous Integration and Continuous Deployment capabilities.
     </p>
 
     <h4>AWS Organizational Units and Member Accounts</h4>
             <p>
-            We create an AWS Organization containing three Organizational Units (OU): 
-            LzDevOU, LzRevOU and LzProdOU. Each OU contains one or more Member Accounts. When complete, 
-            your AWS Organization will look something like this:</p>
-            <img src="/assets/img/AwsCICDSetup_new.svg">  
+            We create an AWS Organization containing one Organizational Units (OU): 
+            OrgDevOU. We create a developer Member Account and 
+            put it in the OrdDevOU. When complete, your initial AWS Organization will 
+            look something like this:</p>
+            <img src="/assets/img/AwsSetupPart1.svg">  
 
         <p></p>
-
         <h5>Insight: </h5>
         <ul>
             <li>We prefix each account in our organization with a short "OrdCode" to make working 
@@ -288,39 +297,7 @@
                 These services are shared for all stacks in that account. For instance, if you 
                 have two stacks that both use DynamoDB, they should each use different tables
                 to segregate their data.</li>
-            <li>This environment uses AWS CodePipelines integrated with GitHub webhooks to publish 
-                stacks to the Review Account or Production Account when a Pull Request is processed. 
-                <ul>
-                    <li>Review CodePipeline
-                        <ul>
-                            <li>Opening Pull Request automatically publishes a review stack.</li>
-                            <li>Closing Pull Request automatically deletes the review stack.</li>
-                        </ul>
-                    </li>
-                    <li>Prod CodePipeline
-                        <ul>
-                            <li>Opening PUll Request automatically publishes review stack.</li>
-                            <li>Approving Pull Request creates/updates production stack.</li>
-                            <li>Closing Pull request automatically deletes the review stack.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>This CI/CD setup does not require or provide per developer CI/CD 
-                pipelines. However, you can easily implement these pipelines using techniques 
-                described in this CI/CD Setup step.
-            </li>
-            <li>There are a multitude of different tools and workflow patterns for CI/CD. If 
-                you are new to CI/CD, this setup will provide enough understanding to to 
-                evaluate other CI/CD solutions if this example solution falls short of 
-                your requirements.
-            </li>
-            <li>There are many Git repository services that you can use instead of GitHub. GitHub 
-                was selected only because it is so widely used by the .NET community. Some other 
-                popular Git repositories include BitBucket, GitLab and AWS CodeCommit. 
-            </li>
         </li>
-    
         </ul> 
 
 <h4>AWS Users and AWS CLI Profiles</h4>
@@ -337,9 +314,9 @@
     recommend that the AWS Organization Management Account credentials be stored in the 
     AWS CLI "default" profile.
 </p>
-<p>When complete, your organization's AWS Root Users and IAM Users will look something 
+<p>When Part 1 is complete, your organization's AWS Root Users and IAM Users will look something 
     like this:</p>
-<img src="/assets/img/AwsCICDSetup_new2.svg">
+<img src="/assets/img/AwsSetupUsers1.svg">
 <p></p>
 <h5>Insights:</h5>
 <ul>
@@ -349,8 +326,7 @@
     <li>We only create AWS CLI Profiles for IAM Users.</li>    
     <li>Root User access to Member Accounts is very-rarely necessary and these login-credentials should not be shared.</li>
     <li>The IAM User LzMgmt can assume the OrganizationAccountAccessRole to administer Member Accounts. For example,
-        the AWS CLI Profiles LzDevJoeAccess, LzRevAccess, and LzProdAccess are used to administer the 
-        corresponding Member Account from the LzMgmt Management Account when using the AWS CLI.
+        the AWS CLI Profile LzDevJoeAccess is used to administer the OrgDevJoe Member Account from the OrgMgmt Management Account when using the AWS CLI.
     </li>
     <li>Root Users sign-in with at least an email address and password. An email address can be used
         with only one AWS account. Use email address aliases to be a root user in different AWS accounts.
