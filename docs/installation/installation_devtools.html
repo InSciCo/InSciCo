@@ -90,6 +90,19 @@
                           <span class="">Introduction</span></a>
                       </li>
                 
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
                       <li id="stacks">
                         <a href="/stacks/stacks_overview.html">
                           <span class="">Stacks</span>
@@ -103,17 +116,6 @@
                       </li>
                 
                 
-                      <li id="installation">
-                        <a href="/installation/installation_overview.html">
-                          <span class="lz-r-sectionitem">Install</span>
-                        </a>
-                      </li>
-                
-                      <li id="tutorialdocs">
-                        <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
-                        </a>
-                      </li>
                 
                       <li id="libraries">
                         <a href="/libraries/libraries_overview.html">
@@ -220,13 +222,25 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Review Acct Setup</span>
+            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test OU Setup</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsprodsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prod OU Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Prod Acct Setup</span>
             </a>
         </li>
@@ -271,36 +285,13 @@
 </div>
 <div class=lz-r-content>
     <h3>LazyStack Development Tools</h3>
-    <p>The LazyStack Development tools are available as a Visual Studio IDE (Windows) 
-        extension and as .Net CLI tools. The Visual Studio IDE (MacOS) may be 
-        configured to use the .Net CLI Tools. The .Net CLI tools can be used in 
-        any environment supporting .NET.
+    <p>The LazyStack Development Tools run on your development workstation. We provide integrations for the Visual Studio 
+        IDE and .NET Command Line Tool. Most editors, like Visual Studio Code, provide a means to call the .NET CLI through 
+        the editor's UI so you can tailor your editor to use the LazyStack tools easily.
     </p>
-
-    <h4>.NET CLI LazyStack Tools - Mandatory</h4>
-    <p>We recommend that all development workstations  have the .NET CLI LazyStack Tools 
-        installed.
-    </p>
-
-    <h4>Visual Studio IDE (Windows) with LazyStack Extension - Optional</h4>
-    <p>We recommend that Visual Studio IDE (Windows) users use the LazyStack extension 
-        available from the Visual Studio Extension Marketplace. 
-    </p>
-
-    <h4>Visual Studio IDE (MacOS) with .NET CLI LazyStack Tools - Optional</h4>
-    <p>Visual Studio IDE (MacOS) is supported using through the External Tools 
-        feature. Unfortunately, the Visual Studio Extensions Gallery is no longer 
-        accepting submissions. But, no worries, the External Tools configuration is 
-        simple and works quite well.
-    </p>
-
-    <h4>Visual Code and other IDEs and Editors - Optional</h4>
-    <p>Like Visual Studio IDE (MacOS), many editors and IDEs have the ability to 
-        make calls to CLI tools. If you are working in one of these editors or IDEs,
-        review the Visual Studio IDE (MacOS) setup. This setup is likely similar to 
-        what you need.
-    </p>
-
+    <p>The LazyStack .NET CLI Tool should always be installed.
+    The other client integrations are optional but highly recommended.</p>
+    
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>

@@ -90,6 +90,19 @@
                           <span class="">Introduction</span></a>
                       </li>
                 
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
                       <li id="stacks">
                         <a href="/stacks/stacks_overview.html">
                           <span class="">Stacks</span>
@@ -103,17 +116,6 @@
                       </li>
                 
                 
-                      <li id="installation">
-                        <a href="/installation/installation_overview.html">
-                          <span class="lz-r-sectionitem">Install</span>
-                        </a>
-                      </li>
-                
-                      <li id="tutorialdocs">
-                        <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
-                        </a>
-                      </li>
                 
                       <li id="libraries">
                         <a href="/libraries/libraries_overview.html">
@@ -220,13 +222,25 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Review Acct Setup</span>
+            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test OU Setup</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsprodsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prod OU Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Prod Acct Setup</span>
             </a>
         </li>
@@ -274,10 +288,40 @@
     <p>Follow this guide to setup a complete Software Development, Test and Deployment tool chain 
         using AWS Services and GitHub. This tool chain implements Git Feature Branch Workflow with 
         GitHub Pull Requests driving Continuous Integration and Continuous Deployment of Review 
-        and Production AWS Stacks. We break this process into two parts. You can run the 
-        LazyStack Tools Tutorial after completing Part 1 and then proceed with Part 2 to setup 
-        a complete Development, Test and Production tool chain.
+        and Production AWS Stacks. Here is a simple overview of the Feature Branch Workflow and 
+        an example of a Feature (F1) developed and merged with a Pull Request into the main branch.
     </p>
+    <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
+    <p></p>
+
+    <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
+
+    <p>We break this setup of the LazyStack SMF into two parts. You can run the 
+        LazyStack Tools Tutorial after completing Part 1 and then proceed with Part 2 to setup 
+        a complete Development, Test and Production tool chain.</p>
+
+    <h5>Insights:</h5>
+    <ul>
+        <li>Each Developer has their own sandbox AWS Account. This is AWS recommended best practice.</li>
+        <li>Developers publish to their sandbox directly from their workstation. This leverages the AWS Toolkit 
+            or AWS SAM CLI. This is the fastest way to publish and test Serverless Stacks and can result 
+            in more rapid prototyping and development.
+        </li>
+        <li>Pull requests drive the Continuous Integration and Continuous Deployment of a Test Stack for 
+            that PR. This provides the reviewer reviewing the pull request the ability to review 
+            features using that stack as well as review the code submitted with the PR.
+        </li>
+        <li>Merging a pull request deletes the Test stack associated with the PR and updates the 
+            production stack.
+        </li>
+        <li>This example illustrates the process using the Visual Studio IDE; other clients or the 
+            Git CLI may be used and are discussed in the SWF Guide.
+        </li>
+        <li>There are three AWS accounts in this example: The developers account, the test account and the 
+            production account. These accounts are created in the AWS Organization Setup.
+        </li>
+    </ul>
+
     <h4>AWS Organization Setup Part 1</h4>
     <p>In Part 1 you create your AWS Organization with a single Organizational Unit (OrgDevOU) 
         and your first developer account in that OU. This is setup is enough to proceed with 

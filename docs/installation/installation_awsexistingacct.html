@@ -90,6 +90,19 @@
                           <span class="">Introduction</span></a>
                       </li>
                 
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
                       <li id="stacks">
                         <a href="/stacks/stacks_overview.html">
                           <span class="">Stacks</span>
@@ -103,17 +116,6 @@
                       </li>
                 
                 
-                      <li id="installation">
-                        <a href="/installation/installation_overview.html">
-                          <span class="lz-r-sectionitem">Install</span>
-                        </a>
-                      </li>
-                
-                      <li id="tutorialdocs">
-                        <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
-                        </a>
-                      </li>
                 
                       <li id="libraries">
                         <a href="/libraries/libraries_overview.html">
@@ -220,13 +222,25 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Review Acct Setup</span>
+            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test OU Setup</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsprodsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prod OU Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Prod Acct Setup</span>
             </a>
         </li>
@@ -270,19 +284,15 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>Quick & Dirty - no SMF</h3>
+    <h3>Quick & Dirty - no Software Management Framework</h3>
     <p>If you just want to run through the LazyStack Tools tutorial, you can use an existing AWS 
         Account having Administrative privileges.</p>
-    <p>We strongly recommend following the LazyStack Software Management Framework (SMF) install 
-        steps to get the most out of LazyStack. We believe this is the best approach even if you 
-        intend to later integrate the LazyStack tools into an existing Software Management process
-        as the SMF illustrates some important use-case implementation that may be of some help later.
-    </p>
 
     <ol>
         <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html" target="_blank" rel="noopener noreferrer">Install the AWS CLI</a> and configure it to access your existing account.</li>
         <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
-            target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>        
+            target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>   
+        <li><a href="/installation/installation_devtools.html">Install LazyStack Development Tools</a></li>     
     </ol>
 </div>
             <div id=hacky-privacy-spacer></div>

@@ -15,11 +15,11 @@ topic: GettingStarted
          <li>Open a PowerShell Terminal.</li>
          <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
          <li>Execute the CreateProdAccount.ps1 script:
-             <pre><code class="language-bashshell">. .\CreateProdAcct.ps1</code></pre>
+             <pre><code class="language-bashshell">. .\CreateProdAccount.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
- CreateRevAcct.ps1 - V1.0.0
- This script adds a Production account to the OrgProdOU Organizational Unit.
+ CreateProdAccount.ps1 - V1.0.0
+ This script adds a Production account to the Production Organizational Unit.
  Note: Press return to accept a default value.
  Enter your OrgCode (ex: Lz): Az
  Enter your AWS CLI Management Account Profile (default: AzMgmt):
@@ -56,13 +56,11 @@ topic: GettingStarted
      </ol> 
      
      <h5>Step Summary</h5>
-     <p>In this step we used the CreateProdAcct.ps1 script to create a Prod Account under 
-        the Prod Organization Unit. We added a Administrators group to the account with 
+     <p>In this step we used the CreateProdAccount.ps1 script to create a Production Account under 
+        the Production Organization Unit. We added a Administrators group to the account with 
         AdministratorAccess permissions. We added an IAM User for the account and added that 
         user to the Administrators group. We created a AWS CLI profile allowing the Management 
         Account IAM User to manage the Prod account with the OrganizationAccountAccessRole 
         policy.
      </p>
-     <p>The IAM User created for this account will be used by the CI/CD process.</p>
-
 </div>

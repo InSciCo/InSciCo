@@ -30,26 +30,29 @@ topic: GettingStarted
                 These services are shared for all stacks in that account. For instance, if you 
                 have two stacks that both use DynamoDB, they should each use different tables
                 to segregate their data.</li>
-            <li>This environment uses AWS CodePipelines integrated with GitHub webhooks to publish 
-                stacks to the Test Account or Production Account when a Pull Request is processed. 
+            <li>This environment uses AWS CodeBuild projects integrated with GitHub webhooks to
+                publish stacks to the Test Account or Production Account when a Pull Request is processed. 
                 <ul>
-                    <li>Test CodePipeline
+                    <li>Test Account CodeBuild Project(s)
                         <ul>
-                            <li>Opening Pull Request automatically publishes a test stack.</li>
+                            <li>Opening Pull Request (PR) automatically publishes a test stack named after the PR.</li>
                             <li>Closing Pull Request automatically deletes the test stack.</li>
                             <li>There can be multiple test stacks.</li>
                         </ul>
                     </li>
-                    <li>Prod CodePipeline
+                    <li>Prod Account CodeBuild Project
                         <ul>
-                            <li>Merging a Pull Request automatically publishes the production stack.</li>
+                            <li>Merging a Pull Request publishes the production stack.</li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>This CI/CD setup does not require or provide per developer CI/CD 
                 pipelines. However, you can easily implement these pipelines using techniques 
-                described in this CI/CD Setup step.
+                illustrated by the CI/CD CodeBuild projects in the Test and Production accounts. 
+                We do not recommend this as the developer may publish their own sandbox stacks 
+                more quickly from their desktop. They may also run stack tests locally and against 
+                their sandbox stacks.
             </li>
             <li>There are a multitude of different tools and workflow patterns for CI/CD. If 
                 you are new to CI/CD, this setup will provide enough understanding to to 
@@ -66,16 +69,16 @@ topic: GettingStarted
 
 <h4>AWS Users and AWS CLI Profiles</h4>
 <p>Each Account has a Root User and one or more IAM Users. Root users sign into an account 
-    using their email address and password. IAM User sign into the account using the 
-    AccountID, UserName and Password. You can, and should, add MFA to Root User access and 
+    using their email address and password. IAM Users sign into the account using the 
+    AccountID, and their UserName and Password. You can, and should, add MFA to Root User access and 
     IAM User access.
 </p>
 <p>The AWS CLI allows programmatic access to Accounts using credentials stored in "profiles" 
     on your workstation. Since an organization has multiple accounts, we use "named" profiles 
     when issuing AWS CLI commands to ensure we always update the correct account. 
     The AWS CLI allows the creation of a "default" profile. We recommend that this be used 
-    with care on a workstation with access to multiple accounts. For instance, we do not 
-    recommend that the AWS Organization Management Account credentials be stored in the 
+    with care on a workstation with access to multiple accounts; we recommend that the 
+    AWS Organization Management Account credentials are NOT be stored in the 
     AWS CLI "default" profile.
 </p>
 <p>When complete, your organization's AWS Root Users and IAM Users will look something 
@@ -91,13 +94,11 @@ topic: GettingStarted
     <li>Root User access to Member Accounts is very-rarely necessary and these login-credentials should not be shared.</li>
     <li>The IAM User OrgMgmt can assume the OrganizationAccountAccessRole to administer Member Accounts. For example,
         the AWS CLI Profiles OrgDevJoeAccess, OrgTestAccess, and OrgProdAccess are used to administer the 
-        corresponding Member Account from the OrgMgmt Management Account when using the AWS CLI.
+        corresponding Member Accounts from the OrgMgmt Management Account when using the AWS CLI.
     </li>
     <li>Root Users sign-in with at least an email address and password. An email address can be used
         with only one AWS account. Use email address aliases to be a root user in different AWS accounts.
     </li>
-    <li>IAM users sign-in with at least an account#, user name, and password. The user-name is unique 
-        within the account.</li>
 </ul>        
 
 </div>

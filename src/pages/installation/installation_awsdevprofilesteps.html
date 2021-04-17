@@ -9,13 +9,51 @@ topic: GettingStarted
     <p>Prerequisites: Developer Account Creation complete<br>
         Estimated Time: 2 minutes, Costs: none<br>
         Perform this step on the Development Workstation</p>    
-    <p>In this step we create access keys and a AWS CLI profile. These keys allow 
-        the developer to access their account using their IAM User credentials from 
-        the AWS CLI, AWS SAM CLI and Microsoft Visual Studio AWS Toolkit Extension.
+    <p>In this step we create access keys and then use those keys to configure a AWS CLI profile. 
+        The AWS profile allows the developer to access their account using the AWS CLI, 
+        AWS SAM CLI, AWS Microsoft Visual Studio AWS Toolkit Extension and LazyStack Developer Tools.
     </p>
     <p>It is important that this operation be performed on the Developers Workstation. There
-        is no reason for the access keys for the IAM User, for example AzDevJoe, to be stored 
-        anywhere other than the developer's workstation. 
+        is no reason for the access keys for the IAM User, for example OrgDevJoe, to be stored 
+        anywhere other than the developer's workstation.
     </p>
-    <p>Todo</p>       
+    <p>We strongly recommend that you do NOT use a default profile. Instead, use named profiles.</p>
+    <ol>
+        <li>Create access keys for IAM User
+            <ol type="a">
+                <li>Sign in to the AWS Management Console and open the IAM console at https://console.aws.amazon.com/iam/. The 
+                    information necessary to login into the account was provided in the OrgJoeDev_welcome.txt file.
+                </li>
+                <li>In the navigation pane, choose Users.</li>
+                <li>Choose the name of the user whose access keys you want to create, and then choose the Security credentials tab.</li>
+                <li>In the Access keys section, choose Create access key.</li>
+                <li>To view the new access key pair, choose Show. You will not have access to the secret access key again after this dialog box closes. Your credentials will look something like this:</li>
+                <li>Access key ID: AKIAIOSFODNN7EXAMPLE</li>
+                <li>Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</li>
+                <li>To download the key pair, choose Download .csv file. Store the keys in a secure location. You will not have access to the secret access key again after this dialog box closes.</li>
+                <li>Keep the keys confidential in order to protect your AWS account and never email them. Do not share them outside your organization, even if an inquiry appears to come from AWS or Amazon.com. No one who legitimately represents Amazon will ever ask you for your secret key.</li>
+                <li>After you download the .csv file, choose Close. When you create an access key, the key pair is active by default, and you can use the pair right away.</li>
+                <li>Rename the .csv file to "OrgJoeDev_credentials.csv" and move this file to a secure location. Do not leave this file in your 
+                    downloads folder. Use your IAM User Name instead of "OrgJoeDev".</li>
+            </ol>
+        </li>
+        <p>The .csv file will have content something like this:
+            <pre><code class="language-bashshell">User name,Password,Access key ID,Secret access key,Console login link
+ OrgJoeDev,,AKIAIOSFODNN7EXAMPLE,wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY,https://123456789012.signin.aws.amazon.com/console</code></pre>
+            Make sure your User name is not "default" and matches your IAM User name for this development account.
+        </p>
+        <li>Issue the following command: (with your IAM User Name)
+            <pre><code class="language-bashshell">aws configure import --csv file://OrgJoeDev_credentials.csv</code></pre>
+        </li>
+        <li>Configure the default region for the profile using the following command: (using your IAM User Name and region)
+            <pre><code class="language-bashshell">aws configure set region us-east-1 --profile OrgJoeDev</code></pre>
+        </li>
+        <li>We recommend you create a shortcut in your browser with the Console Login Link and name that link with your IAM User Name.</li>
+    </ol>
+    <p></p>
+    <h4>Step Summary</h4>
+    <p>In this step we used the AWS IAM Console to create access keys for a developer's account IAM User, downloaded those credentials 
+        in a .csv file, used that file to configure a named profile and created a link in our browser to make logging into the 
+        AWS Console easy. </p>
+    
 </div>

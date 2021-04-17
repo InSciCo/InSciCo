@@ -90,6 +90,19 @@
                           <span class="lz-r-sectionitem">Introduction</span></a>
                       </li>
                 
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
                       <li id="stacks">
                         <a href="/stacks/stacks_overview.html">
                           <span class="">Stacks</span>
@@ -103,17 +116,6 @@
                       </li>
                 
                 
-                      <li id="installation">
-                        <a href="/installation/installation_overview.html">
-                          <span class="">Install</span>
-                        </a>
-                      </li>
-                
-                      <li id="tutorialdocs">
-                        <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
-                        </a>
-                      </li>
                 
                       <li id="libraries">
                         <a href="/libraries/libraries_overview.html">
@@ -158,12 +160,48 @@
     <ul class="vertical menu dropdown">
         <li >
             <a  href="/intro/intro.html">
-                <span class="">Executive Overview</span>
+                <span class="">Business Stakeholder Overview</span>
             </a>
         </li>
+
+        <li>
+            <a  href="/intro/intro_serverless.html" >&nbsp;&nbsp;&nbsp;
+            <span class="">Serverless Applications</span>
+            </a>
+        </li>
+
+
+        <li>
+            <a  href="/intro/intro_smf.html" >&nbsp;&nbsp;&nbsp;
+            <span class="">Software Management</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/intro/intro_mdd.html" >&nbsp;&nbsp;&nbsp;
+            <span class="">Accelerated Development</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/intro/intro_whylazystack.html" >&nbsp;&nbsp;&nbsp;
+            <span class="">Why Choose LazyStack?</span>
+            </a>
+        </li>
+
         <li>
             <a  href="/intro/intro_techoverview.html">
-                <span class="lz-r-topicitem">Technical Overview</span>
+                <span class="lz-r-topicitem">Technical Lead Overview</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/intro/intro_techoverviewsmf.html" >&nbsp;&nbsp;&nbsp;
+                <span class="">Software Mgmt. Framework</span>
+            </a>
+        </li>        <li>
+            <a  href="/intro/intro_techoverviewtools.html" >&nbsp;&nbsp;&nbsp;
+                <span class="">MDD Developer Tools</span>
             </a>
         </li>
         <li>
@@ -181,46 +219,41 @@
                 <span class="">Why AWS?</span>
             </a>
         </li>
+
         <li>
             <a  href="/intro/intro_dynamodb.html" >&nbsp;&nbsp;&nbsp;
                 <span class="">Why DynamoDB?</span>
             </a>
         </li>
+
+
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>LazyStack Technical Overview</h3>
-    <p>LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Serverless Application Model
-        (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack
-        in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.</p>
-    <p>LazyStack is comprised of a free stack generator tool and some MIT licensed open-source support libraries.</p>
+    <h3>LazyStack Technical Lead Overview</h3>
+    <p>LazyStack is comprised of the following:</p>
     <ul>
-        <li>LazyStack Generator - Free Visual Studio IDE Extension, and Free DOTNET CLI Tool </li>
-        <li>LazyStackAuth - MIT Licensed authentication library</li>
-        <li>LazyStackDynamoDBRepo - MIT Licensed CRUDL library for DynamoDB</li>
+        <li>LazyStack Software Management Framework (SMF)<br>
+            Scripts, templates, and instructions to setup a complete Software Development, 
+            Testing and Deployment collaboration tool chain on AWS and GitHub.
+        </li>
+        <br>
+        <li>LazyStack Development Tools<br>
+            LazyStack ingests an OpenApi (swagger) REST API specification 
+            and generates the AWS Serverless Application Model (SAM) template 
+            and the C# AWS Lambda projects necessary to stand up a fully featured 
+            commercial-grade application stack in AWS. It also generates a client 
+            application SDK making it simple to call that stack from C# applications.
+            </li>
+            <br>
+        <li>LazyStack Libraries
+            <ul>
+                <li>LazyStackAuth - MIT Licensed authentication library</li>
+                <li>LazyStackDynamoDBRepo - MIT Licensed CRUDL library for DynamoDB</li>
+            </ul>
+        </li>
     </ul>
 
-    <img src="/assets/img/LazyStackProjects.svg" width="100%"/>
-    <p></p>
-    <p>LazyStack builds on these cornerstone technologies:</p>
-    <ul>
-        <li>
-            <a href="https://swagger.io/docs/specification/about/">OpenApi (swagger) REST API specification</a>
-        </li>
-        <li>
-            <a href="https://github.com/RicoSuter/NSwag/wiki">NSwag -- .NET Code Generation</a>
-        </li>
-        <li>
-            <a href="https://docs.microsoft.com/en-us/dotnet/fundamentals/">Microsoft .NET Core &amp; C#</a>
-        </li>
-        <li>
-            <a href="https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/">.NET Complier Platform SDK</a>
-        </li>
-        <li>
-            <a href="https://docs.aws.amazon.com/serverless-application-model/?id=docs_gateway">AWS Serverless
-                    Application Model (SAM)</a>
-        </li>
-    </ul>
 </div>
     
             <div id=hacky-privacy-spacer></div>

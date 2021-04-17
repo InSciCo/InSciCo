@@ -6,36 +6,51 @@ topic: GettingStarted
 {{> installation_menu}}
 <div class=lz-r-content>
     <h3>Installation Overview</h4>
-    
+    <p>LazyStack is comprised of two resources: The LazyStack Software Management Framework (SMF) and 
+        the LazyStack Development Tools. Both can be used independently; or used together with seamless integration.
+    </p>
     <h4>LazyStack AWS Software Management Framework (SMF)</h4>
-    <p>We provide all scripts, templates, and instructions to setup a complete Software 
-        Development, Testing and Deployment tool chain on AWS. This includes:</p>
-        <ul>
-            <li>AWS Management Account</li>
-            <li>AWS Organizational Units for Development, Test and Production</li>
-            <li>Developer(s) Account</li>
-            <li>Test Account - with Continuous Integration and Continuous Deployment</li>
-            <li>Production Account  - with Continuous Integration and Continuous Deployment</li>
-        </ul>
-    <p>The LazyStack Development Tools do not require that you use the SMF. We strongly suggest 
-        that you implement the SMF if you do not already have an existing Software Management 
-        tool chain and intend to field a production application.</p>
+    <p>All the scripts, templates, and instructions to setup a complete Software 
+        Development, Testing and Deployment collaboration tool chain on AWS and GitHub. </p>
 
+    <p>The installation of the SMF is broken up into two parts. In part 1 you create your AWS Organization, a 
+        Development Organizational Unit and a Developer account; this is enough perform the LazyStack 
+        Tutorial. In part 2 you create your Test and Production Organizational Units, Test and Production Accounts, 
+        integrate with GitHub, and install the CI/CD tools. You do not have to be a 
+        DevOps guru to install the SMF. The SMF setup includes:
+    </p>
+
+        <ul>
+            <li>Part 1 <br>
+                Minimum Setup to run the LazyStack Tutorial:
+                <ul>
+                    <li>AWS Management Account</li>
+                    <li>AWS Organizational Units for Development, Test and Production</li>
+                    <li>Developer Account(s) - supporting developer sandbox stacks</li>
+                </ul>
+            </li>
+            <li>Part 2 <br>
+                Complete your tool-chain to start collaborating on and publishing a commercial application
+                <ul>
+                    <li>GitHub Software Versioning and Collaboration</li>
+                    <li>Test Account - supporting test stacks with Continuous Integration and Continuous Deployment (CI/CD)</li>
+                    <li>Production Account  - supporting production stacks with Continuous Deployment (CD)</li>
+                </ul>
+            </li>
+        </ul>
     <h4>Quick & Dirty</h4>
-    <p>You can run through the LazyStack tutorial in an AWS account with Administrative access. 
-        This is handy if you are evaluating only the LazyStack Tools and intend to use those 
-        tools in an existing Software Management tool chain later on. The LazyStack AWS SMF is 
-        not required by the LazyStack Tools.
+    <p>In a hurry? Already have a Software Management tool chain and just want to evaluate the LazyStack Development Tools? </p>
+        <p>
+        No worries; you can run through the LazyStack tutorial in any AWS account with Administrative access. 
+        The LazyStack Developer tools do not require the AWS SMF.
     </p>
 
     <h4>LazyStack Development Tools</h4>
-
-    <ul>
-        <li>Studio Windows - installation for Visual Studio IDE for Windows</li>
-        <li>Visual Studio Mac - installation for Visual Studio IDE for Mac</li>
-        <li>.NET CLI Tool - installation for non-IDE users (Visual Studio Code users should use this)</li>
-    </ul>
-
+    <p>The LazyStack Development Tools run on your development workstation. Because these tools are provided as a .NET CLI Tool, they 
+        can be run anywhere .NET is installed (Windows, MacOS, Linux etc.). We also provide integrations for the Visual Studio 
+        IDE. Most editors, like Visual Studio Code, provide a means to call the .NET CLI through the editor's UI so you can 
+        also tailor your editor to use the LazyStack tools from the editor UI.
+    </p>
     <h4>Free - Forever</h4>
     <p>A free version of the LazyStack Generator is available as a Visual Studio Extension and as a .NET Core CLI tool.
         We will continue to enhance and publish the free version going forward to support small business and 

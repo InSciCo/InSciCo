@@ -12,26 +12,34 @@ topic: GettingStarted
         <ul>
             <li>Continuous Integration automates building and testing a codebase changes prior to submitting those 
                 changes for approval.</li>
-            <li>Continuous Deployment automates deploying "stacks" into review or production environments.</li>
+            <li>Continuous Deployment automates deploying "stacks" into Test and Production accounts.</li>
         </ul>
     </p>
-    <h5>GitHub, Feature Branch Workflow and AWS CodeBuild</h5>
-    <p>To allow this guide to be immediately practical and easily implemented, we assumes you 
-        will use Git for version control, a GitHub account to host your Git repository, and a simple Feature Branch Workflow 
-        with GitHub Pull Requests to manage team collaboration.
-        Focusing on this popular combination allows us to offer concrete and very specific usage instructions along with
-        AWS CodeBuild projects to implement CI/CD. Other work flows and Git repository services may be used but 
-        each requires a different configuration.</p>
+    <h5>GitHub, Feature Branch Workflow and AWS CodeBuild with Visual Studio IDE</h5>
 
+    <p>To allow this guide to be immediately practical and easily implemented, we assume you 
+        will use Git for version control, a GitHub account to host your Git shared repository, and a simple 
+        Feature Branch Workflow with GitHub Pull Requests to manage team collaboration.
+        Focusing on this popular combination allows us to offer concrete and very specific usage instructions 
+        along with AWS CodeBuild projects to implement CI/CD. Other work flows and Git repository services 
+        may be used but each requires a different configuration. The diagram below illustrates this flow 
+        with the Visual Studio IDE.</p>
+
+    <img src="/assets/img/SDLCFeatureflowVSIDE.svg">
+    <p></p>
+    <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
+
+    <h5>GitHub, Feature Branch Workflow and CodeBuild with detailed Git Commands</h5>
+    <p>The diagrams below illustrates the detailed <code class="language-bashshell">git</code> commands and GitHub 
+        Pull Requests UI perform create/merge/delete on Git branches. These commands are hidden from the 
+        developer when using the Visual Studio IDE and GitHub PR Merge process. You will need these commands 
+        if you are working in the .NET CLI with no IDE. 
+    </p> 
     <img src="/assets/img/SDLCFeatureflow.svg">
     <p></p>
-    <p>The diagrams above show how the <code class="language-bashshell">git</code> commands and GitHub 
-        Pull Requests UI perform create/merge/delete on Git branches.
-        The Branch Flow diagram show's the branches used in a simple Feature Branch Workflow. The local F1 branch 
-        is created off of the current main branch. A shared F1 branch is created to share the new feature in 
-        development. Next, the shared F1 branch is merged into the main branch and the main branch is tagged 
-        with a version number. And finally, both the local and shared F1 branches are deleted.
-    </p> 
+    <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
+
+<!--
     <p>Here is a more detailed narrative for this workflow:</p>
     <ol>
         <li>Start Feature F1
@@ -92,7 +100,8 @@ topic: GettingStarted
             </ol>
         </li>
     </ol>
-
+-->
+    <h5>Insights</h5>
     <p>For more information on Git, the Feature Branch Workflow, and AWS CodeBuild; please review these helpful documentation:
         <ul>
             <li><a href="">Git</a></li>

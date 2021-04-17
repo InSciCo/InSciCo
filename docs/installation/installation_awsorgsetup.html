@@ -90,6 +90,19 @@
                           <span class="">Introduction</span></a>
                       </li>
                 
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
                       <li id="stacks">
                         <a href="/stacks/stacks_overview.html">
                           <span class="">Stacks</span>
@@ -103,17 +116,6 @@
                       </li>
                 
                 
-                      <li id="installation">
-                        <a href="/installation/installation_overview.html">
-                          <span class="lz-r-sectionitem">Install</span>
-                        </a>
-                      </li>
-                
-                      <li id="tutorialdocs">
-                        <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
-                        </a>
-                      </li>
                 
                       <li id="libraries">
                         <a href="/libraries/libraries_overview.html">
@@ -220,13 +222,25 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsrevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Review Acct Setup</span>
+            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test OU Setup</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsprodsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Test Acct Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prod OU Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Prod Acct Setup</span>
             </a>
         </li>
@@ -288,11 +302,13 @@
             <img src="/assets/img/AwsSetupPart1.svg">  
 
         <p></p>
+        <p>We prefix each account in our organization with a short "OrdCode", in the example above 
+            this is "Org" in "OrgMgmt", "OrgDevOU" and "OrgDevJoe"; choosing a short but meaningful 
+            code makes working with multiple organizations or different applications less confusing. 
+        </p>
+
         <h5>Insight: </h5>
         <ul>
-            <li>We prefix each account in our organization with a short "OrdCode" to make working 
-                with multiple organizations less confusing.
-            </li>
             <li>DynamoDB and S3 are provisioned in the account, not inside the serverless stack. 
                 These services are shared for all stacks in that account. For instance, if you 
                 have two stacks that both use DynamoDB, they should each use different tables
@@ -302,7 +318,7 @@
 
 <h4>AWS Users and AWS CLI Profiles</h4>
 <p>Each Account has a Root User and one or more IAM Users. Root users sign into an account 
-    using their email address and password. IAM User sign into the account using the 
+    using their email address and password. IAM Users sign into the account using the 
     AccountID, UserName and Password. You can, and should, add MFA to Root User access and 
     IAM User access.
 </p>
@@ -314,7 +330,7 @@
     recommend that the AWS Organization Management Account credentials be stored in the 
     AWS CLI "default" profile.
 </p>
-<p>When Part 1 is complete, your organization's AWS Root Users and IAM Users will look something 
+<p>When Part 1 is complete, your organization's AWS Root Users and IAM Users will be organized  
     like this:</p>
 <img src="/assets/img/AwsSetupUsers1.svg">
 <p></p>
