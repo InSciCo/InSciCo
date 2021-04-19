@@ -178,16 +178,14 @@
             </a>
         </li>
 
-
-        <li >
-            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Mgmt Account Setup</span>
-            </a>
-        </li>
-
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
                 <span class="">AWS Org. Setup Part 1</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">AWS Mgmt Account Setup</span>
             </a>
         </li>
 
@@ -293,11 +291,11 @@
       <ol>
          <li>Open a PowerShell Terminal.</li>
          <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
-         <li>Execute the CreateProdOU.ps1 script:
-             <pre><code class="language-bashshell">. .\CreateProdOU.ps1</code></pre>
+         <li>Execute the Prod_OU_Create.ps1 script:
+             <pre><code class="language-bashshell">. .\Prod_OU_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
- CreateProdOU.ps1 - V1.0.0
+ Prod_OU_Create.ps1 - V1.0.0
  This script creates an Organizational Unit for Production stacks.
  Note: Press return to accept a default value.
  Enter your OrgCode (ex: Lz): Az
@@ -315,7 +313,7 @@
      </ol> 
 
 <h5>Step Summary</h5>
-<p>In this step we used the CreateTesOU.ps1 script to create a Prod OU under 
+<p>In this step we used the Prod_OU_Create.ps1 script to create a Prod Organizational Unit under 
    the Organization.
 </p>
 

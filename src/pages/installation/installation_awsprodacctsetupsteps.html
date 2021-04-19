@@ -14,11 +14,11 @@ topic: GettingStarted
       <ol>
          <li>Open a PowerShell Terminal.</li>
          <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
-         <li>Execute the CreateProdAccount.ps1 script:
-             <pre><code class="language-bashshell">. .\CreateProdAccount.ps1</code></pre>
+         <li>Execute the Prod_Account_Create.ps1 script:
+             <pre><code class="language-bashshell">. .\Prod_Account_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
- CreateProdAccount.ps1 - V1.0.0
+ Prod_Account_Create.ps1 - V1.0.0
  This script adds a Production account to the Production Organizational Unit.
  Note: Press return to accept a default value.
  Enter your OrgCode (ex: Lz): Az
@@ -56,7 +56,7 @@ topic: GettingStarted
      </ol> 
      
      <h5>Step Summary</h5>
-     <p>In this step we used the CreateProdAccount.ps1 script to create a Production Account under 
+     <p>In this step we used the Prod_Account_Create.ps1 script to create a Production Account under 
         the Production Organization Unit. We added a Administrators group to the account with 
         AdministratorAccess permissions. We added an IAM User for the account and added that 
         user to the Administrators group. We created a AWS CLI profile allowing the Management 
