@@ -7,14 +7,18 @@ topic: GettingStarted
 <div class=lz-r-content>
 
    <h4>AWS Review Prod Organizational Unit Setup </h4>
-   <p>Prerequisites: AWS Org. Setup Part 1 complete.<br>
-      Estimated Time: 2 minutes, Costs: none<br>
-      Perform this step on the Management Workstation</p>
+   <dl>
+      <dt>Prerequisites:</dt>
+      <dd>- Test Account Setup Complete</dd>
+      <dt>Estimated Time: 2 minutes</dt> 
+      <dt>Estimated Cost: none</dt> 
+      <dt>Perform this step on the Management Workstation.</dt>
+  </dl>       
 
-      <ol>
-         <li>Open a PowerShell Terminal.</li>
-         <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
-         <li>Execute the Prod_OU_Create.ps1 script:
+   <ol>
+      <li>Open a PowerShell Terminal.</li>
+      <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
+      <li>Execute the Prod_OU_Create.ps1 script:
              <pre><code class="language-bashshell">. .\Prod_OU_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
@@ -32,8 +36,8 @@ topic: GettingStarted
  Creating Organizational Unit:
     - AzProdOU created
  Processing Complete</code></pre>
-         </li>
-     </ol> 
+      </li>
+   </ol> 
 
 <h5>Step Summary</h5>
 <p>In this step we used the Prod_OU_Create.ps1 script to create a Prod Organizational Unit under 

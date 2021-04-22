@@ -177,21 +177,32 @@
                 <span class="">LazyStack AWS SMF</span>
             </a>
         </li>
-
+        <li >
+            <a  href="/installation/installation_awsdepguide.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Deployment Overview</span>
+            </a>
+        </li>
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
                 <span class="">AWS Org. Setup Part 1</span>
             </a>
         </li>
+
         <li >
-            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AWS Mgmt Account Setup</span>
+            <a  href="/installation/installation_prerequsites.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prerequisites</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Mgmt. Scripts Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">AWS Mgmt Account Setup</span>
             </a>
         </li>
 
@@ -283,9 +294,14 @@
 </div>
 <div class=lz-r-content>
     <h4>Developer Profile Setup</h4>
-    <p>Prerequisites: Developer Account Creation complete<br>
-        Estimated Time: 2 minutes, Costs: none<br>
-        Perform this step on the Development Workstation</p>    
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Developer Account Creation complete</dd>
+         <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Development Workstation.</dt>
+    </dl>  
+
     <p>In this step we create access keys and then use those keys to configure a AWS CLI profile. 
         The AWS profile allows the developer to access their account using the AWS CLI, 
         AWS SAM CLI, AWS Microsoft Visual Studio AWS Toolkit Extension and LazyStack Developer Tools.

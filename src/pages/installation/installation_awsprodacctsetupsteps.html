@@ -7,14 +7,17 @@ topic: GettingStarted
 <div class=lz-r-content>
 
    <h4>AWS Production Account Setup </h4>
-   <p>Prerequisites: AWS Org. Setup Part 1 complete.<br>
-      Estimated Time: 2 minutes, Costs: none<br>
-      Perform this step on the Management Workstation</p>
-
-      <ol>
-         <li>Open a PowerShell Terminal.</li>
-         <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
-         <li>Execute the Prod_Account_Create.ps1 script:
+   <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Prod OU Setup Complete</dd>
+        <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>    
+    <ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+        <li>Execute the Prod_Account_Create.ps1 script:
              <pre><code class="language-bashshell">. .\Prod_Account_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
@@ -52,15 +55,15 @@ topic: GettingStarted
      - Adding the AzProd profile.
      - Adding the IAM User AzProd to the Administrators group in the AzProd account.
  Processing Complete</code></pre>
-         </li>
-     </ol> 
+        </li>
+    </ol> 
      
-     <h5>Step Summary</h5>
-     <p>In this step we used the Prod_Account_Create.ps1 script to create a Production Account under 
-        the Production Organization Unit. We added a Administrators group to the account with 
-        AdministratorAccess permissions. We added an IAM User for the account and added that 
-        user to the Administrators group. We created a AWS CLI profile allowing the Management 
-        Account IAM User to manage the Prod account with the OrganizationAccountAccessRole 
-        policy.
-     </p>
+    <h5>Step Summary</h5>
+    <p>In this step we used the Prod_Account_Create.ps1 script to create a Production Account under 
+    the Production Organization Unit. We added a Administrators group to the account with 
+    AdministratorAccess permissions. We added an IAM User for the account and added that 
+    user to the Administrators group. We created a AWS CLI profile allowing the Management 
+    Account IAM User to manage the Prod account with the OrganizationAccountAccessRole 
+    policy.
+    </p>
 </div>

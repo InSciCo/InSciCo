@@ -6,40 +6,53 @@ topic: GettingStarted
 {{> installation_menu}}
 <div class=lz-r-content>
     <h4>Management Scripts Setup</h4>
-    <p>Prerequisites: AWS Mgmt Account Setup complete<br>
-    Estimated time: 2 minutes, Cost: none<br>
-    Perform this step on the Management Workstation. It is fine if this workstation 
-    will also be used as a Developer's Workstation.</p>
+    <dl>
+        <dt>Prerequisites: none</dt>
+        <dt>Estimated Time: 2 to 10 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>    
+
     <p>We provide Microsoft PowerShell scripts to automate various steps in the setup and management 
         of your AWS Organization. You will not need to learn PowerShell scripting to use 
         these scripts. If you have Windows 10, PowerShell is already installed. If you are using 
-        MacOS or some variant of Linux, PowerShell is available.
+        MacOS or some variant of Linux, PowerShell is available to install.
     </p>
     <p>The scripts call the AWS CLI to configure your AWS Organization. They are easy to 
         read and heavily commented. We encourage you to read through the scripts and 
         follow the documentation links provided in the scripts to learn more about the 
         powerful commands in the AWS CLI. 
     </p>
+
+    <p>In this step, we will be creating a "OrgMgmt" folder on the Management Workstation containing 
+        scripts and sensitive information. Give some thought as to where you will want this folder 
+        to reside and who should have access to it. 
+    </p>
     <ol>
         <!-- Install PowerShell -->
         <li><a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.1" {{>newtab}}>
-            Install PowerShell<br></a></li>
+            Install PowerShell<br></a> * If you are running Windows 10, PowerShell is already installed.</li>
         <br>
 
-        <li><a href="">Install Git Client</a> - if you do not already have it.</li>
+        <li><a href="https://desktop.github.com/" {{>newtab}}>Install Git Client <br></a>* If you do not already have it.</li>
         <br>
-        <li>Clone the LazyStackSMF git repository:
+        <li>Open a PowerShell terminal and issue the following command to change the PowerShell script execution permissions:
+            <pre><code class="language-bashshell">Set-ExecutionPolicy RemoteSigned</code></pre>
+            This will allow PowerShell scripts to run on the local computer.</li>
+        <br>
+        <li>CD to the folder that will contain your "OrgMgmt" folder and then issue the following command 
+            to clone the LazyStackSMF git repository:
             <pre><code class="language-bashshell">git clone https://github.com/InSciCo/LazyStackSMF.git</code></pre>
-            This creates a repository folder called LazyStackSMF.
+            The clone command creates a folder called LazyStackSMF.
         </li>
-        <li>Change the name of the repository folder to "OrgMgmt"; replacing "Org" with 
-            your OrgCode. This folder will become your reference folder for management related actions 
-            on your organization's AWS Organization.
+        <br>
+        <li>Rename the folder "LazyStackSMF" to "OrgMgmt"; replace "Org" with your OrgCode. This folder will become 
+            your reference folder for management related actions on your AWS Organization. 
         </li>
+        <br>
     </ol>
-    <h4>Step Summary</h4>
-    <p>In this step we installed PowerShell and downloaded LazyStack management scripts into an OrgMgmt 
-        folder.
+    <h5>Step Summary</h5>
+    <p>In this step we installed PowerShell, the Git client, and downloaded the LazyStack management scripts into an OrgMgmt folder.
     </p>
 
 </div>

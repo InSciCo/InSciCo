@@ -177,21 +177,32 @@
                 <span class="">LazyStack AWS SMF</span>
             </a>
         </li>
-
+        <li >
+            <a  href="/installation/installation_awsdepguide.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Deployment Overview</span>
+            </a>
+        </li>
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
                 <span class="">AWS Org. Setup Part 1</span>
             </a>
         </li>
+
         <li >
-            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="lz-r-topicitem">AWS Mgmt Account Setup</span>
+            <a  href="/installation/installation_prerequsites.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Prerequisites</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="">Mgmt. Scripts Setup</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="lz-r-topicitem">AWS Mgmt Account Setup</span>
             </a>
         </li>
 
@@ -282,28 +293,14 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>AWS Management Account Setup</h3>
-    <p>We recommend you create a new AWS Account if you intend to use our guides to 
-        create an AWS Organization.</p>  
-    <h5>Account Names</h5>
-    <p>We recommend that you use a short "organization code" (OrgCode) to prefix all accounts and 
-        users in your AWS Organization. For instance, we recommend that you name 
-        your AWS Management Account something like "OrgMgmt" - where "Org" is the OrgCode.</p>
-    <p>We recommend the OrgCode be no longer that 2 or 3 characters. It must be alpha-numeric 
-        and have no spaces. This short OrgCode will be very helpful in keeping track of accounts 
-        belonging to different organizations should you end up managing or developing in more than one 
-        organization on the same Workstation.
-    </p>
-    <p>If you don't have a formal organization to derive the OrgCode from, you may want to consider 
-        using this prefix to describe an App Stack you are building.
-    </p>
-    <p>Replace "Org" with your OrgCode whenever you see it in the guide steps.</p>
-    <h4>New AWS Management Account Setup</h4>
-    <p>Prerequisites: A valid email address (or alias) not used on any other AWS Account.<br>
-        Estimated Time: 10 minutes, Costs: none<br>
-        Perform this step on the Management Workstation. The Management Workstation can also be 
-        a Development Workstation.
-    </p>
+    <h4>AWS Management Account Setup</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+            <dd>- Email Address to use for Root User in Management Account</dd>
+        <dt>Estimated Time: 2 to 10 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>  
 
     <ol>
         <!--Sign Up-->
@@ -314,31 +311,21 @@
             need this to login as the Account's "root" user.
             <br><br>
 
-            Important: If you already have an AWS Account associated with your email, you will need to 
+            <strong>Important:</strong> If you already have an AWS Account associated with your email, you will need to 
             create an email alias to create another AWS account. You can't use the same email address with 
             more than one AWS Account.<br><br>
 
-            Tip: If you are using a Gmail account you 
-            can create and use a dynamic alias using the special '+' operator. If your Gmail address 
-            is "me@gmail.com", you can use the email address alias "me+OrgMgmt@gmail.com". Any email  
-            sent to me+OrgMgmt@gmail.com will show up in your regular Gmail inbox.</li>
-            <br>
         <li>Sign out. We want to ensure we can sign in.</li>
         <br>
 
         <!-- Sign In-->
         <li><a href="http://signin.aws.amazon.com/console" target="_blank" rel="noopener noreferrer">Sign into</a> your AWS 
-            Management Console as Root user. The AWS Management Console appears.</li>
-            <br>
-
-        <li>Create a "OrgMgmt" OS folder. Replace "Org" with your OrgCode. This folder will 
-            be used to store account information and scripts for managing the account and 
-            AWS organization.
+            Management Console as Root user. The AWS Management Console appears.
         </li>
+       
         <br>
         <!-- Create an IAM admin user and group-->
         <li>Create OrgMgmt IAM User and generate a OrgMgmt_credentials.csv file<br>
-            Replace "Org" with your OrgCode in the following steps.
             <ol type="a">
                 <li>In the AWS Services section, find and select "IAM". The IAM dashboard appears.</li>
                 <li>In left-hand navigation bar, select <strong>Users</strong>. The user list appears. 
@@ -362,7 +349,7 @@
                 <li>Click the <strong>Create user</strong> button. The Add user (step 5) page appears.</li>
                 <li>Click the <strong>Download .csv</strong> button.</li>
                 <li>Rename the "new_user_credentials.csv" file to "OrgMgmt_credentials.csv" and 
-                    move it to the OrgMgmt folder. Replace "Org" with your OrgCode.
+                    move it to the "OrgMgmt" folder. Replace "Org" with your OrgCode.
                 </li>
                 <li>Click the <strong>Close</strong> button. The IAM console appears.</li>
             </ol>
@@ -377,7 +364,8 @@
         <!-- Create LzMgmt AWS CLI Profile-->
         <li>Create OrgMgmt AWS CLI Profile
             <ol type="a">
-                <li>Open a Command Prompt / Terminal</li>
+                <li>Open PowerShell terminal</li>
+                <li>CD into the "OrgMgmt" folder. Replace "Org" with your OrgCode.</li>
                 <li>Issue the following command: (replacing "Org" with your OrgCode)
                     <pre><code class="language-bashshell">aws configure import --csv file://OrgMgmt_credentials.csv</code></pre>
                     This creates the OrgMgmt profile.
@@ -385,13 +373,13 @@
                 <li>Issue the following command: (replacing "Org" with your OrgCode, and editing the region if necessary)
                     <pre><code class="language-bashshell">aws configure set region us-east-1 --profile OrgMgmt</code></pre>
                 </li>
-                <li>Issue the following command: (replacing "Org" with your OrgCoe)":
+                <li>Issue the following command: (replacing "Org" with your OrgCode)":
                     <pre><code class="language-bashshell">aws configure list --profile OrgMgmt</code></pre>
-                    Example Output:
+                    Example Output with an OrgCode of "Az":
                     <pre><code class="language-bashshell">
        Name                    Value             Type    Location
        ----                    -----             ----    --------
-    profile                   OrgMgmt          manual    --profile
+    profile                   AzMgmt          manual    --profile
 access_key     ****************KZ6S shared-credentials-file
 secret_key     ****************8b3b shared-credentials-file
     region                us-east-1      config-file    ~/.aws/config                        
@@ -406,6 +394,7 @@ secret_key     ****************8b3b shared-credentials-file
             credentials with third-parties like vendors or consultants. Somebody with
             your Root User security credentials can do <strong>anything</strong> in your account.
         </li>
+        <br>
         <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 
             target="_blank" rel="noopener noreferrer">Install AWS SAM CLI</a></li>     
     </ol>
@@ -415,9 +404,6 @@ secret_key     ****************8b3b shared-credentials-file
         Installed the AWS CLI on our workstation and configured a AWS CLI profile for the the IAM User
         "OrgMgmt". Now we can perform most administrative tasks on the Management Account using the 
         AWS CLI.
-    </p>
-    <p>You can now proceed to run the LazyStack tutorial in the Management Account for POC or 
-        educational purposes or continue with setting up the AWS Organization SDLC. 
     </p>
 
 </div>

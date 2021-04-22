@@ -6,15 +6,18 @@ topic: GettingStarted
 {{> installation_menu}}
 <div class=lz-r-content>
 
-   <h4>AWS Review Account Setup </h4>
-   <p>Prerequisites: AWS Org. Setup Part 1 complete.<br>
-      Estimated Time: 2 minutes, Costs: none<br>
-      Perform this step on the Management Workstation</p>
-
-      <ol>
-         <li>Open a PowerShell Terminal.</li>
-         <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
-         <li>Execute the Test_Account_Create.ps1 script:
+   <h4>AWS Test Account Setup </h4>
+   <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Test OU Setup Complete</dd>
+        <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>    
+    <ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Using your OrgCode in place of "Org".</li>
+        <li>Execute the Test_Account_Create.ps1 script:
              <pre><code class="language-bashshell">. .\Test_Account_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
@@ -52,8 +55,8 @@ topic: GettingStarted
      - Adding the AzTest profile.
      - Adding the IAM User AzTest to the Administrators group in the AzTest account.
  Processing Complete</code></pre>
-         </li>
-     </ol> 
+        </li>
+    </ol> 
 
 <h5>Step Summary</h5>
 <p>In this step we used the Test_Account_Create.ps1 script to create a Test Account under 

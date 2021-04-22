@@ -1,0 +1,263 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h3>LazyStack AWS SMF Deployment Overview</h4>
+        <p>Here is a technical overview of the SMF deployment. Review this overview to get an idea of what the install
+            will do and what resources and skills you need to perform the install.
+        </p>
+        <ol>
+            <li>Use Cases:
+                <ul>
+                    <li>Use Case: Install SMF; most of the detailed steps outlined below are automated with PowerShell
+                        scripts.
+                        <ul> * unless otherwise indicated, these actions are performed on the Management Workstation
+                            and/or AWS Console
+                            <li>AWS Org. Setup Part 1
+                                <ul>
+                                    <li>Create AWS Management Account</li>
+                                    <li>Install AWS CLI and AWS SAM CLI, also configures the local AWS profile</li>
+                                    <li>Install PowerShell</li>
+                                    <li>Run CreateOrganization.ps1 to create an AWS organization and the Dev
+                                        Organizational Unit.</li>
+                                    <li>Run Dev_Account_Create.ps1 to:
+                                        <ul>
+                                            <li>Create developer account</li>
+                                            <li>Move developer account into the Dev Organizational Unit</li>
+                                            <li>Create IAM User for the developer</li>
+                                            <li>Create Developers IAM Group having PowerUser and limited IAM permissions
+                                            </li>
+                                            <li>Assign IAM User to IAM Group</li>
+                                            <li>Create Management Workstation profile with
+                                                OrganizationalAccountAccessRole policy to allow Management account
+                                                to administer the developer's Account.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Developer AWS Profile Setup (run on Developer's Workstation) - allows developer
+                                        to use AWS CLI and AWS SAM CLI</li>
+                                </ul>
+                            </li>
+                            <li>AWS Org. Setup Part 2
+                                <ul>
+                                    <li>Run Test_OU_Create.ps1 to create the Test Organizational Unit</li>
+                                    <li>Run Test_Account_Create.ps1 to:
+                                        <ul>
+                                            <li>Create the Test Account</li>
+                                            <li>Move it under the Test Organizational Unit</li>
+                                            <li>Create the Test Account IAM User</li>
+                                            <li>Create the Administrators group</li>
+                                            <li>Assign the IAM User to the Administrators group</li>
+                                            <li>Create a Management Workstation profile with
+                                                OrganizationalAccountAccessRole policy to allow Management account
+                                                to administer the Test Account.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Run Prod_OU_Create.ps1 to create the Prod Organizational Unit</li>
+                                    <li>Run Prod_Account_Create.ps1 to:
+                                        <ul>
+                                            <li>Create the Prod Account</li>
+                                            <li>Move it under the Prod Organizational Unit</li>
+                                            <li>Create the Prod Account IAM User</li>
+                                            <li>Create the Administrators group</li>
+                                            <li>Assign the IAM User to the Administrators group</li>
+                                            <li>Create a Management Workstation profile with
+                                                OrganizationalAccountAccessRole policy to allow Management account
+                                                to administer the Prod Account.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Install Continuous Integration / Continuous Deployment (CI/CD)
+                                        <ul>
+                                            <li>Create a GitHub Account</li>
+                                            <li>Create a GitHub Project Repository</li>
+                                            <li>Create a CodeBuild GitHub Connection for the Test Account</li>
+                                            <li>Run Test_CICD_Projects_Install.ps1 to create CodeBuild Stacks in Test
+                                                Account:
+                                                <ul>
+                                                    <li>..</li>
+                                                </ul>
+                                            </li>
+                                            <li>Create a CodeBuild GitHub Connection for the Production Account</li>
+                                            <li>Run Prod_CICD_Projects_Install.ps1 to create CodeBUild Stack in
+                                                Production Account:
+                                                <ul>
+                                                    <li>..</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>Use Case: Developer Publishes a Stack to their Development Account
+                        <ul>
+                            <li>Publish stack using AWS Toolkit Extension for Visual Studio IDE (Windows)</li>
+                            <li>Publish stack using AWS SAM CLI</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>Use Case: Developer Creates GitHub Pull Request
+                        <ul>
+                            <li>Test Account CodeBuild Project publishes stack for PR</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>Use Case: Developer Updates GitHub Pull Request
+                        <ul>
+                            <li>Test Account CodeBuild Project updates stack for PR</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>Use Case: GitHub Pull Request is merged
+                        <ul>
+                            <li>Test Account CodeBuild Project deletes stack for PR</li>
+                            <li>Prod Account CodeBuild Project creates/updates Production stack</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li>Typical Customer Deployment AWS Resources
+                <ul>
+                    <li>AWS Organization
+                        <ul>
+                            <li>Management Account</li>
+                            <li>Development Organizational Unit
+                                <ul>
+                                    <li>Developer account(s)
+                                        <ul>
+                                            <li>Developers Group</li>
+                                            <li>IAM User belonging to Developers Group</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Test Organizational Unit
+                                <ul>
+                                    <li>Test Account
+                                        <ul>
+                                            <li>Administrators Group</li>
+                                            <li>IAM User belonging to Administrators Group</li>
+                                            <li>CodeBuild Connection to GitHub repository</li>
+                                            <li>CodeBuild Project to Create/Update test stack for a new/updated Pull
+                                                Request
+                                                <ul>
+                                                    <li>S3 Bucket for build artifacts</li>
+                                                    <li>CodeBuild project resource</li>
+                                                    <li>role ...</li>
+                                                </ul>
+                                            </li>
+                                            <li>Codebuild Project to Delete test stack for for a merged Pull Request
+                                                <ul>
+                                                    <li>role ...</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Prod Organizational Unit
+                                <ul>
+                                    <li>Prod Account
+                                        <ul>
+                                            <li>Administrators Group</li>
+                                            <li>IAM User belonging to Administrators Group</li>
+                                            <li>CodeBuild Connection to GitHub repository</li>
+                                            <li>CodeBuild Project to Create/Update prod stack for a merged Pull Request
+                                                <ul>
+                                                    <li>S3 Bucket for build artifacts</li>
+                                                    <li>CodeBuild project resource</li>
+                                                    <li>role ...</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li>Deployment Options
+                <ul>
+                    <li>OrgCode prefix to be used for organizational units and accounts</li>
+                </ul>
+            </li>
+            <br>
+            <li>Expected Time for Deployment
+                <ul>
+                    <li>SMF Part 1 - </li>
+                    <li>SMF Part 2 - </li>
+                </ul>
+            </li>
+            <br>
+            <li>Technical Prerequisites and Requirements
+                <ul>
+                    <li>Management Workstation with internet access and operating system compatible with PowerShell, AWS
+                        CLI, and AWS SAM CLI</li>
+                    <li>AWS Account Creation requirements
+                        <ul>
+                            <li>Unique email address (or alias) for each account</li>
+                            <li>If you are creating more than 4 accounts (Mgmt, 1st Dev Account, Test Account, and Prod
+                                Account) then you will need to request AWS increase the maximum number of accounts in 
+                                your organization beyond the default limit of 4.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Development Workstation with internet access (Management Workstation may also be used as a
+                        Development Workstation)</li>
+                    <li>GitHub Account</li>
+                    <li></li>
+                </ul>
+            </li>
+            <br>
+            <li>Technical Skills and Knowledge
+                <ul>
+                    <li>Some basic experience installing software on a workstation</li>
+                    <li>Experience running scripts in a command terminal/window</li>
+                    <li>Experience editing text files</li>
+                    <li>We recommend having reviewed AWS Getting Started Guides</li>
+                </ul>
+            </li>
+            <br>
+            <li>Environmental Configuration <br>
+                There are no special environmental configurations required beyond having a workstation running a
+                operating system supported by PowerShell, AWS CLI and AWS SAM CLI.
+            </li>
+            <br>
+            <li>Architectural Diagrams
+                <ul>
+                    <li>Software Management Framework Flow
+                        <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg"></a>
+                    </li>
+                    <br>
+                    <li>AWS Organization Overview
+                        <img src="/assets/img/LazyStackSMF2.svg"></a>
+                    </li>
+                    <br>
+                    <li>AWS CodeBuild and Cloud Formation Services
+                        <img src="/assets/img/AwsSetup2.svg"></a>
+                    </li>
+                    <br>
+                    <li>AWS Root and IAM Users with Management and Development workstation AWS Profiles
+                        <img src="/assets/img/AwsSetupUsers2.svg"></a>
+                    </li>
+                    <br>
+                    <li>CI/CD Stacks
+                        <img src="/assets/img/SDLCFeatureflowVSIDE.svg"></a>
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li>Security References</li>
+            <li>AWS Costs</li>
+            <li>AWS Sizing</li>
+        </ol>
+</div>

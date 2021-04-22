@@ -13,7 +13,8 @@ topic: Security
     <p>In general, if you can demonstrate that a code generation process produces secure code and infrastructure then you
         need only audit the code generation process - not the code it generates. Also, if a problem is found and fixed
         in the code generation process then it is easy to roll out a security update with confidence.</p>
-    <p>Should you care? The software development landscape is changing rapidly with the introduction of privacy
+    <h4>Should you care?</h4>
+    <p>The software development landscape is changing rapidly with the introduction of privacy
         regulations and now any industry which collects and manages consumer data must &ldquo;up their game&rdquo; to
         avoid substantial regulatory fines for non-compliance or breach. One of the guiding principles of LazyStack is
         security-first development. Cloud providers like AWS, Google and Azure take security very seriously and if you
@@ -31,7 +32,7 @@ topic: Security
         secure from a compliance standpoint; AWS RDS do not support the same secured signed messaging that native
         AWS services use. For instance, connecting to an AWS RDS MySQL instance isn&rsquo;t really any different than
         connecting to your own instance of MySQL - thus, accepted practice stipulates such connections should be
-        secured in a VPC. </p>
+        secured in a VPC.</p>
     <p>While specifying a VPC does introduce more complexity in the SAM template file, the LazyStack process remains
         the same. If you can start with the simple stack and move to a stack using a VPC later, we recommend doing so.
         You don&rsquo;t incur technical debt by starting with a simple stack. The single biggest factor to consider here

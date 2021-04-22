@@ -15,12 +15,12 @@ topic: Security
     <p>A serverless stack looks deceptively simple and this is why it is so useful. AWS is doing 
         all the complicated management required behind the scene to keep things simple without 
         giving up any functionality. Each serverless stack is defined by a "SAM Template" and 
-        your application code.  The SAM Template defines all the resources and their configurations 
-        necessary to stand up your stack.The SAM template and application code are sent to a service 
-        called AWS Cloud Formation which creates/updates all the resources for your application.
+        your application code. The SAM Template defines all the resources and their configurations 
+        necessary to stand up your stack. The SAM template and application code are sent to a service 
+        called AWS Cloud Formation which creates/updates all the resources for your application stack.
     </p>
 
-    <p>Without swamping you with to much technical detail, this is what each of these resources in this stack do:</p>
+    <p>Without much technical detail, this is what each of these resources in this stack do:</p>
     <ul>
         <li>Cognito<br>User Sign Up, Sign In, Reset Password, etc.</li>
         <li>API Gateway<br>This service is a "traffic cop", taking calls from client applications,
@@ -45,7 +45,7 @@ topic: Security
     <p>Another important advantage of serverless architecture is the "on-demand" nature of 
         many of the services available for use in the serverless architecture. An on-demand 
         service only runs when demand exists and has little or no cost when unused. AWS offers a comprehensive 
-        and complete suite of on-demand services you can configure for use in a serverless architecture.
+        suite of on-demand services you can configure for use in a serverless architecture.
     </p>
 
     <p>It's hard to understate how important the AWS SAM is to small teams developing, testing,
@@ -53,7 +53,7 @@ topic: Security
         required your team to create and manage "servers" and network infrastructure that incurred
         very expensive "DevOps" management and sometimes fundamental re-design of the application as they 
         moved to production. While there are applications that still benefit from a traditional architecture,
-        most applications can be implemented  using the AWS SAM.
+        many applications can be implemented  using the AWS SAM.
     </p>
 
     <p>To sum it up; using AWS SAM will help you develop, test, deploy, and maintain your cloud-based 

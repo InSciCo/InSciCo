@@ -1,0 +1,113 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h4>Prerequisites</h4>
+    <p>Before you start the installation process, please review these 
+        prerequisites. 
+    </p>
+    <h5>Management Workstation</h5>
+
+    <p>This is the computer from which you will be creating/managing your AWS 
+        Organization and Accounts. You must have administrative rights on this 
+        computer to install and use a variety of software.</p>
+
+    <h5>Development Workstation</h5>
+    <p>This is the computer a developer uses to develop the application code that 
+        runs in the AWS Stack. Each developer will have their own AWS Account. You 
+        may use the Management Workstation as a Development Workstation. You must 
+        have administrative rights on this computer to install and use a variety of
+        software.</p>
+
+   <h5>Pick an OrgCode</h5>
+    <p> Throughout the setup process we use an organization prefix, the OrgCode, 
+        in AWS Account names and AWS organizational Unit names. For instance, 
+        we name the AWS Management account "OrgMgmt". 
+        You need to pick your own "OrgCode" to use for your organization or app and 
+        wherever you see "OrgMgmt", replace the "Org" with your short OrgCode prefix.</p>
+        <p>
+        We recommend the OrgCode be no longer that 2 or 3 characters. It must be alpha-numeric and have no spaces. This short OrgCode will be very helpful in keeping track of accounts belonging to different organizations should you end up managing or developing in more than one organization on the same Workstation 
+        <br>Here is an example of the naming with an OrdCode of "Az":</p>
+       
+        <table>
+            <tr>
+                <th style="text-align: left">AWS Item</th>
+                <th style="text-align: left">Name in Docs</th>
+                <th style="text-align: left">Name with OrgCode "Az"</th>
+            </tr>
+            <tr>
+                <td>Management Account</td>
+                <td>OrgMgmt</td>
+                <td>AzMgmt</td>
+            </tr>
+            <tr>
+                <td>Dev Organizational Unit</td>
+                <td>OrgDevOU</td>
+                <td>AzDevOU</td>
+            </tr>
+
+            <tr>
+                <td>Dev Account</td>
+                <td>OrgDevJoe</td>
+                <td>AzDevJoe</td>
+            </tr>
+
+            <tr>
+                <td>Test Organizational Unit</td>
+                <td>OrgTestOU</td>
+                <td>AzTestOU</td>
+            </tr>
+            <tr>
+                <td>Test Account</td>
+                <td>OrgTest</td>
+                <td>AzTest</td>
+            </tr>
+            <tr>
+                <td>Prod Organizational Unit</td>
+                <td>OrgProdOU</td>
+                <td>AzProdOU</td>
+            </tr>
+            <tr>
+                <td>Prod Account</td>
+                <td>OrgProd</td>
+                <td>AzProd</td>
+            </tr>
+            
+        </table>
+        <p>* Note: There many be more than one development account. </p>
+        
+    <h5>Email Account & Alias</h5>
+    <p> Each Amazon account has a Root User whose credentials include an email 
+        address and password. The email address must be unique across all accounts 
+        on AWS; e.g. you may not use the same email address for more than a single 
+        AWS Account. You will create 4 accounts when setting up your AWS Organization, 
+        so you will need 4 email addresses (or aliases). <br>
+        If you are using Gmail, you 
+        can use the Gmail dynamic aliasing technique as follows:
+   </p>
+            <p>MyEmail@gmail.com -- existing email address</p>
+                <ol>
+                    <li>MyEmail+OrgMgmt@gmail.com -- root user for management account</li>
+                    <li>MyEmail+OrgJoeDev@gmail.com -- root user for Joe's development account</li>
+                    <li>MyEmail+OrgTest@gmail.com -- root user for test account</li>
+                    <li>MyEmail+OrgProd@gmail.com -- root user for production account</li>
+    
+                </ol>
+                <p>The "+" character makes the email address a dynamic alias.<br>
+                    If you are not using Gmail, create email addresses or aliases 
+                    in your email software instead.</p>
+        
+        <p>As mentioned above, you would replace the "OrgCode" in the example email addresses 
+            with your selected OrgCode; if that was "Az" then your email addresses would be:
+        </p>
+        <ol>
+            <li>MyEmail+AzMgmt@gmail.com -- root user for management account</li>
+            <li>MyEmail+AzJoeDev@gmail.com -- root user for Joe's development account</li>
+            <li>MyEmail+AzTest@gmail.com -- root user for test account</li>
+            <li>MyEmail+AzProd@gmail.com -- root user for production account</li>
+
+        </ol>
+</div>
