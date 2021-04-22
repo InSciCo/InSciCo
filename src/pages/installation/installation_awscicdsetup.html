@@ -8,12 +8,24 @@ topic: GettingStarted
     <h4>AWS CI/CD Environment Overview</h4>
     <dl>
         <dt>Prerequisites:</dt>
-        <dd>- Prod Account Setup complete</dd>
+        <dd>- Prod and Test Account Setup complete</dd>
+        <dd>- GitHub application repository(s)</dd>
         <dt>Estimated Time: 5 minutes</dt> 
         <dt>Estimated Cost: none</dt> 
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>    
-    <p>Setting up team collaboration with Continuous Integration / Continuous Deployment can be 
+
+    <p><strong>You must have a GitHub repository for your application before you can install CI/CD into 
+        the Test or Prod accounts. You do not need to do this right away! In addition, you may install 
+        the CI/CD for the Test Environment and run that for awhile before you install the 
+        CI/CD for the Production Environment.</strong></p>
+        <p><strong>We recommend that you stop here and run through the LazyStack Tutorial. We provide a 
+            section in the LazyStack tutorial demonstrating the creation of a GitHub 
+            repository for the PetStore app and then configuring CI/CD for the Test and Production accounts 
+            in your organization. This allows you to exercise the entire SMF workflow before using it in 
+            a real application. </strong>
+        </p>
+    <p>Setting up team collaboration with Continuous Integration / Continuous Deployment is  
         easily accomplished using GitHub and AWS CodeBuild. 
         <ul>
             <li>Continuous Integration automates building and testing a codebase changes prior to submitting those 
@@ -21,6 +33,29 @@ topic: GettingStarted
             <li>Continuous Deployment automates deploying "stacks" into Test and Production accounts.</li>
         </ul>
     </p>
+    <p>We provide LazyStack scrips to automate the creation of the required CodeBuild projects.  These scripts 
+        assume that you have separate GitHub repositories for each serverless application stack you need in production. 
+        Consider this example where we have a consumer stack and a back office stack:
+    </p>
+    <img src="/assets/img/LazyStackSMF5.svg" width="100%">
+    <p>Each stack is associated with a specific repository branch:</p>
+    <ul>
+        <li>GitHub Consumer Project Repository
+            <ul>
+                <li>Pull Request Branch updates OrgTest Consumer Stack</li>
+                <li>Main Branch updates OrgProd Consumer Stack</li>
+            </ul>
+        </li>
+        <li>GitHub Backoffice Project Repository
+            <ul>
+                <li>Pull Request Branch updates OrgTest BackOffice Stack</li>
+                <li>Main Branch updates OrgProd BackOffice Stack</li>
+            </ul>
+        </li>
+    </ul>
+
+
+
     <h5>GitHub, Feature Branch Workflow and AWS CodeBuild with Visual Studio IDE</h5>
 
     <p>To allow this guide to be immediately practical and easily implemented, we assume you 
@@ -43,6 +78,7 @@ topic: GettingStarted
     </p> 
     <img src="/assets/img/SDLCFeatureflow.svg">
     <p></p>
+
 <!--
     <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
 

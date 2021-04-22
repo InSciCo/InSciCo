@@ -1,0 +1,52 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h4>AWS CI/CD Prod Environment Setup</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Prod Account Setup complete</dd>
+        <dd>- A GitHub Repository you want to use</dd>
+        <dt>Estimated Time: 10 minutes</dt>
+        <dt>Estimated Cost: none</dt>
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>
+
+    <p>This step assumes you have created an GitHub application repository and now
+        want to publish production stacks from that repository. If you
+        don't have a repository yet, no worries - you can come back to this step later on.
+    </p>
+
+    <p>You repeat this step for each GitHub repository you want to use in your SMF.</p>
+
+    <ol>
+        <li>If you do not already have a CodeBuild GitHub Connection for the Prod Account, follow these steps to create
+            one:
+            <ol type="a">
+                <li>Log into the AWS OrgProd account using the OrgProd IAM User credentials.</li>
+                <li>Navigate to the <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?"
+                        {{>newtab}}>CodeBuild</a> Console</li>
+                <li>Select Settings &rightarrow; Connections in navigation pane. The Developer Tools > Connections page
+                    appears.</li>
+                <li>Click the Create Connection Button. The Create Connection page appears.</li>
+                <li>Select the GitHub radio button and enter a connection name.</li>
+                <li>Click on the Connect to GitHub button. You will be prompted to log into GitHub if you are not
+                    already logged in The Connect to GitHub page appears.</li>
+                <li>Click on the "Install a new app" button. The GitHub "Install AWS Connector for GitHub" page appears
+                    with a list of accounts you have access to. Select identity under which you have
+                    access to the application repository used by this CI/CD setup. The AWS Connector for GitHub
+                    page appears.
+                </li>
+                <li>Use the options on the page to configure the connector's access to the repository.
+                </li>
+                <li>Click the Save button.</li>
+            </ol>
+        </li>
+        <br>
+        <li>Run Prod_CICD_Projects_Install.ps1 script.</li>
+    </ol>
+
+</div>
