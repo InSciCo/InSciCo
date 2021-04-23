@@ -333,28 +333,23 @@
                 <li>To download the key pair, choose Download .csv file. Store the keys in a secure location. You will not have access to the secret access key again after this dialog box closes.</li>
                 <li>Keep the keys confidential in order to protect your AWS account and never email them. Do not share them outside your organization, even if an inquiry appears to come from AWS or Amazon.com. No one who legitimately represents Amazon will ever ask you for your secret key.</li>
                 <li>After you download the .csv file, choose Close. When you create an access key, the key pair is active by default, and you can use the pair right away.</li>
-                <li>Rename the .csv file to "OrgJoeDev_credentials.csv" and move this file to a secure location. Do not leave this file in your 
-                    downloads folder. Use your IAM User Name instead of "OrgJoeDev".</li>
+                <li>The .csv file will have a name like "OrgJoeDev_accessKeys.csv". Move this file to a secure location. Do not leave this file in your 
+                    downloads folder.</li>
             </ol>
         </li>
         <p>The .csv file will have content something like this:
-            <pre><code class="language-bashshell">User name,Password,Access key ID,Secret access key,Console login link
- OrgJoeDev,,AKIAIOSFODNN7EXAMPLE,wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY,https://123456789012.signin.aws.amazon.com/console</code></pre>
-            Make sure your User name is not "default" and matches your IAM User name for this development account.
+            <pre><code class="language-bashshell">Access key ID,Secret access key
+ AKIAIOSFODNN7EXAMPLE,wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code></pre>
         </p>
         <li>Issue the following command: (with your IAM User Name)
-            <pre><code class="language-bashshell">aws configure import --csv file://OrgJoeDev_credentials.csv</code></pre>
+            <pre><code class="language-bashshell">aws configure --profile OrgDevJoe</code></pre>
+            You will be prompted for the Access Key ID, Secrete Access Key values, and default Region.
         </li>
-        <li>Configure the default region for the profile using the following command: (using your IAM User Name and region)
-            <pre><code class="language-bashshell">aws configure set region us-east-1 --profile OrgJoeDev</code></pre>
-        </li>
-        <li>We recommend you create a shortcut in your browser with the Console Login Link and name that link with your IAM User Name.</li>
     </ol>
     <p></p>
     <h4>Step Summary</h4>
-    <p>In this step we used the AWS IAM Console to create access keys for a developer's account IAM User, downloaded those credentials 
-        in a .csv file, used that file to configure a named profile and created a link in our browser to make logging into the 
-        AWS Console easy. </p>
+    <p>In this step we used the AWS IAM Console to create access keys for a developer's account IAM User, downloaded those access keys 
+        in a .csv file, used the aws configure command to create a AWS profile for this IAM User.</p>
     
 </div>
             <div id=hacky-privacy-spacer></div>
