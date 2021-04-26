@@ -5,7 +5,7 @@ topic: GettingStarted
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h4>Management Scripts Setup</h4>
+    <h4>Configure Management Workstation</h4>
     <dl>
         <dt>Prerequisites: none</dt>
         <dt>Estimated Time: 2 to 10 minutes</dt> 
@@ -34,7 +34,13 @@ topic: GettingStarted
             Install PowerShell<br></a> * If you are running Windows 10, PowerShell is already installed.</li>
         <br>
 
-        <li><a href="https://git-scm.com/downloads" {{>newtab}}>Install GitBash Client <br></a>* If you do not already have it.</li>
+        <li>Install a Git client <br>
+            * If you do not already have it.
+            <ul>
+                <li><a href="https://gitforwindows.org/" {{>newtab}}>GitBash for Windows</a> - this is our favorite for Windows</li>
+                <li><a href="https://git-scm.com/downloads" {{>newtab}}>Git for MacOS, Linux/Unix, Windows</a></li>
+            </ul>
+        </li>
         <br>
         <li>Open a PowerShell terminal with "Run as Administrator" and issue the following command to change the PowerShell script execution permissions:
             <pre><code class="language-bashshell">Set-ExecutionPolicy RemoteSigned</code></pre>

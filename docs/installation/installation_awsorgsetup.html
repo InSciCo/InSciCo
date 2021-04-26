@@ -167,103 +167,60 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsexistingacct.html">
-                <span class="">Quick & Dirty</span>
-            </a>
-        </li>
-
-        <li >
             <a  href="/installation/installation_aws.html">
-                <span class="">LazyStack AWS SMF</span>
+                <span class="">Configure LazyStack SMF</span>
             </a>
         </li>
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
-                <span class="lz-r-topicitem">AWS Org. Setup Part 1</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_prerequsites.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prerequisites</span>
+                <span class="lz-r-topicitem">Step 1 - Create AWS Org</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Mgmt. Scripts Setup</span>
+                <span class="">1.1 Configure Mgmt. Workstation</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AWS Mgmt Account Setup</span>
+                <span class="">1.2 Create Mgmt. Acct.</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_awsorgsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Organization Setup</span>
+                <span class="">1.3 Create Organization</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Dev Acct Setup</span>
+            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Step 2 - Create Dev Account</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Dev Profile Setup</span>
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Part 3 - Create Test Acct.</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.1 - Setup Stack CI/CD</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsorgsetup2.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Org. Setup Part 2</span>
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Part 4 - Create Prod Acct.</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Test OU Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Test Acct Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prod OU Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prod Acct Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetup.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Orverview</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Test Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetupsteps2.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Prod Setup</span>
+            <a  href="/installation/installation_awscicdsetupsteps2.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 4.1 - Setup Stack CD</span>
             </a>
         </li>
 
@@ -275,9 +232,16 @@
 
         <li >
             <a  href="/installation/installation_devtools.html">
-                <span class="">LazyStack Dev Tools</span>
+                <span class="">Configure Developer Workstation</span>
             </a>
         </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Dev Profile Setup</span>
+            </a>
+        </li>
+
 
         <li >
             <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
@@ -300,74 +264,151 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>AWS Organization Setup</h4>
-    <p>Prerequisites: AWS Mgmt Account Setup complete.</p>
+    <h4>Part 1 - Create AWS Org</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- A workstation with internet access and permissions to install software</dd>
+        <dt>Estimated Time: 10 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>
 
-    <p>We break the AWS Setup process up into 2 parts. Completing this Part 1 implements the 
-        "bones" of your AWS organization and creates your first developer account; this is all you need to  
-         proceed with the LazyStack Tutorial. Completing Part 2 implements the Test and 
-         Production accounts with Continuous Integration and Continuous Deployment capabilities.
+    <h5>Management Workstation</h5>
+
+    <p>This is the computer from which you will be creating/managing your AWS 
+        Organization and Accounts. You must have administrative rights on this 
+        computer to install and use a variety of software.</p>
+
+   <h5>Names are Important</h5>
+    <p>Part of setting up an effective AWS process is developing and using a consistent 
+        naming convention for the resources you are managing with that process. There 
+        is a hierarchy of AWS resources managed by the SMF that looks like this:
     </p>
-
-    <h4>AWS Organizational Units and Member Accounts</h4>
-            <p>
-            We create an AWS Organization containing one Organizational Units (OU): 
-            OrgDevOU. We create a developer Member Account and 
-            put it in the OrdDevOU. When complete, your initial AWS Organization will 
-            look something like this:</p>
-            <img src="/assets/img/AwsSetupPart1.svg">  
-
-        <p></p>
-        <p>We prefix each account in our organization with a short "OrdCode", in the example above 
-            this is "Org" in "OrgMgmt", "OrgDevOU" and "OrgDevJoe"; choosing a short but meaningful 
-            code makes working with multiple organizations or different applications less confusing. 
-        </p>
-
-        <h5>Insight: </h5>
-        <ul>
-            <li>DynamoDB and S3 are provisioned in the account, not inside the serverless stack. 
-                These services are shared for all stacks in that account. For instance, if you 
-                have two stacks that both use DynamoDB, they should each use different tables
-                to segregate their data.</li>
+    <ul>
+        <li>AWS Organization
+            <ul>
+                <li>Management Account</li>
+                <li>Development Organizational Unit
+                    <ul>
+                        <li>Developer Account(s)</li>
+                    </ul>
+                </li>
+                <li>Test Organizational Unit
+                    <ul>
+                        <li>System Account(s)
+                            <ul>
+                                <li>Stack(s)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Production Organizational Unit
+                    <ul>
+                        <li>System Account(s)
+                            <ul>
+                                <li>Stack(s)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </li>
-        </ul> 
+    </ul>
 
-<h4>AWS Users and AWS CLI Profiles</h4>
-<p>Each Account has a Root User and one or more IAM Users. Root users sign into an account 
-    using their email address and password. IAM Users sign into the account using the 
-    AccountID, UserName and Password. You can, and should, add MFA to Root User access and 
-    IAM User access.
-</p>
-<p>The AWS CLI allows programmatic access to Accounts using credentials stored in "profiles" 
-    on your workstation. Since an organization has multiple accounts, we use "named" profiles 
-    when issuing AWS CLI commands to ensure we always update the correct account. 
-    The AWS CLI allows the creation of a "default" profile. We recommend that this be used 
-    with care on a workstation with access to multiple accounts. For instance, we do not 
-    recommend that the AWS Organization Management Account credentials be stored in the 
-    AWS CLI "default" profile.
-</p>
-<p>When Part 1 is complete, your organization's AWS Root Users and IAM Users will be organized  
-    like this:</p>
-<img src="/assets/img/AwsSetupUsers1.svg">
-<p></p>
-<h5>Insights:</h5>
-<ul>
-    <li>Root User access to the Management Account is infrequent and largely relegated to actions one 
-        would take in the AWS Console.
-    </li>
-    <li>We only create AWS CLI Profiles for IAM Users.</li>    
-    <li>Root User access to Member Accounts is very-rarely necessary and these login-credentials should not be shared.</li>
-    <li>The IAM User LzMgmt can assume the OrganizationAccountAccessRole to administer Member Accounts. For example,
-        the AWS CLI Profile LzDevJoeAccess is used to administer the OrgDevJoe Member Account from the OrgMgmt Management Account when using the AWS CLI.
-    </li>
-    <li>Root Users sign-in with at least an email address and password. An email address can be used
-        with only one AWS account. Use email address aliases to be a root user in different AWS accounts.
-    </li>
-    <li>IAM users sign-in with at least an account#, user name, and password. The user-name is unique 
-        within the account.</li>
-</ul>        
+    <h5>OrgCode</h5>
+        <p> Throughout the SMF process we use an organization prefix, the OrgCode, 
+        in the AWS Management Account name, Developer Account names, and AWS organizational Unit names.
+        For instance, we refer to the AWS Management account as "OrgMgmt", but expect you to replace 
+        the "Org" with your own short OrgCode. It must be alpha-numeric and have no spaces. This short OrgCode will be very helpful in keeping track of accounts belonging to different organizations should you end up managing or developing in more than one organization on the same Workstation 
+        <br>Here is an example of the naming with an OrdCode of "Isc":</p>
+       
+        <table>
+            <tr>
+                <th style="text-align: left">AWS Item</th>
+                <th style="text-align: left">Name in Docs</th>
+                <th style="text-align: left">Name with OrgCode "Isc"</th>
+            </tr>
+            <tr>
+                <td>Management Account</td>
+                <td>OrgMgmt</td>
+                <td>IscMgmt</td>
+            </tr>
+            <tr>
+                <td>Dev Organizational Unit</td>
+                <td>OrgDevOU</td>
+                <td>IscDevOU</td>
+            </tr>
+            <tr>
+                <td>Dev Account</td>
+                <td>OrgDevJoe</td>
+                <td>IscDevJoe</td>
+            </tr>
 
-</div>
+            <tr>
+                <td>Test Organizational Unit</td>
+                <td>OrgTestOU</td>
+                <td>IscTestOU</td>
+            </tr>
+            <tr>
+                <td>Prod Organizational Unit</td>
+                <td>OrgProdOU</td>
+                <td>IscProdOU</td>
+            </tr>
+        </table>
+        <p>* Note: There many be more than one development account so we append the 
+            developers "handle" to the account name; ex: IscDevJoe.
+        </p>
+        
+    <h5>SysCode</h5>
+    <p>Your organization may have one or more systems and each of these systems may 
+        contain one or more serverless stacks. You create accounts for systems under the 
+        Test Organizational Unit and Production Organizational Unit. 
+        Throughout the SMF process we use the OrgCode and a system prefix, the SysCode, 
+        in the System Account name.
+        <br>Here is an example of the naming with an OrdCode of "Isc" and SysCode of "Pet":</p>        
+    </p>
+    <table>
+        <tr>
+            <th style="text-align: left">AWS Item</th>
+            <th style="text-align: left">Name in Docs</th>
+            <th style="text-align: left">Name OrgCode "Isc", SysCode "Pet</th>
+        </tr>
+        <tr>
+            <td>Test Account</td>
+            <td>OrgSysTest</td>
+            <td>IscPetTest</td>
+        </tr>
+        <tr>
+            <td>Prod Account</td>
+            <td>OrgSysProd</td>
+            <td>IscPetProd</td>
+        </tr>
+    </table>
+
+    <h5>Stack Names in the Test Account</h5>
+    <p>Test Account Stacks are published when a developer opens a GitHub Pull Request. The 
+        name of the PR branch is used to name the stack.
+    </p>
+    <p>Production Account Stacks may be named anyway you like.</p>
+
+
+    <h5>Email Account & Alias</h5>
+    <p> Each Amazon account has a Root User whose credentials include an email 
+        address and password. The email address must be unique across all accounts 
+        on AWS; e.g. you may not use the same email address for more than a single 
+        AWS Account. <br> If you are using Gmail, you can use the Gmail dynamic aliasing technique as follows (with placeholders for OrgCode and SysCode shown):
+    </p>
+    <p>MyEmail@gmail.com -- existing email address.</p>
+    <ol>
+        <li>MyEmail+OrgMgmt@gmail.com -- root user for management account</li>
+        <li>MyEmail+OrgDevJoe@gmail.com -- root user for Joe's development account</li>
+        <li>MyEmail+OrgSysTest@gmail.com -- root user for test account</li>
+        <li>MyEmail+OrgProd@gmail.com -- root user for production account</li>
+
+    </ol>
+    <p>The "+" character makes the email address a dynamic alias.<br>
+        If you are not using Gmail, create email addresses or aliases 
+        in your email software instead.</p>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
             <script src="/assets/prism/prism.js"></script>

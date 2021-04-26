@@ -239,30 +239,46 @@
         customers as quickly and efficiently as possible. The LazyStack SMF provides the tools, templates, scripts,
          practices, and examples necessary to implement the tool-chain quickly and with confidence that it complies 
          with industry best-practices.</p>
-        <img src="/assets/img/LazyStackSMF0.svg" width="100%">       
+        <img src="/assets/img/LazyStackSMFOverview.svg" width="100%">       
     <p></p>
     <p>Implementing LazyStack SMF:
         <ul>
             <li>Creates a secure AWS Organization following all AWS best practices</li>
             <li>Provides integration with GitHub for secure software version management</li>
             <li>Provides a solid foundation for coordinating development teams</li>
+            <li>Provides for managing multiple "Systems", each with multiple "Stacks"</li>
             <li>Painlessly publishes Testing and Production stack updates</li>
             <li>Provides developers with a rapid prototyping and development sandbox in their own AWS Account</li>
         </ul>
     </p>
     
-    <p>A very high level overview of the AWS Organization created looks something like this:</p>
-        <img src="/assets/img/LazyStackSMF2.svg" width="100%">       
+    <p>A very high level overview of a simple AWS Organization with one developer, and one system containing a single 
+        serverless stack looks like this:</p>
+        <img src="/assets/img/LazyStackSMF3.svg" width="100%">       
     <p></p>
-    <p>The organization described above complies with AWS best-practice for security and cost management. LazyStack SMF can be used with 
-        or without the LazyStack Development tools.</p>
+    <p>Note: Your real organization would replace "Org" and "Sys" with names appropriate to your needs.</p>
+    <p>The organization described above complies with AWS best-practice for security and cost management. Organizational 
+        Units are used to group Accounts to enable simple resource policy management. Stacks are published in separate 
+        Accounts to better manage and isolate the resources they use and who has access to them. Software development 
+        collaboration is accomplished using the popular GitHub service.</p>
 
-    <p>And of course we need to manage multiple application stacks. Below we show two stacks. One serving
-        a consumer app and a second one serving a backoffice app.
+    <p>And of course we may need to manage multiple application stacks. Below we show two stacks. One serving
+        a consumer app and a second one serving a back office app. Notice that we have separate GitHub 
+        repositories for each app's source code in this example.
     </p>
-    <img src="/assets/img/LazyStackSMF3.svg" width="100%">      
-    <p>* Not showing development and testing app connections to reduce clutter.</p>
-    <p>You may have as many serverless stacks as you need and they can serve entirely different applications.
+    <img src="/assets/img/LazyStackSMF5.svg" width="100%">      
+    <p>* Not showing development and testing app connections to reduce clutter. We are showing icons for the primary AWS 
+        services used to manage the organization, accounts and integration with GitHub.
+    </p>
+
+    <p>Here is a very high level overview of an organization with multiple developers and two systems: Sys and Sys2. 
+        Systems are often used to isolate and separately manage different lines of business or customers.
+    </p>
+    <img src="/assets/img/LazyStackSMF6.svg" width="100%">     
+    <p></p>
+    <h5>Summary</h5>
+    <p>Use AWS Organizations to manage one or more systems containing one or more serverless stacks. Use GitHub to 
+        manage collaboration among multiple developers and AWS services to test and deploy test and production stacks.
     </p>
 
 </div>

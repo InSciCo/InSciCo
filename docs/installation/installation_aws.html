@@ -167,103 +167,60 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsexistingacct.html">
-                <span class="">Quick & Dirty</span>
-            </a>
-        </li>
-
-        <li >
             <a  href="/installation/installation_aws.html">
-                <span class="lz-r-topicitem">LazyStack AWS SMF</span>
+                <span class="lz-r-topicitem">Configure LazyStack SMF</span>
             </a>
         </li>
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Org. Setup Part 1</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_prerequsites.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prerequisites</span>
+                <span class="">Step 1 - Create AWS Org</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Mgmt. Scripts Setup</span>
+                <span class="">1.1 Configure Mgmt. Workstation</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AWS Mgmt Account Setup</span>
+                <span class="">1.2 Create Mgmt. Acct.</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_awsorgsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Organization Setup</span>
+                <span class="">1.3 Create Organization</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Dev Acct Setup</span>
+            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Step 2 - Create Dev Account</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Dev Profile Setup</span>
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Part 3 - Create Test Acct.</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.1 - Setup Stack CI/CD</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsorgsetup2.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Org. Setup Part 2</span>
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Part 4 - Create Prod Acct.</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Test OU Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Test Acct Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prod OU Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prod Acct Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetup.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Orverview</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Test Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetupsteps2.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Prod Setup</span>
+            <a  href="/installation/installation_awscicdsetupsteps2.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 4.1 - Setup Stack CD</span>
             </a>
         </li>
 
@@ -275,9 +232,16 @@
 
         <li >
             <a  href="/installation/installation_devtools.html">
-                <span class="">LazyStack Dev Tools</span>
+                <span class="">Configure Developer Workstation</span>
             </a>
         </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Dev Profile Setup</span>
+            </a>
+        </li>
+
 
         <li >
             <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
@@ -300,102 +264,144 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>LazyStack AWS Software Management Framework</h4>
-    <p>Follow this guide to setup a complete Software Development, Test and Deployment tool chain 
-        using AWS Services and GitHub. This tool chain implements Git Feature Branch Workflow with 
-        GitHub Pull Requests driving Continuous Integration and Continuous Deployment of Review 
-        and Production AWS Stacks. Here is a simple overview of the Feature Branch Workflow and 
-        an example of a Feature (F1) developed and merged with a Pull Request into the main branch.
-    </p>
-    <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
-    <p></p>
+    <h3>Configure LazyStack Software Management Framework (SMF)</h4>
 
-    <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
+        <p>The installation of the SMF is broken up into four steps. To get started with LazyStack, you should create
+            your AWS Organization (Step 1) and Create your first Developer Account (Step 2). You can
+            proceed with the LazyStack Tutorial after these two steps are complete.
+        </p>
+        <p>LazyStack assumes you will manage each serverless stack's code in a GitHub repository. Once you create a 
+            stack repository and have tested it using a Developer's account, you Create a System Test Account (Step 3) to 
+            publish versions of the stack, containing new features and bug fixes, for review and test purposes. These 
+            test stacks are based on the GitHub Pull Request (PR) feature branch so we call them a "PR stack". LazyStack 
+            installs a AWS CodeBuild project to build, test and publish each PR stack when the PR is created or updated. 
+            Another AWS Codebuild project is installed that deletes the PR stack when the PR is closed (feature merged 
+            into the repository main branch). You may have more than one PR open at the same time, so there may be 
+            more than one PR stack in the associated System Test Account.
+        </p>
+        <p>Once you are ready to publish your stack to production, you Create a System Production Account (Step 4) to
+            publish the main branch of your stack's GitHub repository in a System Production Account. LazyStack installs 
+            a AWS CodeBuild project to create/update the production stack when new features are merged into the main 
+            branch of the repository. 
+        </p>
 
-    <p>We break this setup of the LazyStack SMF into two parts. You can run the 
-        LazyStack Tools Tutorial after completing Part 1 and then proceed with Part 2 to setup 
-        a complete Development, Test and Production tool chain.</p>
+        <p>We use the term "System" to mean a collection of resources managed in an AWS Account. LazyStack makes 
+            provisions for having multiple serverless stacks in a system and multiple systems in an organization.</p>
 
-    <h5>Insights:</h5>
-    <ul>
-        <li>Each Developer has their own sandbox AWS Account. This is AWS recommended best practice.</li>
-        <li>Developers publish to their sandbox directly from their workstation. This leverages the AWS Toolkit 
-            or AWS SAM CLI. This is the fastest way to publish and test Serverless Stacks and can result 
-            in more rapid prototyping and development.
-        </li>
-        <li>Pull requests drive the Continuous Integration and Continuous Deployment of a Test Stack for 
-            that PR. This provides the reviewer reviewing the pull request the ability to review 
-            features using that stack as well as review the code submitted with the PR.
-        </li>
-        <li>Merging a pull request deletes the Test stack associated with the PR and updates the 
-            production stack.
-        </li>
-        <li>This example illustrates the process using the Visual Studio IDE; other clients or the 
-            Git CLI may be used and are discussed in the SWF Guide.
-        </li>
-        <li>There are three AWS accounts in this example: The developers account, the test account and the 
-            production account. These accounts are created in the AWS Organization Setup.
-        </li>
-    </ul>
+        <h4>Steps to Configure your AWS Organization</h4>
+        <ul>
+            <li>Step 1 - Configure Management Workstation and Create AWS Organization</li>
+            <li>Step 2 - Create Developer Account(s)</li>
+            <li>Steps dependant on GitHub Repository Integration
+                <ul>
+                    <li>Step 3 - Create a System Test Account with CI/CD</li>
+                    <li>Step 4 - Create a System Prod Account with CD</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Read the following overview of these steps before performing any of these detailed step instructions.</p>
 
-    <h4>AWS Organization Setup Part 1</h4>
-    <p>In Part 1 you create your AWS Organization with a single Organizational Unit (OrgDevOU) 
-        and your first developer account in that OU. After completing Part 1, you may proceed proceed 
-        with the LazyStack Dev Tools install and then run through the LazyStack Tutorial.
-    </p>
+        <h5>Step 1 - Configure Management Workstation and Create AWS Organization</h5>
+        <p>Use the instructions in Step 1 to create and configure a management workstation, and your initial AWS
+            Organization containing:</p>
+        <ul>
+            <li>AWS Management Account</li>
+            <li>Development Organizational Unit - OrgDevOU<br>
+                Developer accounts will be grouped under this Organizational Unit.</li>
+            <li>Test Organizational Unit - OrgTestOU<br>
+                Test accounts will be grouped under this Organizational Unit
+            </li>
+            <li>Production Organizational Unit - OrgProdOU<br>
+                Production accounts will be grouped under this Organizational Unit</li>
+        </ul>
+        <p>After this step is complete you will have an AWS Organization that looks like this:</p>
+        <img src="/assets/img/LazyStackSMF0.svg" width="600">
+        <p></p>
+        <p>AWS Accounts will be grouped under these Organizational Units (OU) to allow
+            consistent application of AWS Policies across all accounts grouped under the OU.</p>
 
-    <img src="/assets/img/LazyStackSMF1.svg" width="100%">
-    <p></p>
-    <h4>AWS Organization Setup Part 2</h4>
-    <p>In Part 2 you implement the rest of the Software Management Framework to support collaborative 
-        development and Continuous Integration and Continuous Deployment of Test and Production 
-        stacks. Part 2 assumes we are integrating with GitHub for software management.
-    </p>
-    <img src="/assets/img/LazyStackSMF2.svg" width="100%">
-    <p></p>
-    <h5>Insights:</h5>
-    <ul>
-        <li>AWS changed the term "Master Account" to "Management Account". The terms are equivalent.</li>
-    </ul>
 
-    <h4>Workstations</h4>  
-    <p>Management Workstation - This guide assume you have a single "Management" 
-        workstation and single IAM User assigned to manage the Organization. If you 
-        want to add additional Management Workstation/Users, this is easily accomplished but 
-        is not part of the setup guide. Most of the setup steps in this guide are performed 
-        on the Management Workstation.
-    </p>
-    <p>Development Workstation - This guide assumes you have one or more "Development"
-        workstations. <strong>A Development Workstation can also be a Management Workstation.</strong>
-    </p>
-    <p><strong>Each step in the guide indicates which Workstation the step should be performed on. If 
-        you are setting up the organization and doing development on the same Workstation, then 
-        you can ignore this distinction as your Workstation is both a Management and Development 
-        Workstation.</strong>
-    </p>
+        <h5>Step 2 - Create Developer Account(s)</h5>
+        <p> Use these instructions to provision a new developer account you manage. After
+            a developer account is created, the developer uses the new account credentials to perform a
+            Development Workstation Setup. Developer Workstations can be associated with more than one
+            AWS Organization Application.
+        </p>
+        <p>After you add your first developer account your developer can
+            start building and testing stacks in their own account.</p>
 
-    <h5>Deployment Overview</h5>
-    <p>If you would like a full overview of the SMF Deployment process before proceeding with our step-by-step process, 
-        see the <a href="/installation/installation_awsdepguide.html">Deployment Overview</a> page.
-    </p>
+        <img src="/assets/img/LazyStackSMF1.svg" width="600">
+        <p></p>
+        <p>After completing this step your developer can configure their developer workstation and perform the 
+            LazyStack tutorial.
+        </p>
 
-    <h5>Insights</h5>
-    <ul>
-        <li>We recommend that you use a short "organization code" (OrgCode) to prefix all organizational units 
-            and  accounts and users in your AWS Organization. For instance, we recommend that you name your AWS Management Account something like "OrgMgmt" - replacing "Org" with your own "OrgCode".</li>
-        <li>The defining characteristic of the Management Workstation is that it has AWS CLI Profiles 
-            for an IAM User with permissions to administer all the accounts in an Organization. 
-        </li>
-        <li>The defining characteristic of the Development Workstation is that it has AWS CLI Profiles 
-            for an IAM User with permissions to perform limited administration of a Development Account.
-        </li>
-        <li>When a Management Workstation is also a Development Workstation the AWS CLI Profiles
-            available include both the profiles for administration and profiles for development. The 
-            Workstation user must switch among those profiles as necessary based on the tasks they
-            need to perform.
-        </li>
-    </ul>
+        <h5>Step 3 - Create a System Test Account with Continuous Integration and Continuous Deployment</h5>
+        <p>Use the instructions in Step 3 to create a system test account. A system is comprised of one or more
+            serverless
+            stacks. The newly created system test account will be part of the OrgTestOU. Your OrgTestOU may contain
+            more than one system test account. Generally, you create system test accounts to isolate and separately
+            manage the AWS resources in that system.</p>
+            
+        <p>Before creating a system test account, review the <a href="#github">GitHub Integration and Collaboration</a> section.</p>
 
+        <ul>
+            <li>Step 3.1 Setup Continuous Integration / Continuous Deployment for System Test Account Stacks<br>
+                When a GitHub pull request (PR) is created or updated, the PR code is built, tested and
+                published
+                as a test stack for review. When the PR is merged, the test stack is deleted. CI/CD is
+                implemented
+                using AWS CodeBuild projects triggered with GitHub Webhooks on Pull Request changes.
+            </li>
+        </ul>
+
+        <p>After you add a System Test Account with a stack, your AWS Organization looks like this:</p>
+        <img src="/assets/img/LazyStackSMF2.svg" width="600">
+        <p></p>
+ 
+        <h5>Step 4 - Create a System Production Account with Continuous Deployment</h5>
+        <p>Use these instructions to create a system production account. A system is comprised of one or more
+            serverless
+            stacks. The newly created system test account will be part of the OrgProdOU. Your OrgProdOU may contain
+            more than one system production account. Generally, you create system production accounts to isolate and
+            separately
+            manage the AWS resources in that system.</p>
+
+        <p>Before creating a system production account, review the <a href="#github">GitHub Integration and Collaboration</a> section.</p>
+
+
+        <ul>
+            <li>Step 4.1 Setup Continuous Deployment for System Production Account Stacks<br>
+                When a GitHub pull request (PR) is merged, the main branch code is built and the production
+                stack is published/updated.</li>
+        </ul>
+        <p>A fully configured AWS Organization with a single developer, and one system containing a single
+            stack would
+            look like this:</p>
+        <img src="/assets/img/LazyStackSMF3.svg" width="600">
+
+        <p></p>
+        <p id="github"></p>
+        <h4>GitHub Integration and Development Collaboration</h4>
+        <p>The Create a System Test Account (Step 3) and Create a System Prod Account (Step 4) steps assume you
+            have a GitHub repository containing a serverless stack's source code and are using GitHub 
+            Pull Requests (PR)s and the Git Feature Branch Workflow to manage the collaborative development of 
+            that stack.
+        </p> 
+
+        <p>The diagram below illustrates the process when using the Visual Studio IDE (Windows) GitHub integration 
+            and GitHub Pull Requests UI perform create/merge/delete on Git branches.
+        </p>
+
+        <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
+        <p></p>
+        <p>The diagrams below illustrates the detailed <code class="language-bashshell">git</code> commands and GitHub
+            Pull Requests UI perform create/merge/delete on Git branches. These commands are hidden from the
+            developer when using the Visual Studio IDE and GitHub PR Merge process. You will need these commands
+            if you are working in the .NET CLI with no IDE.
+        </p>
+        <img src="/assets/img/SDLCFeatureflow.svg">
+        <p></p>
 
 
 </div>

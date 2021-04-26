@@ -167,103 +167,60 @@
         </li>
 
         <li >
-            <a  href="/installation/installation_awsexistingacct.html">
-                <span class="">Quick & Dirty</span>
-            </a>
-        </li>
-
-        <li >
             <a  href="/installation/installation_aws.html">
-                <span class="">LazyStack AWS SMF</span>
+                <span class="">Configure LazyStack SMF</span>
             </a>
         </li>
         <li >
             <a  href="/installation/installation_awsorgsetup.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Org. Setup Part 1</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_prerequsites.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="lz-r-topicitem">Prerequisites</span>
+                <span class="">Step 1 - Create AWS Org</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_mgmtscripts.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Mgmt. Scripts Setup</span>
+                <span class="">1.1 Configure Mgmt. Workstation</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_awsmgmtacct.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">AWS Mgmt Account Setup</span>
+                <span class="">1.2 Create Mgmt. Acct.</span>
             </a>
         </li>
 
         <li >
             <a  href="/installation/installation_awsorgsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Organization Setup</span>
+                <span class="">1.3 Create Organization</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Dev Acct Setup</span>
+            <a  href="/installation/installation_awsdevsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Step 2 - Create Dev Account</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Dev Profile Setup</span>
+            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Part 3 - Create Test Acct.</span>
+            </a>
+        </li>
+        <li >
+            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.1 - Setup Stack CI/CD</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awsorgsetup2.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">AWS Org. Setup Part 2</span>
+            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Part 4 - Create Prod Acct.</span>
             </a>
         </li>
 
         <li >
-            <a  href="/installation/installation_awstestousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Test OU Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awstestacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Test Acct Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsprodousetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prod OU Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsprodacctsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Prod Acct Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetup.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Orverview</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetupsteps.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Test Setup</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awscicdsetupsteps2.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">CI/CD Prod Setup</span>
+            <a  href="/installation/installation_awscicdsetupsteps2.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 4.1 - Setup Stack CD</span>
             </a>
         </li>
 
@@ -275,9 +232,16 @@
 
         <li >
             <a  href="/installation/installation_devtools.html">
-                <span class="">LazyStack Dev Tools</span>
+                <span class="">Configure Developer Workstation</span>
             </a>
         </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Dev Profile Setup</span>
+            </a>
+        </li>
+
 
         <li >
             <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
@@ -300,7 +264,7 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h4>Prerequisites</h4>
+    <h4>Ready, Set, Go</h4>
     <p>Before you start the installation process, please review these 
         prerequisites. 
     </p>
@@ -317,94 +281,136 @@
         have administrative rights on this computer to install and use a variety of
         software.</p>
 
-   <h5>Pick an OrgCode</h5>
-    <p> Throughout the setup process we use an organization prefix, the OrgCode, 
-        in AWS Account names and AWS organizational Unit names. For instance, 
-        we name the AWS Management account "OrgMgmt". 
-        You need to pick your own "OrgCode" to use for your organization or app and 
-        wherever you see "OrgMgmt", replace the "Org" with your short OrgCode prefix.</p>
-        <p>
-        We recommend the OrgCode be no longer that 2 or 3 characters. It must be alpha-numeric and have no spaces. This short OrgCode will be very helpful in keeping track of accounts belonging to different organizations should you end up managing or developing in more than one organization on the same Workstation 
-        <br>Here is an example of the naming with an OrdCode of "Az":</p>
+   <h5>Names are Important</h5>
+    <p>Part of setting up an effective AWS process is developing and using a consistent 
+        naming convention for the resources you are managing with that process. There 
+        is a hierarchy of AWS resources managed by the SMF that looks like this:
+    </p>
+    <ul>
+        <li>AWS Organization
+            <ul>
+                <li>Management Account</li>
+                <li>Development Organizational Unit
+                    <ul>
+                        <li>Developer Account(s)</li>
+                    </ul>
+                </li>
+                <li>Test Organizational Unit
+                    <ul>
+                        <li>System Account(s)
+                            <ul>
+                                <li>Stack(s)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Production Organizational Unit
+                    <ul>
+                        <li>System Account(s)
+                            <ul>
+                                <li>Stack(s)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h5>OrgCode</h5>
+        <p> Throughout the SMF process we use an organization prefix, the OrgCode, 
+        in the AWS Management Account name, Developer Account names, and AWS organizational Unit names.
+        For instance, we refer to the AWS Management account as "OrgMgmt", but expect you to replace 
+        the "Org" with your own short OrgCode. It must be alpha-numeric and have no spaces. This short OrgCode will be very helpful in keeping track of accounts belonging to different organizations should you end up managing or developing in more than one organization on the same Workstation 
+        <br>Here is an example of the naming with an OrdCode of "Isc":</p>
        
         <table>
             <tr>
                 <th style="text-align: left">AWS Item</th>
                 <th style="text-align: left">Name in Docs</th>
-                <th style="text-align: left">Name with OrgCode "Az"</th>
+                <th style="text-align: left">Name with OrgCode "Isc"</th>
             </tr>
             <tr>
                 <td>Management Account</td>
                 <td>OrgMgmt</td>
-                <td>AzMgmt</td>
+                <td>IscMgmt</td>
             </tr>
             <tr>
                 <td>Dev Organizational Unit</td>
                 <td>OrgDevOU</td>
-                <td>AzDevOU</td>
+                <td>IscDevOU</td>
             </tr>
-
             <tr>
                 <td>Dev Account</td>
                 <td>OrgDevJoe</td>
-                <td>AzDevJoe</td>
+                <td>IscDevJoe</td>
             </tr>
 
             <tr>
                 <td>Test Organizational Unit</td>
                 <td>OrgTestOU</td>
-                <td>AzTestOU</td>
-            </tr>
-            <tr>
-                <td>Test Account</td>
-                <td>OrgTest</td>
-                <td>AzTest</td>
+                <td>IscTestOU</td>
             </tr>
             <tr>
                 <td>Prod Organizational Unit</td>
                 <td>OrgProdOU</td>
-                <td>AzProdOU</td>
+                <td>IscProdOU</td>
             </tr>
-            <tr>
-                <td>Prod Account</td>
-                <td>OrgProd</td>
-                <td>AzProd</td>
-            </tr>
-            
         </table>
-        <p>* Note: There many be more than one development account. </p>
+        <p>* Note: There many be more than one development account so we append the 
+            developers "handle" to the account name; ex: IscDevJoe.
+        </p>
         
+    <h5>SysCode</h5>
+    <p>Your organization may have one or more systems and each of these systems may 
+        contain one or more serverless stacks. You create accounts for systems under the 
+        Test Organizational Unit and Production Organizational Unit. 
+        Throughout the SMF process we use the OrgCode and a system prefix, the SysCode, 
+        in the System Account name.
+        <br>Here is an example of the naming with an OrdCode of "Isc" and SysCode of "Pet":</p>        
+    </p>
+    <table>
+        <tr>
+            <th style="text-align: left">AWS Item</th>
+            <th style="text-align: left">Name in Docs</th>
+            <th style="text-align: left">Name OrgCode "Isc", SysCode "Pet</th>
+        </tr>
+        <tr>
+            <td>Test Account</td>
+            <td>OrgSysTest</td>
+            <td>IscPetTest</td>
+        </tr>
+        <tr>
+            <td>Prod Account</td>
+            <td>OrgSysProd</td>
+            <td>IscPetProd</td>
+        </tr>
+    </table>
+
+    <h5>Stack Names in the Test Account</h5>
+    <p>Test Account Stacks are published when a developer opens a GitHub Pull Request. The 
+        name of the PR branch is used to name the stack.
+    </p>
+    <p>Production Account Stacks may be named anyway you like.</p>
+
+
     <h5>Email Account & Alias</h5>
     <p> Each Amazon account has a Root User whose credentials include an email 
         address and password. The email address must be unique across all accounts 
         on AWS; e.g. you may not use the same email address for more than a single 
-        AWS Account. You will create 4 accounts when setting up your AWS Organization, 
-        so you will need 4 email addresses (or aliases). <br>
-        If you are using Gmail, you 
-        can use the Gmail dynamic aliasing technique as follows:
-   </p>
-            <p>MyEmail@gmail.com -- existing email address</p>
-                <ol>
-                    <li>MyEmail+OrgMgmt@gmail.com -- root user for management account</li>
-                    <li>MyEmail+OrgJoeDev@gmail.com -- root user for Joe's development account</li>
-                    <li>MyEmail+OrgTest@gmail.com -- root user for test account</li>
-                    <li>MyEmail+OrgProd@gmail.com -- root user for production account</li>
-    
-                </ol>
-                <p>The "+" character makes the email address a dynamic alias.<br>
-                    If you are not using Gmail, create email addresses or aliases 
-                    in your email software instead.</p>
-        
-        <p>As mentioned above, you would replace the "OrgCode" in the example email addresses 
-            with your selected OrgCode; if that was "Az" then your email addresses would be:
-        </p>
-        <ol>
-            <li>MyEmail+AzMgmt@gmail.com -- root user for management account</li>
-            <li>MyEmail+AzJoeDev@gmail.com -- root user for Joe's development account</li>
-            <li>MyEmail+AzTest@gmail.com -- root user for test account</li>
-            <li>MyEmail+AzProd@gmail.com -- root user for production account</li>
+        AWS Account. <br> If you are using Gmail, you can use the Gmail dynamic aliasing technique as follows (with placeholders for OrgCode and SysCode shown):
+    </p>
+    <p>MyEmail@gmail.com -- existing email address.</p>
+    <ol>
+        <li>MyEmail+OrgMgmt@gmail.com -- root user for management account</li>
+        <li>MyEmail+OrgDevJoe@gmail.com -- root user for Joe's development account</li>
+        <li>MyEmail+OrgSysTest@gmail.com -- root user for test account</li>
+        <li>MyEmail+OrgProd@gmail.com -- root user for production account</li>
 
-        </ol>
+    </ol>
+    <p>The "+" character makes the email address a dynamic alias.<br>
+        If you are not using Gmail, create email addresses or aliases 
+        in your email software instead.</p>
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>

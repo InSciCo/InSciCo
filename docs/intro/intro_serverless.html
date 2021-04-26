@@ -247,16 +247,16 @@
 
     <p>Without much technical detail, this is what each of these resources in this stack do:</p>
     <ul>
-        <li>Cognito<br>User Sign Up, Sign In, Reset Password, etc.</li>
+        <li>AWS Cognito<br>User Sign Up, Sign In, Reset Password, etc.</li>
         <li>API Gateway<br>This service is a "traffic cop", taking calls from client applications,
             ensuring those calls are properly secured, are within traffic limits, and then
             sending those calls on to other services.
         </li>
-        <li>Lambda Function(s)<br>These are programs that implement your business logic. These 
+        <li>AWS Lambda Function(s)<br>These are programs that implement your business logic. These 
             programs are numerous and intentionally small.  
             AWS automatically scales these functions to accommodate application traffic.</li>
-        <li>S3 - file storage<br>This is storage for files like images and documents.</li>
-        <li>DynamoDB<br>A highly scalable database. Other databases may also be used.</li>
+        <li>AWS S3 - file storage<br>This is storage for files like images and documents.</li>
+        <li>AWS DynamoDB<br>A highly scalable database. Other databases may also be used.</li>
     </ul>
 
     <h4>What is the Serverless Application Model (SAM)?</h4>
