@@ -4,88 +4,116 @@ section: Install
 topic: GettingStarted
 ---
 {{> installation_menu}}
-<div class=lz-r-content>
+<div class="lz-r-content manual-list">
     <h3>LazyStack AWS SMF Deployment Overview</h4>
         <p>Here is a technical overview of the SMF deployment. Review this overview to get an idea of what the install
             will do and what resources and skills you need to perform the install.
         </p>
-        <ol>
+        <ul>
             <li>Use Cases:
                 <ul>
-                    <li>Use Case: Install SMF; most of the detailed steps outlined below are automated with PowerShell
-                        scripts.
-                        <ul> * unless otherwise indicated, these actions are performed on the Management Workstation
-                            and/or AWS Console
-                            <li>AWS Org. Setup Part 1
+                    <li>Use Case: Install SMF
+                        <ul> These actions are performed on the Management Workstation
+                            and/or AWS Console. Much of the following configuration are are automated with PowerShell
+                            scripts.
+                            <li>Step 1- Create AWS Organization
                                 <ul>
-                                    <li>Create AWS Management Account</li>
-                                    <li>Install AWS CLI and AWS SAM CLI, also configures the local AWS profile</li>
-                                    <li>Install PowerShell</li>
-                                    <li>Run CreateOrganization.ps1 to create an AWS organization and the Dev
-                                        Organizational Unit.</li>
-                                    <li>Run Dev_Account_Create.ps1 to:
+                                    <li>1.1 Configure Management Workstation
                                         <ul>
-                                            <li>Create developer account</li>
+                                            <li>Install PowerShell</li>
+                                            <li>Install Git client</li>
+                                        </ul>
+                                    </li>
+                                    <li>1.2 Create AWS Management Account
+                                        <ul>
+                                            <li>Sign up for AWS Account</li>
+                                            <li>Create IAM User - OrgMgmt</li>
+                                            <li>Install AWS CLI</li>
+                                            <li>Create Named AWS Profile - OrgMgmt</li>
+                                            <li>Install AWS SAM CLI</li>
+                                        </ul>
+                                    </li> 
+                                    <li>1.3 Create AWS Organization<br>
+                                        <ul>
+                                            <li>Run Org_Create.ps1 to:
+                                                <ul>
+                                                    <li>Create Organizational Unit - OrgDevOU</li>
+                                                    <li>Create Organizational Unit - OrgTestOU</li>
+                                                    <li>Create Organizational Unit - OrgProdOU</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Step 2 - Create Developer Account<br>
+                                <ul>
+                                    <li>Run Dev_Account_Create.ps1 script to:
+                                        <ul>
+                                            <li>Create AWS developer account - ex: OrgDevJoe</li>
                                             <li>Move developer account into the Dev Organizational Unit</li>
                                             <li>Create IAM User for the developer</li>
-                                            <li>Create Developers IAM Group having PowerUser and limited IAM permissions
-                                            </li>
+                                            <li>Create Developers IAM Group having PowerUser and limited IAM permissions</li>
                                             <li>Assign IAM User to IAM Group</li>
-                                            <li>Create Management Workstation profile with
-                                                OrganizationalAccountAccessRole policy to allow Management account
+                                            <li>Create named role profile - OrgDevJoeAccess<br>
+                                                OrganizationalAccountAccessRole policy allows Management account
                                                 to administer the developer's Account.</li>
                                         </ul>
                                     </li>
-                                    <li>Developer AWS Profile Setup (run on Developer's Workstation) - allows developer
-                                        to use AWS CLI and AWS SAM CLI</li>
                                 </ul>
                             </li>
-                            <li>AWS Org. Setup Part 2
+
+                            <li>Step 3 - Create System Test Account<br>
                                 <ul>
-                                    <li>Run Test_OU_Create.ps1 to create the Test Organizational Unit</li>
-                                    <li>Run Test_Account_Create.ps1 to:
+                                    <li>Run Test_Account_Create.ps1 script to:
                                         <ul>
-                                            <li>Create the Test Account</li>
-                                            <li>Move it under the Test Organizational Unit</li>
+                                            <li>Create a System Test Account - OrgSysTest</li>
+                                            <li>Move it under the Test Organizational Unit - OrgTestOU</li>
                                             <li>Create the Test Account IAM User</li>
                                             <li>Create the Administrators group</li>
                                             <li>Assign the IAM User to the Administrators group</li>
-                                            <li>Create a Management Workstation profile with
+                                            <li>Create a Management Workstation AWS profile with
                                                 OrganizationalAccountAccessRole policy to allow Management account
                                                 to administer the Test Account.
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>Run Prod_OU_Create.ps1 to create the Prod Organizational Unit</li>
-                                    <li>Run Prod_Account_Create.ps1 to:
+                                    <li>Step 3.1 - Setup Continuous Integration and Continuous Deployment for Test Account Stack
                                         <ul>
-                                            <li>Create the Prod Account</li>
-                                            <li>Move it under the Prod Organizational Unit</li>
-                                            <li>Create the Prod Account IAM User</li>
-                                            <li>Create the Administrators group</li>
-                                            <li>Assign the IAM User to the Administrators group</li>
-                                            <li>Create a Management Workstation profile with
-                                                OrganizationalAccountAccessRole policy to allow Management account
-                                                to administer the Prod Account.
+                                            <li>Create a CodeBuild GitHub Connection for the Test Account</li>
+                                            <li>Run Test_CICD_Projects_Install.ps1 to:
+                                                <ul>
+                                                    <li>Install a CodeBuild project that builds, tests and publishes a Pull Request (PR) stack when a PR is created or updated.</li>
+                                                    <li>Install a CodeBuild project that deletes a PR stack when the PR is closed.</li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>Install Continuous Integration / Continuous Deployment (CI/CD)
+                                </ul>
+                            </li>
+                            <li>Step 4 - Create System Production Account<br>
+                                <ul>
+                                    <li>Run Prod_Account_Create.ps1 script to:
                                         <ul>
-                                            <li>Create a GitHub Account</li>
-                                            <li>Create a GitHub Project Repository</li>
-                                            <li>Create a CodeBuild GitHub Connection for the Test Account</li>
-                                            <li>Run Test_CICD_Projects_Install.ps1 to create CodeBuild Stacks in Test
-                                                Account:
-                                                <ul>
-                                                    <li>..</li>
-                                                </ul>
+                                            <li>Create a System Prod Account - OrgSysProd</li>
+                                            <li>Move it under the Prod Organizational Unit - OrgProdOU</li>
+                                            <li>Create the Prod Account IAM User</li>
+                                            <li>Create the Administrators group</li>
+                                            <li>Assign the IAM User to the Administrators group</li>
+                                            <li>Create a Management Workstation AWS profile with
+                                                OrganizationalAccountAccessRole policy to allow Management account
+                                                to administer the Production Account.
                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li>Step 4.1 - Setup Continuous Deployment for System Production Account Stack
+                                        <ul>
                                             <li>Create a CodeBuild GitHub Connection for the Production Account</li>
-                                            <li>Run Prod_CICD_Projects_Install.ps1 to create CodeBUild Stack in
-                                                Production Account:
+                                            <li>Run Prod_CICD_Projects_Install.ps1 to:
                                                 <ul>
-                                                    <li>..</li>
+                                                    <li>Create a CodeBuild Connection among Production Account and GitHub</li>
+                                                    <li>Install a CodeBuild project that builds, tests and publishes a Pull Request (PR) stack when a PR is created or updated.</li>
+                                                    <li>Install a CodeBuild project that deletes a PR stack when the PR is closed.</li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -127,53 +155,118 @@ topic: GettingStarted
                 <ul>
                     <li>AWS Organization
                         <ul>
-                            <li>Management Account</li>
-                            <li>Development Organizational Unit
+                            <li>Management Account - OrgMgmt
                                 <ul>
-                                    <li>Developer account(s)
+                                    <li>Member of IAM User Group - Administrators</li>
+                                    <ul>
+                                        <li>AWS Policy AdministratorAccess</li>
+                                    </ul>
+                                    <li>IAM User - OrgMgmt
+                                        <li>Member of Administrators User Group</li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Development Organizational Unit - OrgDevOU
+                                <ul>
+                                    <li>Developer account(s) - ex: OrgDevJoe
+                                        
                                         <ul>
-                                            <li>Developers Group</li>
-                                            <li>IAM User belonging to Developers Group</li>
+                                            <li>Customer Policy IAMUserCredsPolicy (see IAMUserCredsPolicy.json)
+                                                <ul>
+                                                    <li>AllowViewAccountInfo</li>
+                                                    <li>AllowManageOwnPasswords</li>
+                                                    <li>AllowManageOwnAccessKeys</li>
+                                                    <li>AllowManageOwnSSHPublicKeys</li>
+                                                </ul>
+                                            </li>
+                                            <li>IAM User Group Developers
+                                                <ul>
+                                                    <li>AWS Policy PowerUserAccess</li>
+                                                    <li>Customer Policy IAMUserCredsPolicy</li>
+                                                </ul>
+                                            </li>
+                                            <li>IAM User - OrgDevJoe
+                                                <ul>
+                                                    <li>Member of Developers User Group</li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li>Test Organizational Unit
+                            <li>Test Organizational Unit - OrgTestOU
                                 <ul>
-                                    <li>Test Account
+                                    <li>System Test Account - OrgSysTest
                                         <ul>
-                                            <li>Administrators Group</li>
-                                            <li>IAM User belonging to Administrators Group</li>
-                                            <li>CodeBuild Connection to GitHub repository</li>
-                                            <li>CodeBuild Project to Create/Update test stack for a new/updated Pull
-                                                Request
+                                            <li>Administrators User Group
                                                 <ul>
-                                                    <li>S3 Bucket for build artifacts</li>
-                                                    <li>CodeBuild project resource</li>
-                                                    <li>role ...</li>
+                                                    <li>AWS Policy AdministratorAccess</li>
                                                 </ul>
                                             </li>
-                                            <li>Codebuild Project to Delete test stack for for a merged Pull Request
+                                            <li>IAM User - OrgSysTest
                                                 <ul>
-                                                    <li>role ...</li>
+                                                    <li>Member of Administrators User Group</li>
+                                                </ul>
+                                            </li>
+                                            <li>CodeBuild Connection to GitHub repository</li>
+                                            <li>CodeBuild Project Stack to Create/Update test stack for a new/updated Pull
+                                                Request (see Test_CICD_Project_PR_Update.yaml)
+                                                <ul>CodeBuild Project Stack Resources:
+                                                    <li>AWS::S3::Bucket - build artifacts1</li>
+                                                    <li>AWS::CodeBuild::Project
+                                                        <ul>
+                                                            <li>Webhook on PR Create/Update</li>
+                                                            <li>Inline Script for Build, Test, and Deploy</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>AWS::IAM::Role - CodeBuildRole</li>
+                                                    <li>AWS::IAM::Policy - CodeBuildPolicy</li>
+                                                </ul>
+                                            </li>
+                                            <li>Codebuild Project to Delete test stack for for a merged Pull Request (see Test_CICD_Project_PR_Delete.yaml)
+                                                <ul>CodeBuild Project Stack Resources:
+                                                    <li>AWS::S3::Bucket - build artifacts1</li>
+                                                    <li>AWS::CodeBuild::Project
+                                                        <ul>
+                                                            <li>Webhook on PR Merge</li>
+                                                            <li>Inline Script for delete stack</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>AWS::IAM::Role - CodeBuildRole</li>
+                                                    <li>AWS::IAM::Policy - CodeBuildPolicy</li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li>Prod Organizational Unit
+                            <li>Prod Organizational Unit - OrgProdOU
                                 <ul>
-                                    <li>Prod Account
+                                    <li>System Production Account - OrgSysProd
                                         <ul>
-                                            <li>Administrators Group</li>
-                                            <li>IAM User belonging to Administrators Group</li>
-                                            <li>CodeBuild Connection to GitHub repository</li>
-                                            <li>CodeBuild Project to Create/Update prod stack for a merged Pull Request
+                                            <li>Administrators User Group
                                                 <ul>
-                                                    <li>S3 Bucket for build artifacts</li>
-                                                    <li>CodeBuild project resource</li>
-                                                    <li>role ...</li>
+                                                    <li>AWS Policy AdministratorAccess</li>
+                                                </ul>
+                                            </li>
+                                            <li>IAM User - OrgSysProd
+                                                <ul>
+                                                    <li>Member of Administrators User Group</li>
+                                                </ul>
+                                            </li>
+                                            <li>CodeBuild Connection to GitHub repository</li>
+                                            <li>CodeBuild Project Stack to Create/Update Prod stack for a merged Pull
+                                                Request (see Test_CICD_Push_Update.yaml)
+                                                <ul>CodeBuild Project Stack Resources:
+                                                    <li>AWS::S3::Bucket - build artifacts1</li>
+                                                    <li>AWS::CodeBuild::Project
+                                                        <ul>
+                                                            <li>Webhook on PR Merge</li>
+                                                            <li>Inline Script for Build, and Deploy</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>AWS::IAM::Role - CodeBuildRole</li>
+                                                    <li>AWS::IAM::Policy - CodeBuildPolicy</li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -185,9 +278,10 @@ topic: GettingStarted
                 </ul>
             </li>
             <br>
-            <li>Deployment Options
+            <li>Deployment Naming
                 <ul>
                     <li>OrgCode prefix to be used for organizational units and accounts</li>
+                    <li>SysCode prefix to be used for system test and system production accounts</li>
                 </ul>
             </li>
             <br>
@@ -195,6 +289,8 @@ topic: GettingStarted
                 <ul>
                     <li>SMF Part 1 - </li>
                     <li>SMF Part 2 - </li>
+                    <li>SMF Part 3 - </li>
+                    <li>SMF Part 4 - </li>
                 </ul>
             </li>
             <br>
@@ -205,14 +301,13 @@ topic: GettingStarted
                     <li>AWS Account Creation requirements
                         <ul>
                             <li>Unique email address (or alias) for each account</li>
+                            <li>Credit Card</li>
                             <li>If you are creating more than 4 accounts (Mgmt, 1st Dev Account, Test Account, and Prod
                                 Account) then you will need to request AWS increase the maximum number of accounts in 
                                 your organization beyond the default limit of 4.
                             </li>
                         </ul>
                     </li>
-                    <li>Development Workstation with internet access (Management Workstation may also be used as a
-                        Development Workstation)</li>
                     <li>GitHub Account</li>
                     <li></li>
                 </ul>
@@ -259,5 +354,5 @@ topic: GettingStarted
             <li>Security References</li>
             <li>AWS Costs</li>
             <li>AWS Sizing</li>
-        </ol>
+        </ul>
 </div>
