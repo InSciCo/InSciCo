@@ -17,13 +17,13 @@
                 <span class="{{#ifpage 'stacks_aws_serverless'}}lz-r-topicitem{{/ifpage}}">AWS Serverless Stacks</span>
             </a>
         </li>
-
-        <li>
-            <a  href="/stacks/stacks_lazystack_stacks.html" >&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'stacks_lazystack_stacks'}}lz-r-topicitem{{/ifpage}}">LazyStack Stack Generator</span>
-            </a>
-        </li>
-
+        <div style="display: {{#ifequal stacks 'awsserverless'}}inline{{else}}none{{/ifequal}}">
+            <li>
+                <a  href="/stacks/stacks_lazystack_stacks.html" >&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'stacks_lazystack_stacks'}}lz-r-topicitem{{/ifpage}}">LazyStack Stack Generator</span>
+                </a>
+            </li>
+        </div>
         <li>
             <a  href="/stacks/stacks_openapi.html" >
                 <span class="{{#ifpage 'stacks_openapi'}}lz-r-topicitem{{/ifpage}}">OpenAPI Specification</span>
@@ -43,11 +43,13 @@
             </a>
         </li>
 
-        <li>
-            <a  href="/stacks/apigateway/apigateway_multiplegateways.html">&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'apigateway_multiplegateways'}}lz-r-topicitem{{/ifpage}}">Multiple Api Gateways</span>
-            </a>
-        </li>
+        <div style="display: {{#ifequal stacks 'apigateway'}}inline{{else}}none{{/ifequal}}">
+            <li>
+                <a  href="/stacks/apigateway/apigateway_multiplegateways.html">&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'apigateway_multiplegateways'}}lz-r-topicitem{{/ifpage}}">Multiple Api Gateways</span>
+                </a>
+            </li>
+        </div>
 
         <li >
             <a  href="/stacks/lambda/lambda_overview.html">
@@ -55,36 +57,37 @@
             </a>
         </li>
 
-        <li >
-            <a  href="/stacks/lambda/lambda_function.html">&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'lambda_function'}}lz-r-topicitem{{/ifpage}}">Lambda Functions</span>
-            </a>
-        </li>
+        <div style="display: {{#ifequal stacks 'lambda'}}inline{{else}}none{{/ifequal}}">
+            <li >
+                <a  href="/stacks/lambda/lambda_function.html">&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'lambda_function'}}lz-r-topicitem{{/ifpage}}">Lambda Functions</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/stacks/lambda/lambda_controllers.html">&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'lambda_controllers'}}lz-r-topicitem{{/ifpage}}">Controllers</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/stacks/lambda/lambda_controllers.html">&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'lambda_controllers'}}lz-r-topicitem{{/ifpage}}">Controllers</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/stacks/lambda/lambda_methods.html">&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'lambda_methods'}}lz-r-topicitem{{/ifpage}}">Event Methods</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/stacks/lambda/lambda_methods.html">&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'lambda_methods'}}lz-r-topicitem{{/ifpage}}">Event Methods</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/stacks/lambda/lambda_debugging.html">&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'lambda_debugging'}}lz-r-topicitem{{/ifpage}}">Debugging</span>
-            </a>
-        </li>
+            <li >
+                <a  href="/stacks/lambda/lambda_debugging.html">&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'lambda_debugging'}}lz-r-topicitem{{/ifpage}}">Debugging</span>
+                </a>
+            </li>
 
-        <li >
-            <a  href="/stacks/lambda/lambda_tests.html">&nbsp;&nbsp;&nbsp;
-                <span class="{{#ifpage 'lambda_tests'}}lz-r-topicitem{{/ifpage}}">Test Projects</span>
-            </a>
-        </li>
-
+            <li >
+                <a  href="/stacks/lambda/lambda_tests.html">&nbsp;&nbsp;&nbsp;
+                    <span class="{{#ifpage 'lambda_tests'}}lz-r-topicitem{{/ifpage}}">Test Projects</span>
+                </a>
+            </li>
+        </div>
         
     </ul>
 </div>
