@@ -167,6 +167,45 @@
         </li>
 
         <li >
+            <a  href="/installation/installation_devtools.html">
+                <span class="">Configure Developer Workstation</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Step 1 - Dev Profile Setup</span>
+            </a>
+        </li>
+
+
+        <li >
+            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
+                <span class="">Step 2 - .NET CLI Tool</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
+                <span>Step 3 - Visual Studio IDE</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.1 - VS IDE Windows</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.2 - VS IDE MacOS</span>
+            </a>
+        </li>
+
+
+
+        <li >
             <a  href="/installation/installation_aws.html">
                 <span class="">Configure LazyStack SMF</span>
             </a>
@@ -230,42 +269,6 @@
             </a>
         </li>
 
-        <li >
-            <a  href="/installation/installation_devtools.html">
-                <span class="">Configure Developer Workstation</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">Step 1 - Dev Profile Setup</span>
-            </a>
-        </li>
-
-
-        <li >
-            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
-                <span class="">Step 2 - .NET CLI Tool</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
-                <span>Step 3 - Visual Studio IDE</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Step 3.1 - VS IDE Windows</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Step 3.2 - VS IDE MacOS</span>
-            </a>
-        </li>
 
 
     </ul>
@@ -310,14 +313,14 @@
                      Here is a script run with sample inputs:
                      <pre><code class="language-bashshell">
  Test_Account_Create.ps1 - V1.0.0
- This script adds a Test account to the Test Organizational Unit.
+ This script adds a System Test account to the Test Organizational Unit.
  Note: Press return to accept a default value.
  Enter your OrgCode (ex: Lz): Az
  Enter your AWS CLI Management Account Profile (default: AzMgmt):
- Enter the Test OU (default: AzTestOU):
- Enter the Test Account Name (default: AzTest): 
- Note: Make a note of the password you use below as it will not be stored anywhere.
- Enter the Test IAM User Password: ********
+ Enter Region (defautl us-east-1):
+ Enter the Test OU Name (default: AzTestOU):
+ Enter the System Handle (ex: Pet):Pet
+ Enter the Test Account Name (default: AzPetTest): 
  Enter the Test IAM User Name (default: AzTest):
  Note: An email address can only be associated with one AWS Account. 
  Enter an Email Address for the new account's Root User: me+AzTest@gmail.com
@@ -325,36 +328,34 @@
      OrgCode: Az
      Management Account Profile: AzMgmt
      Test OU: AzTestOU
-     Test Account to be created: AzTest
-     Test Account IAM User Name: AzTest
+     System Test Account to be created: AzPetTest
+     Test IAM User Name: AzPetTest
      Test Organization Unit: AzTestOU
      Email Address for Account's Root User: me+AzTest@gmail.com 
  Confirm y/n: y 
  Processing Starting
- Creating AzTestAccess profile and associating it with the AzMgmt profile 
-     - This profile allows the IAM User AzMgmt to administer the AzTest account from the CLI.
- Creating Test Account AzTest
+ Creating Test Account AzPetTest
      - Checking for successful account creation. TryCount=1 
      - AzTest account creation successful. AccountId: 123456789123
-     - Moving AzTest account to AzTestOU organizational unit
- Creating Administrators Group in AzTest account 
+     - Moving AzPetTest account to AzTestOU organizational unit
+ Adding AzPetTestAccess profile and associating it with the AzMgmt profile 
+ Creating Administrators Group in AzPetTest account 
      - Adding policy AdministratorAccess 
- Creating IAM User AzTest in the AzTest account.
-     - Adding the AzTest profile.
-     - Adding the IAM User AzTest to the Administrators group in the AzTest account.
+ Creating IAM User AzPetTest in the AzPetTest account.
+     - Adding the IAM User AzPetTest to the Administrators group in the AzPetTest account.
+     - Writing the IAM User Creds into AzPetTest_welcom.txt
  Processing Complete</code></pre>
         </li>
     </ol> 
 
 <h5>Step Summary</h5>
-<p>In this step we used the Test_Account_Create.ps1 script to create a Test Account under 
+<p>In this step we used the Test_Account_Create.ps1 script to create a System Test Account under 
    the Test Organization Unit. We added a Administrators group to the account with 
    AdministratorAccess permissions. We added an IAM User for the account and added that 
    user to the Administrators group. We created a AWS CLI profile allowing the Management 
-   Account IAM User to manage the Test account with the OrganizationAccountAccessRole 
+   Account IAM User to manage the System Test account with the OrganizationAccountAccessRole 
    policy.
 </p>
-<p>The IAM User created for this account will be used by the CI/CD process.</p>
 
 </div>
             <div id=hacky-privacy-spacer></div>

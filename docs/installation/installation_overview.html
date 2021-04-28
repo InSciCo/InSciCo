@@ -167,6 +167,45 @@
         </li>
 
         <li >
+            <a  href="/installation/installation_devtools.html">
+                <span class="">Configure Developer Workstation</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Step 1 - Dev Profile Setup</span>
+            </a>
+        </li>
+
+
+        <li >
+            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
+                <span class="">Step 2 - .NET CLI Tool</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
+                <span>Step 3 - Visual Studio IDE</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.1 - VS IDE Windows</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.2 - VS IDE MacOS</span>
+            </a>
+        </li>
+
+
+
+        <li >
             <a  href="/installation/installation_aws.html">
                 <span class="">Configure LazyStack SMF</span>
             </a>
@@ -230,42 +269,6 @@
             </a>
         </li>
 
-        <li >
-            <a  href="/installation/installation_devtools.html">
-                <span class="">Configure Developer Workstation</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">Step 1 - Dev Profile Setup</span>
-            </a>
-        </li>
-
-
-        <li >
-            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
-                <span class="">Step 2 - .NET CLI Tool</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
-                <span>Step 3 - Visual Studio IDE</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Step 3.1 - VS IDE Windows</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Step 3.2 - VS IDE MacOS</span>
-            </a>
-        </li>
 
 
     </ul>
@@ -274,20 +277,19 @@
     <h3>Installation Overview</h4>
     <p>LazyStack install is broken up into two independent components:
         <ul>
+            <li><a href="/installation/installation_devtools.html">Configure Development Workstation</a> <br>
+                Setup a developer's workstation with AWS and LazyStack tools to develop and test serverless stacks.<br> <strong>Note: Any workstation with access to an AWS Account with Administrative access 
+                may install and use the LazyStack tools. It is recommended, but not necessary, to perform the 
+                SMF configuration to install the LazyStack tools and perform the LazyStack Tutorial.</strong></li>
+            <br>
             <li><a href="/installation/installation_aws.html">Configure Software Management Framework (SMF)</a><br>
             Setup an AWS Organization supporting multiple developers collaborating through GitHub with GitHub 
             Pull Requests. Provide application test accounts supporting Continuous Integration and Continuous Deployment. 
             Provide application production accounts with Continuous Deployment. The workstation on which this setup is 
             run is called the "Management Workstation" and will be configured with a number of LazyStack 
-            automation scripts to make creating and managing your AWS Organization a snap.
+            automation scripts to make creating and managing your AWS Organization a snap. A Development 
+            Workstation can also be a Management Workstation.
             </li>
-            <br>
-            <li><a href="/installation/installation_devtools.html">Configure Development Workstation</a> <br>
-            Setup a developer's workstation with AWS and LazyStack tools to develop and test serverless stacks. 
-            If the Management Workstation is also used for development, then a Development Workstation Setup may 
-            be performed on it as well. <strong>Note: Any workstation with access to an AWS Account with Administrative access 
-            may install and use the LazyStack tools. You can skip SMF setup and install the LazyStack tools to 
-            perform the LazyStack Tutorial.</strong></li>
         </ul>
     </p>
     <p></p>

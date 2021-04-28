@@ -5,38 +5,37 @@ topic: GettingStarted
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h4>Setup Continuous Deployment for Prod Account Stack</h4>
+    <h4>Setup Continuous Integration and Continuous Deployment for System Prod Account Stack</h4>
     <dl>
         <dt>Prerequisites:</dt>
-        <dd>- Prod Account Setup complete</dd>
-        <dd>- A GitHub Repository you want to use</dd>
-        <dt>Estimated Time: 10 minutes</dt>
-        <dt>Estimated Cost: none</dt>
+        <dd>- Production Account Setup complete</dd>
+        <dd>- A GitHub Repository containing a serverless application stack</dd>
+        <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
         <dt>Perform this step on the Management Workstation.</dt>
-    </dl>
-
-    <p>This step assumes you have created an GitHub application repository and now
-        want to publish production stacks from that repository. If you
-        don't have a repository yet, no worries - you can come back to this step later on.
+    </dl>  
+    <p>This script deploys a CodeBuild project stacks to a System Production Account:</p>
+    <ul>
+        <li>Prod_CodeBuild_Merge.yaml defines the CodeBuild project stack</li>
+    </ul>
+    <p>The project is associated with a GitHub repository containing a serverless application stack.
+        Prod_CodeBuild_Create.yaml defines a CodeBuild project stack that builds and publishes
+        the production application stack when a Pull Request is merged in the GitHub repository.
     </p>
-
-    <p>You repeat this step for each GitHub repository you want to use in your SMF.</p>
+    
+    <p>You repeat this step for each GitHub serverless application repository used in a Production System Account.</p>
 
     <ol>
         <li>If you do not already have a CodeBuild GitHub Connection for the Prod Account, follow these steps to create
             one:
             <ol type="a">
                 <li>Log into the AWS OrgProd account using the OrgProd IAM User credentials.</li>
-                <li>Navigate to the <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?"
-                        {{>newtab}}>CodeBuild</a> Console</li>
-                <li>Select Settings &rightarrow; Connections in navigation pane. The Developer Tools > Connections page
-                    appears.</li>
+                <li>Navigate to the <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?" {{>newtab}}>CodeBuild</a> Console</li>
+                <li>Select Settings &rightarrow; Connections in navigation pane. The Developer Tools > Connections page appears.</li>                
                 <li>Click the Create Connection Button. The Create Connection page appears.</li>
                 <li>Select the GitHub radio button and enter a connection name.</li>
-                <li>Click on the Connect to GitHub button. You will be prompted to log into GitHub if you are not
-                    already logged in The Connect to GitHub page appears.</li>
-                <li>Click on the "Install a new app" button. The GitHub "Install AWS Connector for GitHub" page appears
-                    with a list of accounts you have access to. Select identity under which you have
+                <li>Click on the Connect to GitHub button. You will be prompted to log into GitHub if you are not already logged in The Connect to GitHub page appears.</li>
+                <li>Click on the "Install a new app" button. The GitHub "Install AWS Connector for GitHub" page appears with a list of accounts you have access to. Select identity under which you have 
                     access to the application repository used by this CI/CD setup. The AWS Connector for GitHub
                     page appears.
                 </li>
@@ -46,7 +45,64 @@ topic: GettingStarted
             </ol>
         </li>
         <br>
-        <li>Run Prod_CICD_Projects_Install.ps1 script.</li>
-    </ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
+        <li>Execute the Prod_CodeBuild_Deploy.ps1 script. 
+            <pre><code class="language-bashshell">. .\Prod_CodeBuild_Deploy.ps1</code></pre><br>
+            Here is a script run with sample inputs:
+            <pre><code class="language-bashshell">
+Prod_CodeBuild_Deploy.ps1 - V1.0.0
+This script deploys a CodeBuild project stack to a System Production Account.
+   - Prod_CodeBuild_Merge.yaml defines the CodeBuild project stack
+The project is associated with a GitHub repository containing a serverless application stack.
 
+Prod_CodeBuild_Merge.yaml defines a CodeBuild project stack that builds and publishes the production 
+application stack when a Pull Request is merged in the GitHub application repository.
+
+Note: Press return to accept a default values.
+Enter your OrgCode: Az
+Enter your AWS CLI Management Account Profile (default: AzMgmt):
+Enter Region (default us-east-1):
+Enter the SysCode (ex: Pet):
+Enter the System Production Account Name (default: AzPetProd):
+Enter the application stack's GitHub Repo URL (example: https://github.com/myorg/myrepo.git): https://github.com/myorg.petstore.git
+Enter your repo short name (default: petstore):
+Please Prod and confirm the following:
+    OrgCode: Az 
+    SysCode: Pet
+    AWS CLI Management Account Profile: AzMgmt
+    AWS Region: us-east-1
+    System Production Account name: AzPetMgmt
+    GitHub Repo URL: https://github.com/myorg.petstore.git
+    Repo short name: petstore
+    CodeBuild PR Merge project stack name: petstore_pr_merge
+Continue y/n y
+Processing Starting
+Deploying petstore_pr_merge AWS CodeBuild project to AzPetProd account.
+Processing Complete</code></pre>
+        </li>
+    </ol>
+    <h4>Modifying the CodeBuild Project Stack Templates</h4>
+    <p>It is often necessary to modify the CodeBuild Project Stack template to accommodate 
+        your specific application production stack build and deploy. This is best accomplished by 
+        making copies of the Prod_CodeBuild_Deploy.ps1 and 
+        Prod_CodeBuild_Merge.yaml files. Edit the Prod_CodeBuild_Deploy.ps1 to reference the 
+        new CodeBuild template. Then edit the CodeBuild template as necessary. The usual 
+        edits will be in the CodeBuild Project Script section. This script section contains 
+        a simple csh script that makes calls to dotnet and the AWS SAM CLI as shown below:<br>
+    </p>
+    <ul>
+        <li>Prod_CodeBuild_Merge.yaml - script
+            <pre><code class="language-bashshell"># csh script
+- dotnet build --configuration Release
+- eval "sam deploy -t Stacks/Rev/serverless.template --stack-name prod --s3-bucket ${S3}  --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"</code></pre> 
+        </li>
+    </ul>
+    <h4>Updating CodeBuild Project</h4>
+    <p>You can rerun this script anytime you need to update the CodeBuild Project stack.</p>
+<h4>Step Summary</h4>
+<p>In this step we deploy a CodeBuild project stack that references a GitHub repository. When a 
+    Pull Request is merged the CodeBuild project stack, defined by the Prod_CodeBuild_Merge.yaml 
+    template, builds an deploys the the production stack.
+</p>
 </div>

@@ -94,4 +94,44 @@ Deploying petstore_pr_merge AWS CodeBuild project to AzPetTest account.
 Processing Complete</code></pre>
         </li>
     </ol>
+<h4>Modifying the CodeBuild Project Stack Templates</h4>
+<p>It is often necessary to modify the CodeBuild Project Stack templates to accommodate 
+    your specific application stack build, test and deploy. This is best accomplished by 
+    making copies of the Test_CodeBuild_Deploy.ps1, Test_CodeBuild_Create.yaml and 
+    Test_CodeBuild_Merge.yaml files. Edit the Test_CodeBuild_Deploy.ps1 to reference the 
+    new CodeBuild templates. Then edit the CodeBuild templates as necessary. The usual 
+    edits will be in the CodeBuild Project Script section. This script section contains 
+    a simple csh script that makes calls to dotnet and the AWS SAM CLI as shown below:<br>
+</p>
+<ul>
+    <li>Test_CodeBuild_Create.yaml - script
+        <pre><code class="language-bashshell"># csh script                                                                    
+# stack names can not include / characters so we replace with -
+- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
+- dotnet build --configuration Release
+# ${S3} is replaced during cloudformation template processing with S3 name
+# $stack is replaced by csh
+- eval "aws cloudformation delete-stack --stack-name $stack"</code></pre> 
+    </li>
+    <li>Test_CodeBuild_Merge.yaml - script section
+        <pre><code class="language-bashshell"># csh script                                                                    
+# stack names can not include / characters so we replace with -
+- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
+- dotnet build --configuration Release
+# $stack is replaced by csh
+- eval "aws cloudformation delete-stack --stack-name $stack"</code></pre> 
+    </li>
+</ul>
+<h4>Updating CodeBuild Projects</h4>
+<p>You can rerun this script anytime you need to update CodeBuild Projects.</p>
+
+<h4>Step Summary</h4>
+<p>In this step we deployed two CodeBuild project stacks that reference a 
+    GitHub repository. When Pull Requests are created or updated the 
+    CodeBuild project stack, defined by the Test_CodeBuild_Create.yaml template,
+    builds, tests and deploys a PR stack.
+</p>
+<p>When Pull Requests are merged the CodeBuild project stack, defined by the 
+    Test_CodeBuild_Merge.yaml template, deletes the PR stack.
+</p>
 </div>

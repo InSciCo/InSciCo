@@ -209,27 +209,43 @@ topic: GettingStarted
                                                 </ul>
                                             </li>
                                             <li>CodeBuild Connection to GitHub repository</li>
-                                            <li>CodeBuild Project Stack to Create/Update test stack for a new/updated Pull
-                                                Request (see Test_CICD_Project_PR_Update.yaml)
+                                            <li>Test_CodeBuild_Create.yaml template - CodeBuild Project to Create/Update test stack for a new/updated Pull Request
                                                 <ul>CodeBuild Project Stack Resources:
                                                     <li>AWS::S3::Bucket - build artifacts1</li>
                                                     <li>AWS::CodeBuild::Project
                                                         <ul>
                                                             <li>Webhook on PR Create/Update</li>
-                                                            <li>Inline Script for Build, Test, and Deploy</li>
+                                                            <li>Inline Script for Build, Test, and Deploy
+                                                                <pre><code class="language-bashshell"># csh script                                                                    
+# stack names can not include / characters so we replace with -
+- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
+- dotnet build --configuration Release
+# dotnet test
+# ${S3} is replaced during cloudformation template processing with S3 name
+# $stack is replaced by csh
+- eval "sam deploy -t Stacks/Rev/serverless.template --stack-name $stack --s3-bucket ${S3} --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"</code></pre>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li>AWS::IAM::Role - CodeBuildRole</li>
                                                     <li>AWS::IAM::Policy - CodeBuildPolicy</li>
                                                 </ul>
                                             </li>
-                                            <li>Codebuild Project to Delete test stack for for a merged Pull Request (see Test_CICD_Project_PR_Delete.yaml)
+                                            <li>Test_CodeBuild_Merge.yaml template - Codebuild Project stack to Delete test stack for for a merged Pull Request
                                                 <ul>CodeBuild Project Stack Resources:
                                                     <li>AWS::S3::Bucket - build artifacts1</li>
                                                     <li>AWS::CodeBuild::Project
                                                         <ul>
                                                             <li>Webhook on PR Merge</li>
-                                                            <li>Inline Script for delete stack</li>
+                                                            <li>Inline Script for delete stack
+                                                                <pre><code class="language-bashshell"># csh script                                                                    
+# stack names can not include / characters so we replace with -
+- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
+- dotnet build --configuration Release
+# ${S3} is replaced during cloudformation template processing with S3 name
+# $stack is replaced by csh
+- eval "aws cloudformation delete-stack --stack-name $stack"</code></pre>                                                                
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li>AWS::IAM::Role - CodeBuildRole</li>
@@ -255,14 +271,17 @@ topic: GettingStarted
                                                 </ul>
                                             </li>
                                             <li>CodeBuild Connection to GitHub repository</li>
-                                            <li>CodeBuild Project Stack to Create/Update Prod stack for a merged Pull
-                                                Request (see Test_CICD_Push_Update.yaml)
+                                            <li>Prod_CodeBuild_Merge.yaml template - CodeBuild Project Stack to Create/Update Prod stack for a merged Pull Request
                                                 <ul>CodeBuild Project Stack Resources:
                                                     <li>AWS::S3::Bucket - build artifacts1</li>
                                                     <li>AWS::CodeBuild::Project
                                                         <ul>
                                                             <li>Webhook on PR Merge</li>
-                                                            <li>Inline Script for Build, and Deploy</li>
+                                                            <li>Inline Script for Build, and Deploy
+<pre><code class="language-bashshell">#csh script
+- dotnet build --configuration Release
+- eval "sam deploy -t Stacks/Rev/serverless.template --stack-name prod --s3-bucket ${S3}  --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}" </code></pre>                                                                
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                     <li>AWS::IAM::Role - CodeBuildRole</li>
@@ -329,24 +348,24 @@ topic: GettingStarted
             <br>
             <li>Architectural Diagrams
                 <ul>
-                    <li>Software Management Framework Flow
-                        <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg"></a>
+                    <li>Software Management Framework Flow<br>
+                        <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
                     </li>
                     <br>
-                    <li>AWS Organization Overview
-                        <img src="/assets/img/LazyStackSMF2.svg"></a>
+                    <li>AWS Organization Overview<br>
+                        <img src="/assets/img/LazyStackSMF2.svg">
                     </li>
                     <br>
-                    <li>AWS CodeBuild and Cloud Formation Services
-                        <img src="/assets/img/AwsSetup2.svg"></a>
+                    <li>AWS CodeBuild and Cloud Formation Services<br>
+                        <img src="/assets/img/AwsSetup2.svg">
                     </li>
                     <br>
-                    <li>AWS Root and IAM Users with Management and Development workstation AWS Profiles
-                        <img src="/assets/img/AwsSetupUsers2.svg"></a>
+                    <li>AWS Root and IAM Users with Management and Development workstation AWS Profiles<br>
+                        <img src="/assets/img/AwsSetupUsers2.svg">
                     </li>
                     <br>
-                    <li>CI/CD Stacks
-                        <img src="/assets/img/SDLCFeatureflowVSIDE.svg"></a>
+                    <li>CI/CD Stacks<br>
+                        <img src="/assets/img/SDLCFeatureflowVSIDE.svg">
                     </li>
                 </ul>
             </li>

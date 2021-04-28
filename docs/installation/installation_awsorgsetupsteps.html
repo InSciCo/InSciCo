@@ -167,6 +167,45 @@
         </li>
 
         <li >
+            <a  href="/installation/installation_devtools.html">
+                <span class="">Configure Developer Workstation</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
+                <span class="">Step 1 - Dev Profile Setup</span>
+            </a>
+        </li>
+
+
+        <li >
+            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
+                <span class="">Step 2 - .NET CLI Tool</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
+                <span>Step 3 - Visual Studio IDE</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.1 - VS IDE Windows</span>
+            </a>
+        </li>
+
+        <li >
+            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="">Step 3.2 - VS IDE MacOS</span>
+            </a>
+        </li>
+
+
+
+        <li >
             <a  href="/installation/installation_aws.html">
                 <span class="">Configure LazyStack SMF</span>
             </a>
@@ -230,42 +269,6 @@
             </a>
         </li>
 
-        <li >
-            <a  href="/installation/installation_devtools.html">
-                <span class="">Configure Developer Workstation</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_awsdevprofilesteps.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">Step 1 - Dev Profile Setup</span>
-            </a>
-        </li>
-
-
-        <li >
-            <a  href="/installation/installation_netcorecli.html">&nbsp;&nbsp;&nbsp;
-                <span class="">Step 2 - .NET CLI Tool</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;
-                <span>Step 3 - Visual Studio IDE</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Step 3.1 - VS IDE Windows</span>
-            </a>
-        </li>
-
-        <li >
-            <a  href="/installation/installation_mac_visualstudio.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="">Step 3.2 - VS IDE MacOS</span>
-            </a>
-        </li>
 
 
     </ul>
@@ -280,7 +283,7 @@
     </dl>
 
     <p>In this step we will use the Org_Create.ps1 script to
-        create an AWS Organization, and the OrgDev Organizational Unit.
+        create an AWS Organization, and the Organizational Units.
     </p>
     <ol>
         <li>Open a PowerShell terminal.</li>
@@ -301,16 +304,20 @@ Please Review and Confirm the following:
     Management Account Profile: AzMgmt 
     AWS Organizational Units to be created:
         - AzDevOU
+        - AzTestOU
+        - AzProdOU
 Continue y/n: y 
 Processing Starting 
 Creating Organization 
 Creating Organizational Units: 
     - AzDevOU created 
+    - AzTestOU created
+    - AzProdOU created
 Processing Complete</code></pre>
         </li>
     </ol>
     <h5>Step Summary</h5>
-    <p>In this step we created our AWS Organization and the OrgDevOU Organizational Unit.
+    <p>In this step we created our AWS Organization and the Organizational Units.
     </p>
 
 

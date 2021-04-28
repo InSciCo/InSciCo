@@ -9,28 +9,29 @@ topic: GettingStarted
     <dl>
         <dt>Prerequisites:</dt>
         <dd>- Organization Setup complete</dd>
-        <dd>- Email address to use for Developer Account</dd>
+        <dd>- Unique Email address (or alias) to use for Developer Account</dd>
          <dt>Estimated Time: 2 minutes</dt> 
         <dt>Estimated Cost: none</dt> 
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>      
-    <p>In this step we will run the CreateDevAccount script to create a new Developer 
+    <p>In this step we will run the Dev_Account_Create.ps1 script to create a new Developer 
         Member Account belonging to the AWS organization and move this account into the OrgDevOU 
         Organizational Unit. Execute these steps on your Management Workstation.
     </p>
     <ol>
         <li>Open a PowerShell terminal.</li>
-        <li>CD into the OrgMgmt folder. Use your OrgCode in place of "Org".</li>
-        <li>Execute the CreateDevAccount.ps1 script:
+        <li>CD into the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+        <li>Execute the Dev_Account_Create.ps1 script:
             <pre><code class="language-bashshell">. .\Dev_Account_Create.ps1</code></pre>
                     Here is a script run with sample inputs:
                     <pre><code class="language-bashshell">
 Dev_Account_Create.ps1 - V1.0.0
-This script adds a development account to the Dev Organizational Unit.
+This script adds a developer account to the Dev Organizational Unit.
 Note: Press return to accept a default value.
 Enter your OrgCode (ex: Lz): Az
 Enter your AWS CLI Management Account Profile (default: AzMgmt):
-Enter the Development OU (default: AzDevOU):
+Enter Region (default us-east-1):
+Enter the Development OU Name (default: AzDevOU):
 Enter the Developer's Handle (ex: Joe): Joe
 Enter the Developer's Account Name (default: AzDevJoe): 
 Enter the Developer's IAM User Name (default: AzDevJoe):
@@ -46,20 +47,23 @@ Please Review and Confirm the following:
     Email Address for Account's Root User: me+AzDevJoe@gmail.com 
 Confirm y/n: y 
 Processing Starting
-Creating AzDevJoeAccess profile and associating it with the AzMgmt profile 
-    - This profile allows the IAM User AzMgmt to administer the AzDevJoe account from the CLI.
-Creating Development Account AzDevJoe 
+Creating Developer Account AzDevJoe 
     - Checking for successful account creation. TryCount=1 
     - AzDevJoe account creation successful. AccountId: 123456789123
-    - Moving AzDevJoe account to AzDevOU organizational unit
+Adding AzDevJoeAccess profile and associating it with the AzMgmt profile 
 Creating Developers Group in AzDevJoe account 
     - Adding policy PowerUsersAccess 
     - Adding policy IAMUserChangePassword
 Creating IAM User AzDevJoe in the AzDevJoe account.
-    - Adding the AzDevJoe profile.
     - Adding the IAM User AzDevJoe to the Developers group in the AzDevJoe account.
-Writing AzDevJoe_welcome.txt file. Send this text file to the Developer.
-Processing Complete</code></pre>
+    - Writing the IAM User Creds into AzDevJoe_welcome.txt
+Processing Complete
+Send the AzDevJoe_welcome.txt file to the Developer or use it yourself if you are also that developer.
+The file contains the URL to login to the AWS Account AzDevJoe and the initial password (password reset
+Write-Host "required on first login) for the IAM User ${LzIAMUserName}.
+
+
+</code></pre>
         </li>
     </ol> 
     <p>The welcome.txt file has content that looks something like this:
@@ -78,10 +82,6 @@ Processing Complete</code></pre>
         and move that account into the Dev Organizational Unit. The script also 
         created a Developers group and in the new Dev Account, created a new IAM 
         User for the developer and assigned that IAM User to the Developers group. 
-    </p>
-    <p>The pre-defined Serverless Stack names are required to associate necessary 
-        IAM permissions to the Developers IAM User account to successfully publish 
-        Serverless Stacks.
     </p>
        
 </div>
