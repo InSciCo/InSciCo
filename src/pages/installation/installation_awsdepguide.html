@@ -10,13 +10,48 @@ topic: GettingStarted
             will do and what resources and skills you need to perform the install.
         </p>
         <ul>
-            <li>Use Cases:
+            <li>1. Technical Skills and Knowledge
                 <ul>
-                    <li>Use Case: Install SMF
+                    <li>Some basic experience installing software on a workstation</li>
+                    <li>Experience running scripts in a command terminal/window</li>
+                    <li>Experience editing text files</li>
+                    <li>We recommend having reviewed AWS Getting Started Guides</li>
+                </ul>
+            </li>
+            <br>            
+            <li>2. Use Cases:
+                <ul>
+                    <li>2.1 Use Case: Install SMF<br>
+                        
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- Workstation running an OS supporting PowerShell, .NET, AWS CLI, and AWS SAM CLI (ex: Windows 10, Linux, MacOS)</li>
+                                    <li>- Administrative workstation access to install and run software</li>
+                                    <li>- Credit card for creating AWS Management Account</li>
+                                    <li>- Unique email addresses (or aliases) for each AWS Account being created</li>
+                                    <li>- GitHub Repo (for steps 3 and 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul>Time To Complete
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 1 - 10 minutes</li>
+                                    <li>- SMF Step 2 - 2 minutes</li>
+                                    <li>- SMF Step 3 - 2 minutes (optional)</li>
+                                    <li>- SMF Step 4 - 2 minutes (optional)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul>Costs - None</ul>
+                        <br>
                         <ul> These actions are performed on the Management Workstation
                             and/or AWS Console. Much of the following configuration are are automated with PowerShell
                             scripts.
-                            <li>Step 1- Create AWS Organization
+                            <li>SMF Step 1- Create AWS Organization
                                 <ul>
                                     <li>1.1 Configure Management Workstation
                                         <ul>
@@ -46,7 +81,8 @@ topic: GettingStarted
                                     </li>
                                 </ul>
                             </li>
-                            <li>Step 2 - Create Developer Account<br>
+                            <br>
+                            <li>SMF Step 2 - Create Developer Account<br>
                                 <ul>
                                     <li>Run Dev_Account_Create.ps1 script to:
                                         <ul>
@@ -62,8 +98,8 @@ topic: GettingStarted
                                     </li>
                                 </ul>
                             </li>
-
-                            <li>Step 3 - Create System Test Account<br>
+                            <br>
+                            <li>SMF Step 3 - Create System Test Account<br>
                                 <ul>
                                     <li>Run Test_Account_Create.ps1 script to:
                                         <ul>
@@ -91,7 +127,8 @@ topic: GettingStarted
                                     </li>
                                 </ul>
                             </li>
-                            <li>Step 4 - Create System Production Account<br>
+                            <br>
+                            <li>SMF Step 4 - Create System Production Account<br>
                                 <ul>
                                     <li>Run Prod_Account_Create.ps1 script to:
                                         <ul>
@@ -123,26 +160,55 @@ topic: GettingStarted
                         </ul>
                     </li>
                     <br>
-                    <li>Use Case: Developer Publishes a Stack to their Development Account
+                    <li>2.2 Use Case: Developer Publishes a Stack to their Development Account<br>
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- Development Workstation Configuration Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
                         <ul>
                             <li>Publish stack using AWS Toolkit Extension for Visual Studio IDE (Windows)</li>
                             <li>Publish stack using AWS SAM CLI</li>
                         </ul>
                     </li>
                     <br>
-                    <li>Use Case: Developer Creates GitHub Pull Request
+                    <li>2.3 Use Case: Developer Creates GitHub Pull Request
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 3 Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
                         <ul>
                             <li>Test Account CodeBuild Project publishes stack for PR</li>
                         </ul>
                     </li>
                     <br>
-                    <li>Use Case: Developer Updates GitHub Pull Request
+                    <li>2.4 Use Case: Developer Updates GitHub Pull Request
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 3 Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
                         <ul>
                             <li>Test Account CodeBuild Project updates stack for PR</li>
                         </ul>
                     </li>
                     <br>
-                    <li>Use Case: GitHub Pull Request is merged
+                    <li>2.5 Use Case: GitHub Pull Request is merged
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 3 Complete</li>
+                                    <li>- SMF Step 4 Complete (required only for Production Account Update)</li>
+                                </ul>
+                            </li>
+                        </ul>
                         <ul>
                             <li>Test Account CodeBuild Project deletes stack for PR</li>
                             <li>Prod Account CodeBuild Project creates/updates Production stack</li>
@@ -151,7 +217,7 @@ topic: GettingStarted
                 </ul>
             </li>
             <br>
-            <li>Typical Customer Deployment AWS Resources
+            <li>3. Typical Customer Deployment AWS Resources
                 <ul>
                     <li>AWS Organization
                         <ul>
@@ -297,56 +363,14 @@ topic: GettingStarted
                 </ul>
             </li>
             <br>
-            <li>Deployment Naming
+            <li>4. Deployment Naming
                 <ul>
                     <li>OrgCode prefix to be used for organizational units and accounts</li>
                     <li>SysCode prefix to be used for system test and system production accounts</li>
                 </ul>
             </li>
             <br>
-            <li>Expected Time for Deployment
-                <ul>
-                    <li>SMF Part 1 - </li>
-                    <li>SMF Part 2 - </li>
-                    <li>SMF Part 3 - </li>
-                    <li>SMF Part 4 - </li>
-                </ul>
-            </li>
-            <br>
-            <li>Technical Prerequisites and Requirements
-                <ul>
-                    <li>Management Workstation with internet access and operating system compatible with PowerShell, AWS
-                        CLI, and AWS SAM CLI</li>
-                    <li>AWS Account Creation requirements
-                        <ul>
-                            <li>Unique email address (or alias) for each account</li>
-                            <li>Credit Card</li>
-                            <li>If you are creating more than 4 accounts (Mgmt, 1st Dev Account, Test Account, and Prod
-                                Account) then you will need to request AWS increase the maximum number of accounts in 
-                                your organization beyond the default limit of 4.
-                            </li>
-                        </ul>
-                    </li>
-                    <li>GitHub Account</li>
-                    <li></li>
-                </ul>
-            </li>
-            <br>
-            <li>Technical Skills and Knowledge
-                <ul>
-                    <li>Some basic experience installing software on a workstation</li>
-                    <li>Experience running scripts in a command terminal/window</li>
-                    <li>Experience editing text files</li>
-                    <li>We recommend having reviewed AWS Getting Started Guides</li>
-                </ul>
-            </li>
-            <br>
-            <li>Environmental Configuration <br>
-                There are no special environmental configurations required beyond having a workstation running a
-                operating system supported by PowerShell, AWS CLI and AWS SAM CLI.
-            </li>
-            <br>
-            <li>Architectural Diagrams
+            <li>5. Architectural Diagrams
                 <ul>
                     <li>Software Management Framework Flow<br>
                         <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
@@ -370,8 +394,21 @@ topic: GettingStarted
                 </ul>
             </li>
             <br>
-            <li>Security References</li>
-            <li>AWS Costs</li>
-            <li>AWS Sizing</li>
+            <li>6. Security References
+                <ul>
+                    <li><a href="https://aws.amazon.com/security/security-learning">AWS Cloud Security</a></li>
+                </ul>
+            </li>
+            <li>7. AWS Costs<br>
+                All resources used in the SMF qualify for usage under the free tier
+                <ul>
+                    <li><a href="https://aws.amazon.com/pricing/">AWS Pricing Overview</a></li>
+                </ul>
+            </li>
+            <li>8. AWS Sizing
+                <ul>
+                    <li>Since the SWF is a development tool. Sizing considerations are not relevant for small to medium sized teams.</li>
+                </ul>
+            </li>
         </ul>
 </div>
