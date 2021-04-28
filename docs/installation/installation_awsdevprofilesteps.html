@@ -34,8 +34,10 @@
         <div class=bigcenter-inner>
             <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
             <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
-            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
-            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div><img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg"></img>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
             
             <div style="position: fixed;top:-36px;z-index: 4;">
                 
@@ -265,7 +267,7 @@
 
         <li >
             <a  href="/installation/installation_awsdepguide.html"> &nbsp;&nbsp;&nbsp;
-                <span class="">Deployment Overview</span>
+                <span class="">Deployment Summary</span>
             </a>
         </li>
 
@@ -277,11 +279,11 @@
     <h4>Developer Profile Setup</h4>
     <dl>
         <dt>Prerequisites:</dt>
-        <dd>- Developer Account Creation complete</dd>
-        <dd>- Developer Account IAM Credentials</dd>
+        <dd>- AWS Account</dd>
+        <dd>- AWS Account IAM User Credentials</dd>
          <dt>Estimated Time: 5 minutes</dt> 
         <dt>Estimated Cost: none</dt> 
-        <dt>Perform this step on the Development Workstation.</dt>
+        <dt>Perform this step on a Development Workstation.</dt>
     </dl>  
     
     <p>In this step we create access keys and then use those keys to configure a AWS CLI profile. 
@@ -293,17 +295,18 @@
         anywhere other than the developer's workstation.
     </p>
 
-    <ol>
-
-    </ol>
-    
-
     <p>We strongly recommend that you do NOT use a default profile. Instead, use named profiles.</p>
     <ol>
+        <li>Create an IAM User - if one is not already configured. If the Software Management Framework 
+            (SMF) configuration was performed, you should have received a developers welcome.txt file with the 
+            IAM User credentials in it. If you are using an AWS account not created in the SMF process 
+            then you should <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">create an IAM User</a> in that account. <strong>Using an AWS Account root user login is 
+            not recommended.</strong> 
+        </li>
+        <br>
         <li>Create access keys for IAM User
             <ol type="a">
-                <li>Sign in to the AWS Management Console and open the IAM console at https://console.aws.amazon.com/iam/. The 
-                    information necessary to login into the account was provided in the OrgJoeDev_welcome.txt file.
+                <li>Sign in to the AWS Management Console and open the IAM console at https://console.aws.amazon.com/iam/.
                 </li>
                 <li>In the navigation pane, choose Users.</li>
                 <li>Choose the name of the user whose access keys you want to create, and then choose the Security credentials tab.</li>
