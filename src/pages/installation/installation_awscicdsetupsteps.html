@@ -5,22 +5,30 @@ topic: GettingStarted
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h4>Setup Continuous Integration and Continuous Deployment for Test Account Stack</h4>
+    <h4>Setup Continuous Integration and Continuous Deployment for System Test Account Stack</h4>
     <dl>
         <dt>Prerequisites:</dt>
         <dd>- Test Account Setup complete</dd>
-        <dd>- A GitHub Repository you want to use</dd>
-        <dt>Estimated Time: 10 minutes</dt> 
+        <dd>- A GitHub Repository containing a serverless application stack</dd>
+        <dt>Estimated Time: 2 minutes</dt> 
         <dt>Estimated Cost: none</dt> 
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>  
+    <p>This script deploys two CodeBuild project stacks to a System Test Account:</p>
+    <ul>
+        <li>Test_CodeBuild_Create.yaml defines the first CodeBuild project stack</li>
+        <li>Test_CodeBuild_Merge.yaml defines the second CodeBuild project stack</li>
+    </ul>
+    <p>Each project is associated with a GitHub repository containing a serverless application stack.
+        Test_CodeBuild_Create.yaml defines a CodeBuild project stack that builds, tests and publishes
+        an application stack when a Pull Request is created or updated in the GitHub repository.
+        The published stack is called the PR stack. The stack is named based on the 
+        PR branch name.
+        Test_CodeBuild_Merge.yaml defines a CodeBuild project stack that deletes an application stack
+        when a Pull Request is merged in the GitHub application repository.</p>
 
-    <p>This step assumes you have created an GitHub application repository and now 
-        want to publish production stacks from that repository. If you 
-        don't have a repository yet, no worries - you can come back to this step later on.
-    </p>
     
-    <p>You repeat this step for each GitHub repository you want to use in your SMF.</p>
+    <p>You repeat this step for each GitHub repository used in a Test System Account.</p>
 
     <ol>
         <li>If you do not already have a CodeBuild GitHub Connection for the Test Account, follow these steps to create
@@ -42,7 +50,48 @@ topic: GettingStarted
             </ol>
         </li>
         <br>
-        <li>Run Test_CICD_Projects_Install.ps1 script.</li>
-    </ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
+        <li>Execute the Test_CodeBuild_Deploy.ps1 script. 
+            <pre><code class="language-bashshell">. .\Test_CodeBuild_Deploy.ps1</code></pre><br>
+            Here is a script run with sample inputs:
+            <pre><code class="language-bashshell">
+Test_CodeBuild_Deploy.ps1 - V1.0.0
+This script deploys two CodeBuild project stacks to a System Test Account.
+   - Test_CodeBuild_Create.yaml defines the first CodeBuild project stack
+   - Test_CodeBuild_Merge.yaml defines the second CodeBuild project stack
+Each project is associated with a GitHub repository containing a serverless application stack.
 
+Test_CodeBuild_Create.yaml defines a CodeBuild project stack that builds, tests and publishes
+an application stack when a Pull Request is created or updated in the GitHub repository.
+The published stack is called the PR stack. The stack is named based on the PR branch name.
+
+Test_CodeBuild_Merge.yaml defines a CodeBuild project stack that deletes an application stack
+when a Pull Request is merged in the GitHub application repository.
+
+Note: Press return to accept a default values.
+Enter your OrgCode: Az
+Enter your AWS CLI Management Account Profile (default: AzMgmt):
+Enter Region (default us-east-1):
+Enter the SysCode (ex: Pet):
+Enter the System Test Account Name (default: AzPetTest):
+Enter the application stack's GitHub Repo URL (example: https://github.com/myorg/myrepo.git): https://github.com/myorg.petstore.git
+Enter your repo short name (default: petstore):
+Please Test and confirm the following:
+    OrgCode: Az 
+    SysCode: Pet
+    AWS CLI Management Account Profile: AzMgmt
+    AWS Region: us-east-1
+    System Test Account name: AzPetMgmt
+    GitHub Repo URL: https://github.com/myorg.petstore.git
+    Repo short name: petstore
+    CodeBuild PR Create project stack name: petstore_pr_create
+    CodeBuild PR Merge project stack name: petstore_pr_merge
+Continue y/n y
+Processing Starting
+Deploying petstore_pr_create AWS CodeBuild project to AzPetTest account.
+Deploying petstore_pr_merge AWS CodeBuild project to AzPetTest account.
+Processing Complete</code></pre>
+        </li>
+    </ol>
 </div>
