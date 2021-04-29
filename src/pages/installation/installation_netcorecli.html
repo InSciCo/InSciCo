@@ -16,7 +16,8 @@ install: dev
         <li><a href="https://dotnet.microsoft.com/download/dotnet/5.0" {{> newtab}}>
             Install .NET 5.0 SDK</a> 
         - make sure you have the SDK installed, not just the runtime.</li>
-        <li>Open a console and issue this command:
+        <li>Open a console and issue these commands:
+        <pre><code class="language-bash">dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org</code></pre>
         <pre><code class="language-bash">dotnet tool install lazystackapp -g</code></pre>
         </li>
 </ol>  
@@ -25,20 +26,5 @@ install: dev
     <p>To update to the latest LazyStack generator, open a console and issue this command</p>
     <pre><code class="language-bash">dotnet tool update lazystackapp -g
 </code></pre>    
-<h4>LazyStack Tool Synopsis</h4>
-<h5>Generate Projects</h5>
-<pre><code class="language-bash">lazystack projects [&lt;solutionfilepath>] </code></pre>
-<p>If this command is executed in the solution folder then the solutionfile path is not required as the .sln file will be used.</p>
-<p>This command ingests your application's OpenAPI specification to generate your C# projects and Serverless 
-    Application Model (SAM) file(s). In addition, LazyStack reads generator "directives" from your 
-    application's LazyStack.yaml file to control various generation options. </p>
-<p>Note that your applications OpenAPI specification must have the same name as the solution file but have 
-    a .yaml suffix.</p>
 
-<h5>Generate AwsSettings file</h5>
-<pre><code class="language-bash">lazystack settings &lt;stackname> [&lt;filepath>] [-p &lt;profilename>]</code></pre>
-<p>This command uses AWS Cloud Formation to retrieve settings from the specified &lt;stackname> and then write these settings 
-    out to "AwsSettings.json" or to the specified &lt;filepath>. Your "default" AWS profile will be used unless you specify 
-    a different profile with the -p option.
-</p>
 </div>
