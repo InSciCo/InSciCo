@@ -12,15 +12,15 @@ tutorial: VSMac
     the LazyStack.yaml configuration directives in detail, here is a high-level summary of what we need to do:
 </p>
 <ul>
-    <li>Use <a href="/generator/generator_apitagmap.html">ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
-    <li>Use <a href="/generator/generator_projectoptions.html">ProjectOptions</a> directive to configure these project options
+    <li>Use <a href="/userguide/generator_apitagmap.html"{{>newtab}}>ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
+    <li>Use <a href="/userguide/generator_projectoptions.html"{{>newtab}}>ProjectOptions</a> directive to configure these project options
         <ul>
-            <li><a href="/generator/generator_properties.html">Properties</a></li>
-            <li><a href="/generator/generator_projectreferences.html">ProjectReferences</a> - tell Lambda projects and WebApi projects about the new PetStoreRepo project.</li>
-            <li><a href="/generator/generator_serviceregistrations.html">ServiceRegistrations</a> - use dependency injection to get instances of PetStoreRepo and DynamoDB.</li>
+            <li><a href="/userguide/generator_properties.html"{{>newtab}}>Properties</a></li>
+            <li><a href="/userguide/generator_projectreferences.html"{{>newtab}}>ProjectReferences</a> - tell Lambda projects and WebApi projects about the new PetStoreRepo project.</li>
+            <li><a href="/userguide/generator_serviceregistrations.html"{{>newtab}}>ServiceRegistrations</a> - use dependency injection to get instances of PetStoreRepo and DynamoDB.</li>
         </ul>
     </li>
-    <li>Use <a href="/generator/generator_awsresources.html">AwsResources</a> directive to define AWS::DynamoDB::Table resource for our stack.</li>
+    <li>Use <a href="/userguide/generator_awsresources.html"{{>newtab}}>AwsResources</a> directive to define AWS::DynamoDB::Table resource for our stack.</li>
 </ul>
 <p>When you execute LazyStack - Generate Projects, the following projects are regenerated:</p>
 <ul>

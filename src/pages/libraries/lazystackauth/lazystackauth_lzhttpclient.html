@@ -1,20 +1,20 @@
 ---
 layout: docpage
-section: Libraries
-topic: LzHttpClient
+section: UserGuide
+topic: libraries
 libraries: lazystackauth
 ---
-{{> libraries_menu}}
+{{> userguide_menu}}
 <div class=lz-r-content> 
 <h4>LzHttpClient Class</h4>
 <p>The LzHttpClient class is responsible for making signed and unsigned calls to AWS ApiGateways. 
     There are two types of signed HttpRequests used in LazyStack calls to AWS Gateways:</p> 
     <ul>
-        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-controlling-access-to-apis.html">
+        <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-controlling-access-to-apis.html"{{>newtab}}>
         JWT token</a> - typically used by AWS::Serverless:HttpApi ApiGateways</li>
-        <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">AWS Signature Version 4</a>
+        <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html"{{>newtab}}>AWS Signature Version 4</a>
              - highly secure option for AWS::Serverless::Api ApiGateways 
-            <p><i>LzHttpClient uses the very well engineered <a href="https://github.com/FantasticFiasco/aws-signature-version-4">
+            <p><i>LzHttpClient uses the very well engineered <a href="https://github.com/FantasticFiasco/aws-signature-version-4"{{>newtab}}>
                 AwsSignatureVersion4</a> library to sign these types of requests.</i></p></li>
     </ul>
 </p>
@@ -240,7 +240,7 @@ namespace LazyStackAuth
 
 <h5>How does LzHttpClass know what security scheme to apply on the call?</h5>
 <p>The LzHttpClass reads the "Aws" section in appConfig. The AwsSettings include connection and security information for 
-    each ApiGateway used in the stack. See the <a href="/clientsdk/clientsdk_awssettings.html">AwsSettings</a> documentation 
+    each ApiGateway used in the stack. See the <a href="/clientsdk/clientsdk_awssettings.html"{{>newtab}}>AwsSettings</a> documentation 
     for details on this configuration.
 </p>
 <h5>How dow we configure LzHttpClass to call a the local WebApi?</h5>
@@ -268,7 +268,7 @@ namespace LazyStackAuth
 </p>
 <p>In addition, both the iOS simulator and Android emulator require special handling for the https scheme 
     as explained in the Microsoft documentation 
-    <a href="https://docs.microsoft.com/en-us/xamarin/cross-platform/deploy-test/connect-to-local-web-services">here</a>.
+    <a href="https://docs.microsoft.com/en-us/xamarin/cross-platform/deploy-test/connect-to-local-web-services"{{>newtab}}>here</a>.
 </p>
 <p>
 Attempting to invoke a local secure web service from an application running in the iOS simulator 

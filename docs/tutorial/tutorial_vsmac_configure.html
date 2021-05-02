@@ -104,30 +104,8 @@
                         </a>
                       </li>
                 
-                
-                      <li id="stacks">
-                        <a href="/stacks/stacks_overview.html">
-                          <span class="">Stacks</span>
-                        </a>
-                      </li>
-                
-                      <li id="clientsdkdocs">
-                        <a href="/clientsdk/clientsdk_overview.html">
-                          <span class="">ClientSDK</span>
-                        </a>
-                      </li>
-                
-                
-                
-                      <li id="libraries">
-                        <a href="/libraries/libraries_overview.html">
-                          <span class="">Libraries</span>
-                        </a>
-                      </li>
-                
-                
-                      <li id="generatordocs">
-                        <a href="/generator/userguide_overview.html">
+                      <li id="userguide">
+                        <a href="/userguide/userguide_overview.html">
                             <span class="">User Guide</span>
                         </a>
                       </li>
@@ -138,14 +116,15 @@
                         </a>
                       </li>
                 
-                
-                
                       <li id="contact">
                         <a href="/contact/contact_contact.html">
                             <span class="">Contact</span>
                         </a>
                       </li>
                     </ul>
+                
+                
+                
                 </div>            </div>
             <div class=lz-r-legal-notice style="max-width:1500px;">
                 <div style="display:flex; width: 150px;justify-content: space-between;">
@@ -358,15 +337,15 @@
     the LazyStack.yaml configuration directives in detail, here is a high-level summary of what we need to do:
 </p>
 <ul>
-    <li>Use <a href="/generator/generator_apitagmap.html">ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
-    <li>Use <a href="/generator/generator_projectoptions.html">ProjectOptions</a> directive to configure these project options
+    <li>Use <a href="/userguide/generator_apitagmap.html"target="_blank" rel="noopener noreferrer">ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
+    <li>Use <a href="/userguide/generator_projectoptions.html"target="_blank" rel="noopener noreferrer">ProjectOptions</a> directive to configure these project options
         <ul>
-            <li><a href="/generator/generator_properties.html">Properties</a></li>
-            <li><a href="/generator/generator_projectreferences.html">ProjectReferences</a> - tell Lambda projects and WebApi projects about the new PetStoreRepo project.</li>
-            <li><a href="/generator/generator_serviceregistrations.html">ServiceRegistrations</a> - use dependency injection to get instances of PetStoreRepo and DynamoDB.</li>
+            <li><a href="/userguide/generator_properties.html"target="_blank" rel="noopener noreferrer">Properties</a></li>
+            <li><a href="/userguide/generator_projectreferences.html"target="_blank" rel="noopener noreferrer">ProjectReferences</a> - tell Lambda projects and WebApi projects about the new PetStoreRepo project.</li>
+            <li><a href="/userguide/generator_serviceregistrations.html"target="_blank" rel="noopener noreferrer">ServiceRegistrations</a> - use dependency injection to get instances of PetStoreRepo and DynamoDB.</li>
         </ul>
     </li>
-    <li>Use <a href="/generator/generator_awsresources.html">AwsResources</a> directive to define AWS::DynamoDB::Table resource for our stack.</li>
+    <li>Use <a href="/userguide/generator_awsresources.html"target="_blank" rel="noopener noreferrer">AwsResources</a> directive to define AWS::DynamoDB::Table resource for our stack.</li>
 </ul>
 <p>When you execute LazyStack - Generate Projects, the following projects are regenerated:</p>
 <ul>

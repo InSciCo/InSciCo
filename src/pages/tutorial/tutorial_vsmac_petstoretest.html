@@ -137,13 +137,13 @@ tutorial: VSMac
         insights into how you should use the libraries in your client apps. Take note of the 
     following implementation elements:</p>
     <ul>
-        <li><a href="/clientsdk/clientsdk_awssettings.html">AwsSettings.json</a> is an embedded resource 
+        <li><a href="/clientsdk/clientsdk_awssettings.html"{{>newtab}}>AwsSettings.json</a> is an embedded resource 
             that is loaded by ConfigurationBuilder. This embedded resource 
             references \Stacks\Dev\AwsSettings.json. In a client app, you would introduce condition logic in the 
             csproj file to use \Stacks\Prod\AwsSettings.json for release builds or just distribute the AwsSettings.json 
             file separately to developers using the PetStoreClientSDK.
         </li>
-        <li><a href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages.json</a> is a embedded 
+        <li><a href="/libraries/lazystackauth/lazystackauth_authmessages.html"{{>newtab}}>AuthMessages.json</a> is a embedded 
             resource that is loaded by ConfigurationBuilder. Extend 
             this file with new message sets by language to localize the messages emitted by the AuthProcess class.
             This test does not demonstrate the use of AuthProcess messages but later Tutorial steps will.
@@ -151,14 +151,14 @@ tutorial: VSMac
         <li>Dependency injection is used in this test to demonstrate the service registration of 
             IAuthProcess and IAuthProvider. 
         </li>
-        <li><a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a> is an important 
+        <li><a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html"{{>newtab}}>LazyStackAuth</a> is an important 
             library in this project.
             <ul>
                 <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
                     to see much more extensive integration tests for AuthProcess, view the 
                     <a href="https://github.com/InSciCo/LazyStack" {{>newtab}}>LazyStack</a> repo on GitHub.
                 </li>
-                <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a> class 
+                <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html"{{>newtab}}>LzHttpClient</a> class 
                     implements the logic necessary for your client to make secure calls to the AWS Stack ApiGateways. 
                     The LzHttpClient class uses the Aws, LoadApis and 
                     MethodMap sections in the appConfig.

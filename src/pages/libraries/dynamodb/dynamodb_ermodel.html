@@ -1,10 +1,10 @@
 ---
 layout: docpage
-section: Libraries
-topic: DynamoDB Overview
+section: UserGuide
+topic: libraries
 libraries: dynamodb
 ---
-{{> libraries_menu}}
+{{> userguide_menu}}
 <div class=lz-r-content>
     <h3>DynamoDB PetStore ER Model</h3>
     <p>The OpenApi PetStore.yaml schema specification defines "only" the form of the data to be exchanged among the service and 
@@ -13,7 +13,7 @@ libraries: dynamodb
         of the data exchanged in the PetStore application, we can derive a more general Entity Relation (ER) model of that data.
         This model will be used to discuss how data is eventually stored in the DynamoDB NoSQL database.
     </p>
-    <p>Here is a simple "crow's foot" ER model derived from the <a href="/stacks/stacks_openapi.html">PetStore OpenApi specification</a> 
+    <p>Here is a simple "crow's foot" ER model derived from the <a href="/stacks/stacks_openapi.html"{{>newtab}}>PetStore OpenApi specification</a> 
     components section.</p>
     <img src="/assets/img/PetStoreERD.svg">
 
