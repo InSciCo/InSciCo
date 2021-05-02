@@ -1,0 +1,427 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#devtools_visualstudio_mac").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                
+                    <div style=
+                        "position:fixed; 
+                        top: 17px;
+                        left: 16px;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .71);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Install</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/userguide_overview.html">
+                            <span class="">User Guide</span>
+                        </a>
+                      </li>
+                
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">GettingStarted</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up"  style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
+
+        <li>
+            <a href="/installation/installation_overview.html">
+                <span class="">Overview</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/installation/smf_overview.html">
+                <span class="">Configure LazyStack SMF</span>
+            </a>
+        </li>
+
+        <div style="display: none">
+            <ul>
+                <li>
+                    <a href="/installation/smf_create_org_overview.html"> 
+                        <span class="">Step 1 - Create
+                            AWS
+                            Org</span>
+                    </a>
+                </li>
+                <ul>
+                    <li>
+                        <a href="/installation/smf_config_mgmt_ws.html"> 
+                            <span class="">1.1 Configure
+                                Mgmt.
+                                Workstation</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_create_mgmt_acct.html"> 
+                            <span class="">1.2 Create
+                                Mgmt. 
+                                Acct.</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_create_org.html"> 
+                            <span class="">1.3
+                                Create
+                                Organization</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_create_github_acct.html"> 
+                            <span class="">1.4
+                                Create GitHub Account</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <li>
+                    <a href="/installation/smf_add_dev.html"> 
+                        <span class="">Step 2 -
+                            Add Developers</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/smf_create_dev_acct.html"> 
+                            <span class="">2.1 
+                                Create
+                                Dev Account</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_config_dev_ws.html"> 
+                            <span class="">2.2
+                                Conf. Dev. Workstation</span>
+                        </a>
+                    </li>
+
+                </ul>
+    
+                <li>
+                    <a href="/installation/smf_create_system.html"> 
+                        <span class="">Step 3 -
+                            Create System</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/smf_create_test_acct.html"> 
+                            <span class="">3.1 
+                                Create Test Acct.</span>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/installation/smf_create_prod_acct.html"> 
+                            <span class="">3.2 
+                                Create Prod Acct.</span>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <li>
+                    <a href="/installation/smf_create_stack.html">
+                        
+                        <span class="">Step 4 -
+                            Create Stack</span>
+                    </a>
+                </li>
+                <ul>
+                    <li>
+                        <a href="/installation/smf_create_repo.html">
+                            
+                            <span class="">4.1 
+                                Create GitHub Repository</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_test_cicd.html">
+                            
+                            <span class="">4.2 
+                                Config Test CI/CD</span>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="/installation/smf_prod_cd.html">
+                            
+                            <span class="">
+                                4.3 Config Prod CD</span>
+                        </a>
+                    </li>
+    
+                </ul>
+
+                <li>
+                    <a href="/installation/installation_awsdepguide.html"> 
+                        <span class="">Deployment
+                            Summary</span>
+                    </a>
+                </li>
+           </ul>
+        </div>
+        <li>
+            <a href="/installation/devtools_config_dev_ws.html">
+                <span class="">Configure Developer
+                    Workstation</span>
+            </a>
+        </li>
+
+        <div style="display: inline">
+            <ul>
+                <li>
+                    <a href="/installation/devtools_config_dev_profile.html"> 
+                        <span class="">Step 1 -
+                            Config Dev Profile</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/installation/devtools_netcore_cli.html">
+                        <span class="">Step 2 - .NET CLI
+                            Tool</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/installation/devtools_visualstudio.html">
+                        <span>Step 3 - Visual Studio IDE</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/devtools_visualstudio.html">
+                            <span class="">Step 3.1 - VS
+                                IDE Windows</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/devtools_visualstudio_mac.html">
+                            <span class="lz-r-topicitem">Step 3.2
+                                - VS IDE MacOS</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+
+    </ul>
+</div><div class=lz-r-content>
+    <h3>Dev WS 3.2 LazyStack for Visual Studio MacOS</h3>
+    <h4>Install Steps</h4>
+    <p>Prerequisites: AWS Account, AWS CLI, AWS SAM CLI, .NET CLI, and LazyStack .NET CLI Tool.</p>
+    <ol>
+        <li><a href="https://visualstudio.microsoft.com/downloads/" 
+            target="_blank" rel="noopener noreferrer">Install/Update Visual Studio 2019 for Mac</a>      
+    <li>Configure Visual Studio for Mac External Tools
+    <ol>
+        <li>Open Visual Studio for Mac</li>
+        <li>Add LazyStack -- Generate Projects tool
+            <ol type="a">
+                <li>Select Tools&rightarrow;Edit Custom Tools. The External Tools Panel appears.</li>
+                <li>Click the Add button. "New Tool" is added to the tools list.</li>
+                <li>Select "New Tool".</li>
+                <li>Edit Title to read "LazyStack - Generate Projects"</li>
+                <li>Edit Command to read "/Users/yourlogin/.dotnet/lazystack". Be sure to replace yourlogin with your mac user name.</li>
+                <li>Edit Arguments to read "projects"</li>
+                <li>Edit Working Directory to read "${SolutionDir}"".</li>
+                <li>Make sure Use output Window is checked.</li>
+            </ol>
+        </li>
+        <li>Add SAM Publish AWS Stack tool
+            <ol type="a">
+                <li>Click the Add button. "New Tool" is added to the tools list.</li>
+                <li>Select "New Tool".</li>
+                <li>Edit Title to read "SAM Publish AWS Stack"</li>
+                <li>Edit Command to read "sam".</li>
+                <li>Edit Arguments to read "deploy -t Stacks/Dev/serverless.template --stack-name ${SolutionName}Dev --s3-bucket samimages --capabilities CAPABILITY_NAMED_IAM"</li>
+                <li>Edit Working Directory to read "${SolutionDir}"".</li>
+                <li>Make sure Use output Window is checked.</li>
+            </ol>
+        </li>
+        <li>Add LazyStack -- Generate Stacks\Dev\AwsSettings.json tool
+            <ol type="a">
+                <li>Click the Add button. "New Tool" is added to the tools list.</li>
+                <li>Select "New Tool".</li>
+                <li>Edit Title to read "LazyStack - Generate Stacks\Dev\AwsSettings.json"</li>
+                <li>Edit Command to read "/Users/yourlogin/.dotnet/lazystack". Be sure to replace yourlogin with your mac user name.</li>
+                <li>Edit Arguments to read "settings ${SolutionName}Dev Stacks/Dev/AwsSettings.json"</li>
+                <li>Edit Working Directory to read "${SolutionDir}"".</li>
+                <li>Make sure Use output Window is checked.</li>
+                <li>Click the OK button. The External Tools Pannel closes.</li>
+            </ol>
+        </li>
+        <li>Use AWS CLI to add a S3 samimages bucket
+            <ol type="a">
+                <li>Open a Terminal.</li>
+                <li>Enter the following command: (change the region to match your region)
+                    <pre><code class="language-bash">aws s3api create-bucket --bucket samimages --region us-east-1 --acl private</code></pre>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    </li>
+    </ol>    
+</div>
+ 
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

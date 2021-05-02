@@ -1,0 +1,518 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#old_smf_test_cicd").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                
+                    <div style=
+                        "position:fixed; 
+                        top: 17px;
+                        left: 16px;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .71);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Install</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="stacks">
+                        <a href="/stacks/stacks_overview.html">
+                          <span class="">Stacks</span>
+                        </a>
+                      </li>
+                
+                      <li id="clientsdkdocs">
+                        <a href="/clientsdk/clientsdk_overview.html">
+                          <span class="">ClientSDK</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="libraries">
+                        <a href="/libraries/libraries_overview.html">
+                          <span class="">Libraries</span>
+                        </a>
+                      </li>
+                
+                
+                      <li id="generatordocs">
+                        <a href="/generator/userguide_overview.html">
+                            <span class="">User Guide</span>
+                        </a>
+                      </li>
+                
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">GettingStarted</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up"  style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
+
+        <li>
+            <a href="/installation/installation_overview.html">
+                <span class="">Overview</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/installation/smf_overview.html">
+                <span class="">Configure LazyStack SMF</span>
+            </a>
+        </li>
+
+        <div style="display: none">
+            <ul>
+                <li>
+                    <a href="/installation/smf_create_org_overview.html"> 
+                        <span class="">Step 1 - Create
+                            AWS
+                            Org</span>
+                    </a>
+                </li>
+                <ul>
+                    <li>
+                        <a href="/installation/smf_config_mgmt_ws.html"> 
+                            <span class="">1.1 Configure
+                                Mgmt.
+                                Workstation</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_create_mgmt_acct.html"> 
+                            <span class="">1.2 Create
+                                Mgmt. 
+                                Acct.</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_create_org.html"> 
+                            <span class="">1.3
+                                Create
+                                Organization</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_create_github_acct.html"> 
+                            <span class="">1.4
+                                Create GitHub Account</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <li>
+                    <a href="/installation/smf_add_dev.html"> 
+                        <span class="">Step 2 -
+                            Add Developers</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/smf_create_dev_acct.html"> 
+                            <span class="">2.1 
+                                Create
+                                Dev Account</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_config_dev_ws.html"> 
+                            <span class="">2.2
+                                Conf. Dev. Workstation</span>
+                        </a>
+                    </li>
+
+                </ul>
+    
+                <li>
+                    <a href="/installation/smf_create_system.html"> 
+                        <span class="">Step 3 -
+                            Create System</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/smf_create_test_acct.html"> 
+                            <span class="">3.1 
+                                Create Test Acct.</span>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/installation/smf_create_prod_acct.html"> 
+                            <span class="">3.2 
+                                Create Prod Acct.</span>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <li>
+                    <a href="/installation/smf_create_stack.html">
+                        
+                        <span class="">Step 4 -
+                            Create Stack</span>
+                    </a>
+                </li>
+                <ul>
+                    <li>
+                        <a href="/installation/smf_create_repo.html">
+                            
+                            <span class="">4.1 
+                                Create GitHub Repository</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/smf_test_cicd.html">
+                            
+                            <span class="">4.2 
+                                Config Test CI/CD</span>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="/installation/smf_prod_cd.html">
+                            
+                            <span class="">
+                                4.3 Config Prod CD</span>
+                        </a>
+                    </li>
+    
+                </ul>
+
+                <li>
+                    <a href="/installation/installation_awsdepguide.html"> 
+                        <span class="">Deployment
+                            Summary</span>
+                    </a>
+                </li>
+           </ul>
+        </div>
+        <li>
+            <a href="/installation/devtools_config_dev_ws.html">
+                <span class="">Configure Developer
+                    Workstation</span>
+            </a>
+        </li>
+
+        <div style="display: none">
+            <ul>
+                <li>
+                    <a href="/installation/devtools_config_dev_profile.html"> 
+                        <span class="">Step 1 -
+                            Config Dev Profile</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/installation/devtools_netcore_cli.html">
+                        <span class="">Step 2 - .NET CLI
+                            Tool</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/installation/devtools_visualstudio.html">
+                        <span>Step 3 - Visual Studio IDE</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/devtools_visualstudio.html">
+                            <span class="">Step 3.1 - VS
+                                IDE Windows</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/devtools_visualstudio_mac.html">
+                            <span class="">Step 3.2
+                                - VS IDE MacOS</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+
+    </ul>
+</div><div class=lz-r-content>
+    <h4>AWS CI/CD Environment Overview</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Prod and Test Account Setup complete</dd>
+        <dd>- GitHub application repository(s)</dd>
+        <dt>Estimated Time: 5 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>    
+
+    <p><strong>You must have a GitHub repository for your application before you can install CI/CD into 
+        the Test or Prod accounts. You do not need to do this right away! In addition, you may install 
+        the CI/CD for the Test Environment and run that for awhile before you install the 
+        CI/CD for the Production Environment.</strong></p>
+        <p><strong>We recommend that you stop here and run through the LazyStack Tutorial. We provide a 
+            section in the LazyStack tutorial demonstrating the creation of a GitHub 
+            repository for the PetStore app and then configuring CI/CD for the Test and Production accounts 
+            in your organization. This allows you to exercise the entire SMF workflow before using it in 
+            a real application. </strong>
+        </p>
+    <p>Setting up team collaboration with Continuous Integration / Continuous Deployment is  
+        easily accomplished using GitHub and AWS CodeBuild. 
+        <ul>
+            <li>Continuous Integration automates building and testing a codebase changes prior to submitting those 
+                changes for approval.</li>
+            <li>Continuous Deployment automates deploying "stacks" into Test and Production accounts.</li>
+        </ul>
+    </p>
+    <p>We provide LazyStack scrips to automate the creation of the required CodeBuild projects.  These scripts 
+        assume that you have separate GitHub repositories for each serverless application stack you need in production. 
+        Consider this example where we have a consumer stack and a back office stack:
+    </p>
+    <img src="/assets/img/LazyStackSMF5.svg" width="100%">
+    <p>Each stack is associated with a specific repository branch:</p>
+    <ul>
+        <li>GitHub Consumer Project Repository
+            <ul>
+                <li>Pull Request Branch updates OrgTest Consumer Stack</li>
+                <li>Main Branch updates OrgProd Consumer Stack</li>
+            </ul>
+        </li>
+        <li>GitHub Backoffice Project Repository
+            <ul>
+                <li>Pull Request Branch updates OrgTest BackOffice Stack</li>
+                <li>Main Branch updates OrgProd BackOffice Stack</li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+    <h5>GitHub, Feature Branch Workflow and AWS CodeBuild with Visual Studio IDE</h5>
+
+    <p>To allow this guide to be immediately practical and easily implemented, we assume you 
+        will use Git for version control, a GitHub account to host your Git shared repository, and a simple 
+        Feature Branch Workflow with GitHub Pull Requests to manage team collaboration.
+        Focusing on this popular combination allows us to offer concrete and very specific usage instructions 
+        along with AWS CodeBuild projects to implement CI/CD. Other work flows and Git repository services 
+        may be used but each requires a different configuration. The diagram below illustrates this flow 
+        with the Visual Studio IDE.</p>
+
+    <img src="/assets/img/SDLCFeatureflowVSIDE.svg">
+    <p></p>
+    <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
+
+    <h5>GitHub, Feature Branch Workflow and CodeBuild with detailed Git Commands</h5>
+    <p>The diagrams below illustrates the detailed <code class="language-bashshell">git</code> commands and GitHub 
+        Pull Requests UI perform create/merge/delete on Git branches. These commands are hidden from the 
+        developer when using the Visual Studio IDE and GitHub PR Merge process. You will need these commands 
+        if you are working in the .NET CLI with no IDE. 
+    </p> 
+    <img src="/assets/img/SDLCFeatureflow.svg">
+    <p></p>
+
+<!--
+    <p>See the <a href="">SWF Guide</a> for more detail on using the LazyStack SWF.</p>
+
+    <p>Here is a more detailed narrative for this workflow:</p>
+    <ol>
+        <li>Start Feature F1
+            <ol type="a">
+                <li>Developers solution folder is updated with latest content from main.</li>
+                <li>Developer creates a local branch F1 off of remote main branch to work on a new feature.</li>
+            </ol>
+        </li>
+        <li>Local Dev on F1 <br> 
+            Each developer has their own AWS Account. They can use the AWS SAM CLI or the AWS Toolkit for 
+            Visual Studio (Windows) IDE to publish the stack to their own account. This allows rapid 
+            iteration and integration tests in a completely isolated "sandbox".
+        </li>
+        <li>Create PR for F1
+            <ol type = "a">
+                <li>Developer edits code in solution folder.</li>
+                <li>Developer publishes stack to their own account directly from their Solution Folder.</li>
+                <li>Developer pushes F1 as a tracked branch (-u) to GitHub shared repository.</li>
+                <li>Developer creates GitHub Pull Request. GitHub generates a PULL_REQUEST_CREATED event.</li>
+                <li>AWS responds to event by running GitHubReviewCreateUpdate CodeBuild project:
+                    <ol type="i">
+                        <li>Branch F1 is checked out to CodeBuild Container</li>
+                        <li>dotnet build --Configuration Release # Build Solution</li>
+                        <li>dotnet test # Test Solution</li>
+                        <li>sam deploy ... # Create/Update the 'F1' AWS stack in Review Account</li>
+                    </ol>
+                </li>
+                <li>Reviewer reviews F1 code and published F1 stack.</li>
+            </ol>
+        </li>
+        <li>Update PR for F1
+            <ol type="a">
+                <li>Developer updates code to incorporate suggestions from PR Reviewer(s).</li>
+                <li>Developer publishes stack to their own account directly from their Solution Folder.</li>
+                <li>Developer pushes F1 to GitHub shared repository. GitHub generates a PULL_REQUEST_UPDATED event.</li>
+                <li>AWS responds to event by running GitHubReviewCreateUpdate CodeBuild project:
+                    <ol type="i">
+                        <li>Branch F1 is checked out to CodeBuild Container</li>
+                        <li>dotnet build --Configuration Release # Build Solution</li>
+                        <li>dotnet test # Test Solution</li>
+                        <li>sam deploy ... # Create/Update the 'F1' AWS stack in Review Account</li>
+                    </ol>
+                </li>
+                <li>Reviewer review F1 code and published 'F1' stack.</li>
+            </ol>
+        </li>
+        <li>Merge PR for F1
+            <ol type="a">
+                <li>Delete the 'F1' AWS Stack in Review Account</li>
+                <li>Update the 'Prod' AWS Stack in the Prod Account</li>
+            </ol>
+        </li>
+        <li>Finish Up F1
+            <ol type="a">
+                <li>Delete the local F1 branch</li>
+                <li>Checkout the latest main branch</li>
+    
+            </ol>
+        </li>
+    </ol>
+-->
+    <h5>Insights</h5>
+    <p>For more information on Git, the Feature Branch Workflow, and AWS CodeBuild; please review these helpful documentation:
+        <ul>
+            <li><a href="">Git</a></li>
+            <li><a href="">Git Feature Branch Workflow</a></li>
+            <li><a href="">AWS CodeBuild</a></li>
+        </ul>
+    </p>
+
+</div>
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>

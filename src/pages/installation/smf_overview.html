@@ -1,0 +1,63 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+install: smf
+---
+{{> installation_menu}}
+<div class="lz-r-content manual-list">
+    <h3>Configure LazyStack Software Management Framework (SMF)</h4>
+
+        <p>The LazyStack SMF provides an end-to-end Software Management Framework integrating AWS Services, GitHub and the 
+            LazyStack developer tools. Take a close look at the diagram below, we will be following the SMF Setup Steps 1 through 
+            4 to create your first AWS Organization, with one System containing a single serverless application stack. Later, 
+            you use steps 3.1 through 3.2 to add Systems as you need them and use steps 4.1 
+            through 4.3 to add new serverless application stacks to a System as you need them.
+        </p>
+        <img src="/assets/img/LazyStackSMFSetup.svg" width="100%">
+        <p></p>
+            <h4>Configuring your AWS Organization</h4>
+            <p>Follow these steps to prepare the SMF for your team to start doing development.
+            </p>
+            <ul >
+                <li>Step 1 - Create AWS Organization
+                    <ul>
+                        <li>1.1 Configure Management Workstation</li>
+                        <li>1.2 Create AWS Management Account </li>
+                        <li>1.3 Create AWS Organization</li>
+                        <li>1.4 Create GitHub Account(s) - one may be all you need but multiple GitHub Accounts may be used</li>
+                    </ul>
+                </li>
+                <br>
+                <li>Step 2 - Add Developer(s)
+                    <ul>
+                        <li>2.1 Create Developer AWS Account (each developer has their own "sandbox" account)</li>
+                        <li>2.2 Configure Developer's Workstation</li>
+                    </ul>
+                </li>
+                <br>
+                <li>Step 3 - Create System(s)
+                    <ul>
+                        <li>We define a System as a collection of AWS Resources managed together (serverless stacks are AWS Resources). Systems are used to segregate unrelated applications; for example 
+                            different line-of-business, product or customer. System's are managed in two AWS Accounts: Test and Production.
+                        </li>
+                        <li>3.1 Create AWS Test Account for System</li>
+                        <li>3.2 Create AWS Production Account for System</li>
+                    </ul>
+                </li>
+                <br>
+                <li>Step 4 - Create Stack(s)<br>
+                    <ul>
+                        <li>Serverless Stacks are a collection of resources deployed together as a unit. Each Serverless Stack is associated with a single GitHub Repository. 
+                            A System may contain one or more Serverless Stacks.
+                        </li>
+                        <li>4.1 Create GitHub Repository</li>
+                        <li>4.2 Configure Continuous Integration and Continuous Deployment for System Test Account</li>
+                        <li>4.3 Configure Continuous Deployment for System Production Account</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>For a comprehensive overview of the deployment, visit the <a href="/installation/installation_awsdepguide.html">Deployment Summary</a>.</p>
+
+</div>

@@ -9,16 +9,39 @@ intro: tech
     <h3>LazyStack AWS Software Management Framework</h4>
         <p> The LazyStack SMF implements Git Feature Branch Workflow with 
             GitHub Pull Requests driving Continuous Integration and Continuous Deployment of Review 
-            and Production AWS Stacks. Here is a simple overview of the Feature Branch Workflow and 
-            an example of a Feature (F1) developed and merged with a Pull Request into the main branch.
+            and Production AWS Stacks. Here is the workflow for setting up the SMF.
+        </p>
+        <img src="/assets/img/LazyStackSMFSetup.svg" width="700">
+        <p></p>
+
+        <p>Once your SMF is setup, your team follows a simple feature development workflow using 
+             GitHub Pull Requests augmented with Continuous Integration and Continuous Deployment 
+             in the System Test Account and Continuous Deployment in the System Production Account.</p>
+        <img src="/assets/img/LazyStackSMF20.svg" width="600">
+
+        <p></p>
+        <h5>Feature Branch Workflow with GitHub Pull Requests</h5>
+        <p>Here is a more detailed step-by-step description of the Feature Branch Workflow integration 
+            using the GitHub UI and the Visual Studio IDE.
         </p>
         <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
         <p></p>
     
-        <h4>AWS Organization</h4>
-        <p>The LazyStack SMF creates an AWS compliant organization.</p>
-    
-        <img src="/assets/img/LazyStackSMF3.svg" width="100%">
+        <h4>AWS Organization Overview</h4>
+        <p>Use the LazyStack SMF to manage simple single stack systems or more complex organizations 
+            with multiple systems containing multiple stacks.
+        </p>
+        <h5>Single Organization with one System containing one Serverless Stack</h5>
+        <img src="/assets/img/LazyStackSMF3.svg" width="600">
         <p></p>
+        <h5>Single Organization with one System containing two Serverless Stacks</h5>
+
+        <img src="/assets/img/LazyStackSMF5.svg" width="600">
+        <p>Client apps connecting to Developer and System Test accounts not shown to reduce clutter.</p>
+        <p></p>
+
+        <h5>Single Organization with two Systems</h5>
+        <img src="/assets/img/LazyStackSMF6.svg" width="600">
+
 </div>
     

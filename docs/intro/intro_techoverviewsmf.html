@@ -127,7 +127,7 @@
                 
                 
                       <li id="generatordocs">
-                        <a href="/generator/generator_overview.html">
+                        <a href="/generator/userguide_overview.html">
                             <span class="">User Guide</span>
                         </a>
                       </li>
@@ -158,8 +158,8 @@
     <div class="title-bar-title">Tech Overview</div>
 </div>
 
-<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
-    <ul class="vertical menu dropdown">
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
         <li >
             <a  href="/intro/intro.html">
                 <span class="">Business Stakeholder Overview</span>
@@ -167,30 +167,32 @@
         </li>
 
         <div style="display: none">
-            <li>
-                <a  href="/intro/intro_serverless.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Serverless Applications</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a  href="/intro/intro_serverless.html" >
+                    <span class="">Serverless Applications</span>
+                    </a>
+                </li>
 
 
-            <li>
-                <a  href="/intro/intro_smf.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Software Management</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_smf.html" >
+                    <span class="">Software Management</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_mdd.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Accelerated Development</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_mdd.html" >
+                    <span class="">Accelerated Development</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_whylazystack.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Why Choose LazyStack?</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_whylazystack.html" >
+                    <span class="">Why Choose LazyStack?</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <li>
@@ -200,36 +202,38 @@
         </li>
 
         <div style="display: inline">
-            <li>
-                <a  href="/intro/intro_techoverviewsmf.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="lz-r-topicitem">Software Mgmt. Framework</span>
-                </a>
-            </li>        <li>
-                <a  href="/intro/intro_techoverviewtools.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">MDD Developer Tools</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_security.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Security First</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_whynet.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Why .NET?</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_whyaws.html">&nbsp;&nbsp;&nbsp;
-                    <span class="">Why AWS?</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a  href="/intro/intro_techoverviewsmf.html" >
+                        <span class="lz-r-topicitem">Software Mgmt. Framework</span>
+                    </a>
+                </li>        <li>
+                    <a  href="/intro/intro_techoverviewtools.html" >
+                        <span class="">MDD Developer Tools</span>
+                    </a>
+                </li>
+                <li></li>
+                    <a  href="/intro/intro_security.html" >
+                    <span class="">Security First</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whynet.html" >
+                        <span class="">Why .NET?</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whyaws.html">
+                        <span class="">Why AWS?</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_dynamodb.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Why DynamoDB?</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_dynamodb.html" >
+                        <span class="">Why DynamoDB?</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
     </ul>
@@ -238,17 +242,40 @@
     <h3>LazyStack AWS Software Management Framework</h4>
         <p> The LazyStack SMF implements Git Feature Branch Workflow with 
             GitHub Pull Requests driving Continuous Integration and Continuous Deployment of Review 
-            and Production AWS Stacks. Here is a simple overview of the Feature Branch Workflow and 
-            an example of a Feature (F1) developed and merged with a Pull Request into the main branch.
+            and Production AWS Stacks. Here is the workflow for setting up the SMF.
+        </p>
+        <img src="/assets/img/LazyStackSMFSetup.svg" width="700">
+        <p></p>
+
+        <p>Once your SMF is setup, your team follows a simple feature development workflow using 
+             GitHub Pull Requests augmented with Continuous Integration and Continuous Deployment 
+             in the System Test Account and Continuous Deployment in the System Production Account.</p>
+        <img src="/assets/img/LazyStackSMF20.svg" width="600">
+
+        <p></p>
+        <h5>Feature Branch Workflow with GitHub Pull Requests</h5>
+        <p>Here is a more detailed step-by-step description of the Feature Branch Workflow integration 
+            using the GitHub UI and the Visual Studio IDE.
         </p>
         <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
         <p></p>
     
-        <h4>AWS Organization</h4>
-        <p>The LazyStack SMF creates an AWS compliant organization.</p>
-    
-        <img src="/assets/img/LazyStackSMF3.svg" width="100%">
+        <h4>AWS Organization Overview</h4>
+        <p>Use the LazyStack SMF to manage simple single stack systems or more complex organizations 
+            with multiple systems containing multiple stacks.
+        </p>
+        <h5>Single Organization with one System containing one Serverless Stack</h5>
+        <img src="/assets/img/LazyStackSMF3.svg" width="600">
         <p></p>
+        <h5>Single Organization with one System containing two Serverless Stacks</h5>
+
+        <img src="/assets/img/LazyStackSMF5.svg" width="600">
+        <p>Client apps connecting to Developer and System Test accounts not shown to reduce clutter.</p>
+        <p></p>
+
+        <h5>Single Organization with two Systems</h5>
+        <img src="/assets/img/LazyStackSMF6.svg" width="600">
+
 </div>
     
             <div id=hacky-privacy-spacer></div>

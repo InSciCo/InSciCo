@@ -1,0 +1,114 @@
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">{{topic}}</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
+        <li>
+            <a  href="/generator/userguide_overview.html" >
+                <span class="{{#ifpage 'userguide_overview'}}lz-r-topicitem{{/ifpage}}">User Guide Overview</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/generator/smf_overview.html" >
+                <span class="{{#ifpage 'smf_overview'}}lz-r-topicitem{{/ifpage}}">Software Mgmt. Framework</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/generator/generator_overview.html" >
+                <span class="{{#ifpage 'generator_overview'}}lz-r-topicitem{{/ifpage}}">Generator Tool</span>
+            </a>
+        </li>
+
+        <div style="display: {{#ifequal topic 'Generator'}}inline{{else}}none{{/ifequal}}">
+
+        <ul>
+            <li>
+                <a  href="/generator/generator_stacks.html">
+                    <span class="{{#ifpage 'generator_stacks'}}lz-r-topicitem{{/ifpage}}">Stacks Directive</span>
+                </a>
+            </li>
+            <li>
+                <a  href="/generator/generator_defaultapi.html" >
+                    <span class="{{#ifpage 'generator_defaultapi'}}lz-r-topicitem{{/ifpage}}">DefaultApi Directive</span>
+                </a>
+            </li>        
+            <li>
+                <a  href="/generator/generator_apitagmap.html">
+                    <span class="{{#ifpage 'generator_apitagmap'}}lz-r-topicitem{{/ifpage}}">ApiTagMap Directive</span>
+                </a>
+            </li>
+            <li>
+                <a  href="/generator/generator_awsresources.html">
+                    <span class="{{#ifpage 'generator_awsresources'}}lz-r-topicitem{{/ifpage}}">AwsResources Directive</span>
+                </a>
+            </li>    
+            <li>
+                <a  href="/generator/generator_awstemplate.html">
+                    <span class="{{#ifpage 'generator_awstemplate'}}lz-r-topicitem{{/ifpage}}">AwsTemplate Directive</span>
+                </a>
+            </li>    
+            <li>
+                <a  href="/generator/generator_projectoptions.html">
+                    <span class="{{#ifpage 'generator_projectoptions'}}lz-r-topicitem{{/ifpage}}">ProjectOptions Directive</span>
+                </a>
+            </li>    
+
+            <div style="display: {{#ifequal generator 'projectoptions'}}inline{{else}}none{{/ifequal}}">
+                <ul>
+                <li>
+                    <a  href="/generator/generator_nugetpackageversions.html">
+                        <span class="{{#ifpage 'generator_nugetpackageversions'}}lz-r-topicitem{{/ifpage}}">NugetPackageVersions</span>
+                    </a>
+                </li>            
+
+                <li>
+                    <a  href="/generator/generator_packagereferences.html">
+                        <span class="{{#ifpage 'generator_packagereferences'}}lz-r-topicitem{{/ifpage}}">PackageReferences</span>
+                    </a>
+                </li>            
+
+                <li>
+                    <a  href="/generator/generator_projectreferences.html">
+                        <span class="{{#ifpage 'generator_projectreferences'}}lz-r-topicitem{{/ifpage}}">ProjectReferences</span>
+                    </a>
+                </li>            
+
+                <li>
+                    <a  href="/generator/generator_serviceregistrations.html">
+                        <span class="{{#ifpage 'generator_serviceregistrations'}}lz-r-topicitem{{/ifpage}}">ServiceRegistrations</span>
+                    </a>
+                </li>            
+
+                <li>
+                    <a  href="/generator/generator_properties.html">
+                        <span class="{{#ifpage 'generator_properties'}}lz-r-topicitem{{/ifpage}}">Properties</span>
+                    </a>
+                </li>            
+
+                <li>
+                    <a  href="/generator/generator_runtime.html">
+                        <span class="{{#ifpage 'generator_runtime'}}lz-r-topicitem{{/ifpage}}">Runtime</span>
+                    </a>
+                </li>
+            </ul>            
+            </div> 
+            <li>
+                <a  href="/generator/generator_warningescapedcharacters.html">
+                    <span class="{{#ifpage 'generator_warningescapedcharacters'}}lz-r-topicitem{{/ifpage}}">Warning Escaped Characters</span>
+                </a>
+            </li>            
+
+
+            <li>
+                <a  href="/generator/generator_mergepriority.html">
+                    <span class="{{#ifpage 'generator_mergepriority'}}lz-r-topicitem{{/ifpage}}">Resource Merge Priority</span>
+                </a>
+            </li> 
+        </ul>
+        </div>
+    </ul>
+</div>

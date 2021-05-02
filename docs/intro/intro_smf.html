@@ -127,7 +127,7 @@
                 
                 
                       <li id="generatordocs">
-                        <a href="/generator/generator_overview.html">
+                        <a href="/generator/userguide_overview.html">
                             <span class="">User Guide</span>
                         </a>
                       </li>
@@ -158,8 +158,8 @@
     <div class="title-bar-title">Security</div>
 </div>
 
-<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
-    <ul class="vertical menu dropdown">
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
         <li >
             <a  href="/intro/intro.html">
                 <span class="">Business Stakeholder Overview</span>
@@ -167,30 +167,32 @@
         </li>
 
         <div style="display: inline">
-            <li>
-                <a  href="/intro/intro_serverless.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Serverless Applications</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a  href="/intro/intro_serverless.html" >
+                    <span class="">Serverless Applications</span>
+                    </a>
+                </li>
 
 
-            <li>
-                <a  href="/intro/intro_smf.html" >&nbsp;&nbsp;&nbsp;
-                <span class="lz-r-topicitem">Software Management</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_smf.html" >
+                    <span class="lz-r-topicitem">Software Management</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_mdd.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Accelerated Development</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_mdd.html" >
+                    <span class="">Accelerated Development</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_whylazystack.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Why Choose LazyStack?</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_whylazystack.html" >
+                    <span class="">Why Choose LazyStack?</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <li>
@@ -200,36 +202,38 @@
         </li>
 
         <div style="display: none">
-            <li>
-                <a  href="/intro/intro_techoverviewsmf.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Software Mgmt. Framework</span>
-                </a>
-            </li>        <li>
-                <a  href="/intro/intro_techoverviewtools.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">MDD Developer Tools</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_security.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Security First</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_whynet.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Why .NET?</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_whyaws.html">&nbsp;&nbsp;&nbsp;
-                    <span class="">Why AWS?</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a  href="/intro/intro_techoverviewsmf.html" >
+                        <span class="">Software Mgmt. Framework</span>
+                    </a>
+                </li>        <li>
+                    <a  href="/intro/intro_techoverviewtools.html" >
+                        <span class="">MDD Developer Tools</span>
+                    </a>
+                </li>
+                <li></li>
+                    <a  href="/intro/intro_security.html" >
+                    <span class="">Security First</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whynet.html" >
+                        <span class="">Why .NET?</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whyaws.html">
+                        <span class="">Why AWS?</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_dynamodb.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Why DynamoDB?</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_dynamodb.html" >
+                        <span class="">Why DynamoDB?</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
     </ul>
@@ -246,45 +250,34 @@
          with industry best-practices.</p>
         <img src="/assets/img/LazyStackSMFOverview.svg" width="100%">       
     <p></p>
-    <p>Implementing LazyStack SMF:
+
+    <p>The LazyStack SMF allows your business to maintain multiple AWS Organizations. Each Organization has:
+
+    </p>
+
+    <h5>A Software Management Framework you can Grow</h5>
+    <p>The LazyStack SMF allows you to start with a simple systems comprised of a single serverless stack and then
+        easily grow as needed to develop more complex systems. </p>
+    <ul>
+        <li>AWS Organization<br>
+        AWS Organizations aggregate AWS Billing and allow you to easily apply various usage limits and operational policies 
+        across all AWS Accounts in that organization. </li>
         <ul>
-            <li>Creates a secure AWS Organization following all AWS best practices</li>
-            <li>Provides integration with GitHub for secure software version management</li>
-            <li>Provides a solid foundation for coordinating development teams</li>
-            <li>Provides for managing multiple "Systems", each with multiple "Stacks"</li>
-            <li>Painlessly publishes Testing and Production stack updates</li>
-            <li>Provides developers with a rapid prototyping and development sandbox in their own AWS Account</li>
+            <li>One or more Developers in Organization</li>
+            <li>One or more Systems in an Organization<br>
+                Systems are used to isolate resources like databases by line-of-business, product, or customer.
+                <ul>
+                    <li>One or more Serverless Stacks in a System<br>Multiple serverless stacks separate sub-systems. For instance you 
+                    might have a Consumer stack that services a consumer mobile app and a Backoffice stack that services 
+                    a desktop application that employees use.</li>
+                </ul>
+            </li>
         </ul>
-    </p>
+    </ul>
+
+    <img src="/assets/img/LazyStackSMFSetup10.svg" width="100%">
     
-    <p>A very high level overview of a simple AWS Organization with one developer, and one system containing a single 
-        serverless stack looks like this:</p>
-        <img src="/assets/img/LazyStackSMF3.svg" width="100%">       
-    <p></p>
-    <p>Note: Your real organization would replace "Org" and "Sys" with names appropriate to your needs.</p>
-    <p>The organization described above complies with AWS best-practice for security and cost management. Organizational 
-        Units are used to group Accounts to enable simple resource policy management. Stacks are published in separate 
-        Accounts to better manage and isolate the resources they use and who has access to them. Software development 
-        collaboration is accomplished using the popular GitHub service.</p>
 
-    <p>And of course we may need to manage multiple application stacks. Below we show two stacks. One serving
-        a consumer app and a second one serving a back office app. Notice that we have separate GitHub 
-        repositories for each app's source code in this example.
-    </p>
-    <img src="/assets/img/LazyStackSMF5.svg" width="100%">      
-    <p>* Not showing development and testing app connections to reduce clutter. We are showing icons for the primary AWS 
-        services used to manage the organization, accounts and integration with GitHub.
-    </p>
-
-    <p>Here is a very high level overview of an organization with multiple developers and two systems: Sys and Sys2. 
-        Systems are often used to isolate and separately manage different lines of business or customers.
-    </p>
-    <img src="/assets/img/LazyStackSMF6.svg" width="100%">     
-    <p></p>
-    <h5>Summary</h5>
-    <p>Use AWS Organizations to manage one or more systems containing one or more serverless stacks. Use GitHub to 
-        manage collaboration among multiple developers and AWS services to test and deploy test and production stacks.
-    </p>
 
 </div>
             <div id=hacky-privacy-spacer></div>

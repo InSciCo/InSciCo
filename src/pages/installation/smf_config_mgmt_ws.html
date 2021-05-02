@@ -1,0 +1,67 @@
+---
+layout: docpage
+section: Install
+topic: GettingStarted
+install: smf
+---
+{{> installation_menu}}
+<div class=lz-r-content>
+    <h4>SMF 1.1 Configure Management Workstation</h4>
+    <dl>
+        <dt>Prerequisites: none</dt>
+        <dt>Estimated Time: 2 to 10 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>    
+
+    <p>We provide Microsoft PowerShell scripts to automate various steps in the setup and management 
+        of your AWS Organization. You will not need to learn PowerShell scripting to use 
+        these scripts. If you have Windows 10, PowerShell is already installed. If you are using 
+        MacOS or some variant of Linux, PowerShell is available to install.
+    </p>
+    <p>The scripts call the AWS CLI to configure your AWS Organization. They are easy to 
+        read and heavily commented. We encourage you to read through the scripts and 
+        follow the documentation links provided in the scripts to learn more about the 
+        powerful commands in the AWS CLI. 
+    </p>
+
+    <p>In this step, we will be creating a "OrgMgmt" folder on the Management Workstation containing 
+        scripts and sensitive information. Give some thought as to where you will want this folder 
+        to reside and who should have access to it. 
+    </p>
+    <ol>
+        <!-- Install PowerShell -->
+        <li><a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.1" {{>newtab}}>
+            Install PowerShell<br></a> * If you are running Windows 10, PowerShell is already installed.</li>
+        <br>
+
+        <li>Install a Git client <br>
+            * If you do not already have it.
+            <ul>
+                <li><a href="https://gitforwindows.org/" {{>newtab}}>GitBash for Windows</a> - this is our favorite for Windows</li>
+                <li><a href="https://git-scm.com/downloads" {{>newtab}}>Git for MacOS, Linux/Unix, Windows</a></li>
+            </ul>
+        </li>
+        <br>
+        <li>Open a PowerShell terminal with "Run as Administrator" and issue the following command to change the PowerShell script execution permissions:
+            <pre><code class="language-bashshell">Set-ExecutionPolicy RemoteSigned</code></pre>
+            This will allow you to run PowerShell scripts on the local computer which is generally necessary for the Management Workstation.</li>
+        <br>
+        <li>Close PowerShell. We don't need Administrator access for the next steps.</li>
+        <br>
+        <li>Open a PoserShell terminal and CD to the folder that will contain your "OrgMgmt" folder and then issue the following command 
+            to clone the LazyStackSMF git repository:
+            <pre><code class="language-bashshell">git clone https://github.com/InSciCo/LazyStackSMF.git</code></pre>
+            The clone command creates a folder called LazyStackSMF.
+        </li>
+        <br>
+        <li>Rename the folder "LazyStackSMF" to "OrgMgmt"; replace "Org" with your OrgCode. This folder will become 
+            your reference folder for management related actions on your AWS Organization. 
+        </li>
+        <br>
+    </ol>
+    <h5>Step Summary</h5>
+    <p>In this step we installed PowerShell, the Git client, and downloaded the LazyStack management scripts into an OrgMgmt folder.
+    </p>
+
+</div>

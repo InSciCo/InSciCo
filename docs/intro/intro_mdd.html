@@ -127,7 +127,7 @@
                 
                 
                       <li id="generatordocs">
-                        <a href="/generator/generator_overview.html">
+                        <a href="/generator/userguide_overview.html">
                             <span class="">User Guide</span>
                         </a>
                       </li>
@@ -158,8 +158,8 @@
     <div class="title-bar-title">Security</div>
 </div>
 
-<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
-    <ul class="vertical menu dropdown">
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
         <li >
             <a  href="/intro/intro.html">
                 <span class="">Business Stakeholder Overview</span>
@@ -167,30 +167,32 @@
         </li>
 
         <div style="display: inline">
-            <li>
-                <a  href="/intro/intro_serverless.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Serverless Applications</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a  href="/intro/intro_serverless.html" >
+                    <span class="">Serverless Applications</span>
+                    </a>
+                </li>
 
 
-            <li>
-                <a  href="/intro/intro_smf.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Software Management</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_smf.html" >
+                    <span class="">Software Management</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_mdd.html" >&nbsp;&nbsp;&nbsp;
-                <span class="lz-r-topicitem">Accelerated Development</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_mdd.html" >
+                    <span class="lz-r-topicitem">Accelerated Development</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_whylazystack.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Why Choose LazyStack?</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_whylazystack.html" >
+                    <span class="">Why Choose LazyStack?</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <li>
@@ -200,69 +202,109 @@
         </li>
 
         <div style="display: none">
-            <li>
-                <a  href="/intro/intro_techoverviewsmf.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Software Mgmt. Framework</span>
-                </a>
-            </li>        <li>
-                <a  href="/intro/intro_techoverviewtools.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">MDD Developer Tools</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_security.html" >&nbsp;&nbsp;&nbsp;
-                <span class="">Security First</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_whynet.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Why .NET?</span>
-                </a>
-            </li>
-            <li>
-                <a  href="/intro/intro_whyaws.html">&nbsp;&nbsp;&nbsp;
-                    <span class="">Why AWS?</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a  href="/intro/intro_techoverviewsmf.html" >
+                        <span class="">Software Mgmt. Framework</span>
+                    </a>
+                </li>        <li>
+                    <a  href="/intro/intro_techoverviewtools.html" >
+                        <span class="">MDD Developer Tools</span>
+                    </a>
+                </li>
+                <li></li>
+                    <a  href="/intro/intro_security.html" >
+                    <span class="">Security First</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whynet.html" >
+                        <span class="">Why .NET?</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whyaws.html">
+                        <span class="">Why AWS?</span>
+                    </a>
+                </li>
 
-            <li>
-                <a  href="/intro/intro_dynamodb.html" >&nbsp;&nbsp;&nbsp;
-                    <span class="">Why DynamoDB?</span>
-                </a>
-            </li>
+                <li>
+                    <a  href="/intro/intro_dynamodb.html" >
+                        <span class="">Why DynamoDB?</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>Model Driven Development (MDD) Tools</h3>
-    <p>LazyStack accelerates software development using Model Driven Development. LazyStack brings three great technologies together to 
-        deliver apps at the lowest cost and fastest time-to-market.</p>
+    <h3>Accelerated Development</h3>
+    <p>LazyStack brings three great technologies together to deliver .NET apps at the lowest cost and 
+        fastest time-to-market.
+    </p>
     <img src="/assets/img/ThreeGreatTechnologies.svg" width="100%">
     <p></p>
     
-    <p>LazyStack Model Driven Development generates code and resource configurations from an OpenAPI "specification" document. This 
-        document contains a list of all the operations a client can call on the application service along with exactly what data 
-        may be transmitted with or received from those calls. From the client application's perspective, the OpenAPI specification 
-        fully defines what the application service can do for it.
-    </p>   
-     <p>LazyStack reads the OpenAPI specification and generates much of the application code and Serverless Application Model (SAM) template content 
-        necessary to stand up your serverless stack so your development team focus on your 
-        application specific logic.</p>
+
+
+    <p>LazyStack accelerates software development using Model Driven Development (MDD). MDD ingests application 
+        requirements (the Model) and generates application configurations and code. MDD encompasses a wide 
+        spectrum of tools from "No Code", "Low Code" to "Code Generators".
+        <ul>
+            <li><strong>No Code Tools</strong><br>
+                No Code Tools allow a business user to create applications from a UI without having to 
+                write a single line of "code"; they are great for simple applications where all of the 
+                required "building blocks" of the application have been anticipated by the No Code Vendor.
+                No Code tools are a good choice for development of simple apps with limited functionality; but 
+                these apps do not, in general, scale well or allow for "secret sauce". 
+            </li>
+            <br>
+            <li><strong>Low Code Tools</strong><br>
+                Low Code Tools allow a "Citizen Developer" to create most of an application from a simple UI 
+                and provide some code where required "building blocks" of the application are either 
+                missing or need to be enhanced to fit the application requirement. Low Code tools are a good 
+                choice for development of complex apps; but these tools, in general, lock you into proprietary 
+                and expensive vendor solutions.
+            </li>
+            <br>
+            <li><strong>Code Generator Tools</strong><br>
+                Code Generator Tools generate code and configurations in a prescriptive fashion so to save
+                the developer or network engineer time. You see dividends in feature development cadence,
+                code reliability and code performance. Code generators are generally used to produce code and 
+                configuration  that would be complex, tedious, and repetitive to write and maintain. A big 
+                advantage for code generation, is that when a bug is found, fixing the generator and 
+                rerunning it provably fixes all occurrences of that that bug. Code Generator tools are,
+                in general, widely used, open source, and often free to use.
+            </li>
+        </ul>
+
+        <p>LazyStack is a Code Generator Tool that generates and maintains .NET code and AWS configurations based 
+            on the content of a OpenAPI specification document (the model). OpenAPI specifications are simple
+            to read; making them a great collaboration tool for developers and business stakeholders. In our 
+            opinion, if there is one "technical expertise" a business stakeholder should invest in learning, 
+            that would be reading an OpenAPI specification  document. 
+        </p>
+
+        <p>We have used No Code and Low Code tools and there are some really great ones out there. Unfortunately, they 
+            are not always what you may need. For instance, one of the very best Low Code tools we have substantial 
+            expertise with is OutSystems; this truly spectacular tool covers nearly all the bases for almost any kind 
+            of application. Unfortunately, it is also highly proprietary and very expensive. Alas, every Low Code tool 
+            we have evaluated is either highly proprietary and/or very expensive.
+        </p>
+        <p>The LazyStack Code Generator splits the difference. It is not proprietary, it is free, and it enables your development 
+            team to use the popular Microsoft .NET platform with AWS Cloud Services. LazyStack brings three great technologies 
+            together to deliver .NET apps at the lowest cost and fastest time-to-market. You can put in all the "secret sauce"
+            you want in your app.</p>
+
+     <p>The diagram below provides a high level overview of the how all these pieces fit together to stand up a AWS Serverless Stack servicing 
+         a client application. Note the stars that indicate where code and configuration generated by LazyStack is used. </p>
         <p>
         <img src="/assets/img/AWS_SAM2.svg" width="100%">
         <p></p>
         The application code and template is regenerated when the specification document is updated or the code generation "pattern" is improved. 
         This increases the responsiveness of the development process to changing requirements in features or underlying technologies. 
         Model Driven Development reduces initial code development costs and ongoing code maintenance costs.</p>
-    
-    <h5>An OpenAPI Specification is a Great Collaboration Tool for Stakeholders and Developers</h5>
-    <p>An OpenAPI specification is not a difficult document to read and this makes it a collaboration tool that both business stakeholders 
-        and developers can "huddle" around when discussing new features or feature enhancement. It allows stakeholders to become 
-        intimately familiar with what's going on when the app client calls the application service, without having to read or understand 
-        the code behind that call. It allows developers to more accurately estimate the development effort required to implement or enhance 
-        features. 
-    </p>
     
 </div>
             <div id=hacky-privacy-spacer></div>
