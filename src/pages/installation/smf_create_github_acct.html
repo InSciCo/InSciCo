@@ -13,10 +13,37 @@ install: smf
         <dt>Estimated Cost: none</dt>
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>
-    <p>At least one GitHub account is required by LazyStack SMF. You will 
+    <p>A GitHub account is required by LazyStack SMF. You will 
         be creating one GitHub repository for each serverless 
-        stack in your AWS Organization.
+        stack in your AWS Organization. See the User Guide <a href="/userguide/smf_github.html"  {{>newtab}}>GitHub Integration</a> page for more details. 
+       </p>
+    <p>GitHub allows you create Organization accounts. However, you log into GitHub using a personal account and that account 
+        is a member of an Organization. For a "greenfield" SMF Setup of a GitHub account, we assume you have a personal account 
+        that has full access to the repositories your team will be using to develop serverless stacks. If you are using an existing 
+        GitHub account, use personal account that has full access to serverless stack repositories. Later on, we use Personal Access Tokens to 
+        configure AWS CodeBuild access to the GitHub repositories. So we generate and save a "Personal access token" in this step.
     </p>
-    <p>Visit <a href="https://github.com/join" {{> newtab}}>Join GitHub</a> to create a GitHub Account.</p>
 
+    <ol>
+       <li>Visit <a href="https://github.com/join" {{> newtab}}>Join GitHub</a> to create a GitHub Account if you don't already have on.</li> 
+       <li>Generate a Personal Access token:
+           <ol type="a">
+               <li>Log into the GitHub personal account that has access to the repositories you want to use.</li>
+               <li>Click on the user profile icon in the upper right of the page. The user profile menu appears.</li>
+               <li>Select the Settings menu item. The "personal account page" appears.</li>
+               <li>Select "Developer Settings" from the left hand menu. The "Developer Settings" page appears.</li>
+               <li>Select "Personal access tokens" from the left hand menu. The "Personal access tokens" page appears.</li>
+               <li>Click on the Generate new token button. The "Confirm access" page appears.</li>
+               <li>Enter your password. The "New personal access token" page appears.</li>
+               <li>Enter a descriptive note, ex: "AWS CodeBuild Access".</li>
+               <li>Check the "repo" option.</li>
+               <li>Check the "admin:repo_hook" option.</li>
+               <li>Click the "Generate token" button. The generated token is displayed.</li>
+               <li>Copy this token and save it in a file named "GitHubToken.txt" in the OrgMgmt folder. Replace "Org" with your OrgCode.</li>
+           </ol>
+       </li>
+       <li>Sign out of the GitHub account.</li>
+    </ol>
+
+    <p></p>
 </div>

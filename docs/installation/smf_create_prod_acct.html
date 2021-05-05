@@ -409,6 +409,14 @@
      - Writing the IAM User Creds into AzPetProd_welcome.txt
  Processing Complete</code></pre>
         </li>
+        <li>Configure Account to User GitHub Personal Access Tokens
+            <ol type="a">
+                <li>Enter the following command:
+                    <pre><code class="language-bashshell">aws codebuild import-source-credentials --server-type GITHUB --auth-type PERSONAL_ACCESS_TOKEN --profile OrgSysProdAccessRole --token githubtoken </code></pre><br>
+                    Replace "OrgSys" and "githubtoken" with your values.
+                </li>
+            </ol>
+        </li>        
     </ol> 
 
 <h5>Step Summary</h5>
@@ -417,7 +425,8 @@
    AdministratorAccess permissions. We added an IAM User for the account and added that 
    user to the Administrators group. We created a AWS CLI profile allowing the Management 
    Account IAM User to manage the System Production account with the OrganizationAccountAccessRole 
-   policy.
+   policy. Finally we installed a GitHub PERSONAL_ACCESS_TOKEN in the account so our AWS CodeBuild 
+   projects (created later) can access the GitHub account.
 </p>
 
 </div>
