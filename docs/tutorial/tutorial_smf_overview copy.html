@@ -21,7 +21,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#tutorial_cli_overview").addClass("is-active");
+            $("#tutorial_smf_overview copy").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -134,7 +134,7 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Overview</div>
+    <div class="title-bar-title">Configure LazyStack</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up"  style="white-space: nowrap">
@@ -276,10 +276,10 @@
 
         <li >
             <a  href="/tutorial/tutorial_cli_overview.html">
-                <span class="lz-r-topicitem">DotNet CLI</span>
+                <span class="">DotNet CLI</span>
             </a>
         </li>
-        <div style="display: inline">
+        <div style="display: none">
             <ul>
             <li >
                 <a  href="/tutorial/tutorial_cli_petstore.html">
@@ -331,7 +331,7 @@
                 <span class="">SMF Tutorial</span>
             </a>
         </li>
-        <div style="display: inline">
+        <div style="display: none">
             <ul>
             <li >
                 <a  href="/tutorial/tutorial_smf_yada.html">
@@ -344,30 +344,24 @@
     </ul>
 </div>
 <div class=lz-r-content>
-    <h3>LazyStack .NET CLI Tutorial</h3>
-    <p>This tutorial assumes the use of .NET 5.0 SDK. It is robust and meant to touch on all 
-        the important aspects of building a real application stack and core components of a client application that 
-        calls that stack. We use the ubiquitous OpenApi PetStore sample specification with 
-        a few changes necessary to illustrate important AWS/LazyStack features.
-    </p>
+<h3>Software Management Framework Tutorial</h3>
 
-    <p>Here are the tutorial lessons:</p>
-    <ol>
-        <li>Create PetStore solution</li>
-        <li>Implement Controllers</li>
-        <li>Configure LazyStack</li>
-        <li>Publish Stack to AWS</li>
-        <li>Test local WebApi</li>
-        <li>Create a PetStoreTests project</li>
-        <li>Create a Console App</li>
-    </ol>
-    <p>Lessons 1-4 are mandatory. Lessons 5-7 are optional and can be done in any order.</p>
-    <p>It may take between 1 and 3 hours to complete the tutorial.</p>
-    <p>For a fast review, you can simply clone the <a href="https://github.com/InSciCo/LazyStackTutorial" 
-        target="_blank" rel="noopener noreferrer">LazyStackTutorial repo</a> from GitHub 
-        and explore the code as you read through the tutorial lessons.
-    </p>
+<div class="manual-list">
+  <ul>
+    <li>1) Create a System - "Tut"</li>
+    <li>1) Create a simple Serverless Stack Solution - Stk1</li>
+    <li>2) Create Stk1 repository on GitHub</li>
+    <li>3) Install TutTest CI/CD</li>
+    <li>4) Install TutProd CD</li>
+    <li>5) Start Feature Development</li>
+    <li>6) Create Pull Request</li>
+    <li>7) Update Pull Request</li>
+    <li>8) Merge Pull Request</li>
+    <li>9) Checkout Latest Main</li>
+  </ul>
 </div>
+
+</div> 
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
             <script src="/assets/prism/prism.js"></script>
