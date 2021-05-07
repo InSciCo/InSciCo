@@ -1,0 +1,43 @@
+---
+layout: docpage
+section: UserGuide
+topic: smf
+---
+{{> userguide_menu}}
+<div class=lz-r-content>
+    <h3>Developer Workflow</h3>
+    <p>An abstract view of the steps in the collaborative development process looks like this:
+    </p>
+    <img src="/assets/img/LazyStackSMF20.svg" width="700"> 
+    <p></p>
+    <p>A concrete implementation of the collaborative development process using Visual Studio IDE integration with GitHub looks like this:</p>
+    <img src="/assets/img/SDLCFeatureFlowVSIDEOverview.svg" width="100%">
+    <p></p>
+
+    <p>In the diagram above, developers publish serverless stacks to their own AWS Account for rapid prototyping and testing,
+        but have no direct connection to a Test or Production account. Instead, each serverless stack has its own GitHub 
+        repository and updates to serverless stacks in the Test and Production accounts are based on Pull Requests in that 
+        GitHub repository; more on that later.
+    </p>
+
+    <p>The developer is free to code serverless stack features and publish that stack in their AWS Account frequently and 
+        without fear they will affect anyone else on the team. This freedom is key to rapid prototyping and development.
+        AWS provides three tools for publishing serverless stacks:
+    </p>
+    <ul>
+        <li>AWS CLI using CloudFormation commands</li>
+        <li>AWS SAM CLI</li>
+        <li>AWS Visual Studio IDE Extension</li>
+    </ul>
+    <p>We focus on and recommend using the AWS SAM CLI for command line work and in shell scripts. We also recommend 
+        using the AWS Visual Studio IDE Extension. There is no advantage to using the AWS CLI cloudformation commands 
+        if you have AWS SAM CLI installed. The AWS CLI is super helpful for lots of other uses, but publishing 
+        serverless stacks is easier with the AWS SAM CLI.
+    </p>
+
+    <p>The LazyStack developer tools, described in the User Guide Developer Tools section, generate serverless stack 
+        code and configurations. The tools also include an AWS Settings generator that calls a published stack and 
+        retrieves the information necessary to configure a client app to successfully call that stack in a secure way.
+    </p>
+    
+</div>

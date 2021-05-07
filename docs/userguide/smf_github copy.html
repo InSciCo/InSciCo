@@ -21,7 +21,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#lazystackauth_authprocess").addClass("is-active");
+            $("#smf_github copy").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -134,7 +134,7 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">libraries</div>
+    <div class="title-bar-title">smf</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" 
@@ -155,29 +155,14 @@
             </a>
         </li>
 
-        <div style="display: none">
+        <div style="display: inline">
             <ul>
-                <li>
-                    <a href="/userguide/smf_devsandbox.html">
-                        <span class="">Developer Sandbox</span>
-                    </a>
-                </li>
-                <li>
-                <a href="/userguide/smf_gitrepos.html">
-                    <span class="">Git Repository Integration</span>
-                </a>
-            </li>
             <li>
-                <a href="/userguide/smf_devworkflow.html">
-                    <span class="">Developer Workflow</span>
+                <a href="/userguide/smf_github.html">
+                    <span class="">GitHub Integration</span>
                 </a>
             </li>
-            <li>
-                <a href="/userguide/smf_namedprofiles.html">
-                    <span class="">Named Profiles</span>
-                </a>
-            </li>
-            </ul>
+        </ul>
         </div>
 
         <li>
@@ -451,7 +436,7 @@
             </a>
         </li>
 
-        <div style="display: inline">
+        <div style="display: none">
             <ul>
                 <li>
                     <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">
@@ -459,7 +444,7 @@
                     </a>
                 </li>
         
-                <div style="display: inline">
+                <div style="display: none">
                     <ul>
                     <li>
                         <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">
@@ -475,7 +460,7 @@
         
                     <li>
                         <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">
-                            <span class="lz-r-topicitem">AuthProcess</span>
+                            <span class="">AuthProcess</span>
                         </a>
                     </li>
         
@@ -518,35 +503,24 @@
 
     </ul>
 </div><div class=lz-r-content>
-<h4>AuthProcess Class</h4>
-<p>The AuthProcess class is a wrapper around IAuthProvider that implements an INotifyPropertyChanged 
-    to provide bindable properties and events suitable for use in an event driven UI.
-</p>
-<p>The AuthProcess class adds many bindable properties to make using the authentication processes 
-    in a UI easy. Some of the more critical of these include:</p>
-<ul>
-    <li>string Login</li>
-    <li>string NewLogin</li>
-    <li>string Password</li>
-    <li>string NewPassword</li>
-    <li>string Email</li>
-    <li>string NewEmail</li>
-    <li>string Phone</li>
-    <li>string NewPhone</li>
-    <li>string Code</li>
-</ul>
-<p>Instead of calling a verify method, like AuthProvider.VerifyLoginAsync(string login), you 
-    call AuthProcess.VerifyLoginAsync() which then calls the AuthProviderVerifyLoginAsync(string login) 
-    method, passing in the current value of the AuthProcess.Login property. 
-</p>
-<p>
-    This approach assumes you collect the login value in the bound Login property and call 
-    VerifyLoginAsync() when the user commits the field entry. The provided Xamarin app provides 
-    a fully functional example of this technique for all AuthProcess processes, challenges and properties.
-</p>
-<p>Rather that provide a lengthy discussion of AuthProcess here, we encourage you to examine the 
-    Xamarin example and AuthProcess class code. Both are very simple and largely self-explanatory.
-</p>
+    <h3>GitHub Integration</h3>
+    <p>A GitHub account is required by LazyStack SMF. You will 
+        be creating one GitHub repository for each serverless 
+        stack in your AWS Organization. Due to limitations in AWS CodeBuild,
+        you can only configure CodeBuild access to one GitHub account 
+        for an AWS Account. Here are some allowed and disallowed use cases:
+    </p>
+    <ul>
+        <li>Typical: Single GitHub Account Serving an AWS Organization<br>
+        <img src="/assets/img/GitHubSetup1.svg" width="600"></li>
+        <br>
+        <li>Typical: Multiple GitHub Accounts Serving Different Systems in an AWS Organization<br>
+            <img src="/assets/img/GitHubSetup3.svg" width="600"></li><br>
+            <li>UNSUPPORTED: Multiple GitHub Accounts Serving Same System in an AWS Organization<br>
+        <img src="/assets/img/GitHubSetup2.svg" width="400"></li>
+    </ul>
+
+    
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>

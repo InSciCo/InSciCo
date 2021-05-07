@@ -1,0 +1,31 @@
+---
+layout: docpage
+section: UserGuide
+topic: smf
+---
+{{> userguide_menu}}
+<div class=lz-r-content>
+    <h3>Git Repository Integration</h3>
+    <p>LazyStack implements GitHub repository integration so a GitHub account is required by LazyStack SMF. You will
+        be creating one GitHub repository for each serverless stack in your AWS Organization. Due to limitations in AWS
+        CodeBuild, you can only configure CodeBuild access to one GitHub account for an AWS Account. Here are some
+        allowed and disallowed use cases:
+    </p>
+    <ul>
+        <li>Typical: Single GitHub Account Serving an AWS Organization<br>
+            <img src="/assets/img/GitHubSetup1.svg" width="600"><br>
+            Note that each account may have more than one serverless stack and that each serverless stack is 
+            maintained in its own Git repository.
+
+        </li>
+        <br>
+        <li>Typical: Multiple GitHub Accounts Serving Different Systems in an AWS Organization<br>
+            <img src="/assets/img/GitHubSetup4.svg" width="600">
+        </li><br>
+        <li>UNSUPPORTED: Multiple GitHub Accounts Serving Same System in an AWS Organization<br>
+            <img src="/assets/img/GitHubSetup2.svg" width="400">
+        </li>
+    </ul>
+
+
+</div>

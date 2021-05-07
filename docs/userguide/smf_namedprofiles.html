@@ -21,7 +21,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#lazystackauth_authprocess").addClass("is-active");
+            $("#smf_namedprofiles").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -134,7 +134,7 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">libraries</div>
+    <div class="title-bar-title">smf</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" 
@@ -155,7 +155,7 @@
             </a>
         </li>
 
-        <div style="display: none">
+        <div style="display: inline">
             <ul>
                 <li>
                     <a href="/userguide/smf_devsandbox.html">
@@ -174,7 +174,7 @@
             </li>
             <li>
                 <a href="/userguide/smf_namedprofiles.html">
-                    <span class="">Named Profiles</span>
+                    <span class="lz-r-topicitem">Named Profiles</span>
                 </a>
             </li>
             </ul>
@@ -451,7 +451,7 @@
             </a>
         </li>
 
-        <div style="display: inline">
+        <div style="display: none">
             <ul>
                 <li>
                     <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">
@@ -459,7 +459,7 @@
                     </a>
                 </li>
         
-                <div style="display: inline">
+                <div style="display: none">
                     <ul>
                     <li>
                         <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">
@@ -475,7 +475,7 @@
         
                     <li>
                         <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">
-                            <span class="lz-r-topicitem">AuthProcess</span>
+                            <span class="">AuthProcess</span>
                         </a>
                     </li>
         
@@ -518,35 +518,55 @@
 
     </ul>
 </div><div class=lz-r-content>
-<h4>AuthProcess Class</h4>
-<p>The AuthProcess class is a wrapper around IAuthProvider that implements an INotifyPropertyChanged 
-    to provide bindable properties and events suitable for use in an event driven UI.
-</p>
-<p>The AuthProcess class adds many bindable properties to make using the authentication processes 
-    in a UI easy. Some of the more critical of these include:</p>
-<ul>
-    <li>string Login</li>
-    <li>string NewLogin</li>
-    <li>string Password</li>
-    <li>string NewPassword</li>
-    <li>string Email</li>
-    <li>string NewEmail</li>
-    <li>string Phone</li>
-    <li>string NewPhone</li>
-    <li>string Code</li>
-</ul>
-<p>Instead of calling a verify method, like AuthProvider.VerifyLoginAsync(string login), you 
-    call AuthProcess.VerifyLoginAsync() which then calls the AuthProviderVerifyLoginAsync(string login) 
-    method, passing in the current value of the AuthProcess.Login property. 
-</p>
-<p>
-    This approach assumes you collect the login value in the bound Login property and call 
-    VerifyLoginAsync() when the user commits the field entry. The provided Xamarin app provides 
-    a fully functional example of this technique for all AuthProcess processes, challenges and properties.
-</p>
-<p>Rather that provide a lengthy discussion of AuthProcess here, we encourage you to examine the 
-    Xamarin example and AuthProcess class code. Both are very simple and largely self-explanatory.
-</p>
+    <h3>AWS CLI Named Profiles</h3>
+
+    <p>The AWS tools use local AWS profiles to authenticate calls from a workstation to the AWS Cloud. An 
+        AWS profile contains an AccessKeyID and a SecretKey. By selected a named profile, you are instructing 
+        an AWS tool to use that AccessKey pair to authenticate with a specific AWS Cloud Account. Consider
+        the named profiles in the previous section's diagram:
+    </p>
+    <ul>
+        <li>Management Workstation
+            <ul>
+                <li>OrgMgmt - account from which AWS Organization is managed. AdministratorAccess.</li>
+                <li>OrgDevJoeAccess - Allows OrgMgmt account to assume administrator role in OrgDevJoe Account</li>
+                <li>OrgSysTestAccess - Allows OrgMgmt account to assume administrator role in OrgSysTest Account</li>
+                <li>OrgSysProdAccess - Allows OrgMgmt account to assume administrator role in OrgSysProd Account</li>
+            </ul>
+        </li>
+        <li>Joe's Development Workstation
+            <ul>
+                <li>OrgDevJoe - Provides PowerUser Access and select IAM permissions</li>
+            </ul>
+        </li>
+        <li>OrgSysTest Workstation
+            <ul>
+                <li>OrgSysTest - AdministratorAccess</li>
+            </ul>
+        </li>
+        <li>OrgSysProd Workstation
+            <ul>
+                <li>OrgSysProd - AdministratorAccess</li>
+            </ul>
+        </li>
+    </ul>
+    <p>AWS allows you to create a "default" profile that will be used if you don't supply a specific profile 
+        name when executing an AWS tool. We strongly recommend that you never use a default profile on the 
+        Management Workstation. We also recommend you only use a default profile on a Developer's Workstation 
+        when they will only ever be working against a single AWS Account.
+    </p>
+    <p></p>
+    <h5>AWS IAM Users</h5>
+    <p>Every AWS Account has a root user. That root user is associated with a email address that is unique 
+        among AWS Accounts - you can't use the same email address for more than one account. You sign into 
+        the root user account using at least that email address and a password. Signing into an account 
+        using the root user credentials should only be done for a limited number of account management 
+        reasons. All other access should be performed through a IAM User login.
+    </p>
+    <p>We create a single IAM User for each AWS Account created in the AWS Organization. See the diagram 
+        below:
+    </p>
+    
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>

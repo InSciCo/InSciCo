@@ -21,7 +21,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#lazystackauth_authprocess").addClass("is-active");
+            $("#smf_devsandbox").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -134,7 +134,7 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">libraries</div>
+    <div class="title-bar-title">smf</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" 
@@ -155,11 +155,11 @@
             </a>
         </li>
 
-        <div style="display: none">
+        <div style="display: inline">
             <ul>
                 <li>
                     <a href="/userguide/smf_devsandbox.html">
-                        <span class="">Developer Sandbox</span>
+                        <span class="lz-r-topicitem">Developer Sandbox</span>
                     </a>
                 </li>
                 <li>
@@ -451,7 +451,7 @@
             </a>
         </li>
 
-        <div style="display: inline">
+        <div style="display: none">
             <ul>
                 <li>
                     <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">
@@ -459,7 +459,7 @@
                     </a>
                 </li>
         
-                <div style="display: inline">
+                <div style="display: none">
                     <ul>
                     <li>
                         <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">
@@ -475,7 +475,7 @@
         
                     <li>
                         <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">
-                            <span class="lz-r-topicitem">AuthProcess</span>
+                            <span class="">AuthProcess</span>
                         </a>
                     </li>
         
@@ -518,35 +518,28 @@
 
     </ul>
 </div><div class=lz-r-content>
-<h4>AuthProcess Class</h4>
-<p>The AuthProcess class is a wrapper around IAuthProvider that implements an INotifyPropertyChanged 
-    to provide bindable properties and events suitable for use in an event driven UI.
-</p>
-<p>The AuthProcess class adds many bindable properties to make using the authentication processes 
-    in a UI easy. Some of the more critical of these include:</p>
-<ul>
-    <li>string Login</li>
-    <li>string NewLogin</li>
-    <li>string Password</li>
-    <li>string NewPassword</li>
-    <li>string Email</li>
-    <li>string NewEmail</li>
-    <li>string Phone</li>
-    <li>string NewPhone</li>
-    <li>string Code</li>
-</ul>
-<p>Instead of calling a verify method, like AuthProvider.VerifyLoginAsync(string login), you 
-    call AuthProcess.VerifyLoginAsync() which then calls the AuthProviderVerifyLoginAsync(string login) 
-    method, passing in the current value of the AuthProcess.Login property. 
-</p>
-<p>
-    This approach assumes you collect the login value in the bound Login property and call 
-    VerifyLoginAsync() when the user commits the field entry. The provided Xamarin app provides 
-    a fully functional example of this technique for all AuthProcess processes, challenges and properties.
-</p>
-<p>Rather that provide a lengthy discussion of AuthProcess here, we encourage you to examine the 
-    Xamarin example and AuthProcess class code. Both are very simple and largely self-explanatory.
-</p>
+    <h3>Developer Sandbox</h3>
+
+    <p>Each developer has their own "sandbox" AWS Account. This account fully isolates the developer resources from other 
+        developers resources, and the resources used in Test and Production accounts. The key concept here is that AWS 
+        Accounts isolate resources. Since serverless stacks do not incur significant cost unless they are being exercised, 
+        there is no downside to providing each developer with their own AWS Account. As a general rule, it requires a 
+        very intentional configuration to enable resources to be shared across AWS Accounts and this is only necessary in 
+        fairly complex situations that don't usually occur when building serverless stacks. 
+    </p>
+    <p>From a Developer's perspective, their development environment looks like this:</p>
+    <img src="/assets/img/LazyStackSMF1.1.svg" width="600">
+    <p></p>
+    <p>Using LazyStack, Developer's may develop and test serverless stacks on their local workstation, then publish the 
+        serverless stack to their AWS Account and further test it there.  </p>
+    <h5>Local WepAPI Projects</h5>
+    <p>todo</p>
+    <h5>Publishing Serverless Stacks to AWS</h5>
+    <p>todo</p>
+    <h5>Git Collaboration</h5>
+    <p>Developers use a Git based collaboration process. See <a href="/userguide/smf_devworkflow.html">Developer Workflow</a> 
+        for a detailed discussion of this process.</p>
+    
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
