@@ -249,7 +249,7 @@
                     <a href="/installation/smf_create_stack.html">
                         
                         <span class="">Step 4 -
-                            Create Stack</span>
+                            Configure Repo(s)</span>
                     </a>
                 </li>
                 <ul>
@@ -340,16 +340,13 @@
     <h3>Configure LazyStack Software Management Framework (SMF)</h4>
 
         <p>The LazyStack SMF provides an end-to-end Software Management Framework integrating AWS Services, GitHub and the 
-            LazyStack developer tools. Take a close look at the diagram below, we will be following the SMF Setup Steps 1 through 
-            3 to create your first AWS Organization, with one system (called Tut). Later, in the LazyStack SMF Tutorial, you use 
-            step 4 to add serverless application stacks to the Tut system. After completing the tutorial you add additional 
-            Systems and Stacks when you need them. Keep in mind that AWS has a default limit of 4 accounts per organization, you 
-            can ask them to increase this limit as necessary.
+            LazyStack developer tools. Take a close look at the diagram below, we will be following the SMF Setup Steps create 
+            your first AWS Organization. 
         </p>
         <img src="/assets/img/LazyStackSMFSetup.svg" width="100%">
         <p></p>
             <h4>Configuring your AWS Organization</h4>
-            <p>Follow these steps to prepare the SMF for your team to start doing development.
+            <p>Follow these steps to prepare the SMF for your team to start performing the LazyStack Tutorials.
             </p>
             <ul >
                 <li>Step 1 - Create AWS Organization
@@ -371,17 +368,23 @@
                 <li>Step 3 - Create System(s)
                     <ul>
                         <li>We define a System as a collection of AWS Resources managed together (serverless stacks are AWS Resources). Systems are used to segregate unrelated applications; for example 
-                            different line-of-business, product or customer. System's are managed in two AWS Accounts: Test and Production.
+                            different line-of-business, product or customer. System's are managed in two AWS Accounts: Test and Production. 
+                            We will start by creating a System called "Tutorial" that will be used to host stacks created by developers 
+                            performing the LazyStack Tools Tutorial and SMF Tutorial.
                         </li>
                         <li>3.1 Create AWS Test Account for System</li>
                         <li>3.2 Create AWS Production Account for System</li>
                     </ul>
                 </li>
                 <br>
-                <li>Step 4 - Create Stack(s)<br>
+                <li>Step 4 - Configure Repo(s)<br>
                     <ul>
-                        <li>Serverless Stacks are a collection of resources deployed together as a unit. Each Serverless Stack is associated with a single GitHub Repository. 
-                            A System may contain one or more Serverless Stacks.
+                        <li>Each Serverless Stack is associated with a single GitHub Repository. A System may be associated with one or 
+                            more repositories in the same GitHub Account; so each System may have multiple stacks. We assume you 
+                            have a GitHub Organization and one or more GitHub Accounts that are part of that Organization; each
+                            developer has their own GitHub Account and that account is a member of the GitHub Organization. 
+                            To allow each developer to perform the SMF Tutorial, we suggest you create a new GitHub repository,
+                            in your GitHub Organization, that the developer will use in the SMF tutorial. 
                         </li>
                         <li>4.1 Create GitHub Repository</li>
                         <li>4.2 Configure Continuous Integration and Continuous Deployment for System Test Account</li>

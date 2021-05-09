@@ -6,7 +6,7 @@ install: smf
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h4>SMF 4.2 Setup Continuous Integration and Continuous Deployment for System Test Account Stack</h4>
+    <h4>SMF 4.2 Configure Continuous Integration and Continuous Deployment for System Test Account Stack</h4>
     <dl>
         <dt>Prerequisites:</dt>
         <dd>- Create Test Account (3.1) complete</dd>
@@ -34,26 +34,6 @@ install: smf
     <p>You repeat this step for each GitHub repository used in a Test System Account.</p>
 
     <ol>
-        <li>If you do not already have a CodeBuild GitHub Connection for the Test Account, follow these steps to create
-            one:
-            <ol type="a">
-                <li>Log into the AWS OrgTest account using the OrgTest IAM User credentials.</li>
-                <li>Select correct region (top right corner of AWS console menu bar).</li>
-                <li>Navigate to the <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?" {{>newtab}}>CodeBuild</a> Console</li>
-                <li>Select Settings &rightarrow; Connections in navigation pane. The Developer Tools > Connections page appears.</li>                
-                <li>Click the Create Connection Button. The Create Connection page appears.</li>
-                <li>Select the GitHub radio button and enter a connection name.</li>
-                <li>Click on the Connect to GitHub button. You will be prompted to log into GitHub if you are not already logged in The Connect to GitHub page appears.</li>
-                <li>Click on the "Install a new app" button. The GitHub "Install AWS Connector for GitHub" page appears with a list of accounts you have access to. Select identity under which you have 
-                    access to the application repository used by this CI/CD setup. The AWS Connector for GitHub
-                    page appears.
-                </li>
-                <li>Use the options on the page to configure the connector's access to the repository.
-                </li>
-                <li>Click the Save button.</li>
-            </ol>
-        </li>
-        <br>
         <li>Open a PowerShell Terminal.</li>
         <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
         <li>Execute the Test_CodeBuild_Deploy.ps1 script. 
@@ -77,29 +57,29 @@ Note: Press return to accept a default values.
 Enter your OrgCode: Az
 Enter your AWS CLI Management Account Profile (default: AzMgmt):
 Enter Region (default us-east-1):
-Enter the SysCode (ex: Pet):
-Enter the System Test Account Name (default: AzPetTest):
-Enter the application stack's GitHub Repo URL (example: https://github.com/myorg/myrepo.git): https://github.com/myorg.petstore.git
-Enter your repo short name (default: petstore):
+Enter the SysCode (ex: Pet):Tut
+Enter the System Test Account Name (default: AzTutTest):
+Enter the application stack's GitHub Repo URL (example: https://github.com/myorg/myrepo.git): https://github.com/myorg.OrgDevJoePetStore.git
+Enter your repo short name (default: orgdevjoepetstore):
 Enter PR Create template name (default: Test_CodeBuild_PR_Create.yaml)
 Enter PR Merge template name (default: Test_CodeBuild_PR_Merge.yaml)
 
 Please Test and confirm the following:
     OrgCode: Az 
-    SysCode: Pet
+    SysCode: Tut
     AWS CLI Management Account Profile: AzMgmt
     AWS Region: us-east-1
-    System Test Account name: AzPetMgmt
-    GitHub Repo URL: https://github.com/myorg.petstore.git
-    Repo short name: petstore
-    CodeBuild PR Create project stack name: petstore_pr_create
+    System Test Account name: AzTutMgmt
+    GitHub Repo URL: https://github.com/myorg.OrgDevJoePetStore.git
+    Repo short name: orgdevjoepetstore
+    CodeBuild PR Create project stack name: orgdevjoepetstore_pr_create
     CodeBuild PR Create project template: Test_CodeBuild_PR_Create.yaml
-    CodeBuild PR Merge project stack name: petstore_pr_merge
+    CodeBuild PR Merge project stack name: orgdevjoepetstore_pr_merge
     CodeBuild PR Merge project template: Test_CodeBuild_PR_Merge.yaml
 Continue y/n y
 Processing Starting
-Deploying petstore_pr_create AWS CodeBuild project to AzPetTest account.
-Deploying petstore_pr_merge AWS CodeBuild project to AzPetTest account.
+Deploying orgdevjoepetstore_pr_create AWS CodeBuild project to AzTutTest account.
+Deploying orgdevjoepetstore_pr_merge AWS CodeBuild project to AzTutTest account.
 Processing Complete</code></pre>
         </li>
     </ol>

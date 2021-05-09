@@ -249,7 +249,7 @@
                     <a href="/installation/smf_create_stack.html">
                         
                         <span class="">Step 4 -
-                            Create Stack</span>
+                            Configure Repo(s)</span>
                     </a>
                 </li>
                 <ul>
@@ -362,15 +362,13 @@
     <p>We prefix system test account names with the OrgCode and a SysCode. The 
         OrgCode should be the same prefix code used during the Create AWS Organization 
         step. The SysCode should be a short 2 or 3 character code identifying the 
-        system the account is being created for. </p>
+        system the account is being created for. For your first system we suggest 
+        you create a "Tutorial" system with a ShortCode of "Tut"</p>
 
     <p>The system test account name template is "OrgSysTest" where "Org" is replaced 
-        with your OrgCode and "Sys" is replaced with your SysCode.
+        with your OrgCode and "Tut" is replaced with your SysCode.
     </p>
 
-    <p><strong>We recommend that you create your first system now with a SysCode of "Tut" (short for Tutorial). This 
-        system will be used by developers performing the LazyStack SMF Tutorial.
-    </strong></p>
 
     <h5>Steps</h5>
     <ol>
@@ -387,31 +385,31 @@
  Enter your AWS CLI Management Account Profile (default: AzMgmt):
  Enter Region (defautl us-east-1):
  Enter the Test OU Name (default: AzTestOU):
- Enter the System Handle (ex: Pet):Pet
- Enter the Test Account Name (default: AzPetTest): 
- Enter the Test IAM User Name (default: AzTest):
+ Enter the System Handle (ex: Pet):Tut
+ Enter the Test Account Name (default: AzTutTest): 
+ Enter the Test IAM User Name (default: AzTutTest):
  Note: An email address can only be associated with one AWS Account. 
- Enter an Email Address for the new account's Root User: me+AzTest@gmail.com
+ Enter an Email Address for the new account's Root User: me+AzTutTest@gmail.com
  Please Review and Confirm the following:
      OrgCode: Az
      Management Account Profile: AzMgmt
      Test OU: AzTestOU
-     System Test Account to be created: AzPetTest
-     Test IAM User Name: AzPetTest
+     System Test Account to be created: AzTutTest
+     Test IAM User Name: AzTutTest
      Test Organization Unit: AzTestOU
-     Email Address for Account's Root User: me+AzTest@gmail.com 
+     Email Address for Account's Root User: me+AztutTest@gmail.com 
  Confirm y/n: y 
  Processing Starting
- Creating Test Account AzPetTest
+ Creating Test Account AzTutTest
      - Checking for successful account creation. TryCount=1 
      - AzTest account creation successful. AccountId: 123456789123
      - Moving AzPetTest account to AzTestOU organizational unit
- Adding AzPetTestAccess profile and associating it with aws cothe AzMgmt profile 
- Creating Administrators Group in AzPetTest account 
+ Adding AzTutTestAccess profile and associating it with aws cothe AzMgmt profile 
+ Creating Administrators Group in AzTutTest account 
      - Adding policy AdministratorAccess 
- Creating IAM User AzPetTest in the AzPetTest account.
-     - Adding the IAM User AzPetTest to the Administrators group in the AzPetTest account.
-     - Writing the IAM User Creds into AzPetTest_welcom.txt
+ Creating IAM User AzTutTest in the AzTutTest account.
+     - Adding the IAM User AzTutTest to the Administrators group in the AzTutTest account.
+     - Writing the IAM User Creds into AzTutTest_welcome.txt
  Processing Complete</code></pre>
         </li>
     <li>Configure Account to User GitHub Personal Access Tokens

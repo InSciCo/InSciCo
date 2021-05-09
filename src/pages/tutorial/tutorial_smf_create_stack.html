@@ -1,0 +1,114 @@
+---
+layout: docpage
+section: Tutorial
+topic: Configure LazyStack
+tutorial: smf
+---
+{{> tutorial_menu}}
+<div class=lz-r-content>
+    <h3>Create Simple Stack</h3>
+    <p>In this step we will use LazyStack to create and test a very simple serverless stack. We present these steps
+        assuming you are using the Visual Studio IDE (Windows). If you are using Visual Studio IDE (MacOS) or the
+        .NET CLI, substitute those commands as you saw illustrated in the associated tutorial.
+    </p>
+
+    <h4>Hello World Stack</h4>
+    <p>In this example we will be creating the proverbial "hello world" stack. The
+        stack will use HttpApiGateway and a single Lambda project. A single Http GET method "SayHello" will
+        return a string result "Hello from MyStack", where MyStack is the name of the stack you publish.
+    </p>
+
+    <h4>1.1 Create MyStack Solution</h4>
+    <p>Pick a unique name for your stack and use that instead of "MyStack" throughout this tutorial so your work doesn't
+        conflict with another Tutorial user. Stack names should be short, alphanumeric and start with a character. To
+        guarantee uniqueness in your organization, you may want to name the stack after your AWS Account Name; ex:
+        OrgDevJoe.
+    </p>
+    <ol>
+        <li>Create a LazyStackTutorial Folder (you may already have this folder if you have performed another LazyStack
+            Tutorial).</li>
+        <li>Launch Visual Studio.</li>
+        <li>Click on Create a new project. The "Create a new project" dialog appears.</li>
+        <li>Type "LazyStackWebApi" into the search field. A list of project templates is presented.</li>
+        <li>Double Click on the LazyStackWebApi project template. The "Configure you new project" dialog appears.</li>
+        <li>Enter the stack name as the Project Name.</li>
+        <li>Edit the Location to point to the LazyStackTutorial folder.</li>
+        <li>Click on the Create button. A solution for your stack project is created.</li>
+        <li>Select Visual Studio menu item "Build &rightarrow; Rebuild Solution". The solution compiles successfully.
+        </li>
+    </ol>
+    <h4>1.2 Download SimpleStack.yaml and run LazyStack Generator</h4>
+    <ol>
+        <li><a href="" download>Click to Download SimpleStack.yaml file</a></li>
+        <li>Move the SimpleStack.yaml from your Downloads folder to the Solution's root folder.</li>
+        <li>Rename "SimpleStack.yaml" to MyStack.yaml where MyStack is your stack name.</MyStack>
+        </li>
+        <li>Select Visual Studio menu item "Tools/LazyStack - Generate Projects". Multiple projects and solution folders
+            are created.
+            <ul>
+                <li>Controllers folder
+                    <ul>
+                        <li>HelloController project</li>
+                    </ul>
+                </li>
+                <li>Lambdas folder
+                    <ul>
+                        <li>Hello project</li>
+                    </ul>
+                </li>
+                <li>"Solution Items" folder (files are in solution's root folder)
+                    <ul>
+                        <li>LazyStack.yaml</li>
+                        <li>LocalApis.json</li>
+                        <li>MyStack.yaml (your stack name)</li>
+                        <li>SAM_Review.yaml</li>
+                    </ul>
+                </li>
+                <li>Stacks folder
+                    <ul>
+                        <li>Dev folder
+                            <ul>
+                                <li>serverless.template</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>MyStackClientSDK project - with your stack name</li>
+                <li>MyStackSchema project - with your stack name</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h4>1.3 Implement the MyStack application Controller</h4>
+    <p>In this step we implement a simple controller.</p>
+    <ol>
+        <li>Create MyStackRepo project from "C# Class Library (.NET Core)" template.
+            <ol type="a">
+                <li>Right Click on Solution MyStack item in the solution explorer. The context menu appears.</li>
+                <li>Select the Add &rightarrow; New Project context menu item. The "Add a new project" dialog appears.
+                </li>
+                <li>Find the "C# Class Library (.NET Core)" project template.</li>
+                <li>Double click on the "C# Class Library (.NET Core)" template. The Configure your new project window
+                    appears.</li>
+                <li>Enter MyStackRepo as the project name - using your stack name.</li>
+                <li>Click the Create button. The project is created with a default class Class1.cs.</li>
+            </ol>
+        </li>
+        <li>Edit the Class1.cs file.</li>
+        <li>Build the project.</li>
+    </ol>
+    <h4>1.4 Configure LazyStack</h4>
+    <p>In this step we make a few edits to the LazyStack.yaml file to configure our stack.</p>
+    <ol>
+        <li>Open the LazyStack.yaml file in the Solution Items folder. It should have this content:<br>
+            <pre><code class="language-yaml">...</code></pre>
+        </li>
+
+    </ol>
+    <h4>1.6 Deploy Stack to Sandbox Account and Test</h4>
+    <ol>
+        <li></li>
+    </ol>
+
+
+</div>
