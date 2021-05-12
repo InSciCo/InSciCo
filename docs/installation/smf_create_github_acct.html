@@ -390,7 +390,17 @@
                 <li>Rename the LazyStackSMF folder to "OrgMgmt". Replace "Org" with your OrgCode. The OrgMgmt folder will contain 
                     your management scripts and configuration information for the AWS Organization and accounts you will create. 
                     Access to this folder should be restricted to your Management Workstation.</li>
-
+            </ol>
+        </li>
+        <br>
+        <li>For the InSciCo/LazyStackSmfUtil project
+            <ol type="a">
+                <li>CD to the folder under which you created your OrgMgmt folder.
+                </li>
+                <li>Issue this gh command:
+                    <pre><code class="language-bashshell">gh repo fork InSciCo/LazyStackSmfUtil --clone=true</code></pre>
+                    A LazyStackSmfUtil folder will be created containing a copy of the LazyStackSMF repository.
+                </li>
             </ol>
         </li>
         <br>
