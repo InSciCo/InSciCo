@@ -403,30 +403,29 @@
   <dd>- Configure Developer Workstation Complete (using Developer Account information)</dd>
    <dt>Estimated Time: 5 minutes</dt> 
     <dt>Estimated Cost: none</dt> 
-  <dt>Some steps in this tutorial require access to Management Workstation</dt>
-  <dt>Some steps in this tutorial require access to Developer Workstation.</dt>
+  <dt>This tutorial is performed on the Developer Workstation.</dt>
 </dl>  
 
-<p>In this system we are going to create a new System and add a stack to that system. To make things simple we are going 
-  to use the PetStore stack developed in the LazyStack Tutorial. During the SMF installation process, a Management 
-  Workstation was configured with access to the AWS Management account for an AWS Organization. In addition, individual 
-  "Developer AWS Accounts" were created for each developer.
+<p>In this tutorial we are going to add a stack to the Tutorial system created during Install Configure LazyStack SMF process. 
+  We assume you have completed one of the LazyStack Tools Tutorials, so we will use that local .NET solution to create the 
+  system stack. During the SMF installation process, individual AWS Accounts were created for each developer. 
+  You will need the credentials produced by that process to execute this tutorial. You may have already performed the 
+  Install Configure Developer Workstation process with those credentials, if not please update your Developer Workstation 
+  configuration using those credentials.
+</p>
+<p>In addition, a GitHub Repository should have been created for you during the Install Configure LazyStack SMF process. The 
+  suggested naming of that repository was "OrgDevJoePetStore" where OrgDevJoe is the name of your developer account. 
+</p>
 
-</p>
-<p>This tutorial requires access to the management workstation and developer workstation. If your workstation is not configured 
-  as both a management and developer workstation, then you will need to coordinate some steps in this tutorial with a 
-  team member that has access to a management workstation. 
-</p>
+
 <div class="manual-list">
   <ul>
-    <li>1) Create a System - "Tut"</li>
-    <li>2) Create PetStore repository on GitHub</li>
-    <li>3) Install CI/CD</li>
-    <li>4) Start Feature Development</li>
-    <li>5) Create Pull Request</li>
-    <li>6) Update Pull Request</li>
-    <li>7) Merge Pull Request</li>
-    <li>8) Checkout Latest Main</li>
+    <li>1) Clone Repository</li>
+    <li>2) Start Feature Development</li>
+    <li>3) Create Pull Request</li>
+    <li>4) Update Pull Request</li>
+    <li>5) Merge Pull Request</li>
+    <li>6) Checkout Latest Main</li>
   </ul>
 </div>
 
