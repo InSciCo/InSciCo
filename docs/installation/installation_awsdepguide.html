@@ -654,14 +654,32 @@
                                             <ul>
                                                 <li>Webhook on PR Create/Update</li>
                                                 <li>Inline Script for Build, Test, and Deploy
-                                                    <pre><code class="language-bashshell"># csh script                                                                    
-# stack names can not include / characters so we replace with -
-- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
-- dotnet build --configuration Release
-# dotnet test
-# ${S3} is replaced during cloudformation template processing with S3 name
-# $stack is replaced by csh
-- eval "sam deploy -t Stacks/Rev/serverless.template --stack-name $stack --s3-bucket ${S3} --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"</code></pre>
+                                                    <pre><code class="language-bashshell"> 
+version: 0.2
+env:
+    git-credential-helper: yes
+phases:
+    build:
+    commands:
+        # example GitHub refs/heads/F1 
+        - echo $CODEBUILD_WEBHOOK_HEAD_REF
+        - FeatureBranch="$(basename $CODEBUILD_WEBHOOK_HEAD_REF)"
+        - stack=$FeatureBranch
+
+        # build all Lambda projects (and their dependencies)
+        - for proj in Lambdas/*/*.csproj; do eval "dotnet build ${proj} --configuration Release";  done
+
+        # $stack is replaced by csh
+        - eval "sam deploy -t Stacks/Test/serverless.template --stack-name $stack --s3-bucket ${S3} --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"
+        - pwsh -Command  "../LzSmfUtil/GetAwsSettings $stack Stacks/Test/AwsSettings.json"
+
+        - git config user.name "CodeBuild"
+        - git config user.email CodeBuild@example.com
+        - git checkout $FeatureBranch
+        
+        - git add Stacks/Test/AwsSettings.json
+        - git commit -m "Update AwsSettings.json for PR Stack"
+        - git push --set-upstream origin HEAD:$FeatureBranch</code></pre>
                                                 </li>
                                             </ul>
                                         </li>
@@ -677,13 +695,27 @@
                                             <ul>
                                                 <li>Webhook on PR Merge</li>
                                                 <li>Inline Script for delete stack
-                                                    <pre><code class="language-bashshell"># csh script                                                                    
-# stack names can not include / characters so we replace with -
-- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
-- dotnet build --configuration Release
-# ${S3} is replaced during cloudformation template processing with S3 name
-# $stack is replaced by csh
-- eval "aws cloudformation delete-stack --stack-name $stack"</code></pre>
+                                                    <pre><code class="language-bashshell">          
+version: 0.2
+env:
+    git-credential-helper: yes
+phases:
+    build:
+    commands:
+        # ex for GitHub refs/heads/F1 
+        - echo $CODEBUILD_WEBHOOK_HEAD_REF
+        - FeatureBranch="$(basename $CODEBUILD_WEBHOOK_HEAD_REF)"
+        - stack=$FeatureBranch
+
+        - eval "aws cloudformation delete-stack --stack-name $stack"
+
+        - git config user.name "CodeBuild"
+        - git config user.email CodeBuild@example.com
+        - git checkout $FeatureBranch
+        
+        - git rm Stacks/Test/AwsSettings.json
+        - git commit -m "Deleted AwsSettings.json for PR Stack"
+        - git push --set-upstream origin HEAD:$FeatureBranch</code></pre>
                                                 </li>
                                             </ul>
                                         </li>
@@ -718,10 +750,26 @@
                                             <ul>
                                                 <li>Webhook on PR Merge</li>
                                                 <li>Inline Script for Build, and Deploy
-                                                    <pre><code class="language-bashshell">#csh script
-- dotnet build --configuration Release
-- eval "sam deploy -t Stacks/Rev/serverless.template --stack-name prod --s3-bucket ${S3}  --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}" </code></pre>
-                                                </li>
+                                                    <pre><code class="language-bashshell">
+version: 0.2
+env:
+    git-credential-helper: yes
+phases:
+    build:
+    commands:
+        # build all Lambda projects (and their dependencies)
+        - for proj in Lambdas/*/*.csproj; do eval "dotnet build ${proj} --configuration Release";  done
+
+        - eval "sam deploy -t Stacks/Prod/serverless.template --stack-name ${ProdStackNameParam} --s3-bucket ${S3} --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"
+        - pwsh -Command  "../LzSmfUtil/GetAwsSettings $stack Stacks/Prod/AwsSettings.json"
+
+        - git config user.name "CodeBuild"
+        - git config user.email CodeBuild@example.com
+        - git checkout main
+        
+        - git add Stacks/Prod/AwsSettings.json
+        - git commit -m "Update AwsSettings.json for Prod Stack"
+        - git push --set-upstream origin HEAD:main</code></pre></li>
                                             </ul>
                                         </li>
                                         <li>AWS::IAM::Role - CodeBuildRole</li>
