@@ -27,26 +27,19 @@ install: smf
                     </ul>
                 </li>
                 <br>
-                <li>Step 2 - Add Developer(s)
-                    <ul>
-                        <li>2.1 Create Developer AWS Account (each developer has their own "sandbox" account)</li>
-                        <li>2.2 Configure Developer's Workstation</li>
-                    </ul>
-                </li>
-                <br>
-                <li>Step 3 - Create System(s)
+                <li>Step 2 - Create System(s)
                     <ul>
                         <li>We define a System as a collection of AWS Resources managed together (serverless stacks are AWS Resources). Systems are used to segregate unrelated applications; for example 
                             different line-of-business, product or customer. System's are managed in two AWS Accounts: Test and Production. 
                             We will start by creating a System called "Tutorial" that will be used to host stacks created by developers 
                             performing the LazyStack Tools Tutorial and SMF Tutorial.
                         </li>
-                        <li>3.1 Create AWS Test Account for System</li>
-                        <li>3.2 Create AWS Production Account for System</li>
+                        <li>2.1 Create AWS Test Account for System</li>
+                        <li>2.2 Create AWS Production Account for System</li>
                     </ul>
                 </li>
                 <br>
-                <li>Step 4 - Configure Repo(s)<br>
+                <li>Step 3 - Configure Repo(s)<br>
                     <ul>
                         <li>Each Serverless Stack is associated with a single GitHub Repository. A System may be associated with one or 
                             more repositories in the same GitHub Account; so each System may have multiple stacks. We assume you 
@@ -55,9 +48,16 @@ install: smf
                             To allow each developer to perform the SMF Tutorial, we suggest you create a new GitHub repository,
                             in your GitHub Organization, that the developer will use in the SMF tutorial. 
                         </li>
-                        <li>4.1 Create GitHub Repository</li>
-                        <li>4.2 Configure Continuous Integration and Continuous Deployment for System Test Account</li>
-                        <li>4.3 Configure Continuous Deployment for System Production Account</li>
+                        <li>3.1 Create GitHub Repository</li>
+                        <li>3.2 Configure Continuous Integration and Continuous Deployment for System Test Account</li>
+                        <li>3.3 Configure Continuous Deployment for System Production Account</li>
+                    </ul>
+                </li>
+                <br>
+                <li>Step 4 - Add Developer(s)
+                    <ul>
+                        <li>4.1 Create Developer AWS Account (each developer has their own "sandbox" account)</li>
+                        <li>4.2 Configure Developer's Workstation</li>
                     </ul>
                 </li>
             </ul>
