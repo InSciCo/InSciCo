@@ -6,7 +6,7 @@ install: smf
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h4>SMF 1.2 Create AWS Management Account</h4>
+    <h4>Step 3) Create AWS Management Account</h4>
     <dl>
         <dt>Prerequisites:</dt>
             <dd>- Email Address to use for Root User in Management Account</dd>
@@ -15,6 +15,7 @@ install: smf
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>
 
+    <h5>Configuration Steps</h5>
     <ol>
         <!--Sign Up-->
         <li><a href="https://portal.aws.amazon.com/billing/signup" {{>newtab}}>Sign up</a> for 
@@ -59,7 +60,7 @@ install: smf
                 <li>Click the <strong>Create user</strong> button. The Add user (step 5) page appears.</li>
                 <li>Click the <strong>Download .csv</strong> button.</li>
                 <li>Rename the "new_user_credentials.csv" file to "OrgMgmt_credentials.csv". Replace "Org" with your OrgCode.</li>
-                <li>Move the file to the LazyStackSMF folder. 
+                <li>Move the file to the LazyStackSettings folder. 
                 </li>
                 <li>Click the <strong>Close</strong> button. The IAM console appears.</li>
             </ol>
@@ -75,7 +76,7 @@ install: smf
         <li>Create OrgMgmt AWS CLI Profile
             <ol type="a">
                 <li>Open PowerShell terminal</li>
-                <li>CD into the LazyStackSMF folder.</li>
+                <li>CD into the LazyStackSettings folder.</li>
                 <li>Issue the following command: (replacing "Org" with your OrgCode)
                     <pre><code class="language-bashshell">aws configure import --csv file://OrgMgmt_credentials.csv</code></pre>
                     This creates the OrgMgmt profile.

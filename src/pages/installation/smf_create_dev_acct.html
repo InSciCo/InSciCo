@@ -6,7 +6,7 @@ install: smf
 ---
 {{> installation_menu}}
 <div class=lz-r-content>
-    <h4>SMF 4.1 Create Developer Account</h4>
+    <h4>Step 5 ) Create Developer Account(s)</h4>
     <dl>
         <dt>Prerequisites:</dt>
         <dd>- Organization Setup complete</dd>
@@ -15,15 +15,31 @@ install: smf
         <dt>Estimated Cost: none</dt> 
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>      
-    <p>In this step we will run the Dev_Account_Create.ps1 script to create a new Developer 
-        Member Account belonging to the AWS organization and move this account into the OrgDevOU 
-        Organizational Unit. Execute these steps on your Management Workstation.
+    <p>In this step we will run the LzNewDevAcct.ps1 script to create a new Developer 
+        AWS Sandbox Member Account belonging to the AWS organization and move this account into 
+        the DevOU Organizational Unit. The AWS Account will have a IAM Policy Group called 
+        Developers. The Developers Group will have two policies: PowerUsersAccess and 
+        IAMUserCredsPolicy. PowerUsersAccess is an AWS Management Policy. IAMUserCredsPolicy is 
+        created by this script from the provided IAMUserCredsPolicy.json file. 
     </p>
+    <h5>Sometimes managing a developer's AWS Account is optional!</h5>
+    <p>Developers do not always have to have an AWS Account to contribute to your application. 
+        They only need to be able to make PR requests against an GitHub repository referenced by 
+        one of your Systems. In addition, they could use their developer workstation to publish 
+        a Serverless Stack directly to <strong>any</strong> AWS Account in which they have sufficient administrative 
+        rights to do so. This can make it easy to have sub-contractors make contributions to your 
+        codebase without your having to manage their AWS Accounts. However, if the Serverless Stacks 
+        being deployed require accessing "shared" resources in other accounts you do manage, it is 
+        best practice to allow that access only from developer AWS Accounts you manage.
+    </p>
+    <h5>Configuration Steps</h5>
     <ol>
         <li>Open a PowerShell terminal.</li>
+        <br>
         <li>CD into the LazyStackSMF folder.</li>
-        <li>Execute the Dev_Account_Create.ps1 script:
-            <pre><code class="language-bashshell">. .\Dev_Account_Create.ps1</code></pre>
+        <br>
+        <li>Execute the LzNewDevAcct.ps1 script:
+            <pre><code class="language-bashshell">..\LazyStackSMF\LzNewDevAcct.ps1</code></pre>
                     Here is a script run with sample inputs:
                     <pre><code class="language-bashshell">
 Dev_Account_Create.ps1 - V1.0.0
@@ -67,16 +83,6 @@ Write-Host "required on first login) for the IAM User ${LzIAMUserName}.
 </code></pre>
         </li>
     </ol> 
-    <p>The welcome.txt file has content that looks something like this:
-        <pre><code class="language-bashshell">
-    AWS Account Console: https://123456789012.signin.aws.amazon.com/console
-    IAM User: AzDevJoe
-    Temporary Password: 93939aA!
-    Please login, you will required to reset your password.
-    Please login as soon as possible.
-    Follow the "Dev profile Setup" instructions at http://lazystack.io/installation/installation_awsdevprofilesteps.html
-        </code></pre>
-    </p>
 
     <h5>Step Summary</h5>
     <p>In this step we used the Dev_Account_Create.ps1 script to create a new Dev Account 

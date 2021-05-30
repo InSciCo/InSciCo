@@ -1,0 +1,30 @@
+---
+layout: docpage
+section: UserGuide
+topic: smf
+---
+{{> userguide_menu}}
+<div class=lz-r-content>
+    <h3>LzDeployPipeline Script</h3>
+    <p>The LzDeployPipeline.ps1 PowerShell script is run on the Management Workstation to 
+        deploy a specific CodeBuild project. This is required after you make changes to 
+        
+    </p>
+
+    <h5>IAMUserCredsPolicy.json</h5>
+    <p>This policy grants the developer those permissions typically required to publish 
+        Serverless Stacks to their AWS Sandbox Account. Use the LzUpdateDevCreds.ps1  
+        script to update the policy for an existing developer's account when you make changes
+        to the local IAMUserCredsPolicy.json document.
+    </p>
+
+    <h5>Running the LzUpdateDevCreds Script</h5>
+    <ol>
+        <li>Open a PowerShell terminal</li>
+        <br>
+        <li>CD into your LazyStackSettings folder.</li>
+        <br>
+        <li><pre><code class="language-bashshell">..\LazyStackSMF\LzUpdateDevCreds.ps1</code></pre></li>
+    </ol>
+
+</div>                

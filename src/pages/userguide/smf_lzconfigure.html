@@ -1,0 +1,158 @@
+---
+layout: docpage
+section: UserGuide
+topic: smf
+---
+{{> userguide_menu}}
+<div class=lz-r-content>
+    <h3>LzConfigure Script</h3>
+    <p>The LzConfigure.ps1 PowerShell script is run on the Management Workstation to configure your SMF Organization. 
+    </p>
+    <p>This script was used in the initial SMF setup to create a GitHub Organization configured wih: </p>
+    <ul>
+        <li>GitHub Organization: AzOrg
+            <ul>
+                <li>- GitHub Admin Account: AzAdmin</li>
+                <li>- Copy of InSciCo/PetStore repository (used in SMF tutorial)</li>
+                <li>- Fork of LazyStackSMF (tools and such)</li>
+            </ul>
+        </li>
+        <li>- AWS Management Account: AzMgmt</li>
+        <li>- AWS Tutorial System Test Account with CI/CD of application test stacks: AzTutTest</li>
+        <li>- AWS Tutorial System Production Account with CD of application prod stack: AzTutProd</li>
+    </ul>
+
+    <img src="/assets/img/LazyStackSMFSetup_2.svg" width="100%">
+    <p></p>
+    <h4>SMF.yaml File</h4>
+    <p>The first time you run the AzConfigure script, a SMF.yaml file is written in your LazyStackSettings folder. 
+        This file contains the configuration settings for your SMF Organization. Here is a sample SMF.yaml file 
+        generated for our made-up organization with an OrgCode of "Az" and a GitHub organization name of "AzOrg".
+    </p>
+
+<pre><code class="language-bashshell">
+Az:
+  AWS:
+    MgmtProfile: AzMgmt
+    DefaultRegion: us-east-1
+    OrgUnits:
+    - DevOU
+    - TestOU
+    - ProdOU
+  Sources:
+    GitHub:
+      Type: GitHub
+      AcctName: AzAdmin
+      OrgName: AzOrg
+  Systems:
+    Tut:
+      Description: Tutorial System
+      Accounts:
+        Test:
+          Type: Test
+          DefaultRegion: us-east-1
+          Description: Test System Account
+          Pipelines:
+            Test_PR_Create:
+              Description: Create PR Stack on Pull Request Creation
+              TemplatePath: ../LazyStackSMF/Test_CodeBuild_PR_Create.yaml
+              Region: us-east-1
+              TemplateParams:
+                RepoParam: https://github.com/AzOrg/Petstore.git
+                UtilRepoParam: https://github.com/AzOrg/LazyStackSMF.git
+            Test_PR_Merge:
+              Description: Delete PR Stack on Pull Request Merge
+              TemplatePath: ../LazyStackSMF/Test_CodeBuild_PR_Merge.yaml
+              Region: us-east-1
+              TemplateParams:
+                RepoParam: https://github.com/AzOrg/Petstore.git
+        Prod:
+          Type: Prod
+          Description: Prod System Account
+          Pipelines:
+            Prod_PR_Merge:
+              Description: Update Production Stack on Pull Request Merge
+              TemplatePath: ../LazyStackSMF/Prod_CodeBuild_PR_Merge.yaml
+              Region: us-east-1
+              TemplateParams:
+                RepoParam: https://github.com/AzOrg/Petstore.git
+                UtilRepoParam: https://github.com/AzOrg/LazyStackSMF.git
+                ProdStackNameParam: us-east-1-petstore</code></pre>
+
+    <p></p>
+    <p>The hierarchy of this document reflects the organization diagrams previously 
+        shown:
+    </p>
+    <ul>
+        <li>OrgCode - Organization Code
+            <ul>
+                <li>AWS - connection and organization unit information
+                    <ul>
+                        <li>OrgUnits - names of AWS organizational units</li>
+                    </ul>
+                </li>
+                <li>Sources - connection information
+                    <ul>
+                        <li>GitHub - currently,  this is the only source supported</li>
+                    </ul>
+                </li>
+                <li>Systems - one or more systems
+                    <ul>
+                        <li>SysCode - System Code
+                            <ul>
+                                <li>Accounts - one or more AWS Accounts
+                                    <ul>
+                                        <li>AccountType (Test or Prod)
+                                            <ul>
+                                                <li>Pipelines - one or more CI/CD pipelines
+                                                    <ul>
+                                                        <li>PipelineName - CodeBuild pipeline project configuration</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h5>Adding a New System</h5>
+    <p>It is very easy to add additional systems (each containing a test and production account with CI/CD pipelines). 
+        You can copy an existing system (like Tut), paste it into the SMF file, give it a new SysCode, and then edit 
+        Pipeline properties as  necessary. Typically, this would mean changing the RepoParm value on each Pipeline under 
+        the new system. 
+    </p>
+    <p>After making these changes you simply run the LzConfigure script and it will create the new AWS Accounts and deploy 
+        the new pipeline projects.
+    </p>
+    <p>NOTE: AWS limits new Organizations to having 4 Accounts. Each time you add a new system you are adding 2 new 
+        accounts. Before configuring a new System, request that AWS increase the maximum number of accounts limt in your 
+        organization.
+    </p>
+
+    <h5>Adding another Serverless Stack to a System</h5>
+    <p>Adding a new Serverless Stack to a System is accomplished by adding additional pipelines under the existing 
+        System Accounts. Use the existing pipelines as an example. Each Pipeline must have a unique name under the 
+        Pipelines section.</p>
+
+    <p>After making these changes you simply run the LzConfigure script and it will create and deploy 
+        the new pipeline projects.
+    </p>
+    
+
+    <h5>Running the LzConfigure Script</h5>
+    <p>Each new AWS Account needs a unique email address or alias. Have these handy before you run the script.</p>
+    <ol>
+        <li>Open a PowerShell terminal</li>
+        <br>
+        <li>CD into your LazyStackSettings folder.</li>
+        <br>
+        <li><pre><code class="language-bashshell">..\LazyStackSMF\LzConfigure.ps1</code></pre></li>
+    </ol>
+
+</div>                

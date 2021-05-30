@@ -1,0 +1,337 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $("#smf_create_org_checklist").addClass("is-active");
+            console.log("hello");
+        });
+    </script>
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                
+                <!--
+                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
+                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
+                </div>
+                -->
+                
+                <div class="cell shrink header medium-cell-block-container">
+                
+                    <div id="header-banner" style="position: relative;height:129px">
+                    </div>
+                
+                    <div style=
+                        "position:fixed; 
+                        top: 17px;
+                        left: 16px;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .71);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                
+                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+                  data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title" style="padding-left: 8px;">Install</div>
+                </div>
+                
+                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+                    <ul class="vertical medium-horizontal menu dropdown inner">
+                
+                      <li  id="index">
+                        <a href="/index.html"><span class="">Home</span></a>
+                      </li>
+                
+                      <li id="introdocs" >
+                        <a href="/intro/intro.html">
+                          <span class="">Introduction</span></a>
+                      </li>
+                
+                      <li id="installation">
+                        <a href="/installation/installation_overview.html">
+                          <span class="lz-r-sectionitem">Install</span>
+                        </a>
+                      </li>
+                
+                      <li id="tutorialdocs">
+                        <a href="/tutorial/tutorial_intro.html">
+                          <span class="">Tutorial</span>
+                        </a>
+                      </li>
+                
+                      <li id="userguide">
+                        <a href="/userguide/userguide_overview.html">
+                            <span class="">User Guide</span>
+                        </a>
+                      </li>
+                
+                      <li id="roadmap">
+                        <a href="/roadmap/roadmap_overview.html">
+                            <span class="">RoadMap</span>
+                        </a>
+                      </li>
+                
+                      <li id="contact">
+                        <a href="/contact/contact_contact.html">
+                            <span class="">Contact</span>
+                        </a>
+                      </li>
+                    </ul>
+                
+                
+                
+                </div>            </div>
+            <div class=lz-r-legal-notice style="max-width:1500px;">
+                <div style="display:flex; width: 150px;justify-content: space-between;">
+                    <a href="/privacy.html" class=text-item-L>Privacy</a>
+                </div>
+                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
+            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">GettingStarted</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up"  style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
+
+        <li>
+            <a href="/installation/installation_overview.html">
+                <span class="">Overview</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/installation/smf_overview.html">
+                <span class="">Configure LazyStack SMF</span>
+            </a>
+        </li>
+
+        <div style="display: inline">
+            <ul>
+
+
+                <li>
+                    <a href="/installation/smf_create_org_checklist.html"> 
+                        <span class="lz-r-topicitem">
+                            Preparation Checklist</span>
+                    </a>
+                </li>
+    
+
+
+                <li>
+                    <a href="/installation/smf_create_github_acct.html"> 
+                        <span class="">1) 
+                            Create GitHub Account</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/installation/smf_config_mgmt_workstation.html"> 
+                        <span class="">2) 
+                            Configure Workstation</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/installation/smf_create_mgmt_acct.html"> 
+                        <span class="">3) 
+                            AWS Mgmt. 
+                            Acct.</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/installation/smf_create_org.html"> 
+                        <span class="">4)
+                            Create AWS Org.</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/installation/smf_create_dev_acct.html"> 
+                        <span class=""> 
+                            5) Create Dev Account(s)</span>
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="/installation/installation_awsdepguide.html"> 
+                        <span class="">Deployment
+                            Summary</span>
+                    </a>
+                </li>
+           </ul>
+        </div>
+        <li>
+            <a href="/installation/devtools_config_dev_ws.html">
+                <span class="">Configure Developer
+                    Workstation</span>
+            </a>
+        </li>
+
+        <div style="display: none">
+            <ul>
+                <li>
+                    <a href="/installation/devtools_config_dev_profile.html"> 
+                        <span class="">
+                            1) Config Dev Profile</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/installation/devtools_netcore_cli.html">
+                        <span class="">
+                            2) .NET CLI Tool</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/installation/devtools_visualstudio.html">
+                        <span>3) Visual Studio IDE</span>
+                    </a>
+                </li>
+
+                <ul>
+                    <li>
+                        <a href="/installation/devtools_visualstudio.html">
+                            <span class="">
+                                3.1) VS IDE Windows</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/installation/devtools_visualstudio_mac.html">
+                            <span class="">
+                                3.2) VS IDE MacOS</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+
+    </ul>
+</div><div class=lz-r-content>
+    <h4>SMF Preparation Checklist</h4>
+    <p>Before you start the setup, have the following handy:</p>
+    <ul>
+        <li>Workstation with:
+            <ul>
+                <li>Internet Access</li>
+                <li>Windows 10, recent MacOS, or Linux</li>
+                <li>Ability to run scripts with Administrative privileges</li>
+                <li>Select a folder where you will create subfolders to contain your 
+                    install and settings information. For example, on Windows this 
+                    might be C:\Users\User\source\repos. We will refer to this 
+                    folder as the "Common" folder in the documentation.
+                </li>
+            </ul>
+        </li>
+        <br>
+        <li>Credit Card for use on GitHub and AWS for sign up if you are creating 
+            new accounts.</li>
+        <br>
+        <li>OrgCode - select a short organization code.</li>
+        <br>
+        <li>SysCode - we set this to "Tut" for the Tutorial System created during the setup. Later 
+            on, if you create a new System, you will select a SysCode for that System.
+        </li>
+        <br>
+        <li>Appropriate AWS Maximum Account limit. New AWS Organizations are limited 
+            to 4 total accounts. The SMF setup creates 3 accounts. Adding a single 
+            Developer Sandbox account brings the total to 4. Before adding any 
+            additional Developer Sandbox accounts, you can request AWS increase the 
+            Maximum Account limit for your organization. Also, if you already have 
+            an AWS organization and are running the setup on that existing organization,
+            make sure you have enough available accounts to create 2 new accounts 
+            for the LazyStack Tutorial system.
+        </li>
+        <br>
+        <li>Unique email addresses to use during AWS account creation:
+            <ul>
+                <li>AWS Management Account Email Address - if creating a new AWS Management Account</li>
+                <li>AWS Tutorial System Test Account Email address</li>
+                <li>AWS Tutorial System Production Account Email address</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h5>Email Addresses and AWS Root Accounts</h5>
+    <p> Each AWS account has a Root User whose credentials include an email
+        address and password. The email address must be unique across all accounts
+        on AWS; e.g. you may not use the same email address for more than a single
+        AWS Account. <br> If you are using Gmail, you can use the Gmail dynamic aliasing technique as follows (with
+        placeholders for OrgCode and SysCode shown):
+    </p>
+    <p>MyEmail@gmail.com -- existing email address with an OrgCode of "Az" and SysCode of "Tut".</p>
+    <ol>
+        <li>MyEmail+AzMgmt@gmail.com -- root user for management account</li>
+        <li>MyEmail+AzTutTest@gmail.com -- root user for tutorial system test account</li>
+        <li>MyEmail+AzTutProd@gmail.com -- root user for tutorial system production account</li>
+
+    </ol>
+    <p>The "+" character makes the email address a dynamic alias.</p>
+
+    <p>
+        If you are not using Gmail, create email addresses or aliases
+        in your email software instead.</p>
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+ 
+        </div>
+    </div>
+
+</body>
+
+</html>
