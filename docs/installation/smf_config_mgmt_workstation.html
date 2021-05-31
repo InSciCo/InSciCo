@@ -325,22 +325,6 @@
             </ol>
         </li>
         <br>
-        <li>Create the LazyStackSmfUtil and PetStore project in your GitHubOrg
-            <ol type="a">
-                <li>Using the same PowerShell terminal opened in the previous step, issue this gh command:
-                    <pre><code class="language-bashshell">gh auth login</code></pre>
-                    Follow the instructions to authenticate your workstation with GitHub
-                </li>
-                <li>Issue this gh command (edit the GitHubOrgName):
-                    <pre><code class="language-bashshell">gh repo create GitHubOrgName/LazyStackSmfUtil --private --confirm --template InsSciCo/LazyStackSmfUtil </code></pre>
-                </li>
-                <li>Issue this gh command (edit the GitHubOrgName):
-                    <pre><code class="language-bashshell">gh repo create GitHubOrgName/PetStore --private --confirm --template InsSciCo/PetStore </code></pre>
-                </li>
-
-            </ol>
-        </li>
-        <br>
         <li>Create the LazyStackSettings folder under the "common" folder. You can choose a different name, we will 
             use LazyStackSettings to refer to this folder in the rest of this documentation. You would choose another 
             name if you are managing more than one SMF Organization on your management workstation.
