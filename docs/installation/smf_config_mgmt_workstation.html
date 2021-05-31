@@ -278,11 +278,24 @@
     <ol>
         <li>Install PowerShell
             <ol type="a">
-                <li><a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.1"
+                <li><a href="https://github.com/PowerShell/PowerShell#get-powershell"
                         target="_blank" rel="noopener noreferrer">
-                        Install PowerShell<br></a> * If you are running Windows 10, PowerShell is already installed.
+                        Install the latest PowerShell<br></a> If you are running Windows 10, PowerShell 5.1 is 
+                        already installed. Although our scripts will work with PowerShell 5.1+, 
+                        we suggest you install the latest portable PowerShell. We find the latest version "just works" when 
+                        trying to install modules from PSGallery. Sometimes 5.1 will fail when run from behind a 
+                        corporate proxy or in a virtual machine and it can take a bit of effort to get 5.1 to work if 
+                        that happens. You can try using PowerShell 5.1 and run the "Install powershell-yaml" step below and 
+                        if you run into trouble accessing the PSGallery, then just install the latest PowerShell.
                 </li>
-                <li>Open a PowerShell terminal with "Run as Administrator" and issue the following command to change the
+                <li>Open a PowerShell terminal with "Run as Administrator" and check your version. If you are running the latest version, the 
+                    first line in the new terminal will usually show the version like this:
+                    <pre><code class="language-bashshell">PowerShell 7.1.3</code></pre>
+                    A PowerShell Version 5.1 terminal doesn't show the version when you open a terminal. However, you 
+                    get the PowerShell version running in a terminal by issuing this command:
+                    <pre><code class="language-bashshell">Get-Host | Select-Object Version</code></pre>
+                </li>
+                <li>Issue the following command to change the
                     PowerShell script execution permissions:
                     <pre><code class="language-bashshell">Set-ExecutionPolicy RemoteSigned</code></pre>
                     This will allow you to run PowerShell scripts on the local computer which is generally necessary for
@@ -295,15 +308,7 @@
             <ol type="a">
                 <li>PowerShell Sources
                     <p>Run the following commands in the PowerShell terminal</p>
-                    <pre><code class="language-bashshell"></code>Get-PackageSource</pre>
-                    <p>If you don't see PSGallery listed in the Package Sources, issue the following command</p>
-                    <pre><code class="language-bashshell"></code>Register-PSRepository -Default -InstallationPolicy Trusted</pre>
-                    If your computer is behind a company proxy you might get a message indicating the gallery source can't be reached. 
-                    Sometimes you can get around this by launching IE (which establishes proxy credentials) and then issuing the following command in the terminal:
-                    <pre><code class="language-bashell"></code>(New-Object -TypeName System.Net.WebClient).Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials</pre>
-                    Then try the Register-PSRepository command again and if it works, issue the following command:
                     <pre><code class="language-bashshell">Install-Module powershell-yaml</code></pre>
-                    
                 </li>
 
             </ol>
