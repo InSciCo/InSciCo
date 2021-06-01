@@ -36,59 +36,57 @@ install: smf
     <ol>
         <li>Open a PowerShell terminal.</li>
         <br>
-        <li>CD into the LazyStackSMF folder.</li>
+        <li>CD into the LazyStackSettings folder.</li>
         <br>
         <li>Execute the LzNewDevAcct.ps1 script:
             <pre><code class="language-bashshell">..\LazyStackSMF\LzNewDevAccount.ps1</code></pre>
                     Here is a script run with sample inputs:
-                    <pre><code class="language-bashshell">
-Dev_Account_Create.ps1 - V1.0.0
+                    <pre><code class="language-bashshell">LzNewDevAccount.ps1 - V1.0.0
 This script adds a developer account to the Dev Organizational Unit.
+It also adds a Admin Access Profile so this workstation can administer the new Account.
 Note: Press return to accept a default value.
-Enter your OrgCode (ex: Lz): Az
-Enter your AWS CLI Management Account Profile (default: AzMgmt):
+OrgCode: LzStk
+AWS Management Account: LzStkMgmt
 Enter Region (default us-east-1):
-Enter the Development OU Name (default: AzDevOU):
 Enter the Developer's Handle (ex: Joe): Joe
-Enter the Developer's Account Name (default: AzDevJoe): 
-Enter the Developer's IAM User Name (default: AzDevJoe):
-Note: An email address can only be associated with one AWS Account. 
-Enter an Email Address for the new account's Root User: me+AzDevJoe@gmail.com
-Please Review and Confirm the following:
-    OrgCode: Az
-    Management Account Profile: AzMgmt
-    Development OU: AzDevOU
-    Development Account to be created: AzDevJoe
-    Development Account IAM User Name: AzDevJoe
-    Development Organization Unit: AzDevOU
-    Email Address for Account's Root User: me+AzDevJoe@gmail.com 
-Confirm y/n: y 
+Enter the Developer's Account Name (default: LzStkDevJoe):
+Enter the Developer's IAM User Name (default: LzStkDevJoe):
+Note: An email address can only be associated with one AWS Account.
+Enter an Email Address for the new account's Root User: LzStkDevJoe@lzstk.net
+Please Review and confirm the following:
+    OrgCode: LzStk
+    Management Account Profile: LzStkMgmt
+    Development OU: DevOU
+    Development Account to be created: LzStkDevJoe
+    Development Account IAM User Name: LzStkDevJoe
+    Email Address for Account's Root User: LzStkDevJoe@lzstk.net
+Continue y/n: y
+
 Processing Starting
-Creating Developer Account AzDevJoe 
-    - Checking for successful account creation. TryCount=1 
-    - AzDevJoe account creation successful. AccountId: 123456789123
-Adding AzDevJoeAccess profile and associating it with the AzMgmt profile 
-Creating Developers Group in AzDevJoe account 
-    - Adding policy PowerUsersAccess 
-    - Adding policy IAMUserChangePassword
-Creating IAM User AzDevJoe in the AzDevJoe account.
-    - Adding the IAM User AzDevJoe to the Developers group in the AzDevJoe account.
-    - Writing the IAM User Creds into AzDevJoe_welcome.txt
+- Creating Developer Account LzStkDevJoe
+- Checking for successful account creation. TryCount=1
+- LzStkDevJoe account creation successful., AccountId: 123456789012 
+- Moving LzStkDevJoe account to DevOU Organizational Unit
+Adding  profile and associating it with the  profile.
+- Adding policy IAMuserCredsPolicy
+- Creating Developers group in the LzStkDevJoe account 
+- Adding PowerUserAccess Policy to Developers group
+- Adding IAMUserCredsPolicy to Developers group 
+- Creating IAM User LzStkDevJoe in LzStkDevJoe account.
+- Writing the IAM User Creds into LzStkDevJoe_credentials.txt
+- Adding IAM User LzStkDevJoe to the LzStkDevJoe Account Developers group.
 Processing Complete
-Send the AzDevJoe_welcome.txt file to the Developer or use it yourself if you are also that developer.
-The file contains the URL to login to the AWS Account AzDevJoe and the initial password (password reset
-Write-Host "required on first login) for the IAM User ${LzIAMUserName}.
+Send the LzStkDevJoe_credentials.txt file to the Developer or use it yourself if you are also that developer.
+The file contains the URL to login to the AWS Account LzStkDevJoe and the initial password (password reset
+required on first login) for the IAM User LzStkDevJoe.</code></pre>
+</li>
+</ol> 
 
+<h5>Step Summary</h5>
+<p>In this step we used the Dev_Account_Create.ps1 script to create a new Dev Account 
+and move that account into the Dev Organizational Unit. The script also 
+created a Developers group and in the new Dev Account, created a new IAM 
+User for the developer and assigned that IAM User to the Developers group. 
+</p>
 
-</code></pre>
-        </li>
-    </ol> 
-
-    <h5>Step Summary</h5>
-    <p>In this step we used the Dev_Account_Create.ps1 script to create a new Dev Account 
-        and move that account into the Dev Organizational Unit. The script also 
-        created a Developers group and in the new Dev Account, created a new IAM 
-        User for the developer and assigned that IAM User to the Developers group. 
-    </p>
-       
 </div>
