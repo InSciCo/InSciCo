@@ -154,16 +154,12 @@
 
         <div style="display: inline">
             <ul>
-
-
                 <li>
                     <a href="/installation/smf_create_org_checklist.html"> 
                         <span class="">
                             Preparation Checklist</span>
                     </a>
                 </li>
-    
-
 
                 <li>
                     <a href="/installation/smf_create_github_acct.html"> 
@@ -280,7 +276,7 @@
         <li>CD into the LayStackSettings folder.</li>
         <br>
         <li>Issue the following command:
-            <pre><code class="language-bashshell">..\LazyStackSMF\LzConfigure.ps1</code></pre>
+            <pre><code class="language-powershell">..\LazyStackSMF\LzConfigure.ps1</code></pre>
             You will be prompted for the following:
             <ul>
                 <li>OrgCode</li>
@@ -293,6 +289,13 @@
                 <li>Email address for Tutorial System Production AWS Account</li>
             </ul>
             <br>
+            <h5>Common Issue - PayerId (Don't panic!)</h5>
+            <p>There is an occasional problem with setting the CodeBuild Personal Access Token for CodeBuild 
+              projects during the creation of System accounts. This seems to be caused by some "timing" issue on 
+              the AWS side of things. This results in a message, usually during the creation of the second 
+              System Account (Production) where AWS complains about a "PayerId" not being setup. We have found that 
+              simply running the script a second time solves the problem. 
+            </p>
             <h5>What to do if the script fails?</h5>
             <p>We have written the script to be fault tolerant. If you get an error, you should 
                 receive a meaningful error message and the script will stop. You can then address 
@@ -306,22 +309,27 @@
                     you are using an existing account instead of creating one from scratch using the 
                     the setup instructions in SMF Step 3.
                 </li>
-                <li>You have exceeded the maximum number of accounts allowed in the AWS Organization. 
-                    By default, AWS sets this maximum at 4. You may request additional accounts. If 
+                <li>Maximum number of accounts exceeded. By default, AWS sets a maximum number of accounts 
+                    for a new organization at 4. You may request additional accounts. If 
                     you are using LazyStack SMF to create a new AWS organization from scratch, you 
                     should not see this issue during the initial Setup.
                 </li>
-                <li>Non-unique email address. Every AWS must have a unique email address. If you  
+                <li>Non-unique email address. Every AWS Account must have a unique email address. If you  
                     supply an email address that has already been used (in the last 90 days) for an 
-                    account, the account creation process will fail.
+                    AWS account, the account creation process will fail. Re-run the script and provide 
+                    a unique email address for each AWS Account.
+                </li>
+                <li>"Missing PayerId" - this is likely a "timing" problem on the AWS side of things and you can 
+                  usually just rerun the script again and it will succeed.
                 </li>
             </ul>
+            <p></p>
             <p>For more details on how this script works, visit the <a href="/userguide/smf_lzconfigure.html"target="_blank" rel="noopener noreferrer">LazyStackSMF Script</a> 
                 User Guide section.
             </p>            
             <br>
             Here is an example of running the script:
-            <pre><code class="language-bashshell">LzConfigure.ps1 V1.0.0
+            <pre><code class="language-powershell">LzConfigure.ps1 V1.0.0
 Use this script to setup and manage your LazyStackSMF Organization
 Creating new SMF settings file:
    Please enter OrgCode: LzStk

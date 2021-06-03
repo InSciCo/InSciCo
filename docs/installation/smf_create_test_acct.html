@@ -154,16 +154,12 @@
 
         <div style="display: inline">
             <ul>
-
-
                 <li>
                     <a href="/installation/smf_create_org_checklist.html"> 
                         <span class="">
                             Preparation Checklist</span>
                     </a>
                 </li>
-    
-
 
                 <li>
                     <a href="/installation/smf_create_github_acct.html"> 
@@ -300,9 +296,9 @@
         <li>Open a PowerShell Terminal.</li>
         <li>CD into the LazyStackSMF folder.</li>
         <li>Execute the Test_Account_Create.ps1 script:
-             <pre><code class="language-bashshell">. .\Test_Account_Create.ps1</code></pre>
+             <pre><code class="language-powershell">. .\Test_Account_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
-                     <pre><code class="language-bashshell">
+                     <pre><code class="language-powershell">
  Test_Account_Create.ps1 - V1.0.0
  This script adds a System Test account to the Test Organizational Unit.
  Note: Press return to accept a default value.
@@ -340,7 +336,7 @@
     <li>Configure Account to User GitHub Personal Access Tokens
         <ol type="a">
             <li>Enter the following command, replacing "OrgSys" and "githubtoken" with your values:
-                <pre><code class="language-bashshell">aws codebuild import-source-credentials --server-type GITHUB --auth-type PERSONAL_ACCESS_TOKEN --profile OrgSysTestAccessRole --token githubtoken </code></pre>
+                <pre><code class="language-powershell">aws codebuild import-source-credentials --server-type GITHUB --auth-type PERSONAL_ACCESS_TOKEN --profile OrgSysTestAccessRole --token githubtoken </code></pre>
             </li>
         </ol>
     </li>

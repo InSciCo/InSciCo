@@ -34,14 +34,14 @@ install: smf
                 </li>
                 <li>Open a PowerShell terminal with "Run as Administrator" and check your version. If you are running the latest version, the 
                     first line in the new terminal will usually show the version like this:
-                    <pre><code class="language-bashshell">PowerShell 7.1.3</code></pre>
+                    <pre><code class="language-powershell">PowerShell 7.1.3</code></pre>
                     A PowerShell Version 5.1 terminal doesn't show the version when you open a terminal. However, you 
                     get the PowerShell version running in a terminal by issuing this command:
-                    <pre><code class="language-bashshell">Get-Host | Select-Object Version</code></pre>
+                    <pre><code class="language-powershell">Get-Host | Select-Object Version</code></pre>
                 </li>
                 <li>Issue the following command to change the
                     PowerShell script execution permissions:
-                    <pre><code class="language-bashshell">Set-ExecutionPolicy RemoteSigned</code></pre>
+                    <pre><code class="language-powershell">Set-ExecutionPolicy RemoteSigned</code></pre>
                     This will allow you to run PowerShell scripts on the local computer which is generally necessary for
                     the Management Workstation.
                 </li>
@@ -52,7 +52,7 @@ install: smf
             <ol type="a">
                 <li>PowerShell Sources
                     <p>Run the following commands in the PowerShell terminal</p>
-                    <pre><code class="language-bashshell">Install-Module powershell-yaml</code></pre>
+                    <pre><code class="language-powershell">Install-Module powershell-yaml</code></pre>
                 </li>
 
             </ol>
@@ -66,7 +66,7 @@ install: smf
                 <li>Open a PowerShell Terminal</li>
                 <li>CD into the "common" folder.</li>
                 <li>Issue this git command:
-                    <pre><code class="language-bashshell">git clone https://github.com/InSciCo/LazyStackSMF.git  </code></pre>
+                    <pre><code class="language-powershell">git clone https://github.com/InSciCo/LazyStackSMF.git  </code></pre>
                     A LazyStackSMF folder is created containing a clone of the LazyStackSMF repository.
                 </li>
             </ol>

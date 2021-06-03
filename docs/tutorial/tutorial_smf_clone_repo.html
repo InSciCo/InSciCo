@@ -358,6 +358,7 @@
                 <span class="">SMF Tutorial</span>
             </a>
         </li>
+        <!--
         <div style="display: inline">
             <ul>
                 <li>
@@ -392,30 +393,21 @@
                 </li>
             </ul>
         </div>
+        -->
 
     </ul>
 </div><div class=lz-r-content>
-<h3>1 Clone Repository</h3>
-<p>In this step we will clone your GitHub repository to your local system. The repository folder created will have only the 
-  following content:
+<h3>1) Clone Repository</h3>
+<p>In this step we will clone your GitHub PetStore repository to your local system.
 </p>
-<ul>
-  <li>.git folder - this folder contains the local git repository</li>
-  <li>.gitignore file - contains the ignore configuration for VisualStudio solutions</li>
-  <li>.gitattributes file </li>
-  <li>README.md - readme template for solution</li>
-  <li>LICENSE.txt - license file for solution</li>
-</ul>
 
 <ol>
   <li>Open a command terminal.</li>
-  <li>Issue the following command:
-    <pre><code class="language-bashshell">
-git clone https://github.com/InSciCo/OrgJoePetStore.git  
-    </code></pre>
-    This creates a OrgJoePetStore folder configured with a local .git repository and connectivity to your 
-    GitHub Organization's OrgJoePetStore repository. 
-    Replace the git repo URL with the one provided with your credentials.
+  <li>Issue the following command (replacing GitHubOrg with your organizations GitHub Organization account):
+    <pre><code class="language-powershell">git clone https://github.com/GitHubOrg/PetStore.git PetStoreSMF</code></pre>
+    This creates a PetStoreSMF folder containing a clone of your GitHub Organization's PetStore repository. We 
+    named the folder PetStoreSMF so it wouldn't conflict with any PetStore folder you created in the LazyStack Tools 
+    Tutorial.
   </li>
 </ol>
 

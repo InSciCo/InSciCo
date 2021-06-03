@@ -567,8 +567,14 @@
     </p>
     <img src="/assets/img/LazyStackSMF20.svg" width="100%"> 
     <p></p>
-
-    
+    <h5>PR Stack Review</h5>
+    <p> A PR Stack is named after the PR branch that created it. This means there can be many PR Stacks deployed in the System Test 
+        account at the same time.  To review a Pull Request Stack, you need to know how to connect to it. With that in mind, 
+        the CI/CD pipeline that creates the PR Stack also generates and adds a AwsSettings.json file to the PR branch in the repository. 
+        This file is usually found at Stacks/Test/AwsSettings.json. For more information on AwsSettings.json file, 
+        click <a href="/clientsdk/clientsdk_awssettings.html">here </a>. The LazyStack Tutorial covers the use of AwsSettings.json 
+        files, see <a href="/tutorial/tutorial_vswin_petstoretest.html">Configure PetStoreTests Project</a>.
+    </p>
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>

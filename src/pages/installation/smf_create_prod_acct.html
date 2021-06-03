@@ -41,9 +41,9 @@ install: smf
         <li>Open a PowerShell Terminal.</li>
         <li>CD into the LazyStackSMF folder.</li>
         <li>Execute the Prod_Account_Create.ps1 script:
-             <pre><code class="language-bashshell">. .\Prod_Account_Create.ps1</code></pre>
+             <pre><code class="language-powershell">. .\Prod_Account_Create.ps1</code></pre>
                      Here is a script run with sample inputs:
-                     <pre><code class="language-bashshell">
+                     <pre><code class="language-powershell">
  Prod_Account_Create.ps1 - V1.0.0
  This script adds a System Production account to the Prod Organizational Unit.
  Note: Press return to accept a default value.
@@ -81,7 +81,7 @@ install: smf
         <li>Configure Account to User GitHub Personal Access Tokens
             <ol type="a">
                 <li>Enter the following command, replacing "OrgSys" and "githubtoken" with your values.:
-                    <pre><code class="language-bashshell">aws codebuild import-source-credentials --server-type GITHUB --auth-type PERSONAL_ACCESS_TOKEN --profile OrgSysProdAccessRole --token githubtoken </code></pre>
+                    <pre><code class="language-powershell">aws codebuild import-source-credentials --server-type GITHUB --auth-type PERSONAL_ACCESS_TOKEN --profile OrgSysProdAccessRole --token githubtoken </code></pre>
                     
                 </li>
             </ol>

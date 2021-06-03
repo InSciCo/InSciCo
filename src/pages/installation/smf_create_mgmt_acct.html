@@ -81,16 +81,16 @@ install: smf
                 <li>Open PowerShell terminal</li>
                 <li>CD into the LazyStackSettings folder.</li>
                 <li>Issue the following command: (replacing "Org" with your OrgCode)
-                    <pre><code class="language-bashshell">aws configure import --csv file://OrgMgmt_credentials.csv</code></pre>
+                    <pre><code class="language-powershell">aws configure import --csv file://OrgMgmt_credentials.csv</code></pre>
                     This creates the OrgMgmt profile.
                 </li>
                 <li>Issue the following command: (replacing "Org" with your OrgCode, and editing the region if necessary)
-                    <pre><code class="language-bashshell">aws configure set region us-east-1 --profile OrgMgmt</code></pre>
+                    <pre><code class="language-powershell">aws configure set region us-east-1 --profile OrgMgmt</code></pre>
                 </li>
                 <li>Issue the following command: (replacing "Org" with your OrgCode)":
-                    <pre><code class="language-bashshell">aws configure list --profile OrgMgmt</code></pre>
+                    <pre><code class="language-powershell">aws configure list --profile OrgMgmt</code></pre>
                     Example Output with an OrgCode of "Az":
-                    <pre><code class="language-bashshell">
+                    <pre><code class="language-powershell">
        Name                    Value             Type    Location
        ----                    -----             ----    --------
     profile                   AzMgmt          manual    --profile

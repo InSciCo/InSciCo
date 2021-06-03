@@ -154,16 +154,12 @@
 
         <div style="display: inline">
             <ul>
-
-
                 <li>
                     <a href="/installation/smf_create_org_checklist.html"> 
                         <span class="">
                             Preparation Checklist</span>
                     </a>
                 </li>
-    
-
 
                 <li>
                     <a href="/installation/smf_create_github_acct.html"> 
@@ -286,9 +282,9 @@
         <li>Open a PowerShell Terminal.</li>
         <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
         <li>Execute the Prod_CodeBuild_Deploy.ps1 script. 
-            <pre><code class="language-bashshell">. .\Prod_CodeBuild_Deploy.ps1</code></pre><br>
+            <pre><code class="language-powershell">. .\Prod_CodeBuild_Deploy.ps1</code></pre><br>
             Here is a script run with sample inputs:
-            <pre><code class="language-bashshell">
+            <pre><code class="language-powershell">
 Prod_CodeBuild_Deploy.ps1 - V1.0.0
 This script deploys a CodeBuild project stack to a System Production Account.
    - Prod_CodeBuild_Merge.yaml defines the CodeBuild project stack
@@ -331,7 +327,7 @@ Processing Complete</code></pre>
     </p>
     <ul>
         <li>Prod_CodeBuild_Merge.yaml - script
-            <pre><code class="language-bashshell"># csh script
+            <pre><code class="language-powershell"># csh script
 - dotnet build --configuration Release
 - eval "sam deploy -t Stacks/Rev/serverless.template --stack-name prod --s3-bucket ${S3}  --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"</code></pre> 
         </li>

@@ -4,16 +4,44 @@
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
-    <ul class="vertical menu dropdown">
+    <ul class="vertical menu dropdown manual-list">
         <li >
             <a  href="/roadmap/roadmap_overview.html">
                 <span class="{{#ifpage 'roadmap_overview'}}lz-r-topicitem{{/ifpage}}">Overview</span>
             </a>
         </li>
+
+        <li>
+            <a  href="/roadmap/mdd_v0100.html">
+                <span>LazyStack MDD Tools</span>
+            </a>
+        </li>
+
+        <div style="display: {{#ifequal product 'mdd'}}inline{{else}}none{{/ifequal}}">
+            <ul>
+                <li >
+                    <a  href="/roadmap/mdd_v0100.html">
+                        <span class="{{#ifpage 'mdd_v0100'}}lz-r-topicitem{{/ifpage}}">MDD Version 1.0.x</span>
+                    </a>
+                </li>        
+            </ul>
+        </div>
+
         <li >
-            <a  href="/roadmap/roadmap_v0100.html">
-                <span class="{{#ifpage 'roadmap_v0100'}}lz-r-topicitem{{/ifpage}}">Version 1.0.x</span>
+            <a  href="/roadmap/smf_v0100.html">
+                <span>LazyStack SMF</span>
             </a>
         </li>        
+
+        <div style="display: {{#ifequal product 'smf'}}inline{{else}}none{{/ifequal}}">
+            <ul>
+                <li>
+                    <a  href="/roadmap/smf_v0100.html">
+                        <span class="{{#ifpage 'smf_v0100'}}lz-r-topicitem{{/ifpage}}">SMF Version 1.0.x</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </ul>
 </div>

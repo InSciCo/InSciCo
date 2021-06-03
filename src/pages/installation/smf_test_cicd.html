@@ -37,9 +37,9 @@ install: smf
         <li>Open a PowerShell Terminal.</li>
         <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
         <li>Execute the Test_CodeBuild_Deploy.ps1 script. 
-            <pre><code class="language-bashshell">. .\Test_CodeBuild_Deploy.ps1</code></pre><br>
+            <pre><code class="language-powershell">. .\Test_CodeBuild_Deploy.ps1</code></pre><br>
             Here is a script run with sample inputs:
-            <pre><code class="language-bashshell">
+            <pre><code class="language-powershell">
 Test_CodeBuild_Deploy.ps1 - V1.0.0
 This script deploys two CodeBuild project stacks to a System Test Account.
    - Test_CodeBuild_Create.yaml defines the first CodeBuild project stack
@@ -96,7 +96,7 @@ Processing Complete</code></pre>
 </p>
 <ul>
     <li>Test_CodeBuild_PR_Create.yaml - script
-        <pre><code class="language-bashshell"># csh script                                                                    
+        <pre><code class="language-powershell"># csh script                                                                    
 # stack names can not include / characters so we replace with -
 - stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
 - dotnet build --configuration Release
@@ -105,7 +105,7 @@ Processing Complete</code></pre>
 - eval "aws cloudformation delete-stack --stack-name $stack"</code></pre> 
     </li>
     <li>Test_CodeBuild_Merge.yaml - script section
-        <pre><code class="language-bashshell"># csh script                                                                    
+        <pre><code class="language-powershell"># csh script                                                                    
 # stack names can not include / characters so we replace with -
 - stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
 - dotnet build --configuration Release

@@ -21,7 +21,7 @@
    
     <script>
         $(document).ready(function () {
-            $("#intro_whyaws").addClass("is-active");
+            $("#smf_v0100").addClass("is-active");
             console.log("hello");
         });
     </script>
@@ -77,7 +77,7 @@
                 </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
                   data-hide-for="medium">
                   <button class="menu-icon" type="button" data-toggle></button>
-                  <div class="title-bar-title" style="padding-left: 8px;">Introduction</div>
+                  <div class="title-bar-title" style="padding-left: 8px;">Roadmap</div>
                 </div>
                 
                 <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
@@ -89,7 +89,7 @@
                 
                       <li id="introdocs" >
                         <a href="/intro/intro.html">
-                          <span class="lz-r-sectionitem">Introduction</span></a>
+                          <span class="">Introduction</span></a>
                       </li>
                 
                       <li id="installation">
@@ -112,7 +112,7 @@
                 
                       <li id="roadmap">
                         <a href="/roadmap/roadmap_overview.html">
-                            <span class="">RoadMap</span>
+                            <span class="lz-r-sectionitem">RoadMap</span>
                         </a>
                       </li>
                 
@@ -134,129 +134,60 @@
             </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Why_AWS</div>
+    <div class="title-bar-title">RoadMap</div>
 </div>
 
 <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
     <ul class="vertical menu dropdown manual-list">
         <li >
-            <a  href="/intro/intro.html">
-                <span class="">Business Stakeholder Overview</span>
+            <a  href="/roadmap/roadmap_overview.html">
+                <span class="">Overview</span>
+            </a>
+        </li>
+
+        <li>
+            <a  href="/roadmap/mdd_v0100.html">
+                <span>LazyStack MDD Tools</span>
             </a>
         </li>
 
         <div style="display: none">
             <ul>
-
-                <li>
-                    <a  href="/intro/intro_smf.html" >
-                    <span class="">Coordinate</span>
+                <li >
+                    <a  href="/roadmap/mdd_v0100.html">
+                        <span class="">MDD Version 1.0.x</span>
                     </a>
-                </li>
-
-                <li>
-                    <a  href="/intro/intro_mdd.html" >
-                    <span class="">Accelerate</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a  href="/intro/intro_serverless.html" >
-                    <span class="">Scale</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a  href="/intro/intro_whylazystack.html" >
-                    <span class="">Why Choose LazyStack?</span>
-                    </a>
-                </li>
+                </li>        
             </ul>
         </div>
 
-        <li>
-            <a  href="/intro/intro_techoverview.html">
-                <span class="">Technical Lead Overview</span>
+        <li >
+            <a  href="/roadmap/smf_v0100.html">
+                <span>LazyStack SMF</span>
             </a>
-        </li>
+        </li>        
 
         <div style="display: inline">
             <ul>
                 <li>
-                    <a  href="/intro/intro_techoverviewsmf.html" >
-                        <span class="">Software Mgmt. Framework</span>
-                    </a>
-                </li>        <li>
-                    <a  href="/intro/intro_techoverviewtools.html" >
-                        <span class="">MDD Developer Tools</span>
-                    </a>
-                </li>
-                <li></li>
-                    <a  href="/intro/intro_security.html" >
-                    <span class="">Security First</span>
-                    </a>
-                </li>
-                <li>
-                    <a  href="/intro/intro_whynet.html" >
-                        <span class="">Why .NET?</span>
-                    </a>
-                </li>
-                <li>
-                    <a  href="/intro/intro_whyaws.html">
-                        <span class="lz-r-topicitem">Why AWS?</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a  href="/intro/intro_dynamodb.html" >
-                        <span class="">Why DynamoDB?</span>
+                    <a  href="/roadmap/smf_v0100.html">
+                        <span class="lz-r-topicitem">SMF Version 1.0.x</span>
                     </a>
                 </li>
             </ul>
         </div>
 
     </ul>
-</div>
-<div class=lz-r-content>
-    <h3>Why AWS?</h3>
-    <p>If you are wondering why we didn&rsquo;t build LazyStack on Azure, the reason is quite simple. Azure does not
-        currently offer all the services required for a secure scalable serverless commercial-grade stack in their
-        <strong>free-tier</strong>. While Azure, Google and AWS offer a lot of similar services, AWS offers the
-        following
-        unique free-tier features:</p>
+</div><div class=lz-r-content>
+    <h3>LazyStack Software Management Framework Version 1.0.x</h3>
+    <h4>GitHub Repository InSciCo/LazyStackSMF</h4>
     <ul>
-        <li>
-            <p>Ability to signup/manage large numbers of users for free. Cognito allows 50,000 Monthly Active Users
-                (&ldquo;MAU&rdquo;) before you start paying for user management activities like Sign-up, Sign-in,
-                Reset-Password, Update Email and more. This allows mobile apps to be widely used before costs start to
-                accrue.
-                Our assumption, here at LazyStack, is that you should have a pretty good idea of how successful your
-                mobile
-                app will be before you hit 50,000 MAU and may even have some monetization from your app to offset cloud
-                hosting costs by that time.</p>
+        <li>v1.0.0 (6/3/2021)
+            <ul>
+                <li>Initial Release</li>
+            </ul>
         </li>
-        <li>
-            <p>Encryption-at-rest is free in the DynamoDB. Encryption-at-rest is absolutely necessary for any
-                application
-                that wants to comply with existing and emerging data privacy regulations. Even on AWS RDS, encryption at
-                rest
-                is not available in the free-tier services.</p>
-        </li>
-    </ul>
-    <p>Please note, that in our opinion, both Google and Azure are also great PaaS providers and we may implement
-        LazyStack support for those providers in the future. However, our mission is to allow developers to quickly
-        field
-        mobile applications using scalable cloud based resources at the lowest initial cost, without sacrificing
-        security,
-        scalability or features; we could do this only on AWS when we started this project.</p>
-    <p>Our focused passion is automating stacks based on the .NET/AWS marriage; hopefully we can help those of you
-        who
-        need or want to use that powerful combination as well. We are aware that PaaS pricing and features change all
-        the
-        time in the &ldquo;cloud wars&rdquo; so be sure to check on current pricing and features before picking the
-        best
-        cloud provider for your application stack and be sure to let us know what you find if any
-        &ldquo;game-changers&rdquo; emerge. </p>
+    </ul>    
 </div>
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
