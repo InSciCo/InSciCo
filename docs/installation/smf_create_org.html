@@ -293,9 +293,15 @@
             <p>There is an occasional problem with setting the CodeBuild Personal Access Token for CodeBuild 
               projects during the creation of System accounts. This seems to be caused by some "timing" issue on 
               the AWS side of things. This results in a message, usually during the creation of the second 
-              System Account (Production) where AWS complains about a "PayerId" not being setup. We have found that 
-              simply running the script a second time solves the problem. 
+              System Account (Production) where AWS complains "Could not retrieve the Payer ID".
             </p>
+            <pre><code class="language-bashshell">552 |      throw ("Set-AwsCodeBuildCredentials failed, Error: " + $result)
+    |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    | Set-AwsCodeBuildCredentials failed, Error: System.Management.Automation.RemoteException An error
+    | occurred (InvalidInputException) when calling the ImportSourceCredentials operation: Could not
+    | retrieve the Payer ID. Reason: Subscription to CodeBuild, ProductCode CodeBuild, required.</code></pre>
+      <p><strong>We have found that simply running the script a second time solves the problem. </strong></p>
+
             <h5>What to do if the script fails?</h5>
             <p>We have written the script to be fault tolerant. If you get an error, you should 
                 receive a meaningful error message and the script will stop. You can then address 
