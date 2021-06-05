@@ -32,7 +32,7 @@
                         break;
                     } 
                     // check if current page found
-                    if(-1 != page.indexOf("/tutorial_smf_start_feature.html")) {
+                    if(page == document.location.href) {
                         curPageFound = true;
                     } else {
                         prevPage = page;

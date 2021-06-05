@@ -32,7 +32,7 @@
                         break;
                     } 
                     // check if current page found
-                    if(-1 != page.indexOf("/dynamodb_intro.html")) {
+                    if(page == document.location.href) {
                         curPageFound = true;
                     } else {
                         prevPage = page;
