@@ -18,13 +18,41 @@
     <link href="/assets/theme/lessons.css" rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
     <script>
-        $(document).ready(function () {
-            $("#{{page}}").addClass("is-active");
-            console.log("hello");
-        });
+        var prevPage = "";
+        var nextPage = "";
+        var curPageFound = false;
+        function loadMenuPageList() {
+            var menupages = document.getElementsByClassName("menupage");
+            for (var i = 0; i < menupages.length; i++) {
+                var page = menupages[i].getElementsByTagName('a')[0].href;
+                if(page != "") {
+                    if(curPageFound) {
+                        nextPage = page;
+                        break;
+                    } 
+                    // check if current page found
+                    if(-1 != page.indexOf("/{{page}}.html")) {
+                        curPageFound = true;
+                    } else {
+                        prevPage = page;
+                    }
+                }
+            }
+        }
+        function gotoPrevPage() {
+            if(prevPage != "") {
+                window.location.href = prevPage;
+            }
+        }
+        function gotoNextPage() {
+            if(nextPage != "") {
+                window.location.href = nextPage;
+            }
+        }
+
     </script>
+
 </head>
 
 <body class="docpage">
@@ -41,7 +69,9 @@
             
             <div style="position: fixed;top:-36px;z-index: 4;">
                 {{> header}}
-                {{> sitemenu}}
+                <!--{{> sitemenu}}-->
+                <button onclick="gotoPrevPage()">Prev</button>
+                <button onclick="gotoNextPage()">Next</button>
             </div>
             {{>legal_notice}}
             <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
@@ -49,7 +79,10 @@
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
             <script src="/assets/prism/prism.js"></script>
- 
+
+            <script>
+                loadMenuPageList();
+            </script>
         </div>
     </div>
 

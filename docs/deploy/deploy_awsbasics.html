@@ -18,13 +18,41 @@
     <link href="/assets/theme/lessons.css" rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
     <script>
-        $(document).ready(function () {
-            $("#deploy_awsbasics").addClass("is-active");
-            console.log("hello");
-        });
+        var prevPage = "";
+        var nextPage = "";
+        var curPageFound = false;
+        function loadMenuPageList() {
+            var menupages = document.getElementsByClassName("menupage");
+            for (var i = 0; i < menupages.length; i++) {
+                var page = menupages[i].getElementsByTagName('a')[0].href;
+                if(page != "") {
+                    if(curPageFound) {
+                        nextPage = page;
+                        break;
+                    } 
+                    // check if current page found
+                    if(-1 != page.indexOf("/deploy_awsbasics.html")) {
+                        curPageFound = true;
+                    } else {
+                        prevPage = page;
+                    }
+                }
+            }
+        }
+        function gotoPrevPage() {
+            if(prevPage != "") {
+                window.location.href = prevPage;
+            }
+        }
+        function gotoNextPage() {
+            if(nextPage != "") {
+                window.location.href = nextPage;
+            }
+        }
+
     </script>
+
 </head>
 
 <body class="docpage">
@@ -74,58 +102,61 @@
                         </span>
                     </div>
                 
-                </div>                <div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
-                  data-hide-for="medium">
-                  <button class="menu-icon" type="button" data-toggle></button>
-                  <div class="title-bar-title" style="padding-left: 8px;">Deploy</div>
-                </div>
-                
-                <div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
-                    <ul class="vertical medium-horizontal menu dropdown inner">
-                
-                      <li  id="index">
-                        <a href="/index.html"><span class="">Home</span></a>
-                      </li>
-                
-                      <li id="introdocs" >
-                        <a href="/intro/intro.html">
-                          <span class="">Introduction</span></a>
-                      </li>
-                
-                      <li id="installation">
-                        <a href="/installation/installation_overview.html">
-                          <span class="">Install</span>
-                        </a>
-                      </li>
-                
-                      <li id="tutorialdocs">
-                        <a href="/tutorial/tutorial_intro.html">
-                          <span class="">Tutorial</span>
-                        </a>
-                      </li>
-                
-                      <li id="userguide">
-                        <a href="/userguide/userguide_overview.html">
-                            <span class="">User Guide</span>
-                        </a>
-                      </li>
-                
-                      <li id="roadmap">
-                        <a href="/roadmap/roadmap_overview.html">
-                            <span class="">RoadMap</span>
-                        </a>
-                      </li>
-                
-                      <li id="contact">
-                        <a href="/contact/contact_contact.html">
-                            <span class="">Contact</span>
-                        </a>
-                      </li>
-                    </ul>
-                
-                
-                
-                </div>            </div>
+                </div>                <!--<div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
+  data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle></button>
+  <div class="title-bar-title" style="padding-left: 8px;">Deploy</div>
+</div>
+
+<div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
+    <ul class="vertical medium-horizontal menu dropdown inner">
+
+      <li  id="index">
+        <a href="/index.html"><span class="">Home</span></a>
+      </li>
+
+      <li id="introdocs" >
+        <a href="/intro/intro.html">
+          <span class="">Introduction</span></a>
+      </li>
+
+      <li id="installation">
+        <a href="/installation/installation_overview.html">
+          <span class="">Install</span>
+        </a>
+      </li>
+
+      <li id="tutorialdocs">
+        <a href="/tutorial/tutorial_intro.html">
+          <span class="">Tutorial</span>
+        </a>
+      </li>
+
+      <li id="userguide">
+        <a href="/userguide/userguide_overview.html">
+            <span class="">User Guide</span>
+        </a>
+      </li>
+
+      <li id="roadmap">
+        <a href="/roadmap/roadmap_overview.html">
+            <span class="">RoadMap</span>
+        </a>
+      </li>
+
+      <li id="contact">
+        <a href="/contact/contact_contact.html">
+            <span class="">Contact</span>
+        </a>
+      </li>
+    </ul>
+
+
+
+</div>-->
+                <button onclick="gotoPrevPage()">Prev</button>
+                <button onclick="gotoNextPage()">Next</button>
+            </div>
             <div class=lz-r-legal-notice style="max-width:1500px;">
                 <div style="display:flex; width: 150px;justify-content: space-between;">
                     <a href="/privacy.html" class=text-item-L>Privacy</a>
@@ -218,7 +249,10 @@
             <div id=hacky-privacy-spacer></div>
             <script src="/assets/js/app.js"></script>
             <script src="/assets/prism/prism.js"></script>
- 
+
+            <script>
+                loadMenuPageList();
+            </script>
         </div>
     </div>
 

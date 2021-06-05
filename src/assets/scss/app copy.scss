@@ -396,12 +396,12 @@
         color: #d5dbdb;
     }
     //this is hacky nonsense that I shouldn't have to do, I missed somthing:
-    //.docpage .lz-r-topicmenu .menu-icon{
-    //    left:-4px;
-    //}
-    //.docpage .lz-r-topicmenu .title-bar-title{
-    //    padding-left: 4px;
-    //}
+    .docpage .lz-r-topicmenu .menu-icon{
+        left:-4px;
+    }
+    .docpage .lz-r-topicmenu .title-bar-title{
+        padding-left: 4px;
+    }
 }
 
 .manual-list ul {
