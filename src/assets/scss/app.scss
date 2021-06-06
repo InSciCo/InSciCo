@@ -156,13 +156,13 @@
 }
 .lz-r-content{
     background-color: #221C1C;
-    position: relative;
-    left:361px;
-    top:163px;
-    width: 1137px;
-    max-width:1137px;
-    z-index: 1;
-    padding: 15px;
+    //position: relative;
+    //left:361px;
+    //top:163px;
+    //width: 1137px;
+    //max-width:1137px;
+    //z-index: 1;
+    //padding: 15px;
     padding-right: 25px;
 }
 .lz-r-sitemenu{
@@ -305,8 +305,8 @@
         width: 100vw;
     }
     .docpage .lz-r-content{
-        width: calc(76% - 40px);
-        left: 24%;
+        //width: calc(76% - 40px);
+        //left: 24%;
     }
     // .docpage .no-slider .lz-r-content{
     //     width: calc(76% - 50px);
@@ -358,9 +358,9 @@
         height: 120px;
     }
     .docpage .lz-r-content{
-        width: 100vw;
-        left:0px;
-        top:152px;
+        //width: 100vw;
+        //left:0px;
+        //top:152px;
     }
     .docpage .lz-r-sitemenu.dropdown{
         border: 0px;

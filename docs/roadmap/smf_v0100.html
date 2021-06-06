@@ -6,16 +6,17 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property='og:title' content='LazyStack.io'/>
-    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
-    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
-    <meta property='og:url' content='https://lazystack.io'/>    
+    <meta property='og:title' content='LazyStack.io' />
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png' />
+    <meta property='og:description'
+        content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.' />
+    <meta property='og:url' content='https://lazystack.io' />
 
     <title>LazyStack</title>
     <link rel="stylesheet" href="/assets/css/app.css">
     <link href="/assets/prism/prism.css" rel="stylesheet" />
     <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
-    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+    <link href="/assets/theme/lessons.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -26,13 +27,13 @@
             var menupages = document.getElementsByClassName("menupage");
             for (var i = 0; i < menupages.length; i++) {
                 var page = menupages[i].getElementsByTagName('a')[0].href;
-                if(page != "") {
-                    if(curPageFound) {
+                if (page != "") {
+                    if (curPageFound) {
                         nextPage = page;
                         break;
-                    } 
+                    }
                     // check if current page found
-                    if(page == document.location.href) {
+                    if (page == document.location.href) {
                         curPageFound = true;
                     } else {
                         prevPage = page;
@@ -41,567 +42,559 @@
             }
         }
         function gotoPrevPage() {
-            if(prevPage != "") {
+            if (prevPage != "") {
                 window.location.href = prevPage;
             }
         }
         function gotoNextPage() {
-            if(nextPage != "") {
+            if (nextPage != "") {
                 window.location.href = nextPage;
             }
         }
 
     </script>
+    <script>
+        function scrollToTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera            
+        }
+    </script>
 
 </head>
 
-<body class="docpage">
- 
-    <div class=bigcenter-outter>
+<body class="">
 
-        <div class=bigcenter-inner>
-            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
-            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
-            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
-            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
-            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
-            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
-            
-            <div style="position: fixed;top:-36px;z-index: 4;">
-                
-                <!--
-                <div style="position:relative;top:5px;left:30px; top: 4px;border: .125rem solid;border-radius: 13px;background-color: rgba(0, 0, 0, .71);padding: 6px 0px 2px 0px;">
-                    <h1 style="font-size: 32px;color: rgba(180, 23, 186, 1);font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;margin-left: 17px;margin-right: 17px;">LazyStack</h1>
-                </div>
-                -->
-                
-                <div class="cell shrink header medium-cell-block-container">
-                
-                    <div id="header-banner" style="position: relative;height:129px">
-                    </div>
-                
-                    <div style=
-                        "position:fixed; 
-                        top: 17px;
-                        left: 16px;
+    <div data-sticky-container >
+        <div class="grid-container medium-grid-frame">
+            <div class="cell small medium-auto medium-cell-block-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-12 ">
+                        <div class="title-bar"
+                        data-sticky 
+                        data-options="marginTop:0; stickyOn: small" 
+                        style="background-image: url('/assets/img/pic1.jpg');
+                            height: 80px;"
+                        >
+                        <div class=""
+                            data-responsive-toggle="docmenu" 
+                            data-hide-for="medium"
+                            style="
+                            width: 40px;
+                            height: 40px;
+                            ">
+                            <button class="menu-icon" type="button" data-toggle onclick="scrollToTop()">
+                            </button>
+                        </div>
+
+                        <div style="
+                            border: .125rem solid;
+                            border-radius: 13px;
+                            background-color: rgba(0, 0, 0, .40);
+                            width: auto;
+                            padding: 2px 10px 7px 10px;
+                            margin: 10px;
+                            width:270px
+                            ">
+                            <span style=
+                                "font-size: 32px;
+                                font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                                color: rgba(180, 23, 186, 1);
+                                ">
+                                <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                                <span style="margin-left: -5px;">LazyStack</span>
+                            </span>
+                        </div>
+                        <img 
+                        data-responsive-toggle="docmenu" 
+                        data-hide-for="medium"
+                        src="/assets/img/NavLeft.svg" 
+                        style="object-fit: scale-down;
                         border: .125rem solid;
                         border-radius: 13px;
-                        background-color: rgba(0, 0, 0, .71);
-                        width: auto;
-                        padding: 2px 10px 7px 10px;
-                        ">
-                        <span style=
-                            "font-size: 32px;
-                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-                            color: rgba(180, 23, 186, 1);
-                            ">
-                
-                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
-                
-                            <span style="margin-left: -5px;">LazyStack</span>
-                        </span>
-                    </div>
-                
-                </div>                <!--<div class="title-bar lz-r-sitemenu hamburger" data-responsive-toggle="sitemenu-collapse"
-  data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle></button>
-  <div class="title-bar-title" style="padding-left: 8px;"></div>
-</div>
-
-<div class="top-bar fast lz-r-sitemenu dropdown outer" id="sitemenu-collapse" data-animate="slide-in-down slide-out-up">
-    <ul class="vertical medium-horizontal menu dropdown inner">
-
-      <li  id="index">
-        <a href="/index.html"><span class="">Home</span></a>
-      </li>
-
-      <li id="introdocs" >
-        <a href="/intro/intro.html">
-          <span class="">Introduction</span></a>
-      </li>
-
-      <li id="installation">
-        <a href="/installation/installation_overview.html">
-          <span class="">Install</span>
-        </a>
-      </li>
-
-      <li id="tutorialdocs">
-        <a href="/tutorial/tutorial_intro.html">
-          <span class="">Tutorial</span>
-        </a>
-      </li>
-
-      <li id="userguide">
-        <a href="/userguide/userguide_overview.html">
-            <span class="">User Guide</span>
-        </a>
-      </li>
-
-      <li id="roadmap">
-        <a href="/roadmap/roadmap_overview.html">
-            <span class="">RoadMap</span>
-        </a>
-      </li>
-
-      <li id="contact">
-        <a href="/contact/contact_contact.html">
-            <span class="">Contact</span>
-        </a>
-      </li>
-    </ul>
-
-
-
-</div>-->
-                <button onclick="gotoPrevPage()">Prev</button>
-                <button onclick="gotoNextPage()">Next</button>
-            </div>
-            <div class=lz-r-legal-notice style="max-width:1500px;">
-                <div style="display:flex; width: 150px;justify-content: space-between;">
-                    <a href="/privacy.html" class=text-item-L>Privacy</a>
-                </div>
-                <p class=text-item-R>© 2021, Insight Sciences Corp or its affiliates. All rights reserved.</p>
-            </div>            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
-<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title"></div>
-</div>
-<!--
-<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
--->
-<!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-
-<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-    data-submenu-toggle="true">
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/intro/intro.html">Business Introduction</a>
-        <ul class="menu vertical nested ">
-            <li class=" menupage">
-                <a href="/intro/intro.html">Overview</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_smf.html">Collaborate</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_mdd.html">Accelerate</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_serverless.html">Scale</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_whylazystack.html">Why Choose LazyStack?</a>
-            </li>
-        </ul>
-    </li>
-    <li><a href="/intro/intro_techoverview.html">Technical Introduction</a>
-        <ul class="menu vertical nested ">
-            <li class=" menupage"><a
-                    href="/intro/intro_techoverview.html">Overview</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_techoverviewsmf.html">Software Mgmt. Framework</a> 
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_techoverviewtools.html">MDD Developer Tools</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_security.html">Security First</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_whynet.html">Why .NET?</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_whyaws.html">Why AWS?</a>
-            </li>
-            <li class=" menupage">
-                <a href="/intro/intro_dynamodb.html">Why DynamoDB?</a>
-            </li>
-        </ul>
-    </li>
-
-    <li><a href="/installation/installation_overview.html">Installation</a>
-        <ul class="menu vertical nested ">
-            <li class=" menupage">
-                <a href="/installation/installation_overview.html">Overview</a>
-            </li>
-            <li><a href="/installation/smf_overview.html">Configure SMF</a>
-                <ul class="menu vertical nested ">
-                    <li class=" menupage">
-                        <a href="/installation/smf_overview.html">Overview </a>                                                   
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/smf_create_org_checklist.html">Preparation Checklist</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/smf_create_github_acct.html">1) Create GitHub Account</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/smf_config_mgmt_workstation.html">2) Configure Workstation</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/smf_create_mgmt_acct.html">3) AWS Mgmt. Account</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/smf_create_org.html">4) Create AWS Org</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/smf_create_dev_acct.html">5) Create Dev Account(s)</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/installation_awsdepguide.html">Deployment Summary</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/installation/devtools_config_dev_ws.html">Configure Dev Workstation</a>
-                <ul class="menu vertical nested ">
-                    <li class=" menupage">
-                        <a href="/installation/devtools_config_dev_ws.html">Overview</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/devtools_config_dev_profile.html">1) Configure Workstation</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/devtools_netcore_cli.html">2) .NET CLI Tool</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/devtools_visualstudio.html">3) VS IDE Windows</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/installation/devtools_visualstudio_mac.html">4) VS IDE MacOS</a>
-                    </li>
-                </ul>
+                        height: 60px;
+                        width: 38px;
+                        padding: 5px;
+                        " 
+                        onClick="gotoPrevPage()"
+                        />
+                        <img 
+                        data-responsive-toggle="docmenu" 
+                        data-hide-for="medium"
+                        src="/assets/img/NavRight.svg" 
+                        style="object-fit: scale-down;
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        height: 60px;
+                        width: 38px;
+                        padding: 5px;
+                        " 
+                        onClick="gotoNextPage()"
+                        />
             
-            </li>
-        </ul>
-    </li>
+                    </div>
+            
+                </div>
+            </div>            
+        </div>
 
-    <li><a href="/tutorial/tutorial_intro.html">Tutorials</a>
-        <ul class="menu vertical nested ">
-            <li class=" menupage">
-                <a href="/tutorial/tutorial_intro.html">Overview</a>
-            <li><a href="/tutorial/tutorial_vswin_overview.html">Visual Studio Windows</a>
-                <ul class="menu vertical nested ">
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_overview.html">Overview</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_petstore.html">1)PetStore</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_controllers.html">2) Implement Controllers</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_configure.html">3) Configure LazyStack</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_publishtoaws.html">4)Publish to AWS</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_testlocalwebapi.html">5) Test Local WebAPI</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_petstoretest.html">6) PetStore Test</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_consoleapp.html">7) Console App</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_xamarinapp.html">8) Xamarin App</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vswin_blazorapp.html">9) Blazor App</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/tutorial/tutorial_vsmac_overview.html">Visual Studio MacOS</a>
-                <ul class="menu vertical nested ">
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_overview.html">Overview</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_petstore.html">1)PetStore</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_controllers.html">2) Implement Controllers</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_configure.html">3) Configure LazyStack</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_publishtoaws.html">4)Publish to AWS</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_testlocalwebapi.html">5) Test Local WebAPI</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_petstoretest.html">6) PetStore Test</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_consoleapp.html">7) Console App</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_xamarinapp.html">8) Xamarin App</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_vsmac_blazorapp.html">9) Blazor App</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/tutorial/tutorial_cli_overview.html">.NET CLI</a>
-                <ul class="menu vertical nested ">
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_overview.html">Overview</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_petstore.html">1)PetStore</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_controllers.html">2) Implement Controllers</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_configure.html">3) Configure LazyStack</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_publishtoaws.html">4)Publish to AWS</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_testlocalwebapi.html">5) Test Local WebAPI</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_petstoretest.html">6) PetStore Test</a>
-                    </li>
-                    <li class=" menupage">
-                        <a href="/tutorial/tutorial_cli_consoleapp.html">7) Console App</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-
-    <li><a href="/userguide/userguide_overview.html">UserGuide</a>
-        <ul class="menu vertical nested ">
-            <li class=" menupage">
-                <a href="/userguide/userguide_overview.html">Overview</a>
-            </li>
-            <li><a href="/userguide/smf_overview.html">Software Mgmt. Framework</a>
-                <ul  class="menu vertical nested ">
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_overview.html">Overview</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_devsandbox.html">Developer Sandbox</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_gitrepos.html">Git Repository Integration</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_devworkflow.html">Developer Workflow</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_namedprofiles.html">Named Profiles</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_lzconfigure.html">LzConfigure Script</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_lznewdevacct.html">LzNewDevAccount Script</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_lzupdatedevcreds.html">LzUpdateDevCreds Script</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/smf_lzdeploypipeline.html">LzDeployPipeline Script</a>
-                    </li>
-                </ul>
-
-
-            </li>
-            <li><a href="/userguide/generator_tools_overview.html">LazyStack MDD Tools</a>
-                <ul class="menu vertical nested ">
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_tools_overview.html">Overview</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_overview.html">Generate Projects</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_stacks.html">Stacks Directive</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_defaultapi.html">DefaultApi Directive</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_apitagmap.html">ApiTagMap Directive</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>
-                    </li>
-                    <li> <a href="/userguide/generator_projectoptions.html">Project Options Directive</a>
-                        <ul class="menu vertical nested ">
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_projectoptions.html">Overview</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_nugetpackageversions.html">NugetPackageVersions</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_packagereferences.html">PackageReferences</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_projectreferences.html">ProjectReferences</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_properties.html">Properties</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a href="/userguide/generator_runtime.html">Runtime</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_warningescapedcharacters.html">Warning Escaped Characters</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_mergepriority.html">Resource Merge Priority</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/userguide/generator_aws_settings.html">Generate AWS Settings</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/stacks/stacks_overview.html">Serverless Stacks</a>
-                <ul class="menu vertical nested ">
-                    <li  class=" menupage">
-                        <a href="/stacks/stacks_overview.html">Overview</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/stacks/stacks_aws_serverless.html">AWS Serverless Stacks</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/stacks/stacks_lazystack_stacks.html">LazyStack MDD Generator</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/stacks/stacks_openapi.html">OpenAPI Specification</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/stacks/stacks_cognito.html">AWS Cognito</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/stacks/apigateway/apigateway_overview.html">Api Gateways</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/stacks/apigateway/apigateway_multiplegateways.html">Multiple Api Gateways</a>
-                    </li>
-
-                    <li><a href="/stacks/lambda/lambda_overview.html">Lambdas</a>
-                        <ul class="menu vertical nested ">
-                            <li  class=" menupage">
-                                <a href="/stacks/lambda/lambda_overview.html">Overview</a>
-                             </li>
-                             <li  class=" menupage">
-                                <a href="/stacks/lambda/lambda_function.html">Lambda Functions</a>
-                             </li>
-                             <li  class=" menupage">
-                                <a href="/stacks/lambda/lambda_controllers.html">Controllers</a>
-                             </li>
-                             <li  class=" menupage">
-                                <a href="/stacks/lambda/lambda_methods.html">Event Methods</a>
-                             </li>
-                             <li  class=" menupage">
-                                <a href="/stacks/lambda/lambda_debugging.html">Debugging</a>
-                             </li>
-                             <li  class=" menupage">
-                                <a href="/stacks/lambda/lambda_tests.html">Test Projects</a>
-                             </li>
-                        </ul>
+    </div>
     
-                    </li>
-                </ul>
-            </li>
-            <li><a  href="/clientsdk/clientsdk_overview.html">Client SDK</a>
-                <ul class="menu vertical nested ">
-                    <li  class=" menupage">
-                        <a  href="/clientsdk/clientsdk_overview.html">Overview</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/clientsdk/clientsdk_clientsdk.html">ClientSDK Project</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/clientsdk/clientsdk_schema.html">Schema Project</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/clientsdk/clientsdk_awssettings.html">AwsSettings</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a href="/clientsdk/clientsdk_using.html">Using the ClientSDK</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a  href="/libraries/libraries_overview.html">Libraries</a>
-                <ul class="menu vertical nested ">
-                    <li  class=" menupage">
-                        <a  href="/libraries/libraries_overview.html">Overview</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
-                    </li>
-                    <li  class=" menupage">
-                        <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
-                    </li>
+    <div class="grid-container medium-grid-frame">
+        <div class="cell small medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-3 " >
+                    <!--
+                    <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+                        <button class="menu-icon" type="button" data-toggle></button>
+                        <div class="title-bar-title"></div>
+                    </div>
+                    -->
+                    <!--
+                    <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
+                    -->
+                    <!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
+                    <!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
+                        data-submenu-toggle="true">-->
+                    
+                    
+                    <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
+                        data-submenu-toggle="true">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/intro/intro.html">Business Introduction</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/intro/intro.html">Overview</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_smf.html">Collaborate</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_mdd.html">Accelerate</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_serverless.html">Scale</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_whylazystack.html">Why Choose LazyStack?</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/intro/intro_techoverview.html">Technical Introduction</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage"><a
+                                        href="/intro/intro_techoverview.html">Overview</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_techoverviewsmf.html">Software Mgmt. Framework</a> 
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_techoverviewtools.html">MDD Developer Tools</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_security.html">Security First</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_whynet.html">Why .NET?</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_whyaws.html">Why AWS?</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/intro/intro_dynamodb.html">Why DynamoDB?</a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li><a href="/installation/installation_overview.html">Installation</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/installation/installation_overview.html">Overview</a>
+                                </li>
+                                <li><a href="/installation/smf_overview.html">Configure SMF</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_overview.html">Overview </a>                                                   
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_create_org_checklist.html">Preparation Checklist</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_create_github_acct.html">1) Create GitHub Account</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_config_mgmt_workstation.html">2) Configure Workstation</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_create_mgmt_acct.html">3) AWS Mgmt. Account</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_create_org.html">4) Create AWS Org</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/smf_create_dev_acct.html">5) Create Dev Account(s)</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/installation_awsdepguide.html">Deployment Summary</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="/installation/devtools_config_dev_ws.html">Configure Dev Workstation</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/installation/devtools_config_dev_ws.html">Overview</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/devtools_config_dev_profile.html">1) Configure Workstation</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/devtools_netcore_cli.html">2) .NET CLI Tool</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/devtools_visualstudio.html">3) VS IDE Windows</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/installation/devtools_visualstudio_mac.html">4) VS IDE MacOS</a>
+                                        </li>
+                                    </ul>
+                                
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li><a href="/tutorial/tutorial_intro.html">Tutorials</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/tutorial/tutorial_intro.html">Overview</a>
+                                <li><a href="/tutorial/tutorial_vswin_overview.html">Visual Studio Windows</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_overview.html">Overview</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_petstore.html">1)PetStore</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_controllers.html">2) Implement Controllers</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_configure.html">3) Configure LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_publishtoaws.html">4)Publish to AWS</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_testlocalwebapi.html">5) Test Local WebAPI</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_petstoretest.html">6) PetStore Test</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_consoleapp.html">7) Console App</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_xamarinapp.html">8) Xamarin App</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vswin_blazorapp.html">9) Blazor App</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="/tutorial/tutorial_vsmac_overview.html">Visual Studio MacOS</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_overview.html">Overview</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_petstore.html">1)PetStore</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_controllers.html">2) Implement Controllers</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_configure.html">3) Configure LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_publishtoaws.html">4)Publish to AWS</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_testlocalwebapi.html">5) Test Local WebAPI</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_petstoretest.html">6) PetStore Test</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_consoleapp.html">7) Console App</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_xamarinapp.html">8) Xamarin App</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_vsmac_blazorapp.html">9) Blazor App</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="/tutorial/tutorial_cli_overview.html">.NET CLI</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_overview.html">Overview</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_petstore.html">1)PetStore</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_controllers.html">2) Implement Controllers</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_configure.html">3) Configure LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_publishtoaws.html">4)Publish to AWS</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_testlocalwebapi.html">5) Test Local WebAPI</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_petstoretest.html">6) PetStore Test</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/tutorial/tutorial_cli_consoleapp.html">7) Console App</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li><a href="/userguide/userguide_overview.html">UserGuide</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/userguide/userguide_overview.html">Overview</a>
+                                </li>
+                                <li><a href="/userguide/smf_overview.html">Software Mgmt. Framework</a>
+                                    <ul  class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_overview.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_devsandbox.html">Developer Sandbox</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_gitrepos.html">Git Repository Integration</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_devworkflow.html">Developer Workflow</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_namedprofiles.html">Named Profiles</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_lzconfigure.html">LzConfigure Script</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_lznewdevacct.html">LzNewDevAccount Script</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_lzupdatedevcreds.html">LzUpdateDevCreds Script</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/smf_lzdeploypipeline.html">LzDeployPipeline Script</a>
+                                        </li>
+                                    </ul>
+                    
+                    
+                                </li>
+                                <li><a href="/userguide/generator_tools_overview.html">LazyStack MDD Tools</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_tools_overview.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_overview.html">Generate Projects</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_stacks.html">Stacks Directive</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_defaultapi.html">DefaultApi Directive</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_apitagmap.html">ApiTagMap Directive</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>
+                                        </li>
+                                        <li> <a href="/userguide/generator_projectoptions.html">Project Options Directive</a>
+                                            <ul class="menu vertical nested ">
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_projectoptions.html">Overview</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_nugetpackageversions.html">NugetPackageVersions</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_packagereferences.html">PackageReferences</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_projectreferences.html">ProjectReferences</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_properties.html">Properties</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/userguide/generator_runtime.html">Runtime</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_warningescapedcharacters.html">Warning Escaped Characters</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_mergepriority.html">Resource Merge Priority</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_aws_settings.html">Generate AWS Settings</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="/stacks/stacks_overview.html">Serverless Stacks</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a href="/stacks/stacks_overview.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/stacks/stacks_aws_serverless.html">AWS Serverless Stacks</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/stacks/stacks_lazystack_stacks.html">LazyStack MDD Generator</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/stacks/stacks_openapi.html">OpenAPI Specification</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/stacks/stacks_cognito.html">AWS Cognito</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/stacks/apigateway/apigateway_overview.html">Api Gateways</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/stacks/apigateway/apigateway_multiplegateways.html">Multiple Api Gateways</a>
+                                        </li>
+                    
+                                        <li><a href="/stacks/lambda/lambda_overview.html">Lambdas</a>
+                                            <ul class="menu vertical nested ">
+                                                <li  class=" menupage">
+                                                    <a href="/stacks/lambda/lambda_overview.html">Overview</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/stacks/lambda/lambda_function.html">Lambda Functions</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/stacks/lambda/lambda_controllers.html">Controllers</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/stacks/lambda/lambda_methods.html">Event Methods</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/stacks/lambda/lambda_debugging.html">Debugging</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/stacks/lambda/lambda_tests.html">Test Projects</a>
+                                                 </li>
+                                            </ul>
+                        
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a  href="/clientsdk/clientsdk_overview.html">Client SDK</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/clientsdk/clientsdk_overview.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/clientsdk/clientsdk_clientsdk.html">ClientSDK Project</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/clientsdk/clientsdk_schema.html">Schema Project</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/clientsdk/clientsdk_awssettings.html">AwsSettings</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/clientsdk/clientsdk_using.html">Using the ClientSDK</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a  href="/libraries/libraries_overview.html">Libraries</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/libraries_overview.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
+                                        </li>
+                    
+                                        <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
+                                            <ul class="menu vertical nested ">
+                                                <li  class=" menupage">
+                                                    <a  href="/libraries/dynamodb/dynamodb_overview.html">Overview</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a  href="/libraries/dynamodb/dynamodb_ermodel.html">PetStore ER Model</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a  href="/libraries/dynamodb/dynamodb_intro.html">DynamoDB Intro</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/roadmap/roadmap_overview.html">Product RoadMap</a>
+                            <ul class="menu vertical nested is-active">
+                                <li  class=" menupage">
+                                    <a href="/roadmap/roadmap_overview.html">Overview</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a  href="/roadmap/mdd_v0100.html">MDD v1.0.x</a>
+                                </li>
+                                <li  class="is-active menupage">
+                                    <a  href="/roadmap/smf_v0100.html">SMF v1.0.x</a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li class=" menupage">
+                            <a href="/contact/contact_contact.html">Contact Us</a>
+                        </li>
+                    
+                        <li class=" menupage">
+                            <a href="/privacy.html">Privacy</a>
+                        </li>
+                    
+                    </ul>
+                    <!--</div>-->                </div>
+                <div class="cell medium-9" >
+                    <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 
-                    <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
-                        <ul class="menu vertical nested ">
-                            <li  class=" menupage">
-                                <a  href="/libraries/dynamodb/dynamodb_overview.html">Overview</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a  href="/libraries/dynamodb/dynamodb_ermodel.html">PetStore ER Model</a>
-                            </li>
-                            <li  class=" menupage">
-                                <a  href="/libraries/dynamodb/dynamodb_intro.html">DynamoDB Intro</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li><a href="/roadmap/roadmap_overview.html">Product RoadMap</a>
-        <ul class="menu vertical nested is-active">
-            <li  class=" menupage">
-                <a href="/roadmap/roadmap_overview.html">Overview</a>
-            </li>
-            <li  class=" menupage">
-                <a  href="/roadmap/mdd_v0100.html">MDD v1.0.x</a>
-            </li>
-            <li  class="is-active menupage">
-                <a  href="/roadmap/smf_v0100.html">SMF v1.0.x</a>
-            </li>
-        </ul>
-    </li>
-
-    <li class=" menupage">
-        <a href="/contact/contact_contact.html">Contact Us</a>
-    </li>
-
-</ul>
-<!--</div>--><div class=lz-r-content>
+<div class=lz-r-content>
     <h3>LazyStack Software Management Framework Version 1.0.x</h3>
     <h4>GitHub Repository InSciCo/LazyStackSMF</h4>
     <ul>
@@ -612,15 +605,15 @@
         </li>
     </ul>    
 </div>
-            <div id=hacky-privacy-spacer></div>
-            <script src="/assets/js/app.js"></script>
-            <script src="/assets/prism/prism.js"></script>
-
-            <script>
-                loadMenuPageList();
-            </script>
+                </div>
+            </div>
         </div>
     </div>
+   
+    
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/prism/prism.js"></script>
+    <script>loadMenuPageList();</script>
 
 </body>
 
