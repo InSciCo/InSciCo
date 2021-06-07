@@ -6,7 +6,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <meta property='og:title' content='LazyStack.io' />
     <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png' />
     <meta property='og:description'
@@ -66,78 +65,71 @@
 <body class="">
 
     <div data-sticky-container >
-        <div class="grid-container medium-grid-frame">
-            <div class="cell small medium-auto medium-cell-block-container">
-                <div class="grid-x ">
-                    <div class="cell ">
-                        <div class="title-bar"
-                            data-sticky 
-                            data-options="marginTop:0; stickyOn: small" 
-                            style="background-image: url('/assets/img/pic14.jpg');
-                                height: 80px;"
-                            >
-
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell small-1">
-                                    <div class=""
-                                        data-responsive-toggle="docmenu" 
-                                        data-hide-for="medium"
-                                        style="
-                                        width: 40px;
-                                        height: 40px;
-                                        padding: 20px 0px 0px 0px;
-                                        ">
-                                        <button class="menu-icon" type="button" data-toggle onclick="scrollToTop()"></button>
-                                    </div>
-                                </div>
-                                <div  class="cell small-8" style="border: 1px;">
-                                    <div style="
-                                        border: .125rem solid;
-                                        border-radius: 13px;
-                                        background-color: rgba(0, 0, 0, .40);
-                                        width: auto;
-                                        padding: 2px 10px 7px 10px;
-                                        margin: 10px;
-                                        width:270px
-                                        ">
-                                        <span style=
-                                            "font-size: 32px;
-                                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-                                            color: rgba(180, 23, 186, 1);
-                                            ">
-                                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
-                                            <span style="margin-left: -5px;">LazyStack</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="cell auto" >
-                                    <img 
-                                        src="/assets/img/NavLeft.svg" 
-                                        style="object-fit: scale-down;
-                                        height: 50px;
-                                        width: 38px;
-                                        padding: 10px 0px 0px 0px;
-                                        margin: 10px 0px 0px 0px;
-                                        " 
-                                        onClick="gotoPrevPage()"
-                                    />
-                                    <img 
-                                        src="/assets/img/NavRight.svg" 
-                                        style="object-fit: scale-down;
-                                        height: 50px;
-                                        width: 38px;
-                                        padding: 10px 0px 0px 0px;
-                                        margin: 10px 0px 0px 0px;
-                                        " 
-                                        onClick="gotoNextPage()"
-                                    />
-            
-                                </div>
-                            </div>
-                        </div>
+        <div class="grid-container "
+            data-sticky 
+            data-options="marginTop:0; stickyOn: small" 
+            style="background-image: url('/assets/img/pic14.jpg');
+                height: 80px;"
+            >
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-1 ">
+                    <div class=""
+                        data-responsive-toggle="docmenu" 
+                        data-hide-for="medium"
+                        style="
+                        width: 40px;
+                        height: 40px;
+                        padding: 20px 0px 0px 0px;
+                        ">
+                        <button class="menu-icon" type="button" data-toggle onclick="scrollToTop()"></button>
                     </div>
                 </div>
-            </div>            
+                <div  class="cell auto " style="border: 1px;">
+                    <div
+                        style="
+                        border: .125rem solid;
+                        border-radius: 13px;
+                        background-color: rgba(0, 0, 0, .40);
+                        width: auto;
+                        padding: 2px 10px 7px 10px;
+                        margin: 10px;
+                        width:265px
+                        ">
+                        <span style=
+                            "font-size: 32px;
+                            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+                            color: rgba(180, 23, 186, 1);
+                            ">
+                            <img src="/assets/img/lazyface.png" style="max-height: 45px; margin-top: -5px;"/>  
+                            <span style="margin-left: -5px;">LazyStack</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="cell shrink" >
+                    <img 
+                        src="/assets/img/NavLeft.svg" 
+                        style="object-fit: scale-down;
+                        height: 50px;
+                        width: 38px;
+                        padding: 10px 0px 0px 0px;
+                        margin: 10px 0px 0px 0px;
+                        " 
+                        onClick="gotoPrevPage()"
+                    />
+                    <img 
+                        src="/assets/img/NavRight.svg" 
+                        style="object-fit: scale-down;
+                        height: 50px;
+                        width: 38px;
+                        padding: 10px 0px 0px 0px;
+                        margin: 10px 0px 0px 0px;
+                        " 
+                        onClick="gotoNextPage()"
+                    />
+
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -598,6 +590,18 @@
                     <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
 
 <div class=lz-r-content>
+    <h3>LazyStack Technical Overview</h3>
+    <p>LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Serverless Application Model
+        (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack
+        in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.</p>
+    <p>LazyStack is comprised of a free stack generator tool and some MIT licensed open-source support libraries.</p>
+    <ul>
+        <li>LazyStack Generator - Free Visual Studio IDE Extension, and Free DOTNET CLI Tool </li>
+        <li>LazyStackAuth - MIT Licensed authentication library</li>
+        <li>LazyStackDynamoDBRepo - MIT Licensed CRUDL library for DynamoDB</li>
+    </ul>
+
+<div class=lz-r-content>
     <h3>LazyStack Technical Lead Overview</h3>
     <p>LazyStack is comprised of the following:</p>
     <ul>
@@ -624,6 +628,7 @@
 
 </div>
     
+
                 </div>
             </div>
         </div>
