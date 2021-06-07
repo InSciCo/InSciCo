@@ -13,6 +13,10 @@ menu1: smf
         <dt>Estimated Cost: none</dt> 
         <dt>Perform this step on the Management Workstation.</dt>
     </dl>
+    <h5>AWS Background</h5>
+    <p>Understanding AWS IAM best practices is important. If you haven't already reviewed 
+        AWS documentation on IAM, please visit this link: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" {{>newtab}}>Security best practices in IAM</a>.
+    </p>
 
     <h5>Configuration Steps</h5>
     <ol>
@@ -106,6 +110,9 @@ secret_key     ****************8b3b shared-credentials-file
             securely where you can find them when you need them. Never share these
             credentials with third-parties like vendors or consultants. Somebody with
             your Root User security credentials can do <strong>anything</strong> in your account.
+            Note that you should not use your root credentials for deployment or operations. LazyStack 
+            creates CLI Access Profiles on your management workstation that are used for these 
+            purposes.
         </li>
         <br>
         <li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html" 

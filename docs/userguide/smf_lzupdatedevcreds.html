@@ -595,6 +595,12 @@
         script to update the policy for an existing developer's account when you make changes
         to the local IAMUserCredsPolicy.json document.
     </p>
+    <p>The IAMUserCredsPolicy.json document applies the principle of least privileges to 
+        the developer account. Since the developer account is a "sandbox", the developer is 
+        allowed a wide range of privileges with restrictions primarily being applied to 
+        IAM permissions. It's a good idea to review the IAMUserCredsPolicy.json document and 
+        understand what permissions are being provided to each developer account.
+    </p>
 
     <h5>Running the LzUpdateDevCreds Script</h5>
     <ol>

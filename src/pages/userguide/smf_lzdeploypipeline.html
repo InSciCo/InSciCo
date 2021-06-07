@@ -27,6 +27,13 @@ menu1: smf
         deploy functionality for your stacks. 
     </p>
 
+    <h5>Security Best Practice</h5>
+    <p>Each CodeBuild Project Template file contains a IAM policy providing the least privileges 
+        typically required to deploy an AWS Serverless Stack. Review that policy and if your 
+        Serverless Stacks require more or less privileges you should modify the template to 
+        suite your requirements.
+    </p>
+
     <h5>Running the LzDeployPipeline Script</h5>
     <ol>
         <li>Open a PowerShell terminal</li>
