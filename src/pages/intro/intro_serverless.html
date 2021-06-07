@@ -1,0 +1,82 @@
+---
+layout: docpage
+menu0: intro 
+menu1: business
+---
+
+<div class=lz-r-content>
+    <h3>Scale with Serverless Application Stacks</h3>
+    <p>AWS provides the Serverless Application Model (SAM) that provides business stakeholders and 
+        the technical team with a valuable "center of mass" for application development, 
+        deployment and maintenance. Serverless Stacks scale up to meet user demand without incurring 
+        heavy "DevOps" costs. Here is a diagram showing some common resources deployed in 
+        a AWS serverless application stack.
+    </p>
+    <img src="/assets/img/AWS_SAM.svg" width="100%">
+    <p></p>
+    <p>A serverless stack looks deceptively simple and this is why it is so useful. AWS is doing 
+        all the complicated management required behind the scene to keep things simple without 
+        giving up any functionality. Each serverless stack is defined by a "SAM Template" and 
+        your application code. The SAM Template defines all the resources and their configurations 
+        necessary to stand up your stack. The SAM template and application code are sent to a service 
+        called AWS Cloud Formation which creates/updates all the resources for your application stack.
+    </p>
+
+    <p>Without much technical detail, this is what each of these resources in this stack do:</p>
+    <ul>
+        <li><strong>AWS Cognito</strong><br>User Sign Up, Sign In, Reset Password, etc.</li>
+        <br>
+        <li><strong>API Gateway</strong><br>This service is a "traffic cop", taking calls from client applications,
+            ensuring those calls are properly secured, are within traffic limits, and then
+            sending those calls on to other services.
+        </li>
+        <br>
+        <li><strong>AWS Lambda Function(s)</strong><br>These are programs that implement your business logic. These 
+            programs are numerous and intentionally small.  
+            AWS automatically scales these functions to accommodate application traffic.</li>
+            <br>
+        <li><strong>AWS S3 - file storage</strong><br>This is storage for files like images and documents.</li>
+        <br>
+        <li><strong>AWS DynamoDB</strong><br>A highly scalable database. Other databases may also be used.</li>
+    </ul>
+
+    <h4>What is the Serverless Application Model (SAM)?</h4>
+    <p>AWS SAM is an open-source framework for building applications using serverless architecture. 
+        AWS defines serverless architecture as a way to build and run applications and services without 
+        having to manage infrastructure. These applications still run on servers, but all the 
+        server management is done by AWS. You no longer have to provision, scale, and 
+        maintain servers to run your applications, databases, and storage systems.
+    </p>
+
+    <p>Another important advantage of serverless architecture is the "on-demand" nature of 
+        many of the services available for use in the serverless architecture. An on-demand 
+        service only runs when demand exists and has little or no cost when unused. AWS offers a comprehensive 
+        suite of on-demand services you can configure for use in a serverless architecture.
+    </p>
+
+    <p>It's hard to understate how important the AWS SAM is to small teams developing, testing,
+        deploying, and managing cloud based applications. In contrast, traditional cloud-based applications 
+        required your team to create and manage "servers" and network infrastructure that incurred
+        very expensive "DevOps" management and sometimes fundamental re-design of the application as they 
+        moved to production. While there are applications that still benefit from a traditional architecture,
+        many applications can be implemented  using the AWS SAM.
+    </p>
+
+    <p>To sum it up; using AWS SAM will help you develop, test, deploy, and maintain your cloud-based 
+        application with a smaller team, at a lower cost, without sacrificing features, security or scalability.</p>
+    
+    <h4>Reducing Business Stakeholder and Technical Team Lead Tension</h4>
+    <p>There is always a healthy tension among business stakeholders and technical leads. Business stakeholders top 
+        application priorities often include costs, time-to-market, quality, and features. Technical leads top priorities 
+        often include development cadence, technology selection, following best practices, avoiding technical obsolescence, 
+        talent acquisition, and development agility. The apparent conflict in priorities are an illusion as both 
+        parties are really working toward the same goal of delivering a successful application to users - this success is 
+        measured as the aggregate success of all the priorities mentioned. The tension stems from a lack of effective 
+        communication and understanding of the relative importance and trade-offs among these priorities.
+       </p>
+
+    <p>Using the AWS SAM can help dramatically reduce this tension by giving the business stakeholder and technical lead a common 
+        "play book" that both can understand and agree to follow.
+    </p>
+
+</div> 

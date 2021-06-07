@@ -1,0 +1,27 @@
+---
+layout: docpage
+section: UserGuide
+menu0: userguide
+menu1: smf
+---
+
+<div class=lz-r-content>
+    <h3>Developer Sandbox</h3>
+
+    <p>Each developer has their own "sandbox" AWS Account. This account fully isolates the developer resources from other 
+        developers resources, and the resources used in Test and Production accounts. The key concept here is that AWS 
+        Accounts isolate resources. Since serverless stacks do not incur significant cost unless they are being exercised, 
+        there is no downside to providing each developer with their own AWS Account. As a general rule, it requires a 
+        very intentional configuration to enable resources to be shared across AWS Accounts and this is only necessary in 
+        fairly complex situations that don't usually occur when building serverless stacks. 
+    </p>
+    <p>From a Developer's perspective, their development environment looks like this:</p>
+    <img src="/assets/img/LazyStackSMF1.1.svg" width="100%">
+    <p></p>
+    <p>Using LazyStack, Developer's may develop and test serverless stacks on their local workstation, then publish the 
+        serverless stack to their AWS Account and further test it there.  </p>
+
+    <p>Developers use a Git based collaboration process. See <a href="/userguide/smf_devworkflow.html">Developer Workflow</a> 
+        for a detailed discussion of this process.</p>
+    
+</div>

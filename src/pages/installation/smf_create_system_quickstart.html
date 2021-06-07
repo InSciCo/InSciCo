@@ -1,0 +1,150 @@
+---
+layout: docpage
+menu0: install
+menu1: smf
+---
+
+<div class=lz-r-content>
+<h4>SMF Step 2.1 - Create System QuickStart</h4>
+<dl>
+    <dt>Prerequisites:</dt>
+    <dd>- Create AWS Organization complete</dd>
+    <dd>- Unique email for root user of new System Test AWS Account</dd>
+    <dd>- Unique email for root user of new System Production AWS Account</dd>
+    <dd>- SysCode (system short code to use for naming accounts that are part of system)</dd>
+    <dd>- (optional) URL of GitHub template repository.</dd>
+    <dt>Estimated Time: 4 minutes</dt> 
+    <dt>Estimated Cost: none</dt>
+    <dt>Perform this step on the Management Workstation.</dt>
+</dl>
+
+<p>Systems are comprised of a System Test Account, system Production Account and one or more 
+    GitHub repositories configured with Continuous Integration and Continuous Deployment 
+    processing. Use this Create System QuickStart to configure a complete system in one 
+    step.
+</p>
+
+<h5>System Short Code</h5>
+<p>We prefix system test account names with the OrgCode and a SysCode. Your OrgCode 
+    was created in step "1.3 Create AWS Organization" and will be retrieved from 
+    the Settings.json file. The SysCode should be a short 2 or 3 character code identifying the 
+    system being created.</p>
+    <p>For your first system we suggest you create a "Tutorial" system with 
+    a ShortCode of "Tut"</p>
+
+<h5>System Account Root User Email Address</h5>
+<p>We can create a System Test account and a System Production account. Each of these 
+    require a unique email not already associated with an AWS Account. If you are using 
+    gmail, you may consider using dynamic gmail aliasing, for example:
+</p>
+<div class="manual-list">
+    <ul>
+        <li>For a gmail address like: me@gmail.com
+            <ul>
+                <li>me+AzTutTest@gmail.com</li>
+                <li>me+AzTutProd@gmail.com</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<p>All popular email systems provide some form of aliasing. You can also create separate email accounts 
+    if necessary. Just make sure you provide valid emails that are unique (not used on AWS 
+    any account active in the last 90 days).
+</p>
+<h5>Steps</h5>
+<ol>
+    <li>Open a PowerShell Terminal</li>
+    <br>
+    <li>CD into the LazyStackSettings folder</li>
+    <br>
+    <li>Execute the System_QuickStart.ps1 script:</li>
+    <br>
+    <li><pre><code class="language-powershell">. ..\LazyStackSMF\System_QuickStart.ps1</code></pre>
+    Here is a script run with sample inputs:
+    <pre><code class="language-powershell">
+System_QuickStart.ps1 - V1.0.0"
+This script builds a fully configured System containing:
+   - System Test Account belonging to the System Organizational Unit
+   - System Production Account belonging to the Production Organizational Unit
+   - GitHub Repository configuration (option to use existing repo or copy a repo template)
+   - AWS CodeBuild projects in System Test account to publish and delete Pull Request stacks
+   - AWS CodeBuild Project in System Production account to publish production stack
+Note: Press return to accept a default value. For (Y/n) Y is the default.
+
+Create Test Account? Y/n: 
+    Note: An email address can only be associated with one AWS Account. 
+    Email for AzTutTest account (example: me+AzTutTest@gmail.com): me+AzTutTest@gmail.com
+
+Create Prod Account? Y/n:
+    Note: An email address can only be associated with one AWS Account. 
+    Email for AzTutProd account (example: me+AzTutProd@gmail.com): me+AzTutProd@gmail.com
+
+Configure Serverless Stack Repository? Y/n: 
+    Create new repository from template repository? Y/n:
+    Template repository (default: InSciCo/PetStore):
+    New repository : (default: Az123/PetStore):
+
+Configure Test Account CI/CD? Y/n: 
+    Pull Request Create Template (default: ..\LazyStackSMF\Test_CodeBuild_PR_Create.yaml):
+    Pull Request Merge Template (default: ..\LazyStackSMF\Test_CodeBuild_PR_Merge.yaml):
+
+Configure Prod Account CD? Y/n: y
+    Production Stack Name (default: petstore):
+    Pull Request Merge Template (default: ..\LazyStackSMF\Prod_CodeBuild_PR_Merge.yaml):
+
+Please review and Confirm the following:
+    OrgCode: Az
+    SysCode: Tut 
+    AzTutTest root user email: me+AzTutTest@gmail.com
+    AzTutProd root user email: me+AzTutProd@gmail.com
+    Serverless Stack Repository:
+        Template repository: InSciCo/PetStore 
+        New repository: Az123/PetStore
+    Test Account CI/CD 
+        Pull Request Create Template: ..\LazyStackSMF\Test_CodeBuild_PR_Create.yaml
+        Pull Request Merge Template: ..\LazyStackSMF\Test_CodeBuild_PR_Merge.yaml
+    Production Account CD 
+        Production Stack Name: petstore
+        Pull Request Merge Template: ..\LazyStackSMF\Prod_CodeBuild_PR_Merge.yaml
+
+Confirm Y/n:
+
+Processing Starting
+Creating Test Account AzTutTest
+    - Checking for successful account creation. TryCount=1 
+    - AzTest account creation successful. AccountId: 123456789123
+    - Moving AzPetTest account to AzTestOU organizational unit
+    - Adding AzTutTestAccessRole profile and associating it with the AzMgmt profile 
+    - Creating Administrators Group in AzTutTest account 
+        - Adding policy AdministratorAccess 
+    - Creating IAM User AzTutTest in the AzTutTest account.
+        - Adding the IAM User AzTutTest to the Administrators group in the AzTutTest account.
+        - Writing the IAM User Creds into AzTutTest_creds.txt
+
+Creating Production Account AzTutProd
+    - Checking for successful account creation. TryCount=1 
+    - AzProd account creation successful. AccountId: 123456789123
+    - Moving AzPetProd account to AzProdOU organizational unit
+    - Adding AzTutProdAccessRole profile and associating it with the AzMgmt profile 
+    - Creating Administrators Group in AzTutProd account 
+        - Adding policy AdministratorAccess 
+    - Creating IAM User AzTutProd in the AzTutProd account.
+        - Adding the IAM User AzTutProd to the Administrators group in the AzTutProd account.
+        - Writing the IAM User Creds into AzTutProd_creds.txt
+
+Configuring CI/CD on AzTutTest 
+    - Publishing CodeBuild project petstore_t_pr_c using template Test_CodeBuild_PR_Create.yaml
+    - Publishing CodeBuild project petstore_t_pr_m using template Test_CodeBuild_PR_Merge.yaml
+
+Configuring CI/CD on AzTutProd 
+    - Publishing CodeBuild project petstore_p_pr_m using template Prod_CodeBuild_PR_Merge.yaml
+
+Processing Complete    
+</code></pre>
+
+    </li>
+    
+</ol>
+
+
+</div>

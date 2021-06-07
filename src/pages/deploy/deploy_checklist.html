@@ -1,0 +1,118 @@
+---
+layout: docpage
+section: Deploy
+topic: Overview
+---
+
+<div class=lz-r-content>
+    <h3>Deployment Checklist</h3>
+    <p>When you build stacks, you should use the following checklist to ensure you have 
+        addressed security, performance and cost concerns. If you are releasing the stack 
+        for others to deploy, we recommend you document the deployment checklist in a 
+        deployment guide. 
+    </p>
+    <p>Note: Items with an &diams; are not usually required in a pure serverless stack.</p>
+    <ul>
+        <li>Deployment Guide Documentation
+            <ul>
+                <li>Introduction
+                    <ul>
+                        <li>Describe Use-Cases for software</li>
+                        <li>Deployment Resources</li>
+                        <li>Deployment Options</li>
+                    </ul>
+                </li>
+                <li>Prerequisites and Requirements
+                    <ul>
+                        <li>Technical Prerequisites</li>
+                        <li>Specialized Skills or Knowledge Required</li>
+                        <li>Environment Configurations</li>
+                    </ul>
+                </li>
+                <li>Architecture Diagrams
+                    <ul>
+                        <li>AWS services and relationships among them.</li>
+                        <li>Customer Data storage is labeled</li>
+                        <li>Diagrams use AWS Simple Icons</li>
+                        <li>&diams; Networking:
+                            <ul>
+                                <li>&diams; VPCs</li>
+                                <li>&diams; subnets</li>
+                                <li>&diams; security groups</li>
+                                <li>&diams; NACLs</li>
+                                <li>&diams; Ingress/egress mappings</li>
+                            </ul>
+                        </li>
+                        <li>Integration Points
+                            <ul>
+                                <li>Third-party assets/APIs</li>
+                                <li>&diams; On-premises/hybrid assets</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Security
+                    <ul>
+                        <li>Links to IAM and IAM best practices documentation</li>
+                        <li>Attestation that stack does not require root privileges to deployment or operation</li>
+                        <li>Attestation that stack follows least privilege for access granted as part of deployment</li>
+                        <li>List any public resources with bucket policies allowing public access</li>
+                        <li>List and describe any IAM role and policy user is instructed to create</li>
+                        <li>List and describe the purpose and location of any key the user is instructed to create</li>
+                        <li>Provide clear instructions on maintaining any stored secretes stored in AWS Secrets Manager</li>
+                        <li>Provide details on where customer sensitive data is stored</li>
+                        <li>Provide details on data encryption configuration used in data stores</li>
+                        <li>Provide links to any third-party stacks that need to be deployed with this stack</li>
+                    </ul>
+                </li>
+                <li>Costs 
+                    <ul>
+                        <li>List billable services included in stack and indicate if the service is mandatory/optional</li>
+                        <li>Provide operational cost and licensing cost</li>
+                    </ul>
+                </li>
+                <li>Sizing 
+                    <ul>
+                        <li>&diams; Guidance for EC2 Instance type and size selection</li>
+                        <li>&diams; Guidance for EBS volume type and size selection</li>
+                        <li>&diams; Guidance on instance size selection for managed AWS Services</li>
+                        <li>Guidance on AWS DynamoDB read and write capacity unit estimates</li>
+                    </ul>
+                </li>
+                <li>Deployment Assets 
+                    <ul>
+                        <li>Setting up automated backups</li>
+                        <li>Restoring data from a backup</li>
+                        <li>Step-by-step instruction for recovering from service failure</li>
+                        <li>Step-by-step instructions for recovering from AZ failure</li>
+                        <li>Managing service limits for Disaster Recovery</li>
+                        <li>Document Recovery Time Objective (RTO)</li>
+                        <li>Document Recovery Point Objective (RPO)</li>
+                    </ul>
+                </li>
+                <li>Routine Maintenance 
+                    <ul>
+                        <li>Step-by-step guide for rotating programmatic system credentials and cryptographic keys</li>
+                        <li>Prescriptive guidance for software patches and upgrades</li>
+                        <li>Prescriptive guidance for managing licenses</li>
+                        <li>Prescriptive guidance for managing AWS Service Limits</li>
+                    </ul>
+                </li>
+                <li>Emergency Maintenance 
+                    <ul>
+                        <li>Step-by-step instructions on handling fault conditions</li>
+                        <li>Step-by-step instructions on recovering the software</li>
+                    </ul>
+                </li>
+                <li>Support 
+                    <ul> 
+                        <li>How to receive support</li>
+                        <li>Technical Support Tiers</li>
+                        <li>Service Level Agreement by Tier</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

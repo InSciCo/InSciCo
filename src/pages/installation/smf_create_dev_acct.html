@@ -1,0 +1,91 @@
+---
+layout: docpage
+menu0: install
+menu1: smf
+---
+
+<div class=lz-r-content>
+    <h4>Step 5 ) Create Developer Account(s)</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Organization Setup complete</dd>
+        <dd>- Unique Email address (or alias) to use for Developer Account</dd>
+         <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>      
+    <p>In this step we will run the LzNewDevAcct.ps1 script to create a new Developer 
+        AWS Sandbox Member Account belonging to the AWS organization and move this account into 
+        the DevOU Organizational Unit. The AWS Account will have a IAM Policy Group called 
+        Developers. The Developers Group will have two policies: PowerUsersAccess and 
+        IAMUserCredsPolicy. PowerUsersAccess is an AWS Management Policy. IAMUserCredsPolicy is 
+        created by this script from the provided IAMUserCredsPolicy.json file. 
+    </p>
+    <h5>Sometimes managing a developer's AWS Account is optional!</h5>
+    <p>Developers do not always have to have an AWS Account to contribute to your application. 
+        They only need to be able to make PR requests against an GitHub repository referenced by 
+        one of your Systems. In addition, they could use their developer workstation to publish 
+        a Serverless Stack directly to <strong>any</strong> AWS Account in which they have sufficient administrative 
+        rights to do so. This can make it easy to have sub-contractors make contributions to your 
+        codebase without your having to manage their AWS Accounts. However, if the Serverless Stacks 
+        being deployed require accessing "shared" resources in other accounts you do manage, it is 
+        best practice to allow that access only from developer AWS Accounts you manage.
+    </p>
+    <h5>Configuration Steps</h5>
+    <ol>
+        <li>Open a PowerShell terminal.</li>
+        <br>
+        <li>CD into the LazyStackSettings folder.</li>
+        <br>
+        <li>Execute the LzNewDevAcct.ps1 script:
+            <pre><code class="language-powershell">..\LazyStackSMF\LzNewDevAccount.ps1</code></pre>
+                    Here is a script run with sample inputs:
+                    <pre><code class="language-powershell">LzNewDevAccount.ps1 - V1.0.0
+This script adds a developer account to the Dev Organizational Unit.
+It also adds a Admin Access Profile so this workstation can administer the new Account.
+Note: Press return to accept a default value.
+OrgCode: LzStk
+AWS Management Account: LzStkMgmt
+Enter Region (default us-east-1):
+Enter the Developer's Handle (ex: Joe): Joe
+Enter the Developer's Account Name (default: LzStkDevJoe):
+Enter the Developer's IAM User Name (default: LzStkDevJoe):
+Note: An email address can only be associated with one AWS Account.
+Enter an Email Address for the new account's Root User: LzStkDevJoe@lzstk.net
+Please Review and confirm the following:
+    OrgCode: LzStk
+    Management Account Profile: LzStkMgmt
+    Development OU: DevOU
+    Development Account to be created: LzStkDevJoe
+    Development Account IAM User Name: LzStkDevJoe
+    Email Address for Account's Root User: LzStkDevJoe@lzstk.net
+Continue y/n: y
+
+Processing Starting
+- Creating Developer Account LzStkDevJoe
+- Checking for successful account creation. TryCount=1
+- LzStkDevJoe account creation successful., AccountId: 123456789012 
+- Moving LzStkDevJoe account to DevOU Organizational Unit
+Adding  profile and associating it with the  profile.
+- Adding policy IAMuserCredsPolicy
+- Creating Developers group in the LzStkDevJoe account 
+- Adding PowerUserAccess Policy to Developers group
+- Adding IAMUserCredsPolicy to Developers group 
+- Creating IAM User LzStkDevJoe in LzStkDevJoe account.
+- Writing the IAM User Creds into LzStkDevJoe_credentials.txt
+- Adding IAM User LzStkDevJoe to the LzStkDevJoe Account Developers group.
+Processing Complete
+Send the LzStkDevJoe_credentials.txt file to the Developer or use it yourself if you are also that developer.
+The file contains the URL to login to the AWS Account LzStkDevJoe and the initial password (password reset
+required on first login) for the IAM User LzStkDevJoe.</code></pre>
+</li>
+</ol> 
+
+<h5>Step Summary</h5>
+<p>In this step we used the Dev_Account_Create.ps1 script to create a new Dev Account 
+and move that account into the Dev Organizational Unit. The script also 
+created a Developers group and in the new Dev Account, created a new IAM 
+User for the developer and assigned that IAM User to the Developers group. 
+</p>
+
+</div>

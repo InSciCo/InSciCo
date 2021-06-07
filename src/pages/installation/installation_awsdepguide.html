@@ -1,0 +1,467 @@
+---
+layout: docpage
+menu0: install
+menu1: smf
+---
+
+<div class="lz-r-content manual-list">
+    <h3>LazyStack AWS SMF Deployment Summary</h4>
+        <p>Here is a technical overview of the SMF deployment. Review this overview to get an idea of what the install
+            will do and what resources and skills you need to perform the install.
+        </p>
+        <ul>
+            <li>1. Technical Skills and Knowledge
+                <ul>
+                    <li>Some basic experience installing software on a workstation</li>
+                    <li>Experience running scripts in a command terminal/window</li>
+                    <li>Experience editing text files</li>
+                    <li>We recommend having reviewed AWS Getting Started Guides</li>
+                </ul>
+            </li>
+            <br>
+            <li>2. Use Cases:
+                <ul>
+                    <li>2.1 Use Case: Install SMF<br>
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- Workstation running an OS supporting PowerShell, .NET, AWS CLI, and AWS SAM
+                                        CLI (ex: Windows 10, Linux, MacOS)</li>
+                                    <li>- Administrative workstation access to install and run software</li>
+                                    <li>- Credit card for creating AWS Management Account</li>
+                                    <li>- Unique email addresses (or aliases) for each AWS Account being created</li>
+                                    <li>- GitHub Account and Organization</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul>Time To Complete
+                            <li>
+                                <ul>
+                                    <li>- SMF Setup 11 - 25 minutes</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul>Costs - None</ul>
+                        <br>
+                        <ul> These actions are performed on the Management Workstation
+                            and/or AWS Console. Much of the following configuration are are automated with PowerShell
+                            scripts.
+                            <li>Configure LazyStack SMF Organization
+                                <ul>
+                                    <li>SMF 1) Create GitHub Account
+                                        <ul>
+                                            <li>1.1 Join GitHub</li>
+                                            <li>1.2 Create GitHub Organization</li>
+                                            <li>1.3 Install Git client</li>
+                                            <li>1.4 Install "gh" (GitHub CLI)</li>
+                                            <li>1.4 Create PetStore and LazyStackSmfUtil repositories</li>
+                                        </ul>
+                                    </li>
+                                    <li>SMF 2) Configure Workstation
+                                        <ul>
+                                            <li>2.1 Install PowerShell</li>
+                                            <li>2.2 InstaLL powershell-yaml</li>
+                                            <li>2.3 Select "common" folder</li>
+                                            <li>2.4 Clone InSciCo/LazyStackSMF</li>
+                                            <li>2.5 Create LazyStack Settings Folder</li>
+                                            <li>2.6 Generate GitHub Personal Access Tokens</li>
+                                        </ul>
+                                    </li>
+                                    <li>SMF 3) Create AWS Management Account
+                                        <ul>
+                                            <li>3.1 Sign up for AWS Account</li>
+                                            <li>3.2 Create IAM User - OrgMgmt</li>
+                                            <li>3.4 Install AWS CLI</li>
+                                            <li>3.5 Create Named AWS Profile - OrgMgmt</li>
+                                            <li>3.6 Secure your Root Credentials</li>
+                                            <li>3.7 Install AWS SAM CLI</li>
+                                        </ul>
+                                    </li>
+                                    <li>SMF 4) Create AWS Organization<br>
+                                        <ul>
+                                            <li>Run LzConfigure.ps1 to:
+                                                <ul>
+                                                    <li>Create Organizational Unit - DevOU</li>
+                                                    <li>Create Organizational Unit - TestOU</li>
+                                                    <li>Create Organizational Unit - ProdOU</li>
+                                                    <li>Create Tutorial System with 
+                                                        <ul>
+                                                            <li>Tutorial System Test Account<br>
+                                                                <ul>
+                                                                    <li>Create an AWS System Test Account - OrgTutTest</li>
+                                                                    <li>Move it under the Test Organizational Unit - TestOU</li>
+                                                                    <li>Create the Test Account IAM User OrgTutTestIAM</li>
+                                                                    <li>Create the Administrators group</li>
+                                                                    <li>Assign the IAM User to the Administrators group</li>
+                                                                    <li>Create a Management Workstation AWS profile with
+                                                                        OrganizationalAccountAccessRole policy to allow Management
+                                                                        account to administer the Test Account.
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>Tutorial System Production Account<br>
+                                                                <ul>
+                                                                    <li>Create a System Prod Account - OrgTutProd</li>
+                                                                    <li>Move it under the Prod Organizational Unit - ProdOU
+                                                                    </li>
+                                                                    <li>Create the Prod Account IAM User OrgTutProdIAM</li>
+                                                                    <li>Create the Administrators group</li>
+                                                                    <li>Assign the IAM User to the Administrators group</li>
+                                                                    <li>Create a Management Workstation AWS profile with
+                                                                        OrganizationalAccountAccessRole policy to allow
+                                                                        Management account
+                                                                        to administer the Production Account.
+                                                                    </li>
+                                                                    <li>Configure Account to use GitHub Personal Access Token</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>Deploy CI/CD Pipelines
+                                                                <ul>
+                                                                    <li>Test_PR_Create - deployed with cloudformation</li>
+                                                                    <li>Test_PR_Merge - deployed with cloudformation</li>
+                                                                    <li>Prod_PR_Merge - deployed with cloudformation</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <br>
+                            <li>SMF 5) - Create Developer AWS Sandbox Accounts
+                                <ul>
+                                    <li>SMF 2.1 - Create Developer Account<br>
+                                        <ul>
+                                            <li>Run LzNewDevAccount.ps1 script to:
+                                                <ul>
+                                                    <li>Create AWS developer account - ex: OrgDevJoe</li>
+                                                    <li>Move developer account into the Dev Organizational Unit</li>
+                                                    <li>Create IAM User for the developer</li>
+                                                    <li>Create Developers IAM Group having PowerUser and limited IAM
+                                                        permissions</li>
+                                                    <li>Assign IAM User to IAM Group</li>
+                                                    <li>Create named role profile - OrgDevJoeAccess<br>
+                                                        OrganizationalAccountAccessRole policy allows Management account
+                                                        to administer the developer's Account.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <br>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>2.2 Use Case: Developer Publishes a Stack to their Development Account<br>
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- Development Workstation Configuration Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Publish stack using AWS Toolkit Extension for Visual Studio IDE (Windows)</li>
+                            <li>Publish stack using AWS SAM CLI</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>2.3 Use Case: Developer Creates GitHub Pull Request
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 4 Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Test Account CodeBuild Project publishes stack for PR</li>
+                            <li>AwsSettings.json file generated and checked into PR branch</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>2.4 Use Case: Developer Updates GitHub Pull Request
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 4 Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Test Account CodeBuild Project updates stack for PR</li>
+                            <li>AwsSettings.json file generated and checked into PR branch</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>2.5 Use Case: GitHub Pull Request is merged
+                        <ul>Prerequisites:
+                            <li>
+                                <ul>
+                                    <li>- SMF Step 4 Complete</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Test Account CodeBuild Project deletes stack for PR</li>
+                            <li>Prod Account CodeBuild Project creates/updates Production stack</li>
+                            <li>AwsSettings.json file generated and checked into main branch</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>  
+            <br>
+            <li>3. Typical Customer Deployment AWS Resources
+                <ul>
+                    <li>AWS Organization
+                        <ul>
+                            <li>Management Account - OrgMgmt
+                                <ul>
+                                    <li>Member of IAM User Group - Administrators</li>
+                                    <ul>
+                                        <li>AWS Policy AdministratorAccess</li>
+                                    </ul>
+                                    <li>IAM User - OrgMgmt
+                                    <li>Member of Administrators User Group</li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Development Organizational Unit - DevOU
+                        <ul>
+                            <li>Developer account(s) - ex: OrgDevJoe
+
+                                <ul>
+                                    <li>Customer Policy IAMUserCredsPolicy (see IAMUserCredsPolicy.json)
+                                        <ul>
+                                            <li>AllowViewAccountInfo</li>
+                                            <li>AllowManageOwnPasswords</li>
+                                            <li>AllowManageOwnAccessKeys</li>
+                                            <li>AllowManageOwnSSHPublicKeys</li>
+                                        </ul>
+                                    </li>
+                                    <li>IAM User Group Developers
+                                        <ul>
+                                            <li>AWS Policy PowerUserAccess</li>
+                                            <li>Customer Policy IAMUserCredsPolicy</li>
+                                        </ul>
+                                    </li>
+                                    <li>IAM User - OrgDevJoe
+                                        <ul>
+                                            <li>Member of Developers User Group</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Test Organizational Unit - TestOU
+                        <ul>
+                            <li>System Test Account - OrgSysTest
+                                <ul>
+                                    <li>Administrators User Group
+                                        <ul>
+                                            <li>AWS Policy AdministratorAccess</li>
+                                        </ul>
+                                    </li>
+                                    <li>IAM User - OrgSysTest
+                                        <ul>
+                                            <li>Member of Administrators User Group</li>
+                                        </ul>
+                                    </li>
+                                    <li>CodeBuild Connection to GitHub repository</li>
+                                    <li>Test_CodeBuild_PR_Create.yaml template - CodeBuild Project to Create/Update test
+                                        stack for a new/updated Pull Request
+                                        <ul>CodeBuild Project Stack Resources:
+                                            <li>AWS::S3::Bucket - build artifacts1</li>
+                                            <li>AWS::CodeBuild::Project
+                                                <ul>
+                                                    <li>Webhook on PR Create/Update</li>
+                                                    <li>Inline Script for Build, Test, and Deploy
+                                                        <pre><code class="language-powershell"> 
+    version: 0.2
+    env:
+        git-credential-helper: yes
+    phases:
+        build:
+        commands:
+            # example GitHub refs/heads/F1 
+            - echo $CODEBUILD_WEBHOOK_HEAD_REF
+            - FeatureBranch="$(basename $CODEBUILD_WEBHOOK_HEAD_REF)"
+            - stack=$FeatureBranch
+
+            # build all Lambda projects (and their dependencies)
+            - for proj in Lambdas/*/*.csproj; do eval "dotnet build ${proj} --configuration Release";  done
+
+            # $stack is replaced by csh
+            - eval "sam deploy -t Stacks/Test/serverless.template --stack-name $stack --s3-bucket ${S3} --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"
+            - pwsh -Command  "../LzSmfUtil/GetAwsSettings $stack Stacks/Test/AwsSettings.json"
+
+            - git config user.name "CodeBuild"
+            - git config user.email CodeBuild@example.com
+            - git checkout $FeatureBranch
+            
+            - git add Stacks/Test/AwsSettings.json
+            - git commit -m "Update AwsSettings.json for PR Stack"
+            - git push --set-upstream origin HEAD:$FeatureBranch</code></pre>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>AWS::IAM::Role - CodeBuildRole</li>
+                                            <li>AWS::IAM::Policy - CodeBuildPolicy</li>
+                                        </ul>
+                                    </li>
+                                    <li>Test_CodeBuild_PR_Merge.yaml template - Codebuild Project stack to Delete test
+                                        stack for for a merged Pull Request
+                                        <ul>CodeBuild Project Stack Resources:
+                                            <li>AWS::S3::Bucket - build artifacts1</li>
+                                            <li>AWS::CodeBuild::Project
+                                                <ul>
+                                                    <li>Webhook on PR Merge</li>
+                                                    <li>Inline Script for delete stack
+                                                        <pre><code class="language-powershell">          
+    version: 0.2
+    env:
+        git-credential-helper: yes
+    phases:
+        build:
+        commands:
+            # ex for GitHub refs/heads/F1 
+            - echo $CODEBUILD_WEBHOOK_HEAD_REF
+            - FeatureBranch="$(basename $CODEBUILD_WEBHOOK_HEAD_REF)"
+            - stack=$FeatureBranch
+
+            - eval "aws cloudformation delete-stack --stack-name $stack"
+
+            - git config user.name "CodeBuild"
+            - git config user.email CodeBuild@example.com
+            - git checkout $FeatureBranch
+            
+            - git rm Stacks/Test/AwsSettings.json
+            - git commit -m "Deleted AwsSettings.json for PR Stack"
+            - git push --set-upstream origin HEAD:$FeatureBranch</code></pre>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>AWS::IAM::Role - CodeBuildRole</li>
+                                            <li>AWS::IAM::Policy - CodeBuildPolicy</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Prod Organizational Unit - OrgProdOU
+                        <ul>
+                            <li>System Production Account - OrgSysProd
+                                <ul>
+                                    <li>Administrators User Group
+                                        <ul>
+                                            <li>AWS Policy AdministratorAccess</li>
+                                        </ul>
+                                    </li>
+                                    <li>IAM User - OrgSysProd
+                                        <ul>
+                                            <li>Member of Administrators User Group</li>
+                                        </ul>
+                                    </li>
+                                    <li>CodeBuild Connection to GitHub repository</li>
+                                    <li>Prod_CodeBuild_PR_Merge.yaml template - CodeBuild Project Stack to Create/Update
+                                        Prod stack for a merged Pull Request
+                                        <ul>CodeBuild Project Stack Resources:
+                                            <li>AWS::S3::Bucket - build artifacts1</li>
+                                            <li>AWS::CodeBuild::Project
+                                                <ul>
+                                                    <li>Webhook on PR Merge</li>
+                                                    <li>Inline Script for Build, and Deploy
+                                                        <pre><code class="language-powershell">
+    version: 0.2
+    env:
+        git-credential-helper: yes
+    phases:
+        build:
+        commands:
+            # build all Lambda projects (and their dependencies)
+            - for proj in Lambdas/*/*.csproj; do eval "dotnet build ${proj} --configuration Release";  done
+
+            - eval "sam deploy -t Stacks/Prod/serverless.template --stack-name ${ProdStackNameParam} --s3-bucket ${S3} --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"
+            - pwsh -Command  "../LzSmfUtil/GetAwsSettings $stack Stacks/Prod/AwsSettings.json"
+
+            - git config user.name "CodeBuild"
+            - git config user.email CodeBuild@example.com
+            - git checkout main
+            
+            - git add Stacks/Prod/AwsSettings.json
+            - git commit -m "Update AwsSettings.json for Prod Stack"
+            - git push --set-upstream origin HEAD:main</code></pre></li>
+                                                </ul>
+                                            </li>
+                                            <li>AWS::IAM::Role - CodeBuildRole</li>
+                                            <li>AWS::IAM::Policy - CodeBuildPolicy</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+            </li>
+            <br>
+            <li>4. Deployment Naming
+                <ul>
+                    <li>OrgCode + SysCode prefix to be used for system test and system production accounts</li>
+                </ul>
+            </li>
+            <br>
+            <li>5. Architectural Diagrams
+                <ul>
+                    <li>Software Management Framework Flow<br>
+                        <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
+                    </li>
+                    <br>
+                    <li>AWS Organization Overview<br>
+                        <img src="/assets/img/LazyStackSMF3.svg">
+                    </li>
+                    <br>
+                    <li>AWS CodeBuild and Cloud Formation Services<br>
+                        <img src="/assets/img/AwsSetup2.svg">
+                    </li>
+                    <br>
+                    <li>AWS Root and IAM Users with Management and Development workstation AWS Profiles<br>
+                        <img src="/assets/img/AwsSetupUsers2.svg">
+                    </li>
+                    <br>
+                    <li>CI/CD Stacks<br>
+                        <img src="/assets/img/SDLCFeatureflowVSIDE.svg">
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li>6. Security References
+                <ul>
+                    <li><a href="https://aws.amazon.com/security/security-learning">AWS Cloud Security</a></li>
+                </ul>
+            </li>
+            <br>
+            <li>7. AWS Costs<br>
+                All resources used in the SMF qualify for usage under the free tier
+                <ul>
+                    <li><a href="https://aws.amazon.com/pricing/">AWS Pricing Overview</a></li>
+                </ul>
+            </li>
+            <br>
+            <li>8. AWS Sizing
+                <ul>
+                    <li>Since the SWF is a development tool. Sizing considerations are not relevant for small to medium
+                        sized teams.</li>
+                </ul>
+            </li>
+        </ul>
+</div>

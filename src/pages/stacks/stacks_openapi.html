@@ -1,16 +1,16 @@
 ---
 layout: docpage
-section: Stacks
-topic: Overview
+menu0: userguide
+menu1: stacks
 ---
-{{> stacks_menu}}
+
 <div class=lz-r-content>
     <h3>OpenAPI Specification (formerly Swagger)</h3>
     <p>"The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs 
         which allows both humans and computers to discover and understand the capabilities of the service 
         without access to source code, documentation, or through network traffic inspection. When properly 
         defined, a consumer can understand and interact with the remote service with a minimal amount of 
-        implementation logic." <a href="https://swagger.io/specification/">OpenAPI Specification</a></p>
+        implementation logic." <a href="https://swagger.io/specification/"{{>newtab}}>OpenAPI Specification</a></p>
 
     <p>The core idea behind LazyStack is that most of the plumbing between the app client and 
         app server logic (in this case AWS Lambda functions) is code that can be easily generated. When 
@@ -19,11 +19,11 @@ topic: Overview
     </p>
     <p>The OpenAPI specification is widely used, simple to read and a wide variety of tools exist 
         to make authoring a compliant OpenAPI document straight forward. Check out the 
-        <a href="https://swagger.io/tools/swagger-editor/">
+        <a href="https://swagger.io/tools/swagger-editor/"{{>newtab}}>
         Swagger Editor</a> for a very competent tool for authoring your APIs.
     </p>
     <p>A wide variety of OpenAPI &RightArrow; C# generators exist. We have used quite a few and 
-        at the end of the day decided to include the <a href="https://github.com/RicoSuter/NSwag">NSwag</a> generator in LazyStack. 
+        at the end of the day decided to include the <a href="https://github.com/RicoSuter/NSwag"{{>newtab}}>NSwag</a> generator in LazyStack. 
         It is reasonably robust and is written in C# which makes it a natural fit for our .NET focused tool-chain.
     </p>
     <h4>PetStore.yaml</h4>

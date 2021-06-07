@@ -1,0 +1,145 @@
+---
+layout: docpage
+menu0: install
+menu1: smf
+---
+
+<div class=lz-r-content>
+    <h4>SMF Preparation</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- A workstation with internet access and permissions to install software</dd>
+        <dt>Estimated Time: 10 minutes</dt>
+        <dt>Estimated Cost: none</dt>
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>
+    <h5>GitHub Organization and AWS Organization</h5>
+    <p>LazyStack configures a GitHub Organization and an AWS Organization. Integrations
+        are provided that make collaboration on the development and deployment of AWS
+        Serverless Stacks simple. You may create a GitHub Account and Organization
+        or configure an existing GitHub Account and Organization.</p>
+
+    <h5>Management Workstation</h5>
+
+    <p>This is the computer from which you will be creating/managing your GitHub Organization, AWS
+        Organization, and Accounts. You must have administrative rights on this
+        computer to install and use a variety of software with administrative rights.</p>
+    <p>We will configure your Management Workstation with two folders, collocated under a
+        common folder. For example, on a Windows workstation this might look like:
+    </p>
+    <div class="manual-list">
+        <ul class="manual-list">
+            <li>C:\Users\User\source\repos\
+                <ul>
+                    <li><strong>LazyStackSMF</strong> - a GitHub clone of InSciCo/LazyStackSMF</li>
+                    <li><strong>LazyStackSettings</strong> - a folder containing your organization settings.
+                    </li>
+                </ul>
+    </div>
+    </ul>
+    <p>It is important to consider that the <strong>LazyStackSettings</strong> folder will contain highly sensitive
+        information and should only be accessible by persons who administer your GitHub and AWS organizations. You may
+        name the LazyStackSettings folder anything you like. Throughout this documentation we will refer to this 
+        folder as the LazyStackSettings folder.</p>
+
+    <h5>OrgCode</h5>
+    <p> Throughout the SMF process we use an AWS organization code, the OrgCode,
+        in the AWS Management Account name, Developer Account names, and AWS organizational Unit names.
+        For instance, we refer to the AWS Management account as "OrgMgmt", but expect you to replace
+        the "Org" with your own short OrgCode. It must be alpha-numeric and have no spaces. This short OrgCode will be
+        very helpful in keeping track of accounts belonging to different organizations should you end up managing or
+        developing in more than one organization on the same Workstation.
+        <br>Here is an example of the naming with an OrdCode of "Isc":
+    </p>
+
+    <table>
+        <tr>
+            <th style="text-align: left">AWS Item</th>
+            <th style="text-align: left">Name in Docs</th>
+            <th style="text-align: left">Name with OrgCode "Az"</th>
+        </tr>
+        <tr>
+            <td>Management Account</td>
+            <td>OrgMgmt</td>
+            <td>AzMgmt</td>
+        </tr>
+        <tr>
+            <td>Dev Organizational Unit</td>
+            <td>OrgDevOU</td>
+            <td>AzDevOU</td>
+        </tr>
+        <tr>
+            <td>Dev Account</td>
+            <td>OrgDevJoe</td>
+            <td>AzDevJoe</td>
+        </tr>
+
+        <tr>
+            <td>Test Organizational Unit</td>
+            <td>OrgTestOU</td>
+            <td>AzTestOU</td>
+        </tr>
+        <tr>
+            <td>Prod Organizational Unit</td>
+            <td>OrgProdOU</td>
+            <td>AzProdOU</td>
+        </tr>
+    </table>
+    <p>* Note: There many be more than one development account so we append the
+        developers "handle" to the account name; ex: AzDevJoe.
+    </p>
+    <p>Your GitHub Organization can be named anyway you like. You may use an existing
+        GitHub Organization instead of creating one from scratch.
+    </p>
+
+    <h5>SysCode</h5>
+    <p>Your AWS organization may have one or more systems and each of these systems may
+        contain one or more serverless stacks. Each System has one System Test AWS Account 
+        and one System Production AWS Account. Throughout the SMF process we use the OrgCode 
+        and a system code, the SysCode, in the System Account name.
+        <br>Here is an example of the naming with an OrdCode of "Az" and SysCode of "Pet":
+    </p>
+    </p>
+    <table>
+        <tr>
+            <th style="text-align: left">AWS Item</th>
+            <th style="text-align: left">Name in Docs</th>
+            <th style="text-align: left">Name OrgCode "Az", SysCode "Pet"</th>
+        </tr>
+        <tr>
+            <td>Test Account</td>
+            <td>OrgSysTest</td>
+            <td>AzPetTest</td>
+        </tr>
+        <tr>
+            <td>Prod Account</td>
+            <td>OrgSysProd</td>
+            <td>AzPetProd</td>
+        </tr>
+    </table>
+
+    <h5>Stack Names in the Test Account</h5>
+    <p>Test Account Stacks are published when a developer opens a GitHub Pull Request. The
+        name of the PR branch is used to name the stack.
+    </p>
+    <p>Production Account Stacks may be named anyway you like as long as they follow AWS Stack Name conventions.</p>
+
+
+    <h5>Email Account & Alias</h5>
+    <p> Each Amazon account has a Root User whose credentials include an email
+        address and password. The email address must be unique across all accounts
+        on AWS; e.g. you may not use the same email address for more than a single
+        AWS Account. <br> If you are using Gmail, you can use the Gmail dynamic aliasing technique as follows (with
+        placeholders for OrgCode and SysCode shown):
+    </p>
+    <p>MyEmail@gmail.com -- existing email address with an OrgCode of "Az" and SysCode of "Pet".</p>
+    <ol>
+        <li>MyEmail+AzMgmt@gmail.com -- root user for management account</li>
+        <li>MyEmail+AzDevJoe@gmail.com -- root user for Joe's development account</li>
+        <li>MyEmail+AzPetTest@gmail.com -- root user for system test account</li>
+        <li>MyEmail+AzPetProd@gmail.com -- root user for system production account</li>
+
+    </ol>
+    <p>The "+" character makes the email address a dynamic alias.<br>
+        If you are not using Gmail, create email addresses or aliases
+        in your email software instead.</p>

@@ -1,0 +1,85 @@
+<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">{{topic}}</div>
+</div>
+
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
+    <ul class="vertical menu dropdown manual-list">
+        <li >
+            <a  href="/intro/intro.html">
+                <span class="{{#ifpage 'intro'}}lz-r-topicitem{{/ifpage}}">Business Stakeholder Overview</span>
+            </a>
+        </li>
+
+        <div style="display: {{#ifequal intro 'business'}}inline{{else}}none{{/ifequal}}">
+            <ul>
+
+                <li>
+                    <a  href="/intro/intro_smf.html" >
+                    <span class="{{#ifpage 'intro_smf'}}lz-r-topicitem{{/ifpage}}">Collaborate</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a  href="/intro/intro_mdd.html" >
+                    <span class="{{#ifpage 'intro_mdd'}}lz-r-topicitem{{/ifpage}}">Accelerate</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a  href="/intro/intro_serverless.html" >
+                    <span class="{{#ifpage 'intro_serverless'}}lz-r-topicitem{{/ifpage}}">Scale</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a  href="/intro/intro_whylazystack.html" >
+                    <span class="{{#ifpage 'intro_whylazystack'}}lz-r-topicitem{{/ifpage}}">Why Choose LazyStack?</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <li>
+            <a  href="/intro/intro_techoverview.html">
+                <span class="{{#ifpage 'intro_techoverview'}}lz-r-topicitem{{/ifpage}}">Technical Lead Overview</span>
+            </a>
+        </li>
+
+        <div style="display: {{#ifequal intro 'tech'}}inline{{else}}none{{/ifequal}}">
+            <ul>
+                <li>
+                    <a  href="/intro/intro_techoverviewsmf.html" >
+                        <span class="{{#ifpage 'intro_techoverviewsmf'}}lz-r-topicitem{{/ifpage}}">Software Mgmt. Framework</span>
+                    </a>
+                </li>        <li>
+                    <a  href="/intro/intro_techoverviewtools.html" >
+                        <span class="{{#ifpage 'intro_techoverviewtools'}}lz-r-topicitem{{/ifpage}}">MDD Developer Tools</span>
+                    </a>
+                </li>
+                <li></li>
+                    <a  href="/intro/intro_security.html" >
+                    <span class="{{#ifpage 'intro_security'}}lz-r-topicitem{{/ifpage}}">Security First</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whynet.html" >
+                        <span class="{{#ifpage 'intro_whynet'}}lz-r-topicitem{{/ifpage}}">Why .NET?</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="/intro/intro_whyaws.html">
+                        <span class="{{#ifpage 'intro_whyaws'}}lz-r-topicitem{{/ifpage}}">Why AWS?</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a  href="/intro/intro_dynamodb.html" >
+                        <span class="{{#ifpage 'intro_dynamodb'}}lz-r-topicitem{{/ifpage}}">Why DynamoDB?</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </ul>
+</div>

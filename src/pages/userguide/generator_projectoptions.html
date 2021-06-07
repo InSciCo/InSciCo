@@ -1,0 +1,54 @@
+---
+layout: docpage
+menu0: userguide
+menu1: mdd
+menu2: project
+---
+
+<div class=lz-r-content>
+    <h3>ProjectOptions Directive</h3>
+    <p>This directive allows you to add/override options for project files and code generated in
+        LazyStack projects. These options include:</p>
+        <ul>
+          <li><a href="/userguide/generator_nugetpackageversions.html">NugetPackageReferences</a> - specify the versions of NuGet packages used in projects.</li>
+          <li><a href="/userguide/generator_packagereferences.html">PackageReferences</a> - specify the package references to insert into a project file.</li>
+          <li><a href="/userguide/generator_projectreferences.html">ProjectReferences</a> - specify the project references to insert into a project file.</li>
+          <li><a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a> - specify class DI registrations for a project.</li>
+          <li><a href="/userguide/generator_properties.html">Properties</a> - specify properties to add to the project file.</li>
+          <li><a href="/userguide/generator_runtime.html">Runtime</a> - specify what AWS Lambda Runtime to use.</li>
+        </ul>
+        
+    <p>Many project options have default values:</p>
+<pre><code class="language-yaml"># LazyStack Version 1.0.0
+ProjectOptions:
+
+  NugetPackageVersions:
+    System.ComponentModel.Annotations: "5.0.0"
+    JsonSubTypes: "1.8.0"
+    Newtonsoft.Json: "12.0.3"
+    AWSSDK.Extensions.NETCore.Setup: "3.3.101"
+    Amazon.Lambda.AspNetCoreServer: "5.2.0"
+    Swashbuckle.AspNetCore: "5.6.2"    
+    LazyStackAuth: "1.0.0"
+  
+  ClientSDKProjects:
+    PackageReferences:
+      LazyStackAuth: ""
+      System.ComponentModel.Annotations: ""
+      JsonSubTypes: ""
+      Newtonsoft.Json: ""
+  
+  SchemaProjects:
+    PackageReferences:
+      Newtonsoft.Json: ""
+
+  LambdaProjects: 
+    Runtime: "dotnetcore3.1"
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: ""
+      Amazon.Lambda.AspNetCoreServer: ""
+  </code></pre>
+    
+
+<p></p>
+</div>

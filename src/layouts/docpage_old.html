@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io'/>
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png'/>
+    <meta property='og:description' content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.'/>
+    <meta property='og:url' content='https://lazystack.io'/>    
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var prevPage = "";
+        var nextPage = "";
+        var curPageFound = false;
+        function loadMenuPageList() {
+            var menupages = document.getElementsByClassName("menupage");
+            for (var i = 0; i < menupages.length; i++) {
+                var page = menupages[i].getElementsByTagName('a')[0].href;
+                if(page != "") {
+                    if(curPageFound) {
+                        nextPage = page;
+                        break;
+                    } 
+                    // check if current page found
+                    if(page == document.location.href) {
+                        curPageFound = true;
+                    } else {
+                        prevPage = page;
+                    }
+                }
+            }
+        }
+        function gotoPrevPage() {
+            if(prevPage != "") {
+                window.location.href = prevPage;
+            }
+        }
+        function gotoNextPage() {
+            if(nextPage != "") {
+                window.location.href = nextPage;
+            }
+        }
+
+    </script>
+
+</head>
+
+<body class="docpage">
+ 
+    <div class=bigcenter-outter>
+
+        <div class=bigcenter-inner>
+            <div id="bg-fill-1" style="position:fixed;top: 0px; background-color:#181525;; height: 100vh; width: 100vw; z-index: initial;"></div>
+            <div id="bg-fill-2" style="position:fixed;top: 129px; background-image: linear-gradient(#181525,#443d6e); height: calc(100vh - 120px); width: 100vw; z-index: initial;"></div>
+            <div id="hacky-corner-cover" style="position:fixed;top: 129px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            <div id="hacky-corner-cover-2" style="position:fixed;top: 0px; background-color:#181525; height: 34px; width: 100vw; z-index: 2;"></div>
+            <img id="bg-header-img" class="lz-r-banner-img" src="/assets/img/pic12.jpg">
+            
+            <div style="position: fixed;top:-36px;z-index: 4;">
+                {{> header}}
+                <!--{{> sitemenu}}-->
+                <button onclick="gotoPrevPage()">Prev</button>
+                <button onclick="gotoNextPage()">Next</button>
+            </div>
+            {{>legal_notice}}
+            <!-- Note the body partial must be inserted at the leftmost column to avoid indent issue with code blocks -->
+{{> menu}}            
+{{>body}}
+            <div id=hacky-privacy-spacer></div>
+            <script src="/assets/js/app.js"></script>
+            <script src="/assets/prism/prism.js"></script>
+
+            <script>
+                loadMenuPageList();
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>

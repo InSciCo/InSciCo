@@ -1,0 +1,66 @@
+---
+layout: docpage
+section: Deploy
+topic: Overview
+---
+
+<div class=lz-r-content>
+    <h3>LazyStack Deployment Technical Base Requirements</h3>
+    <p>LazyStack is a tool that generates AWS SAM Templates that are used to publish 
+        AWS Stacks. In addition to the AWS Account Basics, the following additional 
+        requirements apply to LazyStack.
+    </p>
+
+    <h4>Technical Skills</h4>
+    <ul>
+        <li>C# and Command Shell</li>
+        <li>.NET</li>
+        <li>OpenApi Specification</li>
+    </ul>
+
+    <h4>AWS Command Line Interface</h4>
+    <p>"The AWS Command Line Interface (AWS CLI) is a unified tool that provides a 
+        consistent interface for interacting with all parts of AWS. AWS CLI commands 
+        for different services are covered in the accompanying user guide, 
+        including descriptions, syntax, and usage examples." <br>
+    <a href="https://docs.aws.amazon.com/cli/index.html" {{>newtab}}>AWS Command 
+        Line Interface</a></p>
+
+    <h4>AWS Serverless Applications Model (SAM)</h4>
+    <p>The AWS Serverless Application Model (SAM) is an open-source framework for building serverless applications. <br>
+        <a href="https://aws.amazon.com/serverless/sam/">AWS SAM</a>
+    </p>
+
+    <h4>AWS SAM Command Line Interface</h4>
+    <p>"The AWS SAM CLI is a command line tool that operates on an AWS SAM template 
+        and application code. With the AWS SAM CLI, you can invoke Lambda functions 
+        locally, create a deployment package for your serverless application, 
+        deploy your serverless application to the AWS Cloud, and so on." <br>
+        <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-reference.html">
+            AWS SAM CLI</a>
+    </p>
+
+    <h4>AWS ToolKit for Visual Studio (Windows Only)</h4>
+    <p>"The AWS Toolkit for Visual Studio is a plugin for the Visual Studio IDE 
+        that makes it easier for you to develop, debug, and deploy .NET applications 
+        that use Amazon Web Services. The Toolkit for Visual Studio is supported 
+        for Visual Studio versions 2013 and later."  <br>
+    <a href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/welcome.html" 
+        {{>newtab}}>
+        AWS Toolkit for Visual Studio</a></p>
+
+    <h4>Source Code Management</h4>
+    <p>A source code management system like GitHub. Many other Git based 
+        services are also excellent choices. Some of these include BitBucket, GitLab 
+        and AWS CodeCommit. We recommend that you implement the Git Flow workflow, 
+        Git Flow is supported by most Git repository services. 
+    </p>
+
+    <h4>Continuous Integration / Continuous Deployment (CI/CD) System</h4>
+    <p>It is highly recommended that you use a CI/CD system. We are currently 
+        working on an example workflow based on Git Flow, Pull Requests and the 
+        use of the AWS CodePipeline service. LazyStack easily integrates with 
+        CI/CD pipelines.
+    </p>
+
+</div>    

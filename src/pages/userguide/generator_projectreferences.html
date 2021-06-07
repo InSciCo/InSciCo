@@ -1,0 +1,37 @@
+---
+layout: docpage
+menu0: userguide
+menu1: mdd
+menu2: project
+---
+
+<div class=lz-r-content>
+    <h3>ProjectOptions Directive</h3>
+    <h4>ProjectReferences</h4>
+    <p>Add or override project references using the ProjectReferences directive.</p>
+    
+<pre class="line-numbers" data-start="3"><code class="language-yaml">  PetStoreClientSDK:
+    ProjectReferences:
+    - ..\LazyStackAuth\LazyStackAuth.csproj</code></pre>
+    <p>LazyStack handles many project references for you. However, when a library is unknown to
+       LazyStack, you may use the ProjectReferences directive to create a project reference as 
+       shown above. In this case the PetStoreClientSDK project is referencing the  
+       LazyStackAuth library.
+    </p>
+
+    <p>Project references may also be applied to all projects of a specific type. Here is an 
+      example of a project reference being applied to all Controller projects:</p>
+      
+    <pre class="line-numbers" data-start="12"><code class="language-yaml">  ControllerProjects:
+        ProjectReferences:
+        - ..\..\PetStoreRepo\PetStoreRepo.csproj</code></pre>
+      <p>Project types include:</p>
+      <ul>
+      <li>ControllerProjects</li>
+      <li>LambdaProjects</li>
+      <li>ClientSDKProjects</li>
+      <li>WebApiProjects</li>
+      </ul>
+
+
+</div>

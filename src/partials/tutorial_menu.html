@@ -3,190 +3,263 @@
     <div class="title-bar-title">{{topic}}</div>
 </div>
 
-<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up">
-   
-    <ul class="vertical menu dropdown">
-        <li >
-            <a  href="/tutorial/tutorial_intro.html">
-                <span class="{{#ifpage 'tutorial_intro'}}lz-r-topicitem{{/ifpage}}">Tutorials</span>
-            </a>
-        </li>        
-        <li >
-            <a  href="/tutorial/tutorial_vswin_overview.html">
-                <span class="{{#ifpage 'tutorial_vswin_overview'}}lz-r-topicitem{{/ifpage}}">Visual Studio (Windows)</span>
+<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up"
+    style="white-space: nowrap">
+
+    <ul class="vertical menu dropdown manual-list">
+        <li>
+            <a href="/tutorial/tutorial_intro.html">
+                <span class="{{#ifpage 'tutorial_intro'}}lz-r-topicitem{{/ifpage}}">LazyStack Tools Tutorials</span>
             </a>
         </li>
+        <ul>
+        <li>
+            <a href="/tutorial/tutorial_vswin_overview.html">
+                <span class="{{#ifpage 'tutorial_vswin_overview'}}lz-r-topicitem{{/ifpage}}">Visual Studio
+                    (Windows)</span>
+            </a>
+        </li>
+
         <div style="display: {{#ifequal tutorial 'VS'}}inline{{else}}none{{/ifequal}}">
-            <li >
-                <a  href="/tutorial/tutorial_vswin_petstore.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_petstore'}}lz-r-topicitem{{/ifpage}}">1) PetStore</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_petstore.html">
+                        <span class="{{#ifpage 'tutorial_vswin_petstore'}}lz-r-topicitem{{/ifpage}}">1) PetStore</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_controllers.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_controllers'}}lz-r-topicitem{{/ifpage}}">2) Implement Controllers</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_controllers.html">
+                        <span class="{{#ifpage 'tutorial_vswin_controllers'}}lz-r-topicitem{{/ifpage}}">2) Implement
+                            Controllers</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_configure.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_configure'}}lz-r-topicitem{{/ifpage}}">3) Configure LazyStack</span>
-                </a>
-            </li>
-            
-            <li >
-                <a  href="/tutorial/tutorial_vswin_publishtoaws.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_publishtoaws'}}lz-r-topicitem{{/ifpage}}">4) Publish to AWS</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_configure.html">
+                        <span class="{{#ifpage 'tutorial_vswin_configure'}}lz-r-topicitem{{/ifpage}}">3) Configure
+                            LazyStack</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_testlocalwebapi'}}lz-r-topicitem{{/ifpage}}">5) Test Local WebApi</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_publishtoaws.html">
+                        <span class="{{#ifpage 'tutorial_vswin_publishtoaws'}}lz-r-topicitem{{/ifpage}}">4) Publish to
+                            AWS</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/tutorial/tutorial_vswin_testlocalwebapi.html">
+                        <span class="{{#ifpage 'tutorial_vswin_testlocalwebapi'}}lz-r-topicitem{{/ifpage}}">5) Test
+                            Local WebApi</span>
+                    </a>
+                </li>
 
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_petstoretest.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_petstoretest'}}lz-r-topicitem{{/ifpage}}">6) PetStore Test</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_petstoretest.html">
+                        <span class="{{#ifpage 'tutorial_vswin_petstoretest'}}lz-r-topicitem{{/ifpage}}">6) PetStore
+                            Test</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_consoleapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_consoleapp'}}lz-r-topicitem{{/ifpage}}">7) Console App</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_consoleapp.html">
+                        <span class="{{#ifpage 'tutorial_vswin_consoleapp'}}lz-r-topicitem{{/ifpage}}">7) Console
+                            App</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_xamarinapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_xamarinapp'}}lz-r-topicitem{{/ifpage}}">8) Xamarin App</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_xamarinapp.html">
+                        <span class="{{#ifpage 'tutorial_vswin_xamarinapp'}}lz-r-topicitem{{/ifpage}}">8) Xamarin
+                            App</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vswin_blazorapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vswin_blazorapp'}}lz-r-topicitem{{/ifpage}}">9) Blazor App</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vswin_blazorapp.html">
+                        <span class="{{#ifpage 'tutorial_vswin_blazorapp'}}lz-r-topicitem{{/ifpage}}">9) Blazor
+                            App</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <li >
-            <a  href="/tutorial/tutorial_vsmac_overview.html">
+        <li>
+            <a href="/tutorial/tutorial_vsmac_overview.html">
                 <span class="{{#ifpage 'tutorial_vsmac_overview'}}lz-r-topicitem{{/ifpage}}">Visual Studio (Mac)</span>
             </a>
         </li>
         <div style="display: {{#ifequal tutorial 'VSMac'}}inline{{else}}none{{/ifequal}}">
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_petstore.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_petstore'}}lz-r-topicitem{{/ifpage}}">1) PetStore</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_petstore.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_petstore'}}lz-r-topicitem{{/ifpage}}">1) PetStore</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_controllers.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_controllers'}}lz-r-topicitem{{/ifpage}}">2) Implement Controllers</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_controllers.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_controllers'}}lz-r-topicitem{{/ifpage}}">2) Implement
+                            Controllers</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_configure.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_configure'}}lz-r-topicitem{{/ifpage}}">3) Configure LazyStack</span>
-                </a>
-            </li>
-            
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_publishtoaws.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_publishtoaws'}}lz-r-topicitem{{/ifpage}}">4) Publish to AWS</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_configure.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_configure'}}lz-r-topicitem{{/ifpage}}">3) Configure
+                            LazyStack</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_testlocalwebapi'}}lz-r-topicitem{{/ifpage}}">5) Test Local WebApi</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_publishtoaws.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_publishtoaws'}}lz-r-topicitem{{/ifpage}}">4) Publish to
+                            AWS</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_testlocalwebapi.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_testlocalwebapi'}}lz-r-topicitem{{/ifpage}}">5) Test
+                            Local WebApi</span>
+                    </a>
+                </li>
 
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_petstoretest.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_petstoretest'}}lz-r-topicitem{{/ifpage}}">6) PetStore Test</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_petstoretest.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_petstoretest'}}lz-r-topicitem{{/ifpage}}">6) PetStore
+                            Test</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_consoleapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_consoleapp'}}lz-r-topicitem{{/ifpage}}">7) Console App</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_consoleapp.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_consoleapp'}}lz-r-topicitem{{/ifpage}}">7) Console
+                            App</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_xamarinapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_xamarinapp'}}lz-r-topicitem{{/ifpage}}">8) Xamarin App</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_xamarinapp.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_xamarinapp'}}lz-r-topicitem{{/ifpage}}">8) Xamarin
+                            App</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_vsmac_blazorapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_vsmac_blazorapp'}}lz-r-topicitem{{/ifpage}}">9) Blazor App</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_vsmac_blazorapp.html">
+                        <span class="{{#ifpage 'tutorial_vsmac_blazorapp'}}lz-r-topicitem{{/ifpage}}">9) Blazor
+                            App</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <li >
-            <a  href="/tutorial/tutorial_cli_overview.html">
+        <li>
+            <a href="/tutorial/tutorial_cli_overview.html">
                 <span class="{{#ifpage 'tutorial_cli_overview'}}lz-r-topicitem{{/ifpage}}">DotNet CLI</span>
             </a>
         </li>
         <div style="display: {{#ifequal tutorial 'CLI'}}inline{{else}}none{{/ifequal}}">
-            <li >
-                <a  href="/tutorial/tutorial_cli_petstore.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_petstore'}}lz-r-topicitem{{/ifpage}}">1) PetStore</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a href="/tutorial/tutorial_cli_petstore.html">
+                        <span class="{{#ifpage 'tutorial_cli_petstore'}}lz-r-topicitem{{/ifpage}}">1) PetStore</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_cli_controllers.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_controllers'}}lz-r-topicitem{{/ifpage}}">2) Implement Controllers</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_cli_controllers.html">
+                        <span class="{{#ifpage 'tutorial_cli_controllers'}}lz-r-topicitem{{/ifpage}}">2) Implement
+                            Controllers</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_cli_configure.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_configure'}}lz-r-topicitem{{/ifpage}}">3) Configure LazyStack</span>
-                </a>
-            </li>
-            
-            <li >
-                <a  href="/tutorial/tutorial_cli_publishtoaws.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_publishtoaws'}}lz-r-topicitem{{/ifpage}}">4) Publish to AWS</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_cli_configure.html">
+                        <span class="{{#ifpage 'tutorial_cli_configure'}}lz-r-topicitem{{/ifpage}}">3) Configure
+                            LazyStack</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_cli_testlocalwebapi.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_testlocalwebapi'}}lz-r-topicitem{{/ifpage}}">5) Test Local WebApi</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_cli_publishtoaws.html">
+                        <span class="{{#ifpage 'tutorial_cli_publishtoaws'}}lz-r-topicitem{{/ifpage}}">4) Publish to
+                            AWS</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/tutorial/tutorial_cli_testlocalwebapi.html">
+                        <span class="{{#ifpage 'tutorial_cli_testlocalwebapi'}}lz-r-topicitem{{/ifpage}}">5) Test Local
+                            WebApi</span>
+                    </a>
+                </li>
 
 
-            <li >
-                <a  href="/tutorial/tutorial_cli_petstoretest.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_petstoretest'}}lz-r-topicitem{{/ifpage}}">6) PetStore Test</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/tutorial/tutorial_cli_petstoretest.html">
+                        <span class="{{#ifpage 'tutorial_cli_petstoretest'}}lz-r-topicitem{{/ifpage}}">6) PetStore
+                            Test</span>
+                    </a>
+                </li>
 
-            <li >
-                <a  href="/tutorial/tutorial_cli_consoleapp.html">&nbsp;&nbsp;&nbsp;
-                    <span class="{{#ifpage 'tutorial_cli_consoleapp'}}lz-r-topicitem{{/ifpage}}">7) Console App</span>
-                </a>
-            </li>
-
+                <li>
+                    <a href="/tutorial/tutorial_cli_consoleapp.html">
+                        <span class="{{#ifpage 'tutorial_cli_consoleapp'}}lz-r-topicitem{{/ifpage}}">7) Console
+                            App</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
+    </ul>
 
+        <li>
+            <a href="/tutorial/tutorial_smf_overview.html">
+                <span class="{{#ifpage 'tutorial_smf_overview'}}lz-r-topicitem{{/ifpage}}">SMF Tutorial</span>
+            </a>
+        </li>
+        <!--
+        <div style="display: {{#ifequal tutorial 'smf'}}inline{{else}}none{{/ifequal}}">
+            <ul>
+                <li>
+                    <a href="/tutorial/tutorial_smf_clone_repo.html">
+                        <span class="{{#ifpage 'tutorial_smf_clone_repo'}}lz-r-topicitem{{/ifpage}}">1) Clone Repository</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorial/tutorial_smf_start_feature.html">
+                        <span class="{{#ifpage 'tutorial_smf_start_feature'}}lz-r-topicitem{{/ifpage}}">2) Start Feature Development</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorial/tutorial_smf_create_pr.html">
+                        <span class="{{#ifpage 'tutorial_smf_create_pr'}}lz-r-topicitem{{/ifpage}}">3) Create Pull Request</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorial/tutorial_smf_update_pr.html">
+                        <span class="{{#ifpage 'tutorial_smf_update_pr'}}lz-r-topicitem{{/ifpage}}">4) Update Pull Request</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorial/tutorial_smf_merge_pr.html">
+                        <span class="{{#ifpage 'tutorial_smf_merge_pr'}}lz-r-topicitem{{/ifpage}}">5) Merge Pull Request</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tutorial/tutorial_smf_checkout_main.html">
+                        <span class="{{#ifpage 'tutorial_smf_checkout_main'}}lz-r-topicitem{{/ifpage}}">6) Checkout Latest Main</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        -->
 
     </ul>
 </div>

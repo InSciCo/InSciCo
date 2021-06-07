@@ -1,73 +1,32 @@
 ---
 layout: docpage
-section: Introduction
-topic: Intro
+menu0: intro
+menu1: business
 ---
-{{> intro_menu}}
-<div class=lz-r-content>
-    <h3>LazyStack Executive Overview</h3>
-<p> LazyStack's mission is to enable technical entrepreneurs to quickly field
-    mobile and web applications leveraging scalable cloud-based resources at the lowest initial cost, without sacrificing
-    security, scalability or features. LazyStack leverages the AWS Serverless Application Model (SAM) to enable you to 
-    build and deploy "application stacks" in the AWS cloud.</p>
-    <img src="/assets/img/ThreeGreatTechnologies.svg" width="100%">
-    <p></p>
-    <p>It is best practice to create an API specification that defines all the service features available on your AWS Stack. Your 
-        client application uses this specification to implement calls to the AWS Stack. The amount of 
-        "plumbing" code and AWS stack configuration necessary to implement a feature rich API specification is often quite large. 
-        Plumbing code connects the client app and AWS Lambda function implementing a stack feature. 
-        Plumbing code is "repetitive", making it an excellent candidate for code generation. 
-        In addition, writing complete and correct "SAM" templates used to deploy a stack on AWS is tedious and 
-        requires an intimate knowledge of AWS resources. </p>
-   
-    </p>LazyStack eliminates labor intensive and error prone coding and template development so your team sees real business 
-     benefits:</p>
-<ul>
-    <li>Clear Requirements
-        <ul>
-            <li>An API specification reduces misunderstandings and wasted implementation cycles.</li>
-            <li>API specifications can be versioned, making it simple to manage incremental improvement in a product.</li>
-            <li>API specifications make it easy to partner with other parties.</li>
-            <li>API specifications make it easier to explain technical concepts to business stakeholders.</li>
-            <li>Tools exist to help author effective API specifications.</li>
-        </ul>
-    </li>
-    <p></p>
-    <li>Lower Cost Development
-        <ul>
-            <li>Expensive hand-coding of "repetitive" plumbing code is eliminated.</li>
-            <li>Innovation is easier because new plumbing code and templates are automatically generated when the API specification changes.</li>
-            <li>Generated code is consistent, bug-free and reliably compliant with best-practices.</li>
-            <li>Developers are freed up to work on features that can't be generated.</li>
-            <li>Generated code is far less expensive to test and verify.</li>
-            <li>LazyStack publishes a number of open-source MIT licensed libraries to kick-start your app development.</li>
-        </ul>
-    </li>
-    <p></p>
-    <li>Lower Cost DevOps 
-        <ul>
-            <li>Leverages AWS Serverless Application Model - generates AWS SAM templates from API Specification.</li>
-            <li>Generated templates demonstrate correct configuration of AWS resources.</li>
-            <li>Generated templates are consistent, bug-free and reliably compliant to best-practices.</li>
-            <li>Generated templates can be easily extended with hand-coded resource specifications.</li>
-            <li>Manage Dev, Test and Prod stacks with simple Software Development Life Cycle (SDLC).</li>
-            <li>LazyStack easily integrates with advanced SDLC like CI services as business grows.</li>
-        </ul>
-    </li>
-</ul>
-    <p>LazyStack makes innovation faster and less expensive by reducing the costs associated with code and 
-        stack configuration changes. LazyStack accelerates your time-to-market so you start monetizing your 
-        app earlier. Leveraging the AWS Serverless Application Model ensures your app has the potential to 
-        scale reliably and quickly and launch at low cost using AWS free-tier services.</p>
-</ul>
+
+<div class="lz-r-content">
+    <h3>LazyStack Business Stakeholder Overview</h3>
+<p> LazyStack's mission is to enable technical entrepreneurs to quickly field mobile and web applications leveraging 
+    scalable cloud-based resources at the lowest initial cost, without sacrificing security, scalability or features.
+    LazyStack is a collection of technical best-practices, templates, configuration scrips and development tools. These 
+    technical details are covered extensively on this site. Before diving into that technical material, here are the 
+    high level value propositions of LazyStack.
+    </p>
+<img src="/assets/img/LazyStackMission.svg" width="100%">
+<p></p>
+<p>The LazyStack Software Management Framework (SMF) ensures your collaborative development process, test process, and production 
+    deployments are managed efficiently and securely. The LazyStack Model Driven Development (MDD) development tools 
+    reduce development costs, improve development agility, and decrease time to market for your products.
+</p>
 
 <h3>Why did we build LazyStack?</h3>
 <p>Technical Entrepreneurs generally have more ideas than capital. LazyStack makes it easier to bring a fully
     functional application stack to market at a very low development and operational cost so more of these ideas
     can be market tested until viable monetization is demonstrable. The recent &ldquo;Fail Fast&rdquo; mantra 
     does have some merit, but only if your application attempt doesn&rsquo;t fail in the technical sense. 
-    LazyStack generates commercial grade production stacks that can be used in support of prototype apps but 
-    also for production apps.</p>
+    LazyStack generates commercial grade production stacks that both support rapid prototype development and are 
+    robust enough for production apps. Generated code truly lets us have our cake and eat it too. </p>
+
 <p>A Technical Entrepreneur may be a single person or a team where the aggregate skill-sets include product
     definition, product development, product testing, product marketing/sales and product support. We leave
     general
@@ -76,8 +35,9 @@ topic: Intro
     with modest market acceptance before you can raise capital to scale up. </p>
 <p>We would also observe that even in larger organizations it is sometimes a &ldquo;skunk works&rdquo; team that
     fits our definition of Technical Entrepreneur. </p>
-<p>So, why did we usurp the term LazyStack? There&rsquo;s an old adage, &ldquo;Only lazy programmers write code
-    generators and only code generators can produce bug-free code; thus only lazy programmers write bug-free
-    code&rdquo;. Tongue firmly in cheek here! Well, OK then, why not whole stacks?</p>
+
+<p> So, why the name: LazyStack? Hlade's Law states: "If you have a difficult task, give it to a lazy person; they will find an 
+    easier way to do it". Code generation is the easy way to accomplish robust stack deployment. 
+    Frankly, we wouldn't want to handwrite any of this code ever again and we can't imagine you'd want to either.</p>
 </div>
  

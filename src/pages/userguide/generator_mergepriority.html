@@ -1,0 +1,23 @@
+---
+layout: docpage
+menu0: userguide
+menu1: mdd
+---
+
+<div class=lz-r-content>
+    <h3>Resource Merge Priority</h3>
+    <p>We have three sources of AWS SAM resource definitions loaded in the following order with the latest defined 
+        values overriding previously defined values:
+    </p>
+    <ol>
+        <li>
+            <p>LazyStack default resources. (internal)</p>
+        </li>
+        <li>
+            <p>AwsTemplate resources. (optional) User supplied AWS template. </p>
+        </li>
+        <li>
+            <p>LazyStack.yaml configuration file resources.</p>
+        </li>
+    </ol>
+</div>

@@ -1,0 +1,89 @@
+---
+layout: docpage
+menu0: install
+menu1: smf
+---
+
+<div class=lz-r-content>
+    <h4>SMF 3.3 Configure Continuous Deployment for System Prod Account Stack</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Production Account Setup complete</dd>
+        <dd>- A GitHub Repository containing a serverless application stack</dd>
+        <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>  
+    <p>This script deploys a CodeBuild project stacks to a System Production Account:</p>
+    <ul>
+        <li>Prod_CodeBuild_Merge.yaml defines the CodeBuild project stack</li>
+    </ul>
+    <p>The project is associated with a GitHub repository containing a serverless application stack.
+        Prod_CodeBuild_Create.yaml defines a CodeBuild project stack that builds and publishes
+        the production application stack when a Pull Request is merged in the GitHub repository.
+    </p>
+    
+    <p>You repeat this step for each GitHub serverless application repository used in a Production System Account.</p>
+
+    <ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
+        <li>Execute the Prod_CodeBuild_Deploy.ps1 script. 
+            <pre><code class="language-powershell">. .\Prod_CodeBuild_Deploy.ps1</code></pre><br>
+            Here is a script run with sample inputs:
+            <pre><code class="language-powershell">
+Prod_CodeBuild_Deploy.ps1 - V1.0.0
+This script deploys a CodeBuild project stack to a System Production Account.
+   - Prod_CodeBuild_Merge.yaml defines the CodeBuild project stack
+The project is associated with a GitHub repository containing a serverless application stack.
+
+Prod_CodeBuild_Merge.yaml defines a CodeBuild project stack that builds and publishes the production 
+application stack when a Pull Request is merged in the GitHub application repository.
+
+Note: Press return to accept a default values.
+Enter your OrgCode: Az
+Enter your AWS CLI Management Account Profile (default: AzMgmt):
+Enter Region (default us-east-1):
+Enter the SysCode (ex: Pet): Tut
+Enter the System Production Account Name (default: AzTutProd):
+Enter the application stack's GitHub Repo URL (example: https://github.com/myorg/myrepo.git): https://github.com/myorg.OrgDevJoePetStore.git
+Enter your repo short name (default: orgdevjoepetstore):
+Enter PR Merge template name (default Prod_CodeBuild_PR_Merge.yaml):
+Please Prod and confirm the following:
+    OrgCode: Az 
+    SysCode: Tut
+    AWS CLI Management Account Profile: AzMgmt
+    AWS Region: us-east-1
+    System Production Account name: AzTutMgmt
+    GitHub Repo URL: https://github.com/myorg.petstore.git
+    Repo short name: orgdevjoepetstore
+    CodeBuild PR Merge project stack name: orgdevjoepetstore_pr_merge
+    CodeBuild PR Merge project template: Prod_CodeBuild_PR_Merge.yaml
+Continue y/n y
+Processing Starting
+Deploying orgdevjoepetstore_pr_merge AWS CodeBuild project to AzPetProd account.
+Processing Complete</code></pre>
+        </li>
+    </ol>
+    <h4>Modifying the CodeBuild Project Stack Templates</h4>
+    <p>It is often necessary to modify the CodeBuild Project Stack template to accommodate 
+        your specific application production stack build and deploy. This is best accomplished by 
+        making a copy of the Prod_CodeBuild_Merge.yaml file and editing it as required. The usual 
+        edits will be in the CodeBuild Project Script section. This script section contains 
+        a simple csh script that makes calls to dotnet and the AWS SAM CLI as shown below:<br>
+    </p>
+    <ul>
+        <li>Prod_CodeBuild_Merge.yaml - script
+            <pre><code class="language-powershell"># csh script
+- dotnet build --configuration Release
+- eval "sam deploy -t Stacks/Rev/serverless.template --stack-name prod --s3-bucket ${S3}  --capabilities CAPABILITY_NAMED_IAM --region ${AWS::Region}"</code></pre> 
+        </li>
+    </ul>
+    <h4>Updating CodeBuild Project</h4>
+    <p>You can rerun this script anytime you need to update the CodeBuild Project stack.</p>
+<h4>Step Summary</h4>
+<p>In this step we deploy a CodeBuild project stack that references a GitHub repository. When a 
+    Pull Request is merged the CodeBuild project stack, defined by the Prod_CodeBuild_PR_Merge.yaml 
+    template, builds an deploys the the production stack.
+</p>
+</div>

@@ -1,0 +1,26 @@
+---
+layout: docpage
+menu0: userguide
+menu1: mdd
+menu2: project
+---
+
+<div class=lz-r-content>
+  <h3>ProjectOptions Directive</h3>
+
+    <h4>Properties</h4>
+    <p>Sometimes we want to override or insert properties in a selected project. Here are some 
+      properties assignments from the PetStore example.</p>
+<pre class="line-numbers" data-start="1"><code class="language-yaml">ProjectOptions:
+  PetStoreClientSDK:
+    ProjectReferences:
+    - ..\LazyStackAuth\LazyStackAuth.csproj
+
+    Properties:
+      DocumentationFile: bin\$(Configuration)\$(TargetFramework)\PetStoreClientSDK.xml
+      RepositoryUrl: https://github.com/USER_ID/REPO_ID.git
+      PackageReleaseNotes: 'Minor update'</code></pre>
+    <p>Defining properties this way is especially useful for projects, like the ClientSDK 
+      project, that are regenerated in full each time you run the LazyStack Generator.
+    </p>        
+</div>

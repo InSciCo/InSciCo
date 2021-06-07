@@ -1,0 +1,33 @@
+---
+layout: docpage
+menu0: userguide
+menu1: mdd
+menu2: project
+---
+
+<div class=lz-r-content>
+    <h3>ProjectOptions Directive</h3>
+    <h4>PackageReferences</h4>
+    <p>Add or override package references using the PackageReferences directive. 
+    Package references look like this:
+    </p>
+    <pre><code class="language-yaml">ProjectOptions:    
+  LambdaProjects:
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: "3.3.100.1"
+      Amazon.Lambda.AspNetCoreServer: ""</code></pre>
+  <p>PackageReferences may be applied to a project type, as in the LambdaProjects 
+    example above, or be applied to specific projects.
+  </p>
+  <p>When the PackageReference version number is supplied then that version will be used. If the 
+    PackageReference version number is an empty value, then the version number will be looked up 
+    in the <a href="/userguide/generator_nugetpackageversions.html">NugetPackageVersions</a>.
+  </p>
+  <h5>Project Types</h5>
+  <ul>
+    <li>ControllerProjects</li>
+    <li>LambdaProjects</li>
+    <li>ClientSDKProjects</li>
+    <li>WebApiProjects</li>
+  </ul>        
+</div>

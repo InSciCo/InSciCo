@@ -137,14 +137,31 @@ function javascript() {
     .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 
-// Copy images to the "dist" folder
+// Copy images to the "doc" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src('src/assets/img/**/*')
+  
+  var result = gulp.src('src/assets/img/**/*.svg')
     .pipe($.if(PRODUCTION, $.imagemin([
       $.imagemin.jpegtran({ progressive: true }),
     ])))
-    .pipe(gulp.dest(PATHS.dist + '/assets/img'));
+    .pipe(gulp.dest(PATHS.dist + '/assets/img/'));
+  
+  if(result)
+    result = gulp.src('src/assets/img/**/*.png')
+      .pipe($.if(PRODUCTION, $.imagemin([
+        $.imagemin.jpegtran({ progressive: true }),
+      ])))
+      .pipe(gulp.dest(PATHS.dist + '/assets/img/'))
+
+  if(result)
+    result = gulp.src('src/assets/img/**/*.jpg')
+      .pipe($.if(PRODUCTION, $.imagemin([
+        $.imagemin.jpegtran({ progressive: true }),
+      ])))
+      .pipe(gulp.dest(PATHS.dist + '/assets/img/'));
+
+  return result;
 }
 
 // Start a server with BrowserSync to preview the site in

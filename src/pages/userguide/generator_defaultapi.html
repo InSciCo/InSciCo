@@ -1,0 +1,28 @@
+---
+layout: docpage
+menu0: userguide
+menu1: mdd
+---
+
+<div class=lz-r-content>
+    <h3>DefaultApi Directive</h3>
+
+    <p>Your application stack can have one or more ApiGateways. LazyStack defines four predefined LazyStack
+        API Gateway configurations.
+    </p>
+    <ul>
+        <li>ApiUnsecure</li>
+        <li>ApiSecure</li>
+        <li>HttpApiUnsecure</li>
+        <li>HttpApiSecure</li>
+    </ul>
+    
+    <p>The default ApiGateway is HttpApiSecure. To change the default API Gateway configuration, add the 
+        <strong>DefaultApi:</strong>directive to the LazyStack.yaml configuration file. For example:</p>
+    
+<pre><code class="language-yaml"># LazyStack Version 1.0.0
+DefaultApi: ApiSecure
+</code></pre>
+    
+    
+</div>
