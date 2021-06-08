@@ -45,14 +45,16 @@
         }
         function gotoPrevPage() {
             if (prevPage != "") {
+                page = prevPage;
                 var elem = $('#touch-zone');
-                Foundation.Motion.animateOut(elem, 'slide-left');
+                Foundation.Motion.animateOut(elem, 'slide-right');
             }
         }
         function gotoNextPage() {
             if (nextPage != "") {
+                page = nextPage;
                 var elem = $('#touch-zone');
-                Foundation.Motion.animateOut(elem, 'slide-right');
+                Foundation.Motion.animateOut(elem, 'slide-left');
             }
         }
 
