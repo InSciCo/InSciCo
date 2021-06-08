@@ -706,7 +706,7 @@ User for the developer and assigned that IAM User to the Developers group.
         $(function () {
             $('#touch-zone').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
             function(e) {
-                if(pageTransitionActive) {
+                if(pageTransitionActive) { //ToDo - there should be a better way to do this. Out of time, revisit later.
                     finishPageTransition();
                 }
             }) 

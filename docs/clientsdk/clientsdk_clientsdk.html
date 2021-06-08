@@ -658,7 +658,7 @@ and under active development so we have chosen to use it.</i>
         $(function () {
             $('#touch-zone').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
             function(e) {
-                if(pageTransitionActive) {
+                if(pageTransitionActive) { //ToDo - there should be a better way to do this. Out of time, revisit later.
                     finishPageTransition();
                 }
             }) 
