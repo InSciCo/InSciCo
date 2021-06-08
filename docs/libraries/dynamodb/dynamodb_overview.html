@@ -19,6 +19,7 @@
     <link href="/assets/theme/lessons.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/assets/js/jquery.mobile-events.min.js"></script>
     <script>
         var prevPage = "";
         var nextPage = "";
@@ -59,7 +60,6 @@
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera            
         }
     </script>
-
 </head>
 
 <body >
@@ -609,7 +609,16 @@
     <script src="/assets/js/app.js"></script>
     <script src="/assets/prism/prism.js"></script>
     <script>loadMenuPageList();</script>
+    <script>
 
+$(function() {
+            
+            $('#touch-zone').on('swipeleft', function(e) { gotoPrevPage(); })
+                            .on('swiperight', function(e) { gotoNextPage(); })
+            
+        });
+               
+    </script>
 </body>
 
 </html>
