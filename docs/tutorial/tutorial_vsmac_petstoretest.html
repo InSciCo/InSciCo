@@ -24,10 +24,11 @@
         var prevPage = "";
         var nextPage = "";
         var curPageFound = false;
+        var page = "";
         function loadMenuPageList() {
             var menupages = document.getElementsByClassName("menupage");
             for (var i = 0; i < menupages.length; i++) {
-                var page = menupages[i].getElementsByTagName('a')[0].href;
+                page = menupages[i].getElementsByTagName('a')[0].href;
                 if (page != "") {
                     if (curPageFound) {
                         nextPage = page;
@@ -44,14 +45,24 @@
         }
         function gotoPrevPage() {
             if (prevPage != "") {
-                window.location.href = prevPage;
+                var elem = $('#touch-zone');
+                Foundation.Motion.animateOut(elem, 'slide-left');
             }
         }
         function gotoNextPage() {
             if (nextPage != "") {
-                window.location.href = nextPage;
+                var elem = $('#touch-zone');
+                Foundation.Motion.animateOut(elem, 'slide-right');
             }
         }
+
+        function finishPageTransition() {
+            if(page != "") {
+                window.location.href= page;
+            }
+
+        }
+
 
     </script>
     <script>
@@ -63,7 +74,9 @@
 </head>
 
 <body >
-    <div iclass="grid-container medium-grid-frame "
+<div>
+
+    <div class="grid-container medium-grid-frame "
         data-sticky 
         data-options="marginTop:0; stickyOn: small" 
         style="background-image: url('/assets/img/pic14.jpg');
@@ -745,20 +758,26 @@
             </div>
         </div>
     </div>
-    
+</div>
+   
     
     <script src="/assets/js/app.js"></script>
     <script src="/assets/prism/prism.js"></script>
     <script>loadMenuPageList();</script>
     <script>
 
-$(function() {
+        $(function() {
             
             $('#touch-zone').on('swipeleft', function(e) { gotoNextPage(); })
                             .on('swiperight', function(e) { gotoPrevPage(); })
-            
+            });
+
+        $(function () {
+            $('#touch-zone').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+            function(e) {finishPageTransition();}) 
+           
         });
-               
+        
     </script>
 </body>
 

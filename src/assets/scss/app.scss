@@ -405,6 +405,14 @@
     //}
 }
 
+
+.slide-left {
+    @include mui-slide(out, $fade: true, $direction: left);
+}
+
+.slide-right {
+    @include mui-slide(out, $fade: true, $direction: right);
+}
 .manual-list ul {
     list-style-type:none;
 }
