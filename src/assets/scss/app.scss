@@ -407,11 +407,11 @@
 
 
 .slide-left {
-    @include mui-slide(out, $fade: true, $direction: left);
+    @include mui-slide(out, $fade: true, $direction: left, $duration: 250ms);
 }
 
 .slide-right {
-    @include mui-slide(out, $fade: true, $direction: right);
+    @include mui-slide(out, $fade: true, $direction: right, $duration: 250ms);
 }
 .manual-list ul {
     list-style-type:none;
