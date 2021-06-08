@@ -25,6 +25,7 @@
         var nextPage = "";
         var curPageFound = false;
         var page = "";
+        var pageTransitionActive = false;
         function loadMenuPageList() {
             var menupages = document.getElementsByClassName("menupage");
             for (var i = 0; i < menupages.length; i++) {
@@ -47,6 +48,7 @@
             if (prevPage != "") {
                 page = prevPage;
                 var elem = $('#touch-zone');
+                pageTransitionActive = true;
                 Foundation.Motion.animateOut(elem, 'slide-right');
             }
         }
@@ -54,12 +56,14 @@
             if (nextPage != "") {
                 page = nextPage;
                 var elem = $('#touch-zone');
+                pageTransitionActive = true;
                 Foundation.Motion.animateOut(elem, 'slide-left');
             }
         }
 
         function finishPageTransition() {
             if(page != "") {
+                pageTransitionActive = false;
                 window.location.href= page;
             }
 
@@ -674,7 +678,11 @@
 
         $(function () {
             $('#touch-zone').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
-            function(e) {finishPageTransition();}) 
+            function(e) {
+                if(pageTransitionActive) {
+                    finishPageTransition();
+                }
+            }) 
            
         });
         
