@@ -43,15 +43,17 @@ menu1: smf
             <h5>Common Issue - Payer ID (Don't panic!)</h5>
             <p>There is an occasional problem with setting the CodeBuild Personal Access Token for CodeBuild 
               projects during the creation of System accounts. This seems to be caused by some "timing" issue on 
-              the AWS side of things. This results in a message, usually during the creation of the second 
-              System Account (Production) where AWS complains "Could not retrieve the Payer ID".
+              the AWS side of things. When LazyStack encounters this issue, it retries the ImportSourceCredentials 
+              step. You might see the following under the <br> "- Updating AWS CodeBuild GitHub Credentials" step:
             </p>
-            <pre><code class="language-bashshell">552 |      throw ("Set-AwsCodeBuildCredentials failed, Error: " + $result)
-    |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    | Set-AwsCodeBuildCredentials failed, Error: System.Management.Automation.RemoteException An error
-    | occurred (InvalidInputException) when calling the ImportSourceCredentials operation: Could not
-    | retrieve the Payer ID. Reason: Subscription to CodeBuild, ProductCode CodeBuild, required.</code></pre>
-      <p><strong>We have found that simply running the script a second time solves the problem. </strong></p>
+            <pre><code class="language-bashshell">
+...
+    - Updating AWS CodeBuild GitHub Credentials
+      Retrying ImportSourceCredentials due to 'Payer ID' issue.
+      Retrying ImportSourceCredentials due to 'Payer ID' issue.
+      Retry Successful              
+...</code></pre>
+            <p></p>
 
             <h5>What to do if the script fails?</h5>
             <p>We have written the script to be fault tolerant. If you get an error, you should 
@@ -75,9 +77,6 @@ menu1: smf
                     supply an email address that has already been used (in the last 90 days) for an 
                     AWS account, the account creation process will fail. Re-run the script and provide 
                     a unique email address for each AWS Account.
-                </li>
-                <li>"Missing Payer ID" - this is likely a "timing" problem on the AWS side of things and you can 
-                  usually just rerun the script again and it will succeed.
                 </li>
             </ul>
             <p></p>
