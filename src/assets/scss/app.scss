@@ -69,6 +69,11 @@
 .cards {
    margin-top: 20px;
    margin-bottom: 20px;
+   /*
+   background-image: url('/assets/img/pic1.jpg');
+   background-size: center;
+   background-repeat: no-repeat;
+    */
 }
 
 .card{
@@ -82,10 +87,14 @@
     border-top-right-radius: 60px;
     
     background-color: #3b103bda;
+    background-image: url('/assets/img/pic16.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
     margin: 20px;
     height: 400px;
     max-width: 500px;
+
 
 }
 
