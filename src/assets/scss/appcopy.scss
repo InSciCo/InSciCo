@@ -156,14 +156,15 @@
 }
 .lz-r-content{
     background-color: #221C1C;
-    position: relative;
-    left:361px;
-    top:163px;
-    width: 1137px;
-    max-width:1137px;
-    z-index: 1;
-    padding: 15px;
-    padding-right: 25px;
+    //position: relative;
+    //left:361px;
+    //top:163px;
+    //width: 1137px;
+    //max-width:1137px;
+    //z-index: 1;
+    //padding: 15px;
+    padding-right: 10px;
+    padding-left:10px;
 }
 .lz-r-sitemenu{
     min-width: 1500px;
@@ -305,8 +306,8 @@
         width: 100vw;
     }
     .docpage .lz-r-content{
-        width: calc(76% - 40px);
-        left: 24%;
+        //width: calc(76% - 40px);
+        //left: 24%;
     }
     // .docpage .no-slider .lz-r-content{
     //     width: calc(76% - 50px);
@@ -358,9 +359,9 @@
         height: 120px;
     }
     .docpage .lz-r-content{
-        width: 100vw;
-        left:0px;
-        top:152px;
+        //width: 100vw;
+        //left:0px;
+        //top:152px;
     }
     .docpage .lz-r-sitemenu.dropdown{
         border: 0px;
@@ -396,14 +397,22 @@
         color: #d5dbdb;
     }
     //this is hacky nonsense that I shouldn't have to do, I missed somthing:
-    .docpage .lz-r-topicmenu .menu-icon{
-        left:-4px;
-    }
-    .docpage .lz-r-topicmenu .title-bar-title{
-        padding-left: 4px;
-    }
+    //.docpage .lz-r-topicmenu .menu-icon{
+    //    left:-4px;
+    //}
+    //.docpage .lz-r-topicmenu .title-bar-title{
+    //    padding-left: 4px;
+    //}
 }
 
+
+.slide-left {
+    @include mui-slide(out, $fade: true, $direction: left, $duration: 250ms);
+}
+
+.slide-right {
+    @include mui-slide(out, $fade: true, $direction: right, $duration: 250ms);
+}
 .manual-list ul {
     list-style-type:none;
 }
