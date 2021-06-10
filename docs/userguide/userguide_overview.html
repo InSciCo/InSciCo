@@ -645,7 +645,14 @@
     <script>
 
         $(function() {
-            
+            if(!window.matchMedia("(any-hover: none)").matches) {
+                // If there is no pointing device (probably a mobile device)
+                // then enable swipe on the doc page as well
+                $('#docpage').on('swipeleft', function(e) { gotoNextPage(); })
+                            .on('swiperight', function(e) { gotoPrevPage(); })
+                console.log("Enabling swipe on doc page");
+            }
+
             $('#touch-zone').on('swipeleft', function(e) { gotoNextPage(); })
                             .on('swiperight', function(e) { gotoPrevPage(); })
             });
