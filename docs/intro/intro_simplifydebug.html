@@ -47,7 +47,7 @@
         function gotoPrevPage() {
             if (prevPage != "") {
                 page = prevPage;
-                var elem = $('#touch-zone');
+                var elem = $('#docpage');
                 pageTransitionActive = true;
                 Foundation.Motion.animateOut(elem, 'slide-right');
             }
@@ -55,7 +55,7 @@
         function gotoNextPage() {
             if (nextPage != "") {
                 page = nextPage;
-                var elem = $('#touch-zone');
+                var elem = $('#docpage');
                 pageTransitionActive = true;
                 Foundation.Motion.animateOut(elem, 'slide-left');
             }
@@ -65,8 +65,7 @@
             if(page != "") {
                 pageTransitionActive = false;
                 window.location.href= page;
-            }
-
+               }
         }
 
 
@@ -81,7 +80,7 @@
 
 <body >
 <div class="grid-container" data-sticky-container>
-    <div class="grid-x" 
+    <div id="touch-zone" class="grid-x" 
         data-sticky 
         data-sticky-on="small"
         data-margin-top="0"
@@ -140,7 +139,7 @@
         </div>
     </div>
 
-    <div id="touch-zone" class="grid-x" style="padding: 10px 0px 0px 0px;">
+    <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
         <div class="cell medium-3 ">
             <!--
             <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
@@ -668,7 +667,7 @@
             });
 
         $(function () {
-            $('#touch-zone').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+            $('#docpage').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
             function(e) {
                 if(pageTransitionActive) { //ToDo - there should be a better way to do this. Out of time, revisit later.
                     finishPageTransition();
