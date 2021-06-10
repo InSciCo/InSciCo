@@ -66,6 +66,20 @@
 
 //LazyStack
 
+.lets-go {
+    background-image: linear-gradient(#181525,#443d6e);
+    //background-image: url('/assets/img/pic17.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: #d5dbdb;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-bottom: #d5dbdb;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;    
+    height: 55px;
+}
+
 .cards {
    margin-top: 20px;
    margin-bottom: 20px;
