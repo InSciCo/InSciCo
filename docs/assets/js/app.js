@@ -23971,7 +23971,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tmay\repos\InSciCo\src\assets\js\app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\tmay\repos\inscico\src\assets\js\app.js */"./src/assets/js/app.js");
 
 
 /***/ })
