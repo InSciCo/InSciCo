@@ -631,7 +631,19 @@
         <li>Leave the "Create a project directory within the solution directory" Checked.</li>
         <li>Click on the Create button. A solution with your PetStoreMac WebApi project is created.</li>
 
-
+        <li>Open the project file and replace its content with the following:
+            <pre><code class="language-csharp"><?xml version="1.0" encoding="utf-8"?>
+&lt;Project Sdk="Microsoft.NET.Sdk.Web">
+    &lt;PropertyGroup>
+    &lt;TargetFramework>netcoreapp3.1&lt;/TargetFramework>
+    &lt;Product>LazyStackWebApi Template&lt;/Product>
+    &lt;Description>A WebApi template compatible with LazyStack for local debugging of lambda functions&lt;/Description>
+    &lt;/PropertyGroup>
+    &lt;ItemGroup>
+    &lt;PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
+    &lt;PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.2" />
+&lt;/Project></code></pre>
+        </li>
 
         <li>Download <a href="/assets/tutorial/code/PetStore/ConfigureSvcs.cs" download>ConfigureSvcs.cs</a> and place it into 
                 the PetStore project folder.</li>
