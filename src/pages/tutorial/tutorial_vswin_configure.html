@@ -25,7 +25,7 @@ menu2: vswin
     <li>Use <a href="/userguide/generator_awsresources.html"{{>newtab}}>AwsResources</a> directive to define AWS::DynamoDB::Table 
       resource for our stack.</li>
 </ul>
-<p>When you execute LazyStack - Generate Projects, the following projects are regenerated:</p>
+<p>As mentioned before, executing LazyStack - Generate Projects, creates/updates the following projects:</p>
 <ul>
   <li>Controller projects</li>
   <li>Lambda projects</li>
@@ -37,9 +37,9 @@ menu2: vswin
   LazyStack - Generate Projects. 
 </p>
 <p>LazyStack - Generate Projects does not update or modify any other projects in your solution.</p>
-<h4>3.1 Update LazyStack.yaml and Generate Projects</h4>
+<h4>5.1 Update LazyStack.yaml and Generate Projects</h4>
 <ol>
-   <li>Download this <a href="/assets/tutorial/VSWin/LazyStack.yaml" download="LazyStack.yaml">LazyStack.yaml</a> 
+   <li>Download this <a href="/assets/tutorial/code/LazyStack.yaml" download="LazyStack.yaml">LazyStack.yaml</a> 
     file and move it into the solution's root folder.</li>
     <li>Open the LazyStack.yaml file and edit the ProfileName and RegionName values if necessary.</li>
     <li>Save the LazyStack.yaml file.</li>
@@ -48,14 +48,14 @@ menu2: vswin
     </li> 
     <li>Rebuild Solution. All projects in the solution are compiled successfully.</li>
 </ol>
-<h4>3.2 Update WebApi project (PetStore) launchSettings.json file</h4>
+<h4>5.2 Update WebApi project (PetStore) launchSettings.json file</h4>
 <ol>
     <li>Open the PetStore\Properties\launchSettings.json file.</li>
     <li>Add the "TABLE_NAME" environmental variable as shown below on line 25.</li>
 <pre class="line-numbers"><code class="language-json">
 {
     "iisSettings": {
-      "windowsAuthentication": false, 
+      "windowsAuthentication": false, +
       "anonymousAuthentication": true, 
       "iisExpress": {
         "applicationUrl": "http://localhost:62817",

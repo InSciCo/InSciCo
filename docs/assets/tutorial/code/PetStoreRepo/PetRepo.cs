@@ -10,47 +10,51 @@ using PetStoreSchema.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using PetController;
-using PetSecureController;
+
 
 namespace PetStoreRepo.Models
 {
-    public class PetHelper : IEntityHelper<Pet, DefaultEnvelope>
+    public class PetEnvelope : DataEnvelope<Pet>
     {
-        public Pet Instance { get; set; }
-
-        public void SetCreateUtcTick(long t) { Instance.CreateUtcTick = t; }
-        public void SetUpdateUtcTick(long t) { Instance.UpdateUtcTick = t; }
-        public long GetUpdateUtcTick() { return Instance.UpdateUtcTick; }
-
-        // Update the keys and data in the envelope from the current Instance
-        public void UpdateEnvelope(DefaultEnvelope env, DefaultEnvelope dbEnvelope = null, bool serialize = false)
+        protected override void SetDbRecordFromEntityInstance()
         {
-            env.TypeName = nameof(Pet);
-            env.CreateUtcTick = Instance.CreateUtcTick;
-            env.UpdateUtcTick = Instance.UpdateUtcTick;
+            // Set the Envelope Key fields from the EntityInstance data
+            TypeName = "Pet.v1.0.0";
+            CreateUtcTick = EntityInstance.CreateUtcTick;
+            UpdateUtcTick = EntityInstance.UpdateUtcTick;
+            // Primary Key is PartitionKey + SortKey 
+            PK = "Pets:"; // Partition key
+            SK = $"Pets:{EntityInstance.Id}"; // sort/range key
 
-            // Primary Key is partion + sortkey
-            env.PK = "Pets:"; // partition
-            env.SK = $"Pet:{Instance.Id}"; // sortkey
-
-            if (serialize)
-                env.Data = JsonConvert.SerializeObject(Instance);
+            // The base method copies information from the envelope keys into the dbRecord
+            base.SetDbRecordFromEntityInstance();
         }
 
-        // Return an object instance of Instance
-        public Pet Deserialize(DefaultEnvelope env)
+        protected override void SetEntityInstanceFromDbRecord()
         {
-            return JsonConvert.DeserializeObject<Pet>(env.Data);
+            base.SetEntityInstanceFromDbRecord();
+            EntityInstance.CreateUtcTick = CreateUtcTick;
+            EntityInstance.UpdateUtcTick = UpdateUtcTick;
         }
+
     }
 
-    public interface IPetRepo : IPetController, IPetSecureController 
+    public interface IPetRepo : IDYDBRepository<PetEnvelope, Pet> 
     {
-        Task<IActionResult> GetInventoryAsync();
+        Task<ActionResult<Pet>> AddPetAsync(Pet pet);
+        Task<IActionResult> DeletePetAsync(string api_key, long petId);
+        Task<ActionResult<ICollection<Pet>>> FindPetsByStatusAsync(IEnumerable<PetStatus> status);
+        Task<ActionResult<ICollection<Pet>>> FindPetsByTagsAsync(IEnumerable<string> tags);
+        Task<ActionResult<Pet>> GetPetByIdAsync(long petId);
+        Task<ActionResult<Pet>> UpdatePetAsync(Pet body);
+        Task<ActionResult<ICollection<Pet>>> GetInventoryAsync();
+        Task<ActionResult<ICollection<Category>>> GetPetCategoriesAsync();
+        Task<ActionResult<ICollection<PetStoreSchema.Models.Tag>>> GetPetTagsAsync();
+        Task<IActionResult> SeedPetsAsync();
+
     }
 
-    public class PetRepo : DYDBRepository<DefaultEnvelope, PetHelper, Pet>, IPetRepo
+    public class PetRepo : DYDBRepository<PetEnvelope, Pet>, IPetRepo
     {
         public PetRepo(
             IAmazonDynamoDB client,
@@ -74,13 +78,9 @@ namespace PetStoreRepo.Models
                 {"#General", "General" }
             };
 
-        public async Task<IActionResult> AddPetAsync(object body)
+        public async Task<ActionResult<Pet>> AddPetAsync(Pet pet)
         {
-            var data = body as Pet;
-            if(data == null)
-                return new BadRequestObjectResult("AddPet passed invalid pet object");
-
-            return await CreateAsync(data);
+            return await CreateAsync(pet);
         }
 
         public async Task<IActionResult> DeletePetAsync(string api_key, long petId)
@@ -109,20 +109,24 @@ namespace PetStoreRepo.Models
             };
 
             var queryResult = await ListAsync(queryRequest);
-            if (queryResult.GetType() == typeof(OkObjectResult))
+            var pets = (queryResult.Result as OkObjectResult)?.Value as ICollection<Pet>;
+            if (pets!= null)
             {
                 var statusList = status.ToList();
                 // Filter the list
                 var list = new List<Pet>();
-                foreach (var pet in (queryResult as OkObjectResult).Value as List<Pet>)
+                foreach (var pet in pets)
                 {
                     if (statusList.Contains(pet.PetStatus))
                         list.Add(pet);
                 }
-                return new OkObjectResult(list);
+                if (list.Count > 0)
+                    return new OkObjectResult(list);
+                else
+                    return new NoContentResult();
             }
             else
-                return queryResult as ActionResult;
+                return queryResult.Result;
         }
 
         public async Task<ActionResult<ICollection<Pet>>> FindPetsByTagsAsync(IEnumerable<string> tags)
@@ -139,20 +143,24 @@ namespace PetStoreRepo.Models
                 ExpressionAttributeNames = _ExpressionAttributeNames,
                 ProjectionExpression = "#Data, TypeName, #Status, UpdateUtcTick, CreateUtcTick, #General"
             };
+
             var queryResult = await ListAsync(queryRequest);
-            if (queryResult.GetType() == typeof(OkObjectResult))
+            var pets = (queryResult.Result as OkObjectResult)?.Value as ICollection<Pet>;
+            if (pets != null)
             {
                 // Filter the list
                 var list = new List<Pet>();
-                foreach (var pet in (queryResult as OkObjectResult).Value as List<Pet>)
+                foreach (var pet in pets)
                     foreach (var tag in pet.Tags)
-                        if (tags.Contains(tag.ToString()))
+                        if (tags.Contains(tag.Name))
                             list.Add(pet);
-
-                return new OkObjectResult(list);
+                if (list.Count > 0)
+                    return new OkObjectResult(list);
+                else
+                    return new NoContentResult();
             }
             else
-                return queryResult as ActionResult;
+                return queryResult.Result;
         }
 
         public async Task<ActionResult<Pet>> GetPetByIdAsync(long petId)
@@ -161,32 +169,15 @@ namespace PetStoreRepo.Models
                 pKPrefix: $"Pets:", 
                 pKval: string.Empty, 
                 sKPrefix: "Pet:", 
-                sKval: petId.ToString()) as ActionResult;
-        }
-
-        public async Task<IActionResult> UpdatePetAsync(object body)
-        {
-            return await UpdateAsync(body as Pet);
-        }
-
-        public async Task<IActionResult> UpdatePetWithFormAsync(long petId, Body body)
-        {
-            var current = await ReadAsync(
-                pKPrefix: "Pets:", 
-                pKval: string.Empty,
-                sKPrefix: "Pet:",
                 sKval: petId.ToString());
-
-            if(current.GetType() != typeof(OkObjectResult))
-                return current;
-
-            var pet = (current as OkObjectResult).Value as Pet;
-            pet.Name = body.Name;
-            pet.PetStatus = (PetStatus)Enum.Parse(typeof(PetStatus), body.Status, false);
-            return await UpdateAsync(pet);
         }
 
-        public async Task<IActionResult> GetInventoryAsync()
+        public async Task<ActionResult<Pet>> UpdatePetAsync(Pet body)
+        {
+            return await UpdateAsync(body);
+        }
+
+        public async Task<ActionResult<ICollection<Pet>>> GetInventoryAsync()
         {
             var queryRequest = new QueryRequest()
             {

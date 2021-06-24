@@ -80,7 +80,7 @@ namespace PetStoreTests
 
             // Simulate collection of Code from user - AWS Sends the code to the email account
             Assert.IsTrue(authProcess.CurrentChallenge == AuthChallengeEnum.Code);
-            var verificationCode = AuthEmail.GetAuthCode(appConfig, verificationCodeSendTime, email);
+            var verificationCode = AuthEmail.GetAuthCode(appConfig, email);
             Assert.IsNotNull(verificationCode);
             authProcess.Code = verificationCode;
             // Verifying the code finalizes the sign up process

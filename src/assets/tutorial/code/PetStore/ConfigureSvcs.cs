@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace PetStoreCLI
+namespace PetStore
 {
     public partial class Startup
     {

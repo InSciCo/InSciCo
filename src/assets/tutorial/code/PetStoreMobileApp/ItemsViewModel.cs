@@ -1,4 +1,4 @@
-﻿using PetStoreMobileApp.Views;
+using PetStoreMobileApp.Views;
 using System.Linq;
 using System.Collections.Generic;
 using System;

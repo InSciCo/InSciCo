@@ -7,14 +7,111 @@ menu2: vsmac
 
 <div class=lz-r-content>
     <h3>Create a Xamarin Forms App</h3>
-    <p>In this step we will create a Xamarin app with a fully functional Authentication process 
-        and one simple page with content produced by a call against the PetStore class. 
+    <p>In this step we will create a new solution containing a Xamarin forms app project with a
+        fully functional Authentication process and one simple page with content produced by a
+        call against the PetStore Stack. We are creating this app in a separate solution to
+        demonstrate one simple approach to separating client and server side code bases. This
+        new solution will reside under the LazyStackTutorial folder.</p>
+    <p>We have covered a lot of ground in the tutorial lessons so far. This is a good time
+        to take a moment to review the contents of the LazyStackTutorial folder and
+        what that folder will look like with the addition of the PetStoreMobileApp solution.
     </p>
-    <h4>8.1 Create the PetStoreMobileApp Project(s)</h4>
+    <ul>
+
+        <li>LazyStackTutorial - folder
+            <ul>
+                <li>LazyStack - solution root folder
+                    <ul>
+                        <li>LazyStackAuth - project folder</li>
+                        <li>LazyStackAuthTests - project folder</li>
+                        <li>LazyStackAwsSettings - project folder</li>
+                        <li>LazyStackDynamoDBRepo - project folder</li>
+                        <li>LazyStackDynamoDBRepoTests - project folder</li>
+                        <li>LazyStackGetSettings - project folder</li>
+                    </ul>
+                </li>
+                <li>PetStore - solution root folder
+                    <ul>
+                        <li>Controllers - folder
+                            <ul>
+                                <li>OrderController - project folder</li>
+                                <li>OrderControllerImpl - project folder</li>
+                                <li>PetController - project folder</li>
+                                <li>PetControllerImpl - project folder</li>
+                            </ul>
+                        </li>
+                        <li>Lambdas - folder
+                            <ul>
+                                <li>Pet - project folder</li>
+                                <li>Order - project folder</li>
+                            </ul>
+                        </li>
+                        <li>SolutionItems - solution folder
+                            <ul>
+                                <li>LazyStack.yaml</li>
+                                <li>LocalApis.json</li>
+                                <li>PetStore.yaml</li>
+                                <li>SAM_Review.yaml</li>
+                            </ul>
+                        </li>
+                        <li>Stacks - folder
+                            <ul>
+                                <li>Dev - folder
+                                    <ul>
+                                        <li>serverless.template</li>
+                                        <li>AwsSettings.json</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>LazyStackAuth - ..\..\LazyStack\LazyStackAuth.csproj</li>
+                        <li>LazyStackDynamoDBRepo - ..\..\LazyStack\LazyStackDynamoDBRepo\LazyStackDynamoDBRepo.csproj
+                        </li>
+                        <li>PetStore - project folder</li>
+                        <li>PetStoreClientSDK - project folder</li>
+                        <li>PetStoreConsoleApp - project folder</li>
+                        <li>PetStoreRepo - project folder</li>
+                        <li>PetStoreSchema - project folder</li>
+                        <li>PetStoreTests - project folder</li>
+                    </ul>
+                </li>
+                <li>PetStoreMobileApp - solution root folder
+                    <ul>
+                        <li>PetStoreClientSDK - ..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
+                        <li>PetStoreMobileApp - folder
+                            <ul>
+                                <li>PetStoreMobileApp - project folder
+                                    <ul>
+                                        <li>PetStoreMobileApp.csproj - file
+                                            <ul>
+                                                <li>AwsSettings.json - ..\..\..\PetStore\Stacks\Dev\AwsSettings.json
+                                                </li>
+                                                <li>LocalApis.json - ..\..\..\PetStore\LocalApis.json</li>
+                                                <li>PetStoreClientSDK -
+                                                    ..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>PetStoreMobileApp.Andriod</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    Note the references in the PetStoreMobileApp.csproj solution to files and projects in the PetStore solution. It
+    is possible that you can provide client apps with access to these resources in other ways. For the purpose
+    of this demo, this approach is expedient, efficient and simple.
+    </p>
+    <h4>10.1 Create the PetStoreMobileApp Solution</h4>
     <ol>
+        <li>Launch a new instance of Visual Studio</li>
+        <li>todo - mod for solution creation</li>
         <li>Right Click on "Solution PetStore" in the Solution Explorer. The context menu appears.</li>
         <li>Select "Add &RightArrow; New Project". The "Choose a template for your project" dialog appears.</li>
-        <li>Select "Multiplatform &rightarrow; App &rightarrow; Blank Forms App" and click on the Next button. 
+        <li>Select "Multiplatform &rightarrow; App &rightarrow; Blank Forms App" and click on the Next button.
             The "Configure your Tabbed Forms App" dialog appears.
         </li>
         <li>Edit the project name to read "PetStoreMobileApp".
@@ -23,7 +120,7 @@ menu2: vsmac
         <li>Click on the Next button.
             The second page of the "Configure your Blank Forms App" dialog appears.
         </li>
-        <li>Click the Create button. A question dialog appears warning that the PetStoreMac 
+        <li>Click the Create button. A question dialog appears warning that the PetStoreMac
             directory already exists. Click on the "yes" button.
         </li>
         <li> Two projects are created:
@@ -33,132 +130,146 @@ menu2: vsmac
             </ul>
         </li>
     </ol>
-
-        <h4>8.2 Update the PetStoreMobileApp Project</h4>
-        <p>In this tutorial we implement a very simple two page Xamarin app. The HomePage implements 
-            user sign up and authentication. Once the user is authenticated the page presents a "See Pets" 
-            button that navigates to a page showing pets available.</p>
-        <ol>
-            <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
-            <li>Select "Edit Project File". The project's csproj file opens in an editor tab.</li>
-            <li>Replace the contents of the csproj file with this content:
-                <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
+    <h4>10.2 Add External PetStore Projects</h4>
+    <ol>
+        <li>Add External PetStoreClientSDK project
+            <ol type="a">
+                <li>Right Click on "Solution 'PetStoreMobileApp' in the Solution Explorer pane. The context menu
+                    appears." </li>
+                <li>Select "Add &rightarrow; Exiting Project ..". The Add Exiting Project dialog appears.</li>
+                <li>Select "LazyStackTutorial\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj". The project is added
+                    to your solution.</li>
+            </ol>
+        </li>
+        </li>
+    </ol>
+    <p>Note: In a production application you may choose to use the corresponding NuGet package instead of using
+        this project directly. In this tutorial it is useful to be able to debug into these projects to understand
+        how their features are implemented.
+    </p>
+    <h4>10.3 Update the PetStoreMobileApp Project</h4>
+    <p>In this tutorial we implement a very simple two page Xamarin app. The HomePage implements
+        user sign up and authentication. Once the user is authenticated the page presents a "See Pets"
+        button that navigates to a page showing pets available.</p>
+    <ol>
+        <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
+        <li>Select "Edit Project File". The project's csproj file opens in an editor tab.</li>
+        <li>Replace the contents of the csproj file with this content:
+            <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
     
         &lt;PropertyGroup>
-            &lt;TargetFramework>netstandard2.1&lt;/TargetFramework>
-            &lt;ProduceReferenceAssembly>true&lt;/ProduceReferenceAssembly>
-        &lt;/PropertyGroup>
-        
-        &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-            &lt;DebugType>portable&lt;/DebugType>
-            &lt;DebugSymbols>true&lt;/DebugSymbols>
-        &lt;/PropertyGroup>
-        
-        &lt;ItemGroup>
-            &lt;PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
-            &lt;PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-            &lt;PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-        &lt;/ItemGroup>
-        
-        &lt;ItemGroup>
-            &lt;ProjectReference Include="..\PetStoreMacClientSDK\PetStoreMacClientSDK.csproj" />
-        &lt;/ItemGroup>
-        
-        &lt;ItemGroup>
-            &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
-            &lt;EmbeddedResource Include="..\LocalApis.json" />
-        &lt;/ItemGroup>
-        
-        &lt;ItemGroup>
-            &lt;EmbeddedResource Update="Views\ItemsPage.xaml">
-            &lt;Generator>MSBuild:Compile&lt;/Generator>
-            &lt;/EmbeddedResource>
-        &lt;/ItemGroup>
-        
-    &lt;/Project></code></pre>
-            </li>        
-            <li>Save the file.</li>
-            <li>Right click on the MainPage.xaml file and select Delete. A confirmation dialog appears. 
-                Click the Delete button. The MainPage.xaml and MainPage.xaml.cs files are deleted from 
-                the project and disk.</li>
-            <li>Right click on the App.xaml file and select Delete. A confirmation dialog appears. 
-                Click the Delete button. The App.xaml and App.xaml.cs files are deleted from the project and disk.</li>
-
-            <li>Download <a href="/assets/tutorial/VSMac/App.xaml" download>App.xaml</a> and move it into 
-                the PetStoreMobileApp project folder using Finder. Use Finder instead of dropping the file 
-                into Visual Studio to avoid Visual Studio trying to create an App.xaml.cs file for you.
-            </li>
-
-            <li>Download <a href="/assets/tutorial/VSMac/App.xaml.cs" download>App.xaml.cs</a> and move it into 
-                the PetStoreMobileApp project folder using Finder.</li>
-
-            <li>In Visual Studio, right click on the PetStoreMobileApp project. The context menu appears.</li>
-
-            <li>Select Add &rightarrow; New Folder. The New Folder dialog appears. Edit the folder 
-                name to read "Views" and click on the Add button. A new folder is added to the project.</li>
-
-            <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
-
-            <li>Select Add &rightarrow; New Folder. The New Folder dialog appears. Edit the folder name 
-                to read "ViewModels" and click on the Add button. A new folder is added to the project. </li>
-
-            <li>Download the following files and move them into the PetStoreMobileApp/ViewModels folder.
-                <ul>
-                    <li><a href="/assets/tutorial/VSMac/BaseViewModel.cs" download>BaseViewModel.cs</a></li>
-                    <li><a href="/assets/tutorial/VSMac/ItemsViewModel.cs" download>ItemsViewModel.cs</a></li>
-                    <li><a href="/assets/tutorial/VSMac/MainPageViewModel.cs" download>MainPageViewModel.cs</a></li>
-                </ul>
-            </li>
-
-            <li>Add a Views folder </li>
-
-            <li>Download the following files and move them into the PetStoreMobileApp/Views folder using Finder.
-                <ul>
-                    <li><a href="/assets/tutorial/VSMac/ItemsPage.xaml" download>ItemsPage.xaml</a></li>
-                    <li><a href="/assets/tutorial/VSMac/ItemsPage.xaml.cs" download>ItemsPage.xaml.cs</a></li>
-                    <li><a href="/assets/tutorial/VSMac/MainPage.xaml" download>MainPage.xaml</a></li>
-                    <li><a href="/assets/tutorial/VSMac/MainPage.xaml.cs" download>MainPage.xaml.cs</a></li>
-                </ul>
-            </li>
+        &lt;TargetFramework>netstandard2.1&lt;/TargetFramework>
+        &lt;ProduceReferenceAssembly>true&lt;/ProduceReferenceAssembly>
+    &lt;/PropertyGroup>
     
-        </ol>
+    &lt;PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        &lt;DebugType>portable&lt;/DebugType>
+        &lt;DebugSymbols>true&lt;/DebugSymbols>
+    &lt;/PropertyGroup>
     
-        <h4>8.3 Update to the latest Xamarin packages.</h4>
-        <ol>
-            <li>Right click on the PetStore solution. The context menu appears.</li>
-            <li>Select "Manage Nuget Packages". The "Manage NuGet Packages - Solution" dialog  opens.</li>
-            <li>Select "Updates". Available Nuget Package updates are listed.</li>
-            <li>If Xamarin.Essentials or Xamarin.Forms is listed, click the checkboxes next to them and then 
-                click the "Update Package" button. The latest Xamarin packages are 
-                now referenced in the PetStoreMobileApp and PetStoreMobileApp.Android projects.
-            </li>
-        </ol>
+    &lt;ItemGroup>
+        &lt;PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+        &lt;PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+        &lt;PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    &lt;/ItemGroup>
+    
+    &lt;ItemGroup>
+        &lt;ProjectReference Include="..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj" />
+        &lt;EmbeddedResource Include="..\..\..\PetStore\Stacks\Dev\AwsSettings.json" />
+        &lt;EmbeddedResource Include="..\..\..\PetStore\LocalApis.json" />
+    &lt;/ItemGroup>
+    
+    &lt;ItemGroup>
+        &lt;EmbeddedResource Update="Views\ItemsPage.xaml">
+        &lt;Generator>MSBuild:Compile&lt;/Generator>
+        &lt;/EmbeddedResource>
+    &lt;/ItemGroup>
+    
+&lt;/Project></code></pre>
+        </li>
+        <li>Save the file.</li>
+        <li>Right click on the MainPage.xaml file and select Delete. A confirmation dialog appears.
+            Click the Delete button. The MainPage.xaml and MainPage.xaml.cs files are deleted from
+            the project and disk.</li>
+        <li>Right click on the App.xaml file and select Delete. A confirmation dialog appears.
+            Click the Delete button. The App.xaml and App.xaml.cs files are deleted from the project and disk.</li>
 
-        <h4>8.4 Add Hero Image Resource to PetStoreMobileApp.iOS Project</h4>
-        <ol>
-            <li>Download <a href="/assets/tutorial/VSMac/LazyLogo800x800.png" download>LazyLogo800x800.png</a> 
-                    and used Finder to move it into the PetStoreMobileLapp.iOS/Resources directory.</li>
-            <li>Right click on the "PetStoreMobileApp.iOS/Resources" Solution Explorer folder. The context menu appears.</li>
-            <li>Select "Add &rightarrow; Existing Files" and add the new LazyLogo800x800.png file.</li>
-        </ol>
-    
-        <p></p>
-        <h4>8.5 Run App</h4>
-        <p></p>
-        <ol>
-            <li>Right Click on the PetStoreMobileApp.iOS project. The context menu appears.</li>
-            <li>Select "Set as Startup Project".</li>
-            <li>Debug the project. The Apple simulator opens and the App launches.</li>
-            <li>Sign In</li>
-            <li>Click the "See Pets" button to see a list of Pets retrieved from the PetStoreDev stack.</li>
-        </ol>
-    
-        <p></p>
-        <h4>Step Summary</h4>
-        <p>In this step we started with a simple Xamarin two page application to demonstrate
-            authentication services against AWS Cognito using the LazyStackAuth library. In addition, we used the 
-            PetStore class from the PetStoreClientSDK library to make secure calls against the PetStoreDev 
-            stack to show the available pet inventory.
-        </p>
+        <li>Download <a href="/assets/tutorial/code/PetStoreMobileApp/App.xaml" download>App.xaml</a> and move it into
+            the PetStoreMobileApp project folder using Finder. Use Finder instead of dropping the file
+            into Visual Studio to avoid Visual Studio trying to create an App.xaml.cs file for you.
+        </li>
+
+        <li>Download <a href="/assets/tutorial/code/PetStoreMobileApp/App.xaml.cs" download>App.xaml.cs</a> and move it into
+            the PetStoreMobileApp project folder using Finder.</li>
+
+        <li>In Visual Studio, right click on the PetStoreMobileApp project. The context menu appears.</li>
+
+        <li>Select Add &rightarrow; New Folder. The New Folder dialog appears. Edit the folder
+            name to read "Views" and click on the Add button. A new folder is added to the project.</li>
+
+        <li>Right click on the PetStoreMobileApp project. The context menu appears.</li>
+
+        <li>Select Add &rightarrow; New Folder. The New Folder dialog appears. Edit the folder name
+            to read "ViewModels" and click on the Add button. A new folder is added to the project. </li>
+
+        <li>Download the following files and move them into the PetStoreMobileApp/ViewModels folder.
+            <ul>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/BaseViewMModel.cs" download>BaseViewModel.cs</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/ItemsViewModel.cs" download>ItemsViewModel.cs</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/MainPageViewModel.cs" download>MainPageViewModel.cs</a></li>
+            </ul>
+        </li>
+
+        <li>Add a Views folder </li>
+
+        <li>Download the following files and move them into the PetStoreMobileApp/Views folder using Finder.
+            <ul>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/ItemsPage.xaml" download>ItemsPage.xaml</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/ItemsPage.xaml.cs" download>ItemsPage.xaml.cs</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/MainPage.xaml" download>MainPage.xaml</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/MainPage.xaml.cs" download>MainPage.xaml.cs</a></li>
+            </ul>
+        </li>
+
+    </ol>
+
+    <h4>10.4 Update to the latest Xamarin packages.</h4>
+    <ol>
+        <li>Right click on the PetStore solution. The context menu appears.</li>
+        <li>Select "Manage Nuget Packages". The "Manage NuGet Packages - Solution" dialog opens.</li>
+        <li>Select "Updates". Available Nuget Package updates are listed.</li>
+        <li>If Xamarin.Essentials or Xamarin.Forms is listed, click the checkboxes next to them and then
+            click the "Update Package" button. The latest Xamarin packages are
+            now referenced in the PetStoreMobileApp and PetStoreMobileApp.Android projects.
+        </li>
+    </ol>
+
+    <h4>10.5 Add Hero Image Resource to PetStoreMobileApp.iOS Project</h4>
+    <ol>
+        <li>Download <a href="/assets/tutorial/code/PetStoreMobileApp/LazyLogo800x800.png" download>LazyLogo800x800.png</a>
+            and used Finder to move it into the PetStoreMobileLapp.iOS/Resources directory.</li>
+        <li>Right click on the "PetStoreMobileApp.iOS/Resources" Solution Explorer folder. The context menu appears.
+        </li>
+        <li>Select "Add &rightarrow; Existing Files" and add the new LazyLogo800x800.png file.</li>
+    </ol>
+
+    <p></p>
+    <h4>10.6 Run App</h4>
+    <p></p>
+    <ol>
+        <li>Right Click on the PetStoreMobileApp.iOS project. The context menu appears.</li>
+        <li>Select "Set as Startup Project".</li>
+        <li>Debug the project. The Apple simulator opens and the App launches.</li>
+        <li>Sign In</li>
+        <li>Click the "See Pets" button to see a list of Pets retrieved from the PetStoreDev stack.</li>
+    </ol>
+
+    <p></p>
+    <h4>Step Summary</h4>
+    <p>In this step we started with a simple Xamarin two page application to demonstrate
+        authentication services against AWS Cognito using the LazyStackAuth library. In addition, we used the
+        PetStore class from the PetStoreClientSDK library to make secure calls against the PetStoreDev
+        stack to show the available pet inventory.
+    </p>
     {{>btmspacer}}
 </div>

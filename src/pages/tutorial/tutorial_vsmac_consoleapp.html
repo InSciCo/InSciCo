@@ -11,7 +11,7 @@ menu2: vsmac
         support all the features of AuthProcess running against AWS Cognito, initialize 
         the PetStore library and make a simple call against the stack.
     </p>
-    <h4>7.1 Create PetStoreConsoleApp Project</h4>
+    <h4>9.1 Create PetStoreConsoleApp Project</h4>
     <ol>
         <li>Right Click on "Solution PetStoreMac" in the Solution Explorer. The context menu appears.</li>
         <li>Select "Add &RightArrow; New Project" from the context menu. The "Choose a template for your new project" dialog appears.</li>
@@ -22,43 +22,38 @@ menu2: vsmac
         <li>Edit the project name to read "PetStoreConsoleApp" and click the Create button. The project is added to the solution.</li>
     </ol>
 
-    <h4>7.2 Configure PetStoreConsoleApp Project</h4>
+    <h4>9.2 Add Project Dependencies</h4>
     <ol>
-        <li>Add the following project References:
-            <ul>
-                <li>PetStoreMacClientSDK</li>
-            </ul>
-        </li>
-        <li>Add the following package reference:
-            <ul>
-                <li>Microsoft.Extensions.Configuration.Json</li>
-            </ul>
-        </li>
-        <li>Add embedded AwsSettings.json resource.
-            <ol type="a">
-                <li>Double Click on the PetStoreConsoleApp project in the Solution Explorer. The csproj file opens in an 
-                    editor tab.</li>
-                <li>Insert the following Item Group into the csproj file.
-                    <pre><code class="language-xml">
-  &lt;ItemGroup>
+        <li>Open the PetStoreConsoleApp.csproj file.</li>
+        <li>Copy the following ItemGroup into the .csproj file.
+            <pre><code class="language-bash">
+&lt;ItemGroup>
+    &lt;PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    &lt;ProjectReference Include="..\PetStoreClientSDK\PetStoreClientSDK.csproj" />
     &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
     &lt;EmbeddedResource Include="..\LocalApis.json" />
-  &lt;/ItemGroup>                        
-                    </code></pre>
-                </li>
-                <li>Save the file.</li>
-            </ol>
+&lt;/ItemGroup></code></pre>
         </li>
+        <li>Save the file.</li>
     </ol>
-    <h4>7.3 Implement Program</h4>
+
+<p>Note the inclusion of the "..\Stacks\Dev\AwsSettings.json" file as an embedded resource. This 
+    file contains the information necessary for a client app to connect to and use the AWS Stack. We 
+    generated this file earlier with using Tools → LazyStack - Generate Stacks\Dev\AwsSettings.json.
+</p>
+<p>The "..\LocalApis.json" embedded resource contains the information necessary for the a client app 
+    to connect to the local WebApi service. The local WebApi service (our PetStore project) is useful 
+    for testing controller implementation and repository code.
+</p>
+    <h4>9.3 Implement Program</h4>
     <ol>
-        <li>Download <a href="/assets/tutorial/VSMac/Program.cs" download>Program.cs</a> and move it into your project, 
+        <li>Download <a href="/assets/tutorial/code/PetStoreConsoleApp/Program.cs" download>Program.cs</a> and move it into your project, 
         replacing the existing Program.cs.</li>
         <li>Build project.</li>
     </ol>
     <p></p>
     <h4> Run Project</h4>
-    <h5>7.4 Run Against Stack</h5>
+    <h5>9.4 Run Against Stack</h5>
     <ol>
         <li>Right Click "PetStoreConsoleApp" project in solution explorer. The context menu appears.</li>
         <li>Select Set as Startup Project.</li>
@@ -93,7 +88,8 @@ Enter your current Password: MyPassword!
 4. Update Login
 5. Seed Pets data
 6. Get Pet 1
-7. Quit
+7. See Available Pets
+8. Quit
 >5
 Pets added to database
 1. Sign Out
@@ -102,7 +98,8 @@ Pets added to database
 4. Update Login
 5. Seed Pets data
 6. Get Pet 1
-7. Quit
+7. See Available Pets
+8. Quit
 >6
 pet: 1 Alf Available
 1. Sign Out
@@ -111,11 +108,12 @@ pet: 1 Alf Available
 4. Update Login
 5. Seed Pets data
 6. Get Pet 1
-7. Quit
->7</code></pre>
+7. See Available Pets
+8. Quit
+>8</code></pre>
     </li>
     </ol>
-<h5>7.5 Run Against Local WebApi</h5>
+<h5>9.5 Run Against Local WebApi</h5>
 <p>In this step we launch a second instance of Visual Studio for Mac and open the </p>
 <ol>
     <li>This assumes you have an instance of Visual Studio for Mac open on the PetStoreMac solution.</li>
