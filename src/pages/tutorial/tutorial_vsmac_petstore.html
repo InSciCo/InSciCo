@@ -22,7 +22,7 @@ menu2: vsmac
         <li>Keep "PetStore" as the Solution Name.</li>
         <li>Edit the Location to point to the LazyStackTutorial folder.</li>
         <li>Leave the "Create a project directory within the solution directory" Checked.</li>
-        <li>Click on the Create button. A solution with your PetStoreMac WebApi project is created.</li>
+        <li>Click on the Create button. A solution with your PetStore WebApi project is created.</li>
 
         <li>Open the project file and replace its content with the following:
             <pre><code class="language-csharp"><?xml version="1.0" encoding="utf-8"?>
@@ -35,6 +35,7 @@ menu2: vsmac
     &lt;ItemGroup>
     &lt;PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
     &lt;PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.2" />
+    &lt;/ItemGroup>
 &lt;/Project></code></pre>
         </li>
 
@@ -136,8 +137,8 @@ namespace PetStore
 
     <h4>2.3 Download PetStore.yaml and run LazyStack Generator</h4>
     <ol>
-        <li><a href="/assets/tutorial/PetStore.yaml" download="PetStoreMac.yaml">Click to Download PetStoreMac.yaml file</a></li>
-        <li>Move PetStoreMac.yaml from your Downloads folder to the PetStore Solution root folder.</li>
+        <li><a href="/assets/tutorial/PetStore.yaml" download="PetStore.yaml">Click to Download PetStore.yaml file</a></li>
+        <li>Move PetStore.yaml from your Downloads folder to the PetStore Solution root folder.</li>
         <li>Select Visual Studio  "Tools &rightarrow; LazyStack - Generate Projects". The following folders and projects are
             are created.
             <ul>
@@ -188,11 +189,11 @@ namespace PetStore
         </li>
         <li>Add files in solution directory to Solution Items folder
             <ol>
-                <li>Right Click "PetStoreMac" in solution explorer. The context menu appears.</li>
+                <li>Right Click "PetStore" in solution explorer. The context menu appears.</li>
                 <li>Select Add &rightarrow; Existing Files. The file picker dialog appears.</li>
-                <li>In the PetStoreMac solution directory, select newly added files:
+                <li>In the PetStore solution directory, select newly added files:
                     <ul>
-                        <li>PetstoreMac.yaml</li>
+                        <li>Petstore.yaml</li>
                         <li>LazyStack.yaml</li>
                         <li>LocalApis.json</li>
                         <li>SAM_Review.yaml</li>
@@ -214,7 +215,7 @@ namespace PetStore
                 <li>Edit the name of the folder to "Dev"</li>
                 <li>Right Click on the "Dev" folder. The context menu appears.</li>
                 <li>Select "Add &rightarrow; Existing Files. The file picker window appears,.</li>
-                <li>Select the "LazyStackTutorial/PetStoreMac/Stacks/Dev/serverless.template" file.</li>
+                <li>Select the "LazyStackTutorial/PetStore/Stacks/Dev/serverless.template" file.</li>
             </ol>
         </li>
     </ol>
@@ -298,7 +299,7 @@ namespace PetStore
 
 <h4>Step Summary</h4>
 <p>In this lesson step we created a PetStore solution using the ASP.NET API project template, 
-    downloaded a OpenApi Specification called PetStoreMac.yaml and then used the Tools &RightArrow; LazyStack - 
+    downloaded a OpenApi Specification called PetStore.yaml and then used the Tools &RightArrow; LazyStack - 
     Generate Projects to generate projects and configuration files for our stack. We added solution folders to 
     surface these configuration files in the Visual Studio solution explorer. 
     We then updated the LazyStack.yaml file AWS ProfileName and RegionName.

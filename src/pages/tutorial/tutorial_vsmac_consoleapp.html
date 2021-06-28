@@ -13,11 +13,11 @@ menu2: vsmac
     </p>
     <h4>9.1 Create PetStoreConsoleApp Project</h4>
     <ol>
-        <li>Right Click on "Solution PetStoreMac" in the Solution Explorer. The context menu appears.</li>
+        <li>Right Click on "Solution PetStore" in the Solution Explorer. The context menu appears.</li>
         <li>Select "Add &RightArrow; New Project" from the context menu. The "Choose a template for your new project" dialog appears.</li>
         <li>Select "Web and Console &rightarrow; App &rightarrow; Console Application" in the search field. </li>
         <li>Click on the Next button. The "Configure your new Console Application" dialog appears.</li>
-        <li>Select ".NET 5.0" as the Target Framework and click the Next button. The next "Configure your new Console Application" 
+        <li>Select "Net Core 3.1" as the Target Framework and click the Next button. The next "Configure your new Console Application" 
             dialog page appears.</li>
         <li>Edit the project name to read "PetStoreConsoleApp" and click the Create button. The project is added to the solution.</li>
     </ol>
@@ -116,28 +116,28 @@ pet: 1 Alf Available
 <h5>9.5 Run Against Local WebApi</h5>
 <p>In this step we launch a second instance of Visual Studio for Mac and open the </p>
 <ol>
-    <li>This assumes you have an instance of Visual Studio for Mac open on the PetStoreMac solution.</li>
+    <li>This assumes you have an instance of Visual Studio for Mac open on the PetStore solution.</li>
     <li>Right click on the Visual Studio icon in the MacOS dockbar. The context menu appears.</li>
     <li>Select "New Instance". The Visual Studio launch dialog appears.</li>
-    <li>Open the PetStoreMac solution. You now have two instances of Visual Studio for Mac opened on the PetStoreMac solution.</li>
-    <li>In the new instance, right click on the (WebApi) PetStoreMac project. The context menu appears.</li>
-    <li>Select "Start Debugging Project". The PetStoreMac project launches. This is your local 
+    <li>Open the PetStore solution. You now have two instances of Visual Studio for Mac opened on the PetStore solution.</li>
+    <li>In the new instance, right click on the (WebApi) PetStore project. The context menu appears.</li>
+    <li>Select "Start Debugging Project". The PetStore project launches. This is your local 
         WebApi.
     </li>
     <li>In the other instance, start debugging the PetStoreConsoleApp.</li>
     <li>In the PetStoreConsoleApp command window. Answer 'y' to the "Use LocalApi?" prompt.
         <p>Your authentication process still runs against the AWS stack but your calls to the 
-            PetStore library will call the Local WebApi (PetStoreMac) project. You can set debug 
-            breakpoints in both the PetStoreConsoleApp and PetStoreMac projects!
+            PetStore library will call the Local WebApi (PetStore) project. You can set debug 
+            breakpoints in both the PetStoreConsoleApp and PetStore projects!
         </p>
     </li>
     <li>Stop debugging in both Visual Studio instances. Close the second instance you used to 
-        run the PetStoreMac project.
+        run the PetStore project.
     </li>
 </ol>
 <h4>Step Summary</h4>
 <p>In this step we created a Console App project and used it to run against both the AWS Application Stack 
-    and the local WebApi (PetStoreMac) project. When running locally, we can simultaneously debug the client and WebApi projects.
+    and the local WebApi (PetStore) project. When running locally, we can simultaneously debug the client and WebApi projects.
 </p>
 {{>btmspacer}}
 </div>

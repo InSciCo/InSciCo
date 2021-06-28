@@ -8,7 +8,7 @@ menu2: vsmac
 <div class=lz-r-content>
     <h3>PetStoreTests Project</h3>
     <p>In this step we will create a PetStoreTest project to perform an integration test against the 
-        PetStoreMacDev stack. We will test:</p>
+        PetStoreDev stack. We will test:</p>
     <ul>
         <li>Application SignUp - using the LazyStackAuth library. </li>
         <li>Application SignIn - using the LazyStackAuth library. </li>
@@ -85,7 +85,7 @@ menu2: vsmac
         <li>Generate User-Secrets GUID
             <ol>
                 <li>Open a Terminal.</li>
-                <li>CD to the solution folder (LazyStackTutorial\PetStoreMac) and install the dotnet 
+                <li>CD to the solution folder (LazyStackTutorial\PetStore) and install the dotnet 
                     GUID tool if it is not already installed:
                     <pre><code class="language-bash">dotnet tool install -g dotnet-guid</code></pre>
                 </li>
@@ -111,7 +111,7 @@ menu2: vsmac
         <li>Set User Secret Values
             <ol>
                 <li>Open a Terminal Window</li>
-                <li>CD into the LazyStackTutorial/PetStoreMac folder.</li>
+                <li>CD into the LazyStackTutorial/PetStore folder.</li>
                 <li>Set Gmail:Email user secret value:
                     <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@gmail.com" </code></pre>
                 </li>
@@ -132,7 +132,7 @@ menu2: vsmac
     </ol>
     <h4>8.6 Run Tests</h4>
     <ol>
-        <li>Select View &RightArrow; Test Explorer. The Test Explorer panel appears.</li>
+        <li>Select View &RightArrow; Tests. The Test Explorer panel appears.</li>
         <li>Run Tests. The integration test completes successfully.</li>
     </ol>
     <h4>8.7 Step Summary</h4>
