@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
 using LazyStackDynamoDBRepo;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
@@ -11,38 +9,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 
-
 namespace PetStoreRepo.Models
 {
     public class PetEnvelope : DataEnvelope<Pet>
     {
-        protected override void SetDbRecordFromEntityInstance()
+        protected override void SetDbRecordFromEnvelopeInstance()
         {
             // Set the Envelope Key fields from the EntityInstance data
             TypeName = "Pet.v1.0.0";
-            CreateUtcTick = EntityInstance.CreateUtcTick;
-            UpdateUtcTick = EntityInstance.UpdateUtcTick;
             // Primary Key is PartitionKey + SortKey 
             PK = "Pets:"; // Partition key
             SK = $"Pets:{EntityInstance.Id}"; // sort/range key
 
             // The base method copies information from the envelope keys into the dbRecord
-            base.SetDbRecordFromEntityInstance();
+            base.SetDbRecordFromEnvelopeInstance();
         }
-
-        protected override void SetEntityInstanceFromDbRecord()
-        {
-            base.SetEntityInstanceFromDbRecord();
-            EntityInstance.CreateUtcTick = CreateUtcTick;
-            EntityInstance.UpdateUtcTick = UpdateUtcTick;
-        }
-
     }
 
     public interface IPetRepo : IDYDBRepository<PetEnvelope, Pet> 
     {
         Task<ActionResult<Pet>> AddPetAsync(Pet pet);
-        Task<IActionResult> DeletePetAsync(string api_key, long petId);
+        Task<StatusCodeResult> DeletePetAsync(string api_key, long petId);
         Task<ActionResult<ICollection<Pet>>> FindPetsByStatusAsync(IEnumerable<PetStatus> status);
         Task<ActionResult<ICollection<Pet>>> FindPetsByTagsAsync(IEnumerable<string> tags);
         Task<ActionResult<Pet>> GetPetByIdAsync(long petId);
@@ -50,7 +37,7 @@ namespace PetStoreRepo.Models
         Task<ActionResult<ICollection<Pet>>> GetInventoryAsync();
         Task<ActionResult<ICollection<Category>>> GetPetCategoriesAsync();
         Task<ActionResult<ICollection<PetStoreSchema.Models.Tag>>> GetPetTagsAsync();
-        Task<IActionResult> SeedPetsAsync();
+        Task<StatusCodeResult> SeedPetsAsync();
 
     }
 
@@ -83,14 +70,13 @@ namespace PetStoreRepo.Models
             return await CreateAsync(pet);
         }
 
-        public async Task<IActionResult> DeletePetAsync(string api_key, long petId)
+        public async Task<StatusCodeResult> DeletePetAsync(string api_key, long petId)
         {
-            // api_key is ignored in this implementation
+            // Ignoring api_key argument
+            // PK=Pet:, SK=Pet:<petId>
             return await DeleteAsync(
-                pKPrefix: "Pets:", 
-                pKval: string.Empty, 
-                sKPrefix: "Pet:", 
-                sKval: petId.ToString()); // PK=Pet:, SK=Pet:<petId>
+                pK: "Pets:", 
+                sK: "Pet:" + petId.ToString()); 
         }
 
         public async Task<ActionResult<ICollection<Pet>>> FindPetsByStatusAsync(IEnumerable<PetStatus> status)
@@ -109,24 +95,18 @@ namespace PetStoreRepo.Models
             };
 
             var queryResult = await ListAsync(queryRequest);
-            var pets = (queryResult.Result as OkObjectResult)?.Value as ICollection<Pet>;
-            if (pets!= null)
-            {
-                var statusList = status.ToList();
-                // Filter the list
-                var list = new List<Pet>();
-                foreach (var pet in pets)
-                {
-                    if (statusList.Contains(pet.PetStatus))
-                        list.Add(pet);
-                }
-                if (list.Count > 0)
-                    return new OkObjectResult(list);
-                else
-                    return new NoContentResult();
-            }
-            else
+            if (queryResult.Value == null)
                 return queryResult.Result;
+
+            var statusList = status.ToList();
+            // Filter the list
+            var list = new List<Pet>();
+            foreach (var pet in queryResult.Value)
+            {
+                if (statusList.Contains(pet.PetStatus))
+                    list.Add(pet);
+            }
+            return list;
         }
 
         public async Task<ActionResult<ICollection<Pet>>> FindPetsByTagsAsync(IEnumerable<string> tags)
@@ -145,31 +125,24 @@ namespace PetStoreRepo.Models
             };
 
             var queryResult = await ListAsync(queryRequest);
-            var pets = (queryResult.Result as OkObjectResult)?.Value as ICollection<Pet>;
-            if (pets != null)
-            {
-                // Filter the list
-                var list = new List<Pet>();
-                foreach (var pet in pets)
-                    foreach (var tag in pet.Tags)
-                        if (tags.Contains(tag.Name))
-                            list.Add(pet);
-                if (list.Count > 0)
-                    return new OkObjectResult(list);
-                else
-                    return new NoContentResult();
-            }
-            else
+            if (queryResult.Result != null)
                 return queryResult.Result;
+
+            // Filter the list
+            var list = new List<Pet>();
+            foreach (var pet in queryResult.Value)
+                foreach (var tag in pet.Tags)
+                    if (tags.Contains(tag.Name))
+                        list.Add(pet);
+            return list;
+               
         }
 
         public async Task<ActionResult<Pet>> GetPetByIdAsync(long petId)
         {
             return await ReadAsync(
-                pKPrefix: $"Pets:", 
-                pKval: string.Empty, 
-                sKPrefix: "Pet:", 
-                sKval: petId.ToString());
+                pK: "Pets:", 
+                sK: "Pet:" + petId.ToString());
         }
 
         public async Task<ActionResult<Pet>> UpdatePetAsync(Pet body)
@@ -222,7 +195,7 @@ namespace PetStoreRepo.Models
             return tagRepo.Tags.Values.ToList();
         }
 
-        public async Task<IActionResult> SeedPetsAsync()
+        public async Task<StatusCodeResult> SeedPetsAsync()
         {
 
             var pet = new Pet()
@@ -234,7 +207,6 @@ namespace PetStoreRepo.Models
                 Tags = new List<PetStoreSchema.Models.Tag> { tagRepo.Tags[1], tagRepo.Tags[2] },
                 PetStatus = PetStatus.Available
             };
-
 
             await AddPetAsync(pet);
 
