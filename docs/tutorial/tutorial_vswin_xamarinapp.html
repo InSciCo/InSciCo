@@ -683,23 +683,19 @@
                     </li>
                     <li>PetStoreMobileApp - solution root folder
                         <ul>
-                            <li>PetStoreClientSDK - ..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
-                            <li>PetStoreMobileApp - folder
+                            <li>PetStoreClientSDK - ..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
+                            <li>PetStoreMobileApp - project folder
                                 <ul>
-                                    <li>PetStoreMobileApp - project folder
+                                    <li>PetStoreMobileApp.csproj - file
                                         <ul>
-                                            <li>PetStoreMobileApp.csproj - file
-                                                <ul>
-                                                    <li>AwsSettings.json - ..\..\..\PetStore\Stacks\Dev\AwsSettings.json</li>
-                                                    <li>LocalApis.json - ..\..\..\PetStore\LocalApis.json</li>
-                                                    <li>PetStoreClientSDK - ..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
-                                                </ul>
-                                            </li>
+                                            <li>AwsSettings.json - ..\..\PetStore\Stacks\Dev\AwsSettings.json</li>
+                                            <li>LocalApis.json - ..\..\PetStore\LocalApis.json</li>
+                                            <li>PetStoreClientSDK - ..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
                                         </ul>
                                     </li>
-                                    <li>PetStoreMobileApp.Andriod</li>
                                 </ul>
                             </li>
+                            <li>PetStoreMobileApp.Andriod</li>
                         </ul>
                     </li>
                 </ul>
@@ -718,6 +714,11 @@
         <li>Select the "Mobile App (Xamarin.Forms)" template and click the Next button. The Configure your new project page appears.</li>
         <li>Edit the project name to read "PetStoreMobileApp".</li>
         <li>Edit the Location to to point to the "LazyStackTutorial" folder.</li>
+        <li>Check the "Place solution and project in the same directory" checkbox.<br>
+            We do this so that the projects created with Visual Studio Windows have the same folder hierarchy as those 
+            created with Visual Studio Mac. There is no restriction in LazyStack that you do this, but for the purpose 
+            of this demo, please do for this solution.
+        </li>
         <li>Click on the Create button.  The "New Mobile App" dialog appears.</li>
         <li>Select the "Blank" app option</li>
         <li>Select only Android target. (You may select the iOS target if your workstation is already setup for 
@@ -736,10 +737,6 @@
         </li>
      </li>
     </ol>
-    <p>Note: In a production application you may choose to use the corresponding NuGet package instead of using 
-        this project directly. In this tutorial it is useful to be able to debug into these projects to understand 
-        how their features are implemented.
-    </p>
     <h4>10.3 Update the PetStoreMobileApp Project</h4>
     <p>In this tutorial we implement a very simple two page Xamarin app. The HomePage implements user sign up and authentication. Once 
         the user is authenticated the page presents a "See Pets" button that navigates to a page showing pets available.</p>
@@ -765,9 +762,9 @@
     &lt;/ItemGroup>
     
     &lt;ItemGroup>
-        &lt;ProjectReference Include="..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj" />
-        &lt;EmbeddedResource Include="..\..\..\PetStore\Stacks\Dev\AwsSettings.json" />
-        &lt;EmbeddedResource Include="..\..\..\PetStore\LocalApis.json" />
+        &lt;ProjectReference Include="..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj" />
+        &lt;EmbeddedResource Include="..\..\PetStore\Stacks\Dev\AwsSettings.json" />
+        &lt;EmbeddedResource Include="..\..\PetStore\LocalApis.json" />
     &lt;/ItemGroup>
     
     &lt;ItemGroup>
@@ -795,7 +792,7 @@
         <li>Select Add &rightarrow; New Folder. A new folder is added to the project. Edit the folder name to read "ViewModels".</li>
         <li>Download the following files and move them into the PetStoreMobileApp/ViewModels folder.
             <ul>
-                <li><a href="/assets/tutorial/code/PetStoreMobileApp/BaseViewMModel.cs" download>BaseViewModel.cs</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/BaseViewModel.cs" download>BaseViewModel.cs</a></li>
                 <li><a href="/assets/tutorial/code/PetStoreMobileApp/ItemsViewModel.cs" download>ItemsViewModel.cs</a></li>
                 <li><a href="/assets/tutorial/code/PetStoreMobileApp/MainPageViewModel.cs" download>MainPageViewModel.cs</a></li>
             </ul>

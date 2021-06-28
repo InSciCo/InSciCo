@@ -15,34 +15,24 @@ namespace PetStoreRepo.Models
     public class OrderEnvelope : DataEnvelope<Order>
     {
 
-        protected override void SetDbRecordFromEntityInstance()
+        protected override void SetDbRecordFromEnvelopeInstance()
         {
             // Set the Envelope Key fields from the EntityInstance data
             TypeName = "Order.v1.0.0";
-            CreateUtcTick = EntityInstance.CreateUtcTick;
-            UpdateUtcTick = EntityInstance.UpdateUtcTick;
             // Primary Key is PartitionKey + SortKey 
             PK = "Orders:"; // Partition key
             SK = $"Order:{EntityInstance.Id}"; // sort/range key
 
             // The base method copies information from the envelope keys into the dbRecord
-            base.SetDbRecordFromEntityInstance();
+            base.SetDbRecordFromEnvelopeInstance();
         }
-
-        protected override void SetEntityInstanceFromDbRecord()
-        {
-            base.SetEntityInstanceFromDbRecord();
-            EntityInstance.CreateUtcTick = CreateUtcTick;
-            EntityInstance.UpdateUtcTick = UpdateUtcTick;
-        }
-
     }
 
     public interface IOrderRepo : IDYDBRepository<OrderEnvelope, Order> 
     {
         Task<ActionResult<Order>> PlaceOrderAsync(Order body);
         Task<ActionResult<Order>> GetOrderByIdAsync(long orderId);
-        Task<IActionResult> DeleteOrderAsync(long orderId);
+        Task<StatusCodeResult> DeleteOrderAsync(long orderId);
     }
 
     public class OrderRepo : DYDBRepository<OrderEnvelope, Order>, IOrderRepo
@@ -76,19 +66,15 @@ namespace PetStoreRepo.Models
         public async Task<ActionResult<Order>> GetOrderByIdAsync(long orderId)
         {
             return await ReadAsync(
-                 pKPrefix: "Orders:",
-                 pKval: string.Empty,
-                 sKPrefix: "Order:",
-                 sKval: orderId.ToString());
+                 pK: "Orders:",
+                 sK: "Order:" + orderId.ToString());
         }
 
-        public async Task<IActionResult> DeleteOrderAsync(long orderId)
+        public async Task<StatusCodeResult> DeleteOrderAsync(long orderId)
         {
             return await DeleteAsync(
-                pKPrefix: "Orders:",
-                pKval: string.Empty,
-                sKPrefix: "Order:",
-                sKval: orderId.ToString());
+                pK: "Orders:",
+                sK: "Order:" + orderId.ToString());
         }
     }
 }
