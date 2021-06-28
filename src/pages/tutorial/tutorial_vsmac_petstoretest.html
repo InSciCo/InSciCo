@@ -50,7 +50,7 @@ menu2: vsmac
             project" dialog appears.</li>
         <li>Select "Web and Console &rightarrow; Tests &rightarrow; MSTest Project".</li>
         <li>Click on the Next button. The "Configure your MSTest Project" dialog appears.</li>
-        <li>Select ".NET 5.0" for the Target Framework and press the Next button. The second "Configure your 
+        <li>Select ".NET Core 3.1" for the Target Framework and press the Next button. The second "Configure your 
             MSTest Project" page appears.</li>
         <li>Edit project name to read "PetStoreTests".</li>
         <li>Click the Create button. The test project is added to your solution.</li>
@@ -96,16 +96,16 @@ menu2: vsmac
         
             </ol>
         </li>
-      <li>Copy the following content into the PetStoreTests.csproj file, then replace the UserSecretsId value 
+      <li>Replace the PropertyGroup with the following content in the PetStoreTests.csproj file, 
+          then replace the UserSecretsId value 
         with the guid you generated in the previous step:
-        <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
+        <pre><code class="language-xml">
     &lt;PropertyGroup>
-        &lt;TargetFramework>net5.0&lt;/TargetFramework>
+        &lt;TargetFramework>netcoreapp3.1&lt;/TargetFramework>
         &lt;IsPackable>false&lt;/IsPackable>
         &lt;UserSecretsId>12345678-9abc-def0-1234-56789abcdef0&lt;/UserSecretsId>
     &lt;/PropertyGroup>
-                     
-&lt;/Project></code></pre>
+                     </code></pre>
         </li>
 
         <li>Set User Secret Values

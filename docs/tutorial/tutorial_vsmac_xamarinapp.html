@@ -691,11 +691,11 @@
                                     <ul>
                                         <li>PetStoreMobileApp.csproj - file
                                             <ul>
-                                                <li>AwsSettings.json - ..\..\..\PetStore\Stacks\Dev\AwsSettings.json
+                                                <li>AwsSettings.json - ..\..\PetStore\Stacks\Dev\AwsSettings.json
                                                 </li>
-                                                <li>LocalApis.json - ..\..\..\PetStore\LocalApis.json</li>
+                                                <li>LocalApis.json - ..\..\PetStore\LocalApis.json</li>
                                                 <li>PetStoreClientSDK -
-                                                    ..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
+                                                    ..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj</li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -727,9 +727,6 @@
             The second page of the "Configure your Blank Forms App" dialog appears.
         </li>
         <li>Edit the Location to point to the LazyStackTutorial folder.</li>
-        <li>Click the Create button. A question dialog appears warning that the PetStore
-            directory already exists. Click on the "yes" button.
-        </li>
         <li> Two projects are created:
             <ul>
                 <li>PetStoreMobileApp -- this is the Xamarin.Forms project.</li>
@@ -781,9 +778,9 @@
     &lt;/ItemGroup>
     
     &lt;ItemGroup>
-        &lt;ProjectReference Include="..\..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj" />
-        &lt;EmbeddedResource Include="..\..\..\PetStore\Stacks\Dev\AwsSettings.json" />
-        &lt;EmbeddedResource Include="..\..\..\PetStore\LocalApis.json" />
+        &lt;ProjectReference Include="..\..\PetStore\PetStoreClientSDK\PetStoreClientSDK.csproj" />
+        &lt;EmbeddedResource Include="..\..\PetStore\Stacks\Dev\AwsSettings.json" />
+        &lt;EmbeddedResource Include="..\..\PetStore\LocalApis.json" />
     &lt;/ItemGroup>
     
     &lt;ItemGroup>
@@ -821,7 +818,7 @@
 
         <li>Download the following files and move them into the PetStoreMobileApp/ViewModels folder.
             <ul>
-                <li><a href="/assets/tutorial/code/PetStoreMobileApp/BaseViewMModel.cs" download>BaseViewModel.cs</a></li>
+                <li><a href="/assets/tutorial/code/PetStoreMobileApp/BaseViewModel.cs" download>BaseViewModel.cs</a></li>
                 <li><a href="/assets/tutorial/code/PetStoreMobileApp/ItemsViewModel.cs" download>ItemsViewModel.cs</a></li>
                 <li><a href="/assets/tutorial/code/PetStoreMobileApp/MainPageViewModel.cs" download>MainPageViewModel.cs</a></li>
             </ul>
@@ -842,7 +839,7 @@
 
     <h4>10.4 Update to the latest Xamarin packages.</h4>
     <ol>
-        <li>Right click on the PetStore solution. The context menu appears.</li>
+        <li>Right click on the PetStoreMobileApp solution. The context menu appears.</li>
         <li>Select "Manage Nuget Packages". The "Manage NuGet Packages - Solution" dialog opens.</li>
         <li>Select "Updates". Available Nuget Package updates are listed.</li>
         <li>If Xamarin.Essentials or Xamarin.Forms is listed, click the checkboxes next to them and then

@@ -64,7 +64,7 @@
                             IsTabStop="True"
                             Text="{Binding AuthProcess.Login, Mode=TwoWay}" 
                             ClearButtonVisibility="WhileEditing"
-                            Keyboard="Text"
+                            Keyboard="Plain"
                             ReturnType="Next"
                             IsSpellCheckEnabled="False"
                             IsTextPredictionEnabled="False"

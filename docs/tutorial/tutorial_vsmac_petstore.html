@@ -616,7 +616,7 @@
     <h3>Building the PetStore Solution</h3>
     <p>In this lesson step we will build the initial PetStore solution using the .NET LazyStack tool configured as a Visual Studio Tool.</p>
 
-    <p><strong>This tutorial assumes you are using the Windows Visual Studio IDE.</strong></p>
+    <p><strong>This tutorial assumes you are using the Mac Visual Studio IDE.</strong></p>
     <h4>2.1 Create PetStore solution</h4>
     <ol>
         <li><a href="/installation/devtools_config_dev_ws.html" target="_blank" rel="noopener noreferrer">Configure your developer workstation with Visual Studio IDE for Mac.</a></li>
@@ -624,14 +624,16 @@
         <li>Click on New project. The "Choose a template for your new project" dialog appears.</li>
         <li>Click on "Web and Console &rightarrow; App. </li>
         <li>Select API under the ASP.NET Core and click the Next button. The first "Configure your new API" page appears.</li>
-        <li>Select .NET 5.0 for the target framework and click the Next button. The next "Configure your new API" page appears.</li>
+        <li>Select .NET Core 3.1 for the target framework, No Authentication and Configure for HTTPS.</li>
+        <li>Click the Next button. The next "Configure your new API" page appears.</li>
         <li>Enter "PetStore" as the Project Name.</li>
         <li>Keep "PetStore" as the Solution Name.</li>
         <li>Edit the Location to point to the LazyStackTutorial folder.</li>
-        <li>Leave the "Create a project directory within the solution directory" Checked.</li>
+        <li>Check "Create a project directory within the solution directory." checkbox.</li>
         <li>Click on the Create button. A solution with your PetStore WebApi project is created.</li>
-
-        <li>Open the project file and replace its content with the following:
+        <li>Open the project file and replace its content with the following:<br>
+            To edit a project file, right click on the project name in the solution explorer and select "Edit Project File" from 
+            the context menu.
             <pre><code class="language-csharp"><?xml version="1.0" encoding="utf-8"?>
 &lt;Project Sdk="Microsoft.NET.Sdk.Web">
     &lt;PropertyGroup>
@@ -716,7 +718,8 @@ namespace PetStore
     }
 }
 </code></pre>
-                         
+        <li>Delete the PetStore project Controllers folder.</li>
+        <li>Delete the WeatherForecast.cs file.</li>
         <li>Select Visual Studio menuitem Build &RightArrow; Rebuild All. The solution compiles successfully.</li>
     </ol>
    
@@ -724,7 +727,7 @@ namespace PetStore
     <ol>
         <li>Add External LazyStackAuth project
             <ol type="a">
-             <li>Right Click on "Solution 'PetStore' in the Solution Explorer pane. The context menu appears." </li>
+             <li>Right Click on the 'PetStore' solution, top of the treen, in the Solution Explorer pane. The context menu appears. </li>
              <li>Select "Add &rightarrow; Exiting Project ..". The Add Exiting Project dialog appears.</li>
              <li>Select LazyStackTutorial\LazyStack\LazyStackAuth\LazyStackAuth.csproj. The project is added to your solution.</li>
             </ol>
@@ -796,7 +799,7 @@ namespace PetStore
         </li>
         <li>Add files in solution directory to Solution Items folder
             <ol>
-                <li>Right Click "PetStore" in solution explorer. The context menu appears.</li>
+                <li>Right Click "PetStore" soluion in solution explorer. The context menu appears.</li>
                 <li>Select Add &rightarrow; Existing Files. The file picker dialog appears.</li>
                 <li>In the PetStore solution directory, select newly added files:
                     <ul>
@@ -812,7 +815,7 @@ namespace PetStore
             </ol>
         <li>Add the serverless.template file and solution folders
             <ol>
-                <li>Right Click "PetStore" in the solution explorer. The context menu appears.</li>
+                <li>Right Click "PetStore" soljtion in the solution explorer. The context menu appears.</li>
                 <li>Select "Add &rightarrow; Solution Folder". A folder called "New Folder" is inserted into the 
                     solution explorer.</li>
                 <li>Edit the name of folder to "Stacks".</li>
