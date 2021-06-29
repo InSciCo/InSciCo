@@ -237,7 +237,7 @@
                             </ul>
                         </li>
                         <li><a href="/installation/devtools_config_dev_ws.html">Configure Dev Workstation</a>
-                            <ul class="menu vertical nested is-active">
+                            <ul class="menu vertical nested ">
                                 <li class=" menupage">
                                     <a href="/installation/devtools_config_dev_ws.html">Overview</a>
                                 </li>
@@ -381,7 +381,7 @@
                 </li>
             
                 <li><a href="/userguide/userguide_overview.html">UserGuide</a>
-                    <ul class="menu vertical nested is-active">
+                    <ul class="menu vertical nested ">
                         <li class=" menupage">
                             <a href="/userguide/userguide_overview.html">Overview</a>
                         </li>
@@ -422,7 +422,7 @@
             
                         </li>
                         <li><a href="/userguide/generator_tools_overview.html">LazyStack MDD Tools</a>
-                            <ul class="menu vertical nested is-active">
+                            <ul class="menu vertical nested ">
                                 <li  class=" menupage">
                                     <a href="/userguide/generator_tools_overview.html">Overview</a>
                                 </li>
@@ -432,7 +432,7 @@
                                 <li  class=" menupage">
                                     <a href="/userguide/generator_stacks.html">Stacks Directive</a>
                                 </li>
-                                <li  class="is-active menupage">
+                                <li  class=" menupage">
                                     <a href="/userguide/generator_defaultapi.html">DefaultApi Directive</a>
                                 </li>
                                 <li  class=" menupage">
@@ -587,7 +587,7 @@
                     </ul>
                 </li>
                 <li><a href="/roadmap/roadmap_overview.html">Product RoadMap</a>
-                    <ul class="menu vertical nested ">
+                    <ul class="menu vertical nested is-active">
                         <li  class=" menupage">
                             <a href="/roadmap/roadmap_overview.html">Overview</a>
                         </li>
@@ -597,7 +597,7 @@
                         <li  class=" menupage">
                             <a  href="/roadmap/smf.html">SMF</a>
                         </li>
-                        <li  class=" menupage">
+                        <li  class="is-active menupage">
                             <a  href="/roadmap/lazystackrepo.html">LazyStack Repository</a>
                         </li>
                     </ul>
@@ -616,26 +616,42 @@
         <div class="cell small-12 medium-9" style="padding: 10px 0px 0px 0px;">
 
 <div class=lz-r-content>
-    <h3>DefaultApi Directive</h3>
-
-    <p>Your application stack can have one or more ApiGateways. LazyStack defines four predefined LazyStack
-        API Gateway configurations.
-    </p>
+    <h3>LazyStack Repository</h3>
+    <h4>GitHub Repository InSciCo/LazyStack</h4>
     <ul>
-        <li>ApiUnsecure</li>
-        <li>ApiSecure</li>
-        <li>HttpApiUnsecure</li>
-        <li>HttpApiSecure</li>
+        <li>v1.1.0 (6/29/2021)
+            <ul>
+                <li>Enhanced DynamoDBRepo library</li>
+                <li>Added DynamoDBRepoTests project</li>
+            </ul>
+        </li>
     </ul>
-    
-    <p>The default ApiGateway is HttpApiSecure. To change the default API Gateway configuration, add the 
-        <strong>DefaultApi:</strong>directive to the LazyStack.yaml configuration file. For example:</p>
-    
-<pre><code class="language-yaml"># LazyStack Version 1.0.0
-DefaultApi: ApiSecure
-</code></pre>
-    
-<div style="height:10px"></div></div>
+    <li>v1.0.3 (3/17/2021)
+        <ul>
+            <li>Removed unnecessary AuthRole permissions from core template.</li>
+        </ul>
+    </li>
+    <li>v1.0.1 (2/25/2021)
+        <ul>
+            <li>Added NugetPackageVersions directive</li>
+            <li>Publishing all defaults into new LazyStack.yaml file</li>
+        </ul>
+    </li>
+    <li>v1.0.0 (2/10/2021)</li>
+</ul>
+
+
+<h4>LazyStackAuth Library NuGet package</h4>
+<ul>
+    <li>LazyStackAuth.1.1.0.nupkg (6/29/2021)</li>
+    <li>LazyStackAuth.1.0.0.nupkg (2/10/2021)</li>
+</ul>
+<h4>LazyStackDynamoDBRepo Library NuGet package</h4>
+<ul>
+    <li>LazyStackDynamoDBRepo.1.1.0.nupkg (6/29/2021)</li>
+    <li>LazyStackDynamoDBRepo.1.0.0.nupkg (2/10/2021)</li>
+</ul>
+    <div style="height:10px"></div></div>
         </div>
     </div>
 </div>
