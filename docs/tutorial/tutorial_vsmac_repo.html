@@ -616,14 +616,14 @@
     <h3>Implement PetStore application repository</h3>
     <p>In most applications we have a persistence layer, often called the repository layer. In this
         tutorial we create a PetStoreRepo project to use DynamoDB to store our data. Since our 
-        PetStoreRepo will use  AWS DynamoDB, we use the LazyStackDynamoDBRepo NuGet package 
+        PetStoreRepo will use  AWS DynamoDB, we use the LazyStackDynamoDBRepo library 
         that implements generic Create, Read, Update, Delete and List (CRUDL) operations on the 
-        Amazon DynamoDB. 
+        Amazon DynamoDB. This library is also available as a NuGet package.
     </p>
 
     <h4>3.1 Create the PetStoreRepo project</h4>
     <ol>
-        <li>Create PetStoreRepo project from "C# Class Library (.NET Core)" template.
+        <li>Create PetStoreRepo project from "Web and Console &rightarrow; Library &rightarrow; Class Library" template.
             <ol type="a">
                 <li>Right Click on Solution PetStore item in the solution explorer. The context menu appears.</li>
                 <li>Select the Add &RightArrow; New Project context menu item. The "Choose a template for your new 
@@ -669,7 +669,7 @@
     <h4>Step Summary</h4>
     <p>In this step we created the PetStoreRepo project by:</p>
     <ul>
-        <li>Creating a PetStoreRepo project using the C# Class(.NET Core) Library template.</li>
+        <li>Creating a PetStoreRepo project using the Class Library template.</li>
         <li>Adding classes for Categories, Orders, Pets and Tags.</li>
         <li>Referencing the LazyStackDynamoDBRepo project.</li>
     </ul>

@@ -631,7 +631,7 @@
             email address each time we run the tests and deleting users from the Cognito User Pool is not
             convenient or always what we what.
         </p>
-        <p>Lucky for us, Gmail has a nifty feature that allows you to use an email address 
+        <p>Lucky for us, Gmail has a nifty feature that allows you to use a dynamic email address 
         alias. For example, if you email address is myemail@gmaili.com, you can send email to that address with 
         the alias myemail+01@gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
         This means we can use a single Gmail account to create and test multiple AWS Cognito accounts where each 
@@ -768,8 +768,8 @@
             library in this project.
             <ul>
                 <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
-                    to see much more extensive integration tests for AuthProcess, view the 
-                    <a href="https://github.com/InSciCo/LazyStack" target="_blank" rel="noopener noreferrer">LazyStack</a> repo on GitHub.
+                    to see much more extensive integration tests for AuthProcess, review the 
+                    <a href="https://github.com/InSciCo/LazyStack" target="_blank" rel="noopener noreferrer">LazyStack</a> repo.
                 </li>
                 <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html"target="_blank" rel="noopener noreferrer">LzHttpClient</a> class 
                     implements the logic necessary for your client to make secure calls to the AWS Stack ApiGateways. 
