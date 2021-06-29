@@ -26,17 +26,17 @@ menu2: vsmac
 <ul>
   <li>Controller projects</li>
   <li>Lambda projects</li>
-  <li>PetStoreMacClientSDK project</li>
-  <li>PetStoreMacSchema project</li>
+  <li>PetStoreClientSDK project</li>
+  <li>PetStoreSchema project</li>
 </ul>
 <p>These generated projects should not be edited as your changes would be lost.</p>
-<p>In addition to the generated projects, portions of the WebApi project "PetStoreMac" are updated with each execution of 
+<p>In addition to the generated projects, portions of the WebApi project "PetStore" are updated with each execution of 
   LazyStack - Generate Projects. 
 </p>
 <p>LazyStack - Generate Projects does not update or modify any other projects in your solution.</p>
-<h4>3.1 Update LazyStack.yaml and Generate Projects</h4>
+<h4>5.1 Update LazyStack.yaml and Generate Projects</h4>
 <ol>
-   <li>Download this <a href="/assets/tutorial/VSMac/LazyStack.yaml" download="LazyStack.yaml">LazyStack.yaml</a> file and move it into the 
+   <li>Download this <a href="/assets/tutorial/code/LazyStack.yaml" download="LazyStack.yaml">LazyStack.yaml</a> file and move it into the 
     solution's root folder.</li>
     <li>Open the LazyStack.yaml file and edit the ProfileName and RegionName values if necessary.</li>
     <li>Save the LazyStack.yaml file.</li>
@@ -45,7 +45,7 @@ menu2: vsmac
     </li> 
     <li>Rebuild Solution. All projects in the solution are compiled successfully.</li>
 </ol>
-<h4>3.2 Update WebApi project (PetStoreMac) launchSettings.json file</h4>
+<h4>5.2 Update WebApi project (PetStore) launchSettings.json file</h4>
 <ol>
     <li>Open the PetStore\Properties\launchSettings.json file.</li>
     <li>Add the "TABLE_NAME" environmental variable as shown below on line 25.</li>
@@ -73,7 +73,7 @@ menu2: vsmac
         "applicationUrl": "https://localhost:5001;http://localhost:5000",
         "environmentVariables": {
           "ASPNETCORE_ENVIRONMENT": "Development",
-          "TABLE_NAME": "PetStoreMacDev-DB"
+          "TABLE_NAME": "PetStoreDev-DB"
         }
       }
     }
@@ -84,9 +84,9 @@ menu2: vsmac
 <p></p>
 <h4>Step Summary</h4>
 <p>In this step we updated the LazyStack.yaml file to create a DynamoDB resource and configure the 
-    WebApi (PetStoreMac) project and Lambdas projects to reference the PetStoreRepo project. We also 
+    WebApi (PetStore) project and Lambdas projects to reference the PetStoreRepo project. We also 
     inserted an environment variable "TABLE_NAME" in the WebApi project's launchSettings.json file to 
-    reference a table called "PetStoreMacDev-DB" in the DynamoDb resource.
+    reference a table called "PetStoreDev-DB" in the DynamoDb resource.
 </p>
 {{>btmspacer}}
 </div> 

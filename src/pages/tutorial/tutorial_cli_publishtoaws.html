@@ -6,26 +6,26 @@ menu2: cli
 ---
 
 <div class=lz-r-content>
-    <h3>Publish PetStoreCLIDev stack to AWS</h3>
-    <h4>4.1 Publish</h4>
+    <h3>Publish PetStoreDev stack to AWS</h3>
+    <h4>6.1 Publish</h4>
     <p>In this step we will publish our stack to AWS.</p>
     <ol>
         <li>Create an s3 bucket - you only need to do this the first time you publish.
-            <pre><code class="language-bash">aws s3api create-bucket --bucket petstorecli --region us-east-1 --acl private</code></pre>
+            <pre><code class="language-bash">aws s3api create-bucket --bucket PetStore --region us-east-1 --acl private</code></pre>
         </li>
-        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI), and use AWS SAM CLI to deploy your stack to AWS. <br>
-            Windows: <pre><code class="language-bash">sam deploy -t .\Stacks\Dev\serverless.template --stack-name PetStoreCLIDev --s3-bucket petstorecli --capabilities  CAPABILITY_NAMED_IAM</code></pre>
-            MacOS/Linux: <pre><code class="language-bash">sam deploy -t ./Stacks/Dev/serverless.template --stack-name PetStoreCLIDev --s3-bucket petstorecli --capabilities  CAPABILITY_NAMED_IAM</code></pre>
-            The PetStoreCLIDev stack is deployed to AWS.
+        <li>CD into the solution folder (LazyStackTutorial\PetStore), and use AWS SAM CLI to deploy your stack to AWS. <br>
+            Windows: <pre><code class="language-bash">sam deploy -t .\Stacks\Dev\serverless.template --stack-name PetStoreDev --s3-bucket petstore --capabilities  CAPABILITY_NAMED_IAM</code></pre>
+            MacOS/Linux: <pre><code class="language-bash">sam deploy -t ./Stacks/Dev/serverless.template --stack-name PetStoreDev --s3-bucket petstore --capabilities  CAPABILITY_NAMED_IAM</code></pre>
+            The PetStoreDev stack is deployed to AWS.
         </li>
     </ol>
-    <h4>4.2 Generate AwsSettings.json file</h4>
+    <h4>6.2 Generate AwsSettings.json file</h4>
     <ol>
-        <li>CD into the solution folder (LazyStackTutorial\PetStoreCLI), and execute "lazystack settings". <br>
-            Windows: <pre><code class="language-bash">lazystack settings PetStoreCLIDev .\Stacks\Dev\AwsSettings.json</code></pre>
-            MacOS/Linux: <pre><code class="language-bash">lazystack settings PetStoreCLIDev ./Stacks/Dev/AwsSettings.json</code></pre>
+        <li>CD into the solution folder (LazyStackTutorial\PetStore), and execute "lazystack settings". <br>
+            Windows: <pre><code class="language-bash">lazystack settings PetStoreDev .\Stacks\Dev\AwsSettings.json</code></pre>
+            MacOS/Linux: <pre><code class="language-bash">lazystack settings PetStoreDev ./Stacks/Dev/AwsSettings.json</code></pre>
             An AwsSettings.json file is placed in the Stacks\Dev folder. This file contains the configuration settings 
-        necessary for client apps to use the PetStoreCLIDev AWS Stack.</li>
+        necessary for client apps to use the PetStoreDev AWS Stack.</li>
     </ol>    
     <p></p>
     <h5>Step Summary</h5>

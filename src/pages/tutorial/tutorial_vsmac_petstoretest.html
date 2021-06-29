@@ -8,14 +8,14 @@ menu2: vsmac
 <div class=lz-r-content>
     <h3>PetStoreTests Project</h3>
     <p>In this step we will create a PetStoreTest project to perform an integration test against the 
-        PetStoreMacDev stack. We will test:</p>
+        PetStoreDev stack. We will test:</p>
     <ul>
         <li>Application SignUp - using the LazyStackAuth library. </li>
         <li>Application SignIn - using the LazyStackAuth library. </li>
         <li>Calling the stack using the PetStore - defined in the PetStoreClientSDK library.</li>
     </ul>
 
-    <h4>6.1 Configure a Gmail Account</h4>
+    <h4>8.1 Configure a Gmail Account</h4>
     <p>The automated tests we will create in this step require a Gmail account. AWS Cognito will email authorization codes 
         to that Gmail account during the tests. For instance, the sign-up process will email the new user a 
         authorization code. Our sign-up process test must log into the user's Gmail account, find the email containing 
@@ -24,7 +24,7 @@ menu2: vsmac
             email address each time we run the tests and deleting users from the Cognito User Pool is not
             convenient or always what we what.
         </p>
-        <p>Lucky for us, Gmail has a nifty feature that allows you to use an email address 
+        <p>Lucky for us, Gmail has a nifty feature that allows you to use a dynamic email address 
         alias. For example, if you email address is myemail@gmaili.com, you can send email to that address with 
         the alias myemail+01@gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
         This means we can use a single Gmail account to create and test multiple AWS Cognito accounts where each 
@@ -37,99 +37,105 @@ menu2: vsmac
         <li>Select Security from menu.</li>
         <li>Select "Less secure app access" and turn on access.</li>
     </ol>
-    <p></p>
+    <p>Warning: Google really doesn't like your account to allow "less secure 
+        app access". They will regularly reset this setting to "on" without your permission, without warning, 
+        and without notification. Before running this test suite in the future, you must check your Google 
+        account settings to make sure this setting is off.
+    </p>
     
-    <h4>6.2 Create PetStoreTests Project</h4>
+    <h4>8.2 Create PetStoreTests Project</h4>
     <ol>
         <li>Right Click on "Solution PetStore" in the Solution Explorer pane. The Context Menu appears.</li>
         <li>Select "Add &RightArrow; New Project" from the context menu. The "Choose a template for your new 
             project" dialog appears.</li>
-        <li>Select "Web and Console &rightarrow; Tests &rightarrow; MSTes Project".</li>
+        <li>Select "Web and Console &rightarrow; Tests &rightarrow; MSTest Project".</li>
         <li>Click on the Next button. The "Configure your MSTest Project" dialog appears.</li>
-        <li>Select ".NET 5.0" for the Target Framework and press the Next button. The second "Configure your 
+        <li>Select ".NET Core 3.1" for the Target Framework and press the Next button. The second "Configure your 
             MSTest Project" page appears.</li>
         <li>Edit project name to read "PetStoreTests".</li>
         <li>Click the Create button. The test project is added to your solution.</li>
     </ol>
     
-    <h4>6.2 Configure Microsoft User Secrets</h4>
-    <p>Visual Studio for Mac does not currently support editing User Secrets from the IDE. 
-        Since we have the .NET CLI installed we can use that to set up our secrets.
-    </p>
+    <h4>8.3 Add Project Dependencies</h4>
         <ol>
-            <li>Generate User-Secrets GUID
-                <ol>
-                    <li>Open a Terminal.</li>
-                    <li>CD to the solution folder (LazyStackTutorial\PetStoreMac) and install the dotnet 
-                        GUID tool if it is not already installed:
-                        <pre><code class="language-bash">dotnet tool install -g dotnet-guid</code></pre>
-                    </li>
-                    <li>Use the guid tool to generate a new GUID:
-                        <pre><code class="language-bash">guid</code></pre>
-                        A guid is printed to the console. Make a note of this GUID as you will need it in the next step.
-                    </li>
-            
-                </ol>
+            <li>Open the PetStoreTests.csproj file.</li>
+            <li>Copy the following ItemGroup into the .csproj file.
+                <pre><code class="language-bash">
+    &lt;ItemGroup>
+        &lt;PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+        &lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+        &lt;ProjectReference Include="..\PetStoreClientSDK\PetStoreClientSDK.csproj" />
+        &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
+    &lt;/ItemGroup>
+                </code></pre>
             </li>
-        </ol>    
+            <li>Save the file.</li>
+        </ol>
 
-    <h4>6.3 Configure PetStoreTests Project</h4>
+    <p>Note the inclusion of the "..\Stacks\Dev\AwsSettings.json" file as an embedded resource. This 
+        file contains the information necessary for a client app to connect to and use the AWS Stack. We 
+        generated this file earlier with using Tools → LazyStack - Generate Stacks\Dev\AwsSettings.json.
+    </p>
+
+    <h4>8.4 Configure Microsoft User Secrets</h4>
     <p>Visual Studio for Mac does not currently support editing User Secrets from the IDE. 
         Since we have the .NET CLI installed we can use that to set up our secrets.
     </p>
     <ol>
-      <li>Copy this content into the PetStoreTests.csproj file, then replace the UserSecretsId value 
-        with the guid you generated in the previous step:
-        <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk">
-    &lt;PropertyGroup>
-        &lt;TargetFramework>net5.0&lt;/TargetFramework>
-        &lt;IsPackable>false&lt;/IsPackable>
-        &lt;UserSecretsId>4270b588-c2ce-4c08-91bb-58aa1901134c&lt;/UserSecretsId>
-    &lt;/PropertyGroup>
-
-    &lt;ItemGroup>
-        &lt;PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-        &lt;PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
-        &lt;PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
-        &lt;PackageReference Include="coverlet.collector" Version="1.3.0" />
-        &lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-        &lt;PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
-        &lt;ProjectReference Include="..\PetStoreRepo\PetStoreRepo.csproj" />
-        &lt;ProjectReference Include="..\PetStoreMacClientSDK\PetStoreMacClientSDK.csproj" />
-        &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />   
-    &lt;/ItemGroup>                        
-&lt;/Project></code></pre>
+        <li>Generate User-Secrets GUID
+            <ol>
+                <li>Open a Terminal.</li>
+                <li>CD to the solution folder (LazyStackTutorial\PetStore) and install the dotnet 
+                    GUID tool if it is not already installed:
+                    <pre><code class="language-bash">dotnet tool install -g dotnet-guid</code></pre>
+                </li>
+                <li>Use the guid tool to generate a new GUID:
+                    <pre><code class="language-bash">guid</code></pre>
+                    A guid is printed to the console. Make a note of this GUID as you will need it in the next step.
+                </li>
+        
+            </ol>
         </li>
-    </ol>
+      <li>Replace the PropertyGroup with the following content in the PetStoreTests.csproj file, 
+          then replace the UserSecretsId value 
+        with the guid you generated in the previous step:
+        <pre><code class="language-xml">
+    &lt;PropertyGroup>
+        &lt;TargetFramework>netcoreapp3.1&lt;/TargetFramework>
+        &lt;IsPackable>false&lt;/IsPackable>
+        &lt;UserSecretsId>12345678-9abc-def0-1234-56789abcdef0&lt;/UserSecretsId>
+    &lt;/PropertyGroup>
+                     </code></pre>
+        </li>
 
-    <h4>6.4 Set User Secret Values </h4>
-        <ol>
-            <li>Open a Terminal Window</li>
-            <li>CD into the LazyStackTutorial/PetStoreMac folder.</li>
-            <li>Set Gmail:Email user secret value:
-                <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@gmail.com" </code></pre>
-            </li>
-            <li>Set Gmail:Password user secret value:
-                <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Password" "maypassword" </code></pre>
-            </li>
-        </ol>
-
+        <li>Set User Secret Values
+            <ol>
+                <li>Open a Terminal Window</li>
+                <li>CD into the LazyStackTutorial/PetStore folder.</li>
+                <li>Set Gmail:Email user secret value:
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@gmail.com" </code></pre>
+                </li>
+                <li>Set Gmail:Password user secret value:
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Password" "maypassword" </code></pre>
+                </li>
+            </ol>
+        </li>
     </ol>
     <p></p>
     
-    <h4>6.5 Implement Tests</h4>
+    <h4>8.5 Implement Tests</h4>
     <ol>
         <li>Delete the PetStoreTests UnitTest1.cs file.</li>
-        <li>Download <a href="/assets/tutorial/VSMac/PetStoreIntegrationTest.cs" 
+        <li>Download <a href="/assets/tutorial/code/PetStoreTests/PetStoreIntegrationTest.cs" 
             download>PetStoreIntegrationTest.cs</a> and 
             then move it into the PetStoreTests project.</li>
     </ol>
-    <h4>6.6 Run Tests</h4>
+    <h4>8.6 Run Tests</h4>
     <ol>
-        <li>Select View &RightArrow; Test Explorer. The Test Explorer panel appears.</li>
+        <li>Select View &RightArrow; Tests. The Test Explorer panel appears.</li>
         <li>Run Tests. The integration test completes successfully.</li>
     </ol>
-    <h4>6.7 Step Summary</h4>
+    <h4>8.7 Step Summary</h4>
     <p>In this step we created a Integration test project and ran our first tests against 
         the published stack.
     </p>
@@ -155,8 +161,8 @@ menu2: vsmac
             library in this project.
             <ul>
                 <li>This test only exercises the simple Happy Path SignUp and SignIn process. If you want 
-                    to see much more extensive integration tests for AuthProcess, view the 
-                    <a href="https://github.com/InSciCo/LazyStack" {{>newtab}}>LazyStack</a> repo on GitHub.
+                    to see much more extensive integration tests for AuthProcess, review the 
+                    <a href="https://github.com/InSciCo/LazyStack" {{>newtab}}>LazyStack</a> repo.
                 </li>
                 <li>The <a href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html"{{>newtab}}>LzHttpClient</a> class 
                     implements the logic necessary for your client to make secure calls to the AWS Stack ApiGateways. 
