@@ -19,7 +19,7 @@ namespace PetStoreRepo.Models
             TypeName = "Pet.v1.0.0";
             // Primary Key is PartitionKey + SortKey 
             PK = "Pets:"; // Partition key
-            SK = $"Pets:{EntityInstance.Id}"; // sort/range key
+            SK = $"Pet:{EntityInstance.Id}"; // sort/range key
 
             // The base method copies information from the envelope keys into the dbRecord
             base.SetDbRecordFromEnvelopeInstance();
