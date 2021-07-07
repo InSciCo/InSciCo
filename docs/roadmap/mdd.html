@@ -141,19 +141,6 @@
 
     <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
         <div class="cell medium-3 ">
-            <!--
-            <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle></button>
-                <div class="title-bar-title"></div>
-            </div>
-            -->
-            <!--
-            <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
-            -->
-            <!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-            <!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-                data-submenu-toggle="true">-->
-            
             
             <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
                 data-submenu-toggle="true">
@@ -550,25 +537,31 @@
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+            
+                                <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                                        </li>
+                    
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                        </li>
+            
+                                    </ul>
                                 </li>
                                 <li  class=" menupage">
                                     <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
                                 </li>
-            
                                 <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
                                     <ul class="menu vertical nested ">
                                         <li  class=" menupage">
@@ -619,16 +612,34 @@
     <h3>LazyStack MDD Tools Version 1.0.x</h3>
     <h4>LazyStack Visual Studio Extension</h4>
     <ul>
+        <li>v1.2.0 (7/6/2021)
+            <ul>
+                <li>Added support for passing Cognito Identity in Controllers for ApiSecure.</li>
+                <li>Moved NugetPackageVersions directive under ProjectOptions.</li>
+                <li>Introduced NugetPackageVersions updates with new LazyStackVersions (only for default packages required by LazyStack).</li>
+                <li>Enhanced validation and messages for LazyStack.yaml file processing.</li>
+                <li>Updated to latest package versions for dependencies.</li>
+            </ul>
+        </li>
         <li>v1.1.0 (6/29/2021)
             <ul>
-                <li>Added support for passing Cognito Identity in Controllers</li>
+                <li>Added support for passing Cognito Identity in Controllers for HttpApiSecure</li>
             </ul>
         </li>
         <li>V1.0.0 (2/10/2021)</li>
     </ul>
     <h4>LazyStackApp .NET tool NuGet package</h4>
     <ul>
-        <li>v1.1.0 (6/29/2021)
+        <li>LazyStackApp.1.2.0.nupkg (7/6/2021)
+            <ul>
+                <li>Added support for passing Cognito Identity in Controllers for ApiSecure.</li>
+                <li>Moved NugetPackageVersions directive under ProjectOptions.</li>
+                <li>Introduced NugetPackageVersions updates with new LazyStackVersions (only for default packages required by LazyStack).</li>
+                <li>Enhanced validation and messages for LazyStack.yaml file processing.</li>
+                <li>Updated to latest package versions for dependencies.</li>
+            </ul>
+        </li>
+        <li>LazyStackApp.1.1.0.nupkg (6/29/2021)
             <ul>
                 <li>Added support for passing Cognito Identity in Controllers.</li>
                 <li>Fixed return code on app exit.</li>

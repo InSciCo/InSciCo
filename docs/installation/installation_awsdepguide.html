@@ -141,19 +141,6 @@
 
     <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
         <div class="cell medium-3 ">
-            <!--
-            <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle></button>
-                <div class="title-bar-title"></div>
-            </div>
-            -->
-            <!--
-            <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
-            -->
-            <!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-            <!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-                data-submenu-toggle="true">-->
-            
             
             <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
                 data-submenu-toggle="true">
@@ -550,25 +537,31 @@
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+            
+                                <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                                        </li>
+                    
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                        </li>
+            
+                                    </ul>
                                 </li>
                                 <li  class=" menupage">
                                     <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
                                 </li>
-            
                                 <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
                                     <ul class="menu vertical nested ">
                                         <li  class=" menupage">
@@ -630,7 +623,27 @@
                 </ul>
             </li>
             <br>
-            <li>2. Use Cases:
+            <li>2. AWS Costs<br>
+                <ul>
+                    <li>All resources used in the SMF qualify for usage under the free tier:</li>
+                    <li><a href="https://aws.amazon.com/pricing/">AWS Pricing Overview</a></li>
+                    <li><a href="https://aws.amazon.com/free">AWS Free Tier</a></li>
+                    <li><a href="https://aws.amazon.com/codcebuild/pricing">AWS CodeBuild</a></li>
+                    <li><a href="https://aws.amazon.com/s3/pricing">AWS S3</a></li>
+                    <li>Services used in typical Serverless Stacks (these are also in the free tier):
+                        <ul>
+                            <li><a href="https://aws.amazon.com/">AWS Lambda</a></li>
+                            <li><a href="https://aws.amazon.com/dynamodb/pricing">AWS DynamoDB</a></li>
+                            <li><a href="https://aws.amazon.com/api-gateway/pricing">API Gateway</a></li>
+                            <li><a href="https://aws.amazon.com/lambda./pricing">AWS Lambda</a>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Most services have "caps" on usage beyond which costs will accrue. In addition, some 
+                services are in the free tier only for the first 12 months of usage. Review the AWS pricing 
+                pages to understand these pricing models and budget accordingly.</p>
+            </li>
+            <li>3. Use Cases:
                 <ul>
                     <li>2.1 Use Case: Install SMF<br>
                         <ul>Prerequisites:
@@ -828,7 +841,7 @@
                 </ul>
             </li>  
             <br>
-            <li>3. Typical Customer Deployment AWS Resources
+            <li>4. Typical Customer Deployment AWS Resources
                 <ul>
                     <li>AWS Organization
                         <ul>
@@ -1025,13 +1038,13 @@
         </ul>
             </li>
             <br>
-            <li>4. Deployment Naming
+            <li>5. Deployment Naming
                 <ul>
                     <li>OrgCode + SysCode prefix to be used for system test and system production accounts</li>
                 </ul>
             </li>
             <br>
-            <li>5. Architectural Diagrams
+            <li>6. Architectural Diagrams
                 <ul>
                     <li>Software Management Framework Flow<br>
                         <img src="/assets/img/SDLCFeatureflowVSIDEOverview.svg">
@@ -1055,16 +1068,9 @@
                 </ul>
             </li>
             <br>
-            <li>6. Security References
+            <li>7. Security References
                 <ul>
                     <li><a href="https://aws.amazon.com/security/security-learning">AWS Cloud Security</a></li>
-                </ul>
-            </li>
-            <br>
-            <li>7. AWS Costs<br>
-                All resources used in the SMF qualify for usage under the free tier
-                <ul>
-                    <li><a href="https://aws.amazon.com/pricing/">AWS Pricing Overview</a></li>
                 </ul>
             </li>
             <br>

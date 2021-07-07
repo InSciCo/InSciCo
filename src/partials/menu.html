@@ -1,16 +1,3 @@
-<!--
-<div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">{{topic}}</div>
-</div>
--->
-<!--
-<div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
--->
-<!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-<!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-    data-submenu-toggle="true">-->
-
 
 <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
     data-submenu-toggle="true">
@@ -407,25 +394,31 @@
                     <li  class="{{#ifpage 'libraries_overview'}}is-active{{/ifpage}} menupage">
                         <a  href="/libraries/libraries_overview.html">Overview</a>
                     </li>
-                    <li  class="{{#ifpage 'lazystackauth_lazystackauth'}}is-active{{/ifpage}} menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                    </li>
-                    <li  class="{{#ifpage 'lazystackauth_authmessages'}}is-active{{/ifpage}} menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                    </li>
-                    <li  class="{{#ifpage 'lazystackauth_authprovider'}}is-active{{/ifpage}} menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                    </li>
-                    <li  class="{{#ifpage 'lazystackauth_authprocess'}}is-active{{/ifpage}} menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                    </li>
-                    <li  class="{{#ifpage 'lazystackauth_lzhttpclient'}}is-active{{/ifpage}} menupage">
-                        <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+
+                    <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                        <ul class="menu vertical nested {{#ifequal menu2 'auth'}}is-active{{/ifequal}}">
+                            <li  class="{{#ifpage 'lazystackauth_lazystackauth'}}is-active{{/ifpage}} menupage">
+                                <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
+                            </li>
+                            <li  class="{{#ifpage 'lazystackauth_authmessages'}}is-active{{/ifpage}} menupage">
+                                <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                            </li>
+                            <li  class="{{#ifpage 'lazystackauth_authprovider'}}is-active{{/ifpage}} menupage">
+                                <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                            </li>
+        
+                            <li  class="{{#ifpage 'lazystackauth_authprocess'}}is-active{{/ifpage}} menupage">
+                                <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                            </li>
+                            <li  class="{{#ifpage 'lazystackauth_lzhttpclient'}}is-active{{/ifpage}} menupage">
+                                <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                            </li>
+
+                        </ul>
                     </li>
                     <li  class="{{#ifpage 'getawssettings_getawssettings'}}is-active{{/ifpage}} menupage">
                         <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
                     </li>
-
                     <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
                         <ul class="menu vertical nested {{#ifequal menu2 'dynamo'}}is-active{{/ifequal}}">
                             <li  class="{{#ifpage 'dynamodb_overview'}}is-active{{/ifpage}} menupage">

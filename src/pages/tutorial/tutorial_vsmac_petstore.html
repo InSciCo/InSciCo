@@ -223,52 +223,29 @@ namespace PetStore
         </li>
     </ol>
 <p></p>
-<h4>2.4 Edit the LazyStack.yaml file</h4>
+<h4>2.4 Review the LazyStack.yaml file</h4>
     <p>The Generate Projects command created a default LazyStack.yaml file in your solution's root 
-        folder. The file is now visible in the "Solution Items" folder in the solution explorer. We 
-        need to update it with your AWS profile and AWS region. Your initial LazyStack.yaml file should 
-        look like this:
+        folder. The file is now visible in the "Solution Items" folder in the solution explorer.
+        The top of the LazyStack.yaml file should look like this:
     </p>
-    <pre><code class="language-yaml"># LazyStack Version 1.0.0
-        Stacks:
-          Dev:
-            ProfileName: default
-            RegionName: us-east-1
-            StackName: PetStoreDev 
-            Stage: Dev
-            UriCodeTarget: Debug/netcoreapp3.1
-        
-          Test:
-            StackName: PetStoreTest
-            Stage: Test 
-            UriCodeTarget: Release/netcoreapp3.1
-            
-          Prod:
-            StackName: PetStore
-            Stage: Prod 
-            UriCodeTarget: Release/netcoreapp3.1
-        
-        ApiTagMap:
-            HttpApiSecure:
-            - pet 
-            - order    
-        
-            ...
-        </code></pre>
-<ol>
-    <li>Open the Solution Items\LazyStack.yaml file.</li>
-    <li>Edit the ProfileName.
-        <p>You may modify the ProfileName if you are not using the profile "default" - 
-            Note: the profile "default" is created by the AWS CLI install unless you specify some 
-            other named profile.</p>
-    </li>
-    <li>Edit the RegionName.</li>
-    <li>Save the file.</li>
-</ol>
-<p>Note: The Test and Prod stack definitions will not be used in this tutorial as they are used 
-    by LazyStack Software Management Framework Continuous Integration and Continuous Deployment 
-    pipelines.
-</p>
+    <pre><code class="language-yaml">
+Stacks:
+  Dev:
+    ProfileName: default
+    RegionName: us-east-1
+    StackName: PetStoreDev 
+    Stage: Dev
+    UriCodeTarget: Debug/netcoreapp3.1
+  Test:
+    Stage: Test 
+    UriCodeTarget: Release/netcoreapp3.1
+  Prod:
+    Stage: Prod 
+    UriCodeTarget: Release/netcoreapp3.1
+ApiTagMap:
+  HttpApiSecure:
+  - pet 
+  - order</code></pre>
 
 <h4>2.5 Review the SAM_Review.yaml</h4>
 <p>The SAM_Review.yaml file was generated in the solution folder. This file contains the stack configuration 

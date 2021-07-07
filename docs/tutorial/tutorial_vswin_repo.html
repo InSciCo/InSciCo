@@ -141,19 +141,6 @@
 
     <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
         <div class="cell medium-3 ">
-            <!--
-            <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle></button>
-                <div class="title-bar-title"></div>
-            </div>
-            -->
-            <!--
-            <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
-            -->
-            <!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-            <!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-                data-submenu-toggle="true">-->
-            
             
             <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
                 data-submenu-toggle="true">
@@ -550,25 +537,31 @@
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+            
+                                <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                                        </li>
+                    
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                        </li>
+            
+                                    </ul>
                                 </li>
                                 <li  class=" menupage">
                                     <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
                                 </li>
-            
                                 <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
                                     <ul class="menu vertical nested ">
                                         <li  class=" menupage">
@@ -626,15 +619,17 @@
 
     <h4>3.1 Create the PetStoreRepo project</h4>
     <ol>
-        <li>Create PetStoreRepo project from "C# Class Library (.NET Core)" template.
+        <li>Create PetStoreRepo project from "Class Library (C#)" template.
             <ol type="a">
                 <li>Right Click on Solution PetStore item in the solution explorer. The context menu appears.</li>
                 <li>Select the Add &RightArrow; New Project context menu item. The "Add a new project" dialog appears.</li>
                 <li>Find the "Class Library (.NET Core)" project template. </li>
-                <li>Double click on the "Class Library (.NET Core)" template. The Configure your new project window is
-                    presented.
+                <li>Double click on the "Class Library (.NET Core) C# template. The Configure your new project window is
+                    presented. Note: You have to look at the icon to see which template is for C#.
                 </li>
                 <li>Enter "PetStoreRepo" as the project name.</li>
+                <li>Click on the Next button. The 'Additional Information' page is presented.</li>
+                <li>For the 'Target Framework', select '.NET Core 3.1 (Long-term support) option.</li>
                 <li>Click the Create button. The project is created with a default class Class1.cs.</li>
             </ol>
         </li>

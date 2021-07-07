@@ -24,7 +24,7 @@ menu2: vswin
             email address each time we run the tests and deleting users from the Cognito User Pool is not
             convenient or always what we what.
         </p>
-        <p>Lucky for us, Gmail has a nifty feature that allows you to use an email address 
+        <p>Lucky for us, Gmail has a nifty feature that allows you to use a dynamic email address 
         alias. For example, if you email address is myemail@Gmaili.com, you can send email to that address with 
         the alias myemail+01@Gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
         This means we can use a single Gmail account to create and test multiple AWS Cognito accounts where each 
@@ -50,6 +50,8 @@ menu2: vswin
         <li>Type "MSTEST Test Project (.NET Core)" into the search field. The project template is listed.</li>
         <li>Double Click on the template list item. The "Configure your project" dialog appears.</li>
         <li>Edit project name to read "PetStoreTests".</li>
+        <li>Click the Next button. The 'Additional Information' page appears.</li>
+        <li>For 'TargetFrameWork' select '.NET Core 3.1 (Long-term support).</li>
         <li>Click the Create button. The test project is added to your solution.</li>
     </ol>
     
