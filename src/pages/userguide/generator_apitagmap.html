@@ -7,7 +7,7 @@ menu1: mdd
 <div class=lz-r-content>
     <h3>ApiTagMap Directive</h3>
     <p>Use the ApiTagMap directive to use multiple API Gateway configurations in your application stack. </p>
-<pre><code class="language-yaml"># LazyStack Version 1.0.0
+<pre><code class="language-yaml">
 ApiTagMap:
     HttpApiSecure:
     - pet # The HttpApiSecure ApiGateway will call the Pet Lambda
@@ -70,7 +70,7 @@ ApiTagMap:
         </tbody>
     </table>
     <p>Here is another example where two lambdas are mapped to one ApiGateway:</p>
-<pre><code class="language-yaml"># LazyStack Version 1.0.0
+<pre><code class="language-yaml">
 ApiTagMap:
     HttpApiSecure:
     - pet # The HttpApiSecure ApiGateway will call the Pet Lambda

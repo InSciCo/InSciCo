@@ -141,19 +141,6 @@
 
     <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
         <div class="cell medium-3 ">
-            <!--
-            <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle></button>
-                <div class="title-bar-title"></div>
-            </div>
-            -->
-            <!--
-            <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
-            -->
-            <!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-            <!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-                data-submenu-toggle="true">-->
-            
             
             <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
                 data-submenu-toggle="true">
@@ -550,25 +537,31 @@
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+            
+                                <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                                        </li>
+                    
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                        </li>
+            
+                                    </ul>
                                 </li>
                                 <li  class=" menupage">
                                     <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
                                 </li>
-            
                                 <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
                                     <ul class="menu vertical nested ">
                                         <li  class=" menupage">
@@ -620,17 +613,14 @@
 
     <h4>ServiceRegistrations</h4>
     <p>For Lambda projects and WepApi projects, you often want to register classes 
-      for Dependency Injection. LazyStack generates Startup class method ConfigureSvcs()
+      for Dependency Injection. LazyStack generates a Startup class method ConfigureSvcs()
       and inserts service registration statements into it. Consider the following 
-      service registrations from the PetStore example:</p>
+      service registration:</p>
     
-    <pre class="line-numbers" data-start="16"><code class="language-yaml">  LambdaProjects:
+    <pre><code class="language-yaml">  
+  LambdaProjects:
     ServiceRegistrations:
-    - services.AddSingleton&lt;PetStoreRepo.IPetStoreRepo,PetStoreRepo.PetStoreRepo&gt:(); 
-
-  WebApiProjects:
-    ServiceRegistrations:
-    - services.AddSingleton&lt;PetStoreRepo.IPetStoreRepo,PetStoreRepo.PetStoreRepo&gt;();</code></pre>
+    - services.AddSingleton&lt;PetStoreRepo.IPetStoreRepo,PetStoreRepo.PetStoreRepo&gt:(); </code></pre>
     <p>The LazyStack generated ConfigureSvcs method in the lambda projects would look like this:</p>
     <pre><code class="language-csharp">public partial class Startup
 {
@@ -645,7 +635,8 @@
       service call because the Startup routine also includes the usual services.AddControllers()
       call.
     </p>
-    <p>Project types supporting service registrations include:</p>
+    <h4>Project Types</h4>
+    <p>Project types supporting ServiceRegistrations include:</p>
     <ul>
       <li>LambdaProjects</li>
       <li>WebApiProjects</li>

@@ -18,35 +18,30 @@ menu2: project
           <li><a href="/userguide/generator_runtime.html">Runtime</a> - specify what AWS Lambda Runtime to use.</li>
         </ul>
         
-    <p>Many project options have default values:</p>
-<pre><code class="language-yaml"># LazyStack Version 1.0.0
+<pre><code class="language-yaml">
 ProjectOptions:
-
   NugetPackageVersions:
-    System.ComponentModel.Annotations: "5.0.0"
-    JsonSubTypes: "1.8.0"
-    Newtonsoft.Json: "12.0.3"
-    AWSSDK.Extensions.NETCore.Setup: "3.3.101"
-    Amazon.Lambda.AspNetCoreServer: "5.2.0"
-    Swashbuckle.AspNetCore: "5.6.2"    
-    LazyStackAuth: "1.0.0"
-  
+    System.ComponentModel.Annotations: '5.0.0'
+    JsonSubTypes: '1.8.0'
+    Newtonsoft.Json: '12.0.3'
+    AWSSDK.Extensions.NETCore.Setup: '3.3.101'
+    Amazon.Lambda.AspNetCoreServer: '5.2.0'
+    Swashbuckle.AspNetCore: '5.6.2'    
+    LazyStackAuth: '1.0.0'
   ClientSDKProjects:
     PackageReferences:
-      LazyStackAuth: ""
-      System.ComponentModel.Annotations: ""
-      JsonSubTypes: ""
-      Newtonsoft.Json: ""
-  
+      LazyStackAuth: ''
+      System.ComponentModel.Annotations: ''
+      JsonSubTypes: ''
+      Newtonsoft.Json: ''
   SchemaProjects:
     PackageReferences:
-      Newtonsoft.Json: ""
-
+      Newtonsoft.Json: ''
   LambdaProjects: 
-    Runtime: "dotnetcore3.1"
+    Runtime: 'dotnetcore3.1'
     PackageReferences:
-      AWSSDK.Extensions.NETCore.Setup: ""
-      Amazon.Lambda.AspNetCoreServer: ""
+      AWSSDK.Extensions.NETCore.Setup: ''
+      Amazon.Lambda.AspNetCoreServer: ''
   </code></pre>
     
 

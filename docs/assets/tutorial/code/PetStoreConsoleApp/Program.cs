@@ -111,7 +111,8 @@ namespace PetStoreConsoleApp
                             Console.WriteLine("5. Seed Pets data");
                             Console.WriteLine("6. Get Pet 1");
                             Console.WriteLine("7. See Available Pets");
-                            Console.WriteLine("8. Quit");
+                            Console.WriteLine("8. GetUserId");
+                            Console.WriteLine("9. Quit");
                             Console.Write(">");
                             input = Console.ReadLine();
                             switch(input)
@@ -167,6 +168,17 @@ namespace PetStoreConsoleApp
                                     }
                                     break;
                                 case "8":
+                                    try
+                                    {
+                                        var userId = await petStore.GetUserAsync();
+                                        Console.WriteLine($"UserId={userId}");
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine($"Could not get userId. {e.Message}");
+                                    }
+                                    break;
+                                case "9":
                                     return; // exit program
                                 default:
                                     Console.WriteLine("Sorry, didn't understand that input. Please try again.");

@@ -141,19 +141,6 @@
 
     <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
         <div class="cell medium-3 ">
-            <!--
-            <div class="title-bar lz-r-topicmenu hamburger" data-responsive-toggle="topics-collapse" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle></button>
-                <div class="title-bar-title"></div>
-            </div>
-            -->
-            <!--
-            <div class="top-bar fast lz-r-topicmenu dropdown outer" id="topics-collapse" data-animate="slide-in-down slide-out-up" style="white-space: nowrap">
-            -->
-            <!--<div class="top-bar fast lz-r-topicmenu" id="topics-collapse"  style="white-space: nowrap">    -->
-            <!--<ul class="lz-r-topicmenu vertical menu accordion-menu" id="topics-collapse" data-accordion-menu 
-                data-submenu-toggle="true">-->
-            
             
             <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
                 data-submenu-toggle="true">
@@ -550,25 +537,31 @@
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
-                                </li>
-                                <li  class=" menupage">
-                                    <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+            
+                                <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authmessages.html">AuthMessages</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
+                                        </li>
+                    
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/libraries/lazystackauth/lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                        </li>
+            
+                                    </ul>
                                 </li>
                                 <li  class=" menupage">
                                     <a  href="/libraries/getawssettings/getawssettings_getawssettings.html">GetAwsSettings</a>
                                 </li>
-            
                                 <li><a  href="/libraries/dynamodb/dynamodb_overview.html">DynamoDBRepo</a>
                                     <ul class="menu vertical nested ">
                                         <li  class=" menupage">
@@ -622,30 +615,25 @@
         allows you to define stacks with unique configurations. LazyStack requires at least one Stack 
         Definition called "Dev". LazyStack following example defines additional stacks Test and Prod.
     </p>
-<pre><code class="language-yaml"># LazyStack Version 1.0.0
+<pre><code class="language-yaml">
 Stacks:
   Dev:
     ProfileName: default
     RegionName: us-east-1 
     StackName: PetStoreDev
+    Stage: Dev
     UriCodeTarget: Debug/netcoreapp3.1
-
   Test:
-    ProfileName: default
-    RegionName: us-east-1 
-    StackName: PetStoreTest
+    Stage: Test
     UriCodeTarget: Debug/netcoreapp3.1
-
   Prod:
-    ProfileName: minordiety
-    RegionName: us-east-1 
-    StackName: PetStoreProd 
+    Stage: Prod
     UriCodeTarget: Release/netcoreapp3.1</us-east-1></code></pre>
     <p><i>Note forward slash in UriCodeTarget property values.</i></p>
 
     <h4>Stacks Directive Properties</h4>
     <ul>
-        <li><strong>ProfileName</strong>
+        <li><strong>ProfileName - (Dev stack only)</strong>
           <p> ProfileName is the AWS profile that contains your credentials for accessing an AWS account 
             with a specific role. Usually, the default profile and production profile ("minordiety" in this example) don't 
             reference the same AWS Account. We recommend that each developer to have their own separate AWS 
@@ -656,18 +644,29 @@ Stacks:
             production stacks. Create a separate account for production and use a production profile to access it. 
             Updating a production stack with a development stack by mistake is not a happy time.</p>
         </li>
-        <li><strong>RegionName</strong>
-          <p> RegionName is the AWS region your stack is deployed to.</p>   
+        <li><strong>RegionName - (Dev stack only)</strong>
+          <p> RegionName is the AWS region your stack is deployed to. RegionName is only relevant for the 
+            Dev stack. The Test and Prod stack regions are determined by the LazyStack SMF.
+          </p>   
 
         </li>
-        <li><strong>StackName</strong>
+        <li><strong>StackName - (Dev stack only)</strong>
           <p>StackName is the the AWS logical stack name. The LazyStack convention used to name stacks is 
             to append the stack name to the application name. In this example the application name is "PetStore" and 
-            the Stack is "Dev" so the StackName is "PetStoreDev".</p>
+            the Stack is "Dev" so the StackName is "PetStoreDev". The StackName directive is only relevant for the 
+            Dev stack. The Test and Prod stack names are determined by the LazyStack SMF.</p>
             
         </li>
+        <li><strong>Stage</strong>
+          <p>The ApiGateway stage.</p>
+        </li>
         <li><strong>UriCodeTarget</strong>
-          <p> UriCodeTarget is the build target to use. Usually one of: Debug/netcoreapp3.1 or Release/netcoreapp3.1</p>
+          <p> UriCodeTarget is the build target to use. Usually one of: 
+            <ul>
+              <li>Debug/netcoreapp3.1</li>
+              <li>Release/netcoreapp3.1</li>
+            </ul>
+          </p>            
         </li>
     </ul>
     
@@ -682,15 +681,25 @@ PetStore
   Stacks
     Dev 
       serverless.template 
-    Prod 
-      serverless.template 
     Test 
       serverless.template
-     </code></pre>
-<i>Note: After you publish a stack you will also use Generate Settings to generate an AwsSettings.json file 
-  in the associated Stacks Environment folder. AwsSettings.json files contain the connection information necessary 
-  for client applications to call the stack.
+    Prod
+      serverless.template</code></pre>
+
+<p>The Dev stack is used when you publish to your AWS Account from your Workstation. The Test and Prod stacks are used 
+  by CI/CD scripts in LazyStack SMF.
+</p>
+<i>Note: After you publish a Dev stack you will also use LazyStack Generate Settings to generate an AwsSettings.json file 
+  in the Stacks Dev folder. AwsSettings.json files contain the connection information necessary for client applications 
+  to call the stack.
 </i>
+<p></p>
+<h4>AwsSettings.json for Test and Prod Stacks</h4>
+<p>Test and Prod stacks are published by the LazyStack SMF CI/CD CodeBuild processes. The CodeBuild process generates 
+  an AwsSettings.json file for the published stack and places that AwsSettings.json file in the appropriate 
+  stacks folder in GitHub. Do a GitHub Pull to receive the latest AwsSettings.json file for the Test or Prod stack to 
+  use in your client app.
+</p>
 <div style="height:10px"></div></div>
         </div>
     </div>

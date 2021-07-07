@@ -11,11 +11,12 @@ menu2: project
     <p>Add or override package references using the PackageReferences directive. 
     Package references look like this:
     </p>
-    <pre><code class="language-yaml">ProjectOptions:    
+    <pre><code class="language-yaml">
+ProjectOptions:    
   LambdaProjects:
     PackageReferences:
-      AWSSDK.Extensions.NETCore.Setup: "3.3.100.1"
-      Amazon.Lambda.AspNetCoreServer: ""</code></pre>
+      AWSSDK.Extensions.NETCore.Setup: '3.3.100.1'
+      Amazon.Lambda.AspNetCoreServer: ''</code></pre>
   <p>PackageReferences may be applied to a project type, as in the LambdaProjects 
     example above, or be applied to specific projects.
   </p>
@@ -23,8 +24,40 @@ menu2: project
     PackageReference version number is an empty value, then the version number will be looked up 
     in the <a href="/userguide/generator_nugetpackageversions.html">NugetPackageVersions</a>.
   </p>
+  <h4>Ignore Option</h4>
+  <p>    <p>Sometimes you want to use a ProjectReference instead of a default PackageReference. For example, in the 
+    ProjectOptions.ClientSDKProjects.PackageReferences above the LazyStackAuth package is referenced by default. If 
+    you want use the LazyStackAuth project instead you will need to defeat the inclusion of the LazyStackAuth default. 
+    This is accomplished by specifying a value of 'ignore for that package as shown below":
+  </p>
+
+
+<pre><code class="language-yaml">
+ProjectOptions:
+  NugetPackageVersions:
+    System.ComponentModel.Annotations: '5.0.0'
+    JsonSubTypes: '1.8.0'
+    Newtonsoft.Json: '12.0.3'
+    AWSSDK.Extensions.NETCore.Setup: '3.3.101'
+    Amazon.Lambda.AspNetCoreServer: '5.2.0'
+    Swashbuckle.AspNetCore: '5.6.2'    
+    LazyStackAuth: '1.0.0'
+  ClientSDKProjects:
+    PackageReferences:
+      LazyStackAuth: 'ignore'
+      System.ComponentModel.Annotations: ''
+      JsonSubTypes: ''
+      Newtonsoft.Json: ''
+    ProjectReferences:
+    - ..\..\LazyStack\LazyStackAuth\LazyStackAuth.csproj</code></pre> 
+      </p>
+      <p>Note: You can't just delete the LazyStackAuth package reference because it is automatically added during 
+        LazyStack project processing.
+      </p>
   <h5>Project Types</h5>
+  <p>Project types supporting PackageReferences include:</p>
   <ul>
+    <li>SchemaProjects</li>
     <li>ControllerProjects</li>
     <li>LambdaProjects</li>
     <li>ClientSDKProjects</li>

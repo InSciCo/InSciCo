@@ -62,6 +62,18 @@ paths:
         '405':
           description: Validation exception
 
+  /pet/user:
+    get:
+      tags:
+      - pet
+      operationId: getUser
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: string
+            
   /pet/findByStatus:
     get:
       tags:
