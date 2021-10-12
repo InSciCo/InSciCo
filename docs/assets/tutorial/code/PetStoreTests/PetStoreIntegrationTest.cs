@@ -36,7 +36,25 @@ namespace PetStoreTests
             IServiceProvider serviceProvider;
 
             services.AddSingleton<IConfiguration>(appConfig);
-            services.AddSingleton<IAuthProvider, AuthProviderCognito>(); // depends on IConfiguration
+            // LoginFormat(IConfiguration)
+            services.AddSingleton<ILoginFormat, LoginFormat>();
+
+            // PasswordFormat(IConfiguration)
+            services.AddSingleton<IPasswordFormat, PasswordFormat>();
+
+            // EmailFormat(IConfiguration)
+            services.AddSingleton<IEmailFormat, EmailFormat>();
+
+            // PhoneFormat(IConfiguration)
+            services.AddSingleton<IPhoneFormat, PhoneFormat>();
+
+            // CodeFormat(IConfiguration)
+            services.AddSingleton<ICodeFormat, CodeFormat>();
+
+            // AuthProviderCognito(IConfiguration, ILoginFormat, IPasswordFormat, IEmailFormat, ICodeFormat, IPhoneFormat)
+            services.AddSingleton<IAuthProvider, AuthProviderCognito>();
+
+            // AuthProcess(IConfiguration, IAuthProvider)
             services.AddSingleton<IAuthProcess, AuthProcess>(); // depends on IConfiguration, IAuthProvider
 
             serviceProvider = services.BuildServiceProvider();

@@ -444,6 +444,9 @@
                                             <a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a>
                                         </li>
                                         <li  class=" menupage">
+                                            <a href="/userguide/generator_propertygroup.html">PropertyGroup</a>
+                                        </li>
+                                        <li  class=" menupage">
                                             <a href="/userguide/generator_properties.html">Properties</a>
                                         </li>
                                         <li  class=" menupage">
@@ -650,7 +653,15 @@ namespace PetStoreConsoleApp
                 .Build();
 
             // Initialize IAuthProvider interface for AWS Cognito
-            var authProvider = new AuthProviderCognito(appConfig); 
+            var authProvider = new AuthProviderCognito(
+                appConfig,
+                loginFormat: new LoginFormat(appConfig), // Class checks format of login
+                passwordFormat: new PasswordFormat(appConfig), // Class checks format of password
+                emailFormat: new EmailFormat(appConfig), // Class checks email format
+                codeFormat: new CodeFormat(appConfig), // Class checks confirmation code format
+                phoneFormat: new PhoneFormat(appConfig)); // Class checks phone number format
+                ); 
+
             // Initialize IAuthProcess interface to use IAuthProvider
             var authProcess = new AuthProcess(appConfig, authProvider); 
 
@@ -690,7 +701,8 @@ namespace PetStoreConsoleApp
 }</code></pre>
     <p>In this simple example we have omitted error handling so we can focus on the key steps involved in 
         using the client libraries and settings file. For a more robust example of a console app using 
-    LazyStack see the Tutorial Console App</p>
+    LazyStack see the Tutorial Console App.</p>
+
     <p>The tutorial example includes a full implementation of the authentication process and using the 
         local WebApi in addition to using the ApiGateway.</p>
         <div style="height:100px"></div></div>

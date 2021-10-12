@@ -16,14 +16,16 @@ namespace PetStoreMobileApp.Views
         public MainPage()
         {
             InitializeComponent();
+            authProcess = App.AuthProcess;
+            lzHttpClient = App.LzHttpClient;
             mainPageViewModel = (BindingContext as MainPageViewModel);
-            authProcess = mainPageViewModel.AuthProcess;
-
             mainPageViewModel.PropertyChanged += AuthProcessForm_PropertyChanged;
             authProcess.PropertyChanged += AuthProcess_PropertyChanged;
         }
         IAuthProcess authProcess;
+        LzHttpClient lzHttpClient;
         MainPageViewModel mainPageViewModel;
+
 
         protected override void OnAppearing()
         {

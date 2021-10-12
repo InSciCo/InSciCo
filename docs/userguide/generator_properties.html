@@ -443,6 +443,9 @@
                                         <li  class=" menupage">
                                             <a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a>
                                         </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_propertygroup.html">PropertyGroup</a>
+                                        </li>
                                         <li  class="is-active menupage">
                                             <a href="/userguide/generator_properties.html">Properties</a>
                                         </li>
@@ -611,21 +614,30 @@
 
 <div class=lz-r-content>
   <h3>ProjectOptions Directive</h3>
-
     <h4>Properties</h4>
-    <p>Sometimes we want to override or insert properties in a selected project. Here are some 
-      properties assignments from the PetStore example.</p>
+    <p>The Properties directive allows you to assign AWS::Serverless::Function properties to all Lambda projects or an 
+      individual Lambda project. You can also accomplish this under the <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>.</p>
+      <p>Here is an example from the PetStore LazyStack.yaml.</p>
 <pre><code class="language-yaml">ProjectOptions:
-  PetStoreClientSDK:
-    ProjectReferences:
-    - ..\LazyStackAuth\LazyStackAuth.csproj
+  LambdaProjects:
+    Runtime: dotnetcore3.1
     Properties:
-      DocumentationFile: bin\$(Configuration)\$(TargetFramework)\PetStoreClientSDK.xml
-      RepositoryUrl: https://github.com/USER_ID/REPO_ID.git
-      PackageReleaseNotes: 'Minor update'</code></pre>
-    <p>Defining properties this way is especially useful for projects, like the ClientSDK 
-      project, that are regenerated in full each time you run the LazyStack Generator.
-    </p>  
+      MemorySize: 128
+      Timeout: 30
+      Tracing: Active
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LZDDB01
+      Environment:
+        Variables:
+          TABLE_NAME:
+            Ref: LZDDB01
+          TABLE_ARN:
+            Fn::GetAtt: LZDDB01.Arn
+ 
+  </code>
+
     <div style="height:100px"></div></div>
         </div>
     </div>

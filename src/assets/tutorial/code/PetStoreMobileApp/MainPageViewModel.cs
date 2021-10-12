@@ -14,6 +14,7 @@ namespace PetStoreMobileApp.ViewModels
     {
         public MainPageViewModel()
         {
+            _authProcess = App.AuthProcess;
             ClearCommand = new Command(async () => await MakeAuthProcessCallAsync(_authProcess.ClearAsync));
             CancelCommand = new Command(async () => await MakeAuthProcessCallAsync(_authProcess.CancelAsync));
             SignOutCommand = new Command(async () => await MakeAuthProcessCallAsync(_authProcess.SignOutAsync));
@@ -72,13 +73,11 @@ namespace PetStoreMobileApp.ViewModels
 
         public ICommand ResendCodeCommand { get; }
 
-        public ICommand ViewPetsCommand { get; }
-
         #endregion
 
         #region Properties
         public uint FadeTime { get; set; } = 250;
-        private IAuthProcess _authProcess => DependencyService.Get<IAuthProcess>();
+        private IAuthProcess _authProcess;
         public IAuthProcess AuthProcess { get { return _authProcess; } }
         private bool _IsCallingAuthProcess = false;
         public bool IsCallingAuthProcess
@@ -86,6 +85,17 @@ namespace PetStoreMobileApp.ViewModels
             get { return _IsCallingAuthProcess; }
             set { SetProperty(ref _IsCallingAuthProcess, value); }
         }
+
+        public bool _useLocal;
+        public bool UseLocal
+        {
+            get { return _useLocal = App.LzHttpClient.UseLocalApi; }
+            set { 
+                App.LzHttpClient.UseLocalApi = value;
+                SetProperty(ref _useLocal, value);
+            }
+        }
+
         #endregion
 
         #region Methods

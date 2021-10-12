@@ -444,6 +444,9 @@
                                             <a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a>
                                         </li>
                                         <li  class=" menupage">
+                                            <a href="/userguide/generator_propertygroup.html">PropertyGroup</a>
+                                        </li>
+                                        <li  class=" menupage">
                                             <a href="/userguide/generator_properties.html">Properties</a>
                                         </li>
                                         <li  class=" menupage">
@@ -619,7 +622,7 @@
     <ol>
         <li>Right Click on "Solution PetStore" in the Solution Explorer. The context menu appears.</li>
         <li>Select "Add &RightArrow; New Project" from the context menu. The "Add new project" dialog appears.</li>
-        <li>Type "Console Application (.NET Core) C#" in the search field. The project template is listed.</li>
+        <li>Type "C# Console Application" in the search field. The project template is listed.</li>
         <li>Double Click on the template list item. The "Configure your project" dialog appears.</li>
         <li>Edit the project name to read "PetStoreConsoleApp".</li>
         <li>Click the Next button. The 'Additional Information' page appears.</li>
@@ -633,6 +636,7 @@
                 <pre><code class="language-bash">
     &lt;ItemGroup>
         &lt;PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+        &lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
         &lt;ProjectReference Include="..\PetStoreClientSDK\PetStoreClientSDK.csproj" />
         &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
         &lt;EmbeddedResource Include="..\LocalApis.json" />

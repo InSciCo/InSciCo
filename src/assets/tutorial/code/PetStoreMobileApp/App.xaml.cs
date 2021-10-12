@@ -12,6 +12,11 @@ namespace PetStoreMobileApp
 {
     public partial class App : Application
     {
+        public static IConfiguration AppConfig;
+        public static IAuthProcess AuthProcess;
+        public static LzHttpClient LzHttpClient;
+        public static PetStore PetStore;
+
         public App()
         {
             InitializeComponent();
@@ -20,29 +25,42 @@ namespace PetStoreMobileApp
             using var awsSettingsStream = typeof(App).Assembly.GetManifestResourceStream("PetStoreMobileApp.AwsSettings.json");
             using var methodMapStream = typeof(PetStore).Assembly.GetManifestResourceStream("PetStoreClientSDK.MethodMap.json");
             using var localApisStream = typeof(App).Assembly.GetManifestResourceStream("PetStoreMobileApp.LocalApis.json");
-            var appConfig = new ConfigurationBuilder()
+            AppConfig = new ConfigurationBuilder()
                 .AddJsonStream(authMessagesStream)
                 .AddJsonStream(awsSettingsStream)
                 .AddJsonStream(methodMapStream)
                 .AddJsonStream(localApisStream)
                 .Build();
 
-            DependencyService.RegisterSingleton<IConfiguration>(appConfig);
+            var authProvider = new AuthProviderCognito(
+                AppConfig, 
+                loginFormat: new LoginFormat(AppConfig), 
+                passwordFormat: new PasswordFormat(AppConfig),
+                emailFormat: new EmailFormat(AppConfig),
+                codeFormat: new CodeFormat(AppConfig),
+                phoneFormat: new PhoneFormat(AppConfig));
 
-            // Init PetStoreClientAWS and PetStoreClientSDK assets
-            var authProvider = new AuthProviderCognito(appConfig);
-
-            DependencyService.RegisterSingleton<IAuthProcess>(new AuthProcess(appConfig, authProvider));
-
-            var localApiName = false ? "LocalAndriod" : null;
-            ILzHttpClient lzHttpClient = new LzHttpClient(appConfig, authProvider, localApiName);
-            PetStore = new PetStore(lzHttpClient); // replace with registration when NSwag provides an interface
-
-            MainPage = new NavigationPage (new MainPage());        
+            AuthProcess = new AuthProcess(AppConfig, authProvider);
+            LzHttpClient = new LzHttpClient(AppConfig, authProvider, GetLocalApiName());
+            LzHttpClient.UseLocalApi = false;
+            PetStore = new PetStore(LzHttpClient);
+            MainPage = new NavigationPage (new MainPage());
         }
 
-        public static PetStore PetStore; // Not using DI because there is no IPetStore (LazyStack uses NSwag client generator. NSwag is working on interface generation)
-
+        protected string GetLocalApiName()
+        {
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                case Device.UWP:
+                case Device.WPF:
+                    return "Local";
+                case Device.Android:
+                    return "LocalAndroid";
+                default:
+                    throw new Exception("Unknown Platform");
+            }
+        }
 
         protected override void OnStart()
         {

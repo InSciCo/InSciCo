@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="PetStoreMobileApp.Views.MainPage"
+    x:Class="PetStoreMobileApp.Views.MainPage" 
     xmlns:vm="clr-namespace:PetStoreMobileApp.ViewModels"
     Title="LazyStack Pet Adoption Demo"
     >
@@ -246,6 +246,12 @@
                         Text="{Binding AuthProcess.AlertMessage}"
                         IsVisible="{Binding AuthProcess.HasAlert}"/>
 
+                    <StackLayout Orientation="Horizontal"
+                         IsVisible="{Binding AuthProcess.IsSignedIn}">
+                        <Label VerticalOptions="Center">Use Local WebApi</Label>
+                        <CheckBox IsChecked="{Binding UseLocal}"/>
+                    </StackLayout>
+                    
                     <!-- Buttons -->
                     <Button 
                         IsVisible="{Binding AuthProcess.CanSignIn}"
