@@ -224,7 +224,7 @@
                             </ul>
                         </li>
                         <li><a href="/installation/devtools_config_dev_ws.html">Configure Dev Workstation</a>
-                            <ul class="menu vertical nested ">
+                            <ul class="menu vertical nested is-active">
                                 <li class=" menupage">
                                     <a href="/installation/devtools_config_dev_ws.html">Overview</a>
                                 </li>
@@ -407,7 +407,7 @@
                             </ul>
                         </li>
                         <li><a href="/userguide/generator_tools_overview.html">LazyStack MDD Tools</a>
-                            <ul class="menu vertical nested ">
+                            <ul class="menu vertical nested is-active">
                                 <li  class=" menupage">
                                     <a href="/userguide/generator_tools_overview.html">Overview</a>
                                 </li>
@@ -427,7 +427,7 @@
                                     <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>
                                 </li>
                                 <li> <a href="/userguide/generator_projectoptions.html">Project Options Directive</a>
-                                    <ul class="menu vertical nested ">
+                                    <ul class="menu vertical nested is-active">
                                         <li  class=" menupage">
                                             <a href="/userguide/generator_projectoptions.html">Overview</a>
                                         </li>
@@ -451,9 +451,6 @@
                                         </li>
                                         <li  class=" menupage">
                                             <a href="/userguide/generator_runtime.html">Runtime</a>
-                                        </li>
-                                        <li  class=" menupage">
-                                            <a href="/userguide/generator_typescriptclients.html">TypeScriptClients</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -540,13 +537,13 @@
                             </ul>
                         </li>
                         <li><a  href="/libraries/libraries_overview.html">Libraries</a>
-                            <ul class="menu vertical nested is-active">
+                            <ul class="menu vertical nested ">
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
             
                                 <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                    <ul class="menu vertical nested is-active">
+                                    <ul class="menu vertical nested ">
                                         <li  class=" menupage">
                                             <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
                                         </li>
@@ -557,7 +554,7 @@
                                             <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
                                         </li>
                     
-                                        <li  class="is-active menupage">
+                                        <li  class=" menupage">
                                             <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
                                         </li>
                                         <li  class=" menupage">
@@ -616,36 +613,32 @@
         <div class="cell small-12 medium-9" style="padding: 10px 0px 0px 0px;">
 
 <div class=lz-r-content>
-<h4>AuthProcess Class</h4>
-<p>The AuthProcess class is a wrapper around IAuthProvider that implements an INotifyPropertyChanged 
-    to provide bindable properties and events suitable for use in an event driven UI.
-</p>
-<p>The AuthProcess class adds many bindable properties to make using the authentication processes 
-    in a UI easy. Some of the more critical of these include:</p>
-<ul>
-    <li>string Login</li>
-    <li>string NewLogin</li>
-    <li>string Password</li>
-    <li>string NewPassword</li>
-    <li>string Email</li>
-    <li>string NewEmail</li>
-    <li>string Phone</li>
-    <li>string NewPhone</li>
-    <li>string Code</li>
-</ul>
-<p>Instead of calling a verify method, like AuthProvider.VerifyLoginAsync(string login), you 
-    call AuthProcess.VerifyLoginAsync() which then calls the AuthProviderVerifyLoginAsync(string login) 
-    method, passing in the current value of the AuthProcess.Login property. 
-</p>
-<p>
-    This approach assumes you collect the login value in the bound Login property and call 
-    VerifyLoginAsync() when the user commits the field entry. The provided Xamarin app provides 
-    a fully functional example of this technique for all AuthProcess processes, challenges and properties.
-</p>
-<p>Rather that provide a lengthy discussion of AuthProcess here, we encourage you to examine the 
-    Xamarin example and AuthProcess class code. Both are very simple and largely self-explanatory.
-</p>
-<div style="height:100px"></div></div>
+  <h3>ProjectOptions Directive</h3>
+    <h4>Properties</h4>
+    <p>The Properties directive allows you to assign AWS::Serverless::Function properties to all Lambda projects or an 
+      individual Lambda project. You can also accomplish this under the <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>.</p>
+      <p>Here is an example from the PetStore LazyStack.yaml.</p>
+<pre><code class="language-yaml">ProjectOptions:
+  LambdaProjects:
+    Runtime: dotnetcore3.1
+    Properties:
+      MemorySize: 128
+      Timeout: 30
+      Tracing: Active
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LZDDB01
+      Environment:
+        Variables:
+          TABLE_NAME:
+            Ref: LZDDB01
+          TABLE_ARN:
+            Fn::GetAtt: LZDDB01.Arn
+ 
+  </code>
+
+    <div style="height:100px"></div></div>
         </div>
     </div>
 </div>

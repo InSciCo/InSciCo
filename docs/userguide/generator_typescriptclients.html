@@ -224,7 +224,7 @@
                             </ul>
                         </li>
                         <li><a href="/installation/devtools_config_dev_ws.html">Configure Dev Workstation</a>
-                            <ul class="menu vertical nested ">
+                            <ul class="menu vertical nested is-active">
                                 <li class=" menupage">
                                     <a href="/installation/devtools_config_dev_ws.html">Overview</a>
                                 </li>
@@ -407,7 +407,7 @@
                             </ul>
                         </li>
                         <li><a href="/userguide/generator_tools_overview.html">LazyStack MDD Tools</a>
-                            <ul class="menu vertical nested ">
+                            <ul class="menu vertical nested is-active">
                                 <li  class=" menupage">
                                     <a href="/userguide/generator_tools_overview.html">Overview</a>
                                 </li>
@@ -427,7 +427,7 @@
                                     <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>
                                 </li>
                                 <li> <a href="/userguide/generator_projectoptions.html">Project Options Directive</a>
-                                    <ul class="menu vertical nested ">
+                                    <ul class="menu vertical nested is-active">
                                         <li  class=" menupage">
                                             <a href="/userguide/generator_projectoptions.html">Overview</a>
                                         </li>
@@ -452,7 +452,7 @@
                                         <li  class=" menupage">
                                             <a href="/userguide/generator_runtime.html">Runtime</a>
                                         </li>
-                                        <li  class=" menupage">
+                                        <li  class="is-active menupage">
                                             <a href="/userguide/generator_typescriptclients.html">TypeScriptClients</a>
                                         </li>
                                     </ul>
@@ -540,13 +540,13 @@
                             </ul>
                         </li>
                         <li><a  href="/libraries/libraries_overview.html">Libraries</a>
-                            <ul class="menu vertical nested is-active">
+                            <ul class="menu vertical nested ">
                                 <li  class=" menupage">
                                     <a  href="/libraries/libraries_overview.html">Overview</a>
                                 </li>
             
                                 <li> <a href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">LazyStackAuth</a>
-                                    <ul class="menu vertical nested is-active">
+                                    <ul class="menu vertical nested ">
                                         <li  class=" menupage">
                                             <a  href="/libraries/lazystackauth/lazystackauth_lazystackauth.html">Overview</a>
                                         </li>
@@ -557,7 +557,7 @@
                                             <a  href="/libraries/lazystackauth/lazystackauth_authprovider.html">AuthProvider</a>
                                         </li>
                     
-                                        <li  class="is-active menupage">
+                                        <li  class=" menupage">
                                             <a  href="/libraries/lazystackauth/lazystackauth_authprocess.html">AuthProcess</a>
                                         </li>
                                         <li  class=" menupage">
@@ -616,36 +616,65 @@
         <div class="cell small-12 medium-9" style="padding: 10px 0px 0px 0px;">
 
 <div class=lz-r-content>
-<h4>AuthProcess Class</h4>
-<p>The AuthProcess class is a wrapper around IAuthProvider that implements an INotifyPropertyChanged 
-    to provide bindable properties and events suitable for use in an event driven UI.
+  <h3>ProjectOptions Directive</h3>
+    <h4>TypeScriptClients</h4>
+    <p>The TypeScriptClients directive allows you to generate one or more TypeScript Client Libraries. 
+    </p>
+    <p>LazyStack uses the <a href="https://github.com/RicoSuter/NSwag">NSwag</a> library to generate 
+      these libraries and you are able to use most of the NSwag TypeScriptClientGeneratorSettings 
+      class properties to tailor how these libs are generated. NSwag provides many options so we 
+      suggest you visit the <a href="https://github.com/RicoSuter/NSwag/wiki/TypeScriptClientGeneratorSettings">NSwag Wiki</a> for information on the available settings.
+    </p>
+    <p>One deviation from the documented NSwag settings is the TypeScriptGeneratorSettings.ExtensionCode 
+      property. Instead of specifying code directly, LazyStack requires you provide the name of a template 
+      file stored in the solution's TypeScriptClientLibs folder. NSwag inserts this code into the 
+      generated TypeScript client library. LazyStack provides a LzClientBaseAxios.ts_tpl file. Use this code 
+      as a starting point if you need to create your own. 
+    </p>
+
+    <p>To support making calls against LazyStack generated AWS serverless stacks, LazyStack requires the 
+       following NSwag configuration settings:</p>
+      <ul>
+        <li>Template: Axios | AngularJS | Angular | Aurelia | Fetch | JQueryCallbacks | JQueryPromises </li>
+        <li>UseTransformOptionsMethod: true</li>
+        <li>ClassName: PetStore - usually the name of the solution</li>
+        <li>ClientBaseClass: LzClientBaseAxios | LzClientBaseAngularJS etc.</li>
+        <li>ConfigurationClass: any</li>
+        <li>TypeScriptGeneratorSettings.ExtensionCode -- filename, of file in TypeScriptsClientLIbs folder, containing base class code</li>
+      </ul>
+
+<pre><code class="language-yaml">ProjectOptions:
+  TypeScriptClients:
+    Axios:
+      Template: Axios
+      UseTransformOptionsMethod: true
+      ClassName: PetStore
+      ClientBaseClass: LzClientBaseAxios
+      ConfigurationClass: any 
+      TypeScriptGeneratorSettings:
+        ExtensionCode: LzClientBaseAxios.ts_tpl</code></pre>
+  <p>ProjectOptions.TypeScriptClients.Axios specifies the name of the client lib. You can use any name you want 
+    here but usually it is best to name the lib after the template as it is unlikely you will need multiple client 
+    libs using the same template.
+  </p>
+  <p>Template: The templates supported by NSwag include:</p>
+  <ul>
+    <li>Axios - we generally use Axios because it is used by AWS Amplify.</li>
+    <li>AngularJS</li>
+    <li>Angular</li>
+    <li>Aurelia</li>
+    <li>Fetch</li>
+    <li>JQueryCallbacks</li>
+    <li>JQueryPromises</li>
+  </ul>
+   <h4>Post Processing</h4>
+  <p> After NSwag generates the library, LazyStack makes a final pass to instrument the library for making 
+    secure calls against API Gateways. Like the LzHttpClass, calls are directed to the appropriate API Gateway 
+    using the LazyStack generated MethodMap and LazyStack generated AwsSettings.
 </p>
-<p>The AuthProcess class adds many bindable properties to make using the authentication processes 
-    in a UI easy. Some of the more critical of these include:</p>
-<ul>
-    <li>string Login</li>
-    <li>string NewLogin</li>
-    <li>string Password</li>
-    <li>string NewPassword</li>
-    <li>string Email</li>
-    <li>string NewEmail</li>
-    <li>string Phone</li>
-    <li>string NewPhone</li>
-    <li>string Code</li>
-</ul>
-<p>Instead of calling a verify method, like AuthProvider.VerifyLoginAsync(string login), you 
-    call AuthProcess.VerifyLoginAsync() which then calls the AuthProviderVerifyLoginAsync(string login) 
-    method, passing in the current value of the AuthProcess.Login property. 
-</p>
-<p>
-    This approach assumes you collect the login value in the bound Login property and call 
-    VerifyLoginAsync() when the user commits the field entry. The provided Xamarin app provides 
-    a fully functional example of this technique for all AuthProcess processes, challenges and properties.
-</p>
-<p>Rather that provide a lengthy discussion of AuthProcess here, we encourage you to examine the 
-    Xamarin example and AuthProcess class code. Both are very simple and largely self-explanatory.
-</p>
-<div style="height:100px"></div></div>
+  <p></p>
+
+    <div style="height:100px"></div></div>
         </div>
     </div>
 </div>

@@ -452,6 +452,9 @@
                                         <li  class=" menupage">
                                             <a href="/userguide/generator_runtime.html">Runtime</a>
                                         </li>
+                                        <li  class=" menupage">
+                                            <a href="/userguide/generator_typescriptclients.html">TypeScriptClients</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li  class=" menupage">
@@ -623,6 +626,7 @@
           <li><a href="/userguide/generator_serviceregistrations.html">ServiceRegistrations</a> - specify class DI registrations for a project.</li>
           <li><a href="/userguide/generator_properties.html">Properties</a> - specify properties to add to the project file.</li>
           <li><a href="/userguide/generator_runtime.html">Runtime</a> - specify what AWS Lambda Runtime to use.</li>
+          <li><a href="/userguide/generator_typescriptclients.html">TypeScriptClients</a> - generate TypeScript clients for popular SPA frameworks.</li>
         </ul>
         
 <pre><code class="language-yaml">
@@ -649,6 +653,15 @@ ProjectOptions:
     PackageReferences:
       AWSSDK.Extensions.NETCore.Setup: ''
       Amazon.Lambda.AspNetCoreServer: ''
+  TypeScriptClients:
+    Axios:
+      TypeScriptGeneratorSettings:
+        ExtensionsCode: LzClientBaseAxios.ts_tpl 
+      Template: Axios 
+      UseTransformOptionsMethod: true 
+      ClassName: PetStore 
+      ClientBaseClass: LzClientBaseAxios 
+      ConfigurationClass: any
   </code></pre>
     
 
