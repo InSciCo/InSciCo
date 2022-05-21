@@ -20,8 +20,8 @@ namespace PetStoreRepo.Models
             // Set the Envelope Key fields from the EntityInstance data
             TypeName = "Order.v1.0.0";
             // Primary Key is PartitionKey + SortKey 
-            PK = "Orders:"; // Partition key
-            SK = $"Order:{EntityInstance.Id}"; // sort/range key
+            PK = "Order:"; // Partition key
+            SK = EntityInstance.Id}; // sort/range key
 
             // The base method copies information from the envelope keys into the dbRecord
             base.SetDbRecordFromEnvelopeInstance();

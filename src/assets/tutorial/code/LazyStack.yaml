@@ -24,7 +24,7 @@ ProjectOptions:
     AWSSDK.Extensions.NETCore.Setup: 3.7.0.1
     Amazon.Lambda.AspNetCoreServer: 6.0.2
     Swashbuckle.AspNetCore: 6.1.4
-    LazyStackAuth: 1.0.0
+    LazyStackAuth: 1.4.0
     System.IdentityModel.Tokens.Jwt: 6.11.1
   PetStoreClientSDK:
     Properties:
