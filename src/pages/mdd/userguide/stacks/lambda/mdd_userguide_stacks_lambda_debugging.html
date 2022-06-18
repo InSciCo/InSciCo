@@ -1,0 +1,60 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: stacks
+menu3: lambdas 
+---
+
+<div class=lz-r-content>
+    <h3>Debugging</h3>
+    <p>When developing LazyStack applications we launch two projects in Visual Studio. One is the
+        local WebApi and the other is the client application
+        configured to call the local WebApi instead of the cloud stack.
+        This makes debugging even the most complex use-cases much simpler.
+    </p>
+    
+    
+    <img src="/assets/img/LazyStackDualHeadOverview.svg" />
+    <p></p>
+    <p>One important difference between the WebAPI server and the Lambda(s) in your Serverless Stack is that routes
+        in your OpenAPI may, and often should, point to different Lambda functions. AWS limits the number of API 
+        Gateway routes that may reference a single Lambda. </p>
+    <p>In contrast, the local WebAPI server hosts ALL of the API routes. For local debugging, having all your routes
+        serviced by the same local server is a feature, not a limitation. There are times when this distinction must
+        be considered, for example, when you want to debug code where multiple instances of a lambda function in the
+        cloud accessing the same database record at the same time - this is not possible to test with a local WebAPI 
+        as there is only one &ldquo;instance&rdquo; of the lambda function. </p>
+    
+        <h4>AWS Profiles</h4>
+        <p>When you run your controller code locally, in the WebApi or in a test, it is assumed that your
+            local AWS credentials provide access to the AWS resources the controller code requires.
+            If you are developing multiple application stacks you may create multiple AWS security
+            profiles and switch among them as necessary in your development and test scenarios.
+        </p>  
+        
+    <h4>Alternatives - using multiple Visual Studio Instances</h4>
+    <ul>
+        <li>Completely Separate Visual Studio Solutions
+            <p>You may prefer to place your Client Project in a separate Visual Studio solution. If you do, you can 
+                simply have two copies of Visual Studio open at the same time to debug calls from 
+                the client to the server.</p>
+        </li>
+        <li>Use a Visual Studio "shadow" Solution
+            <p>If you prefer to track all your projects in a single Visual Studio solution (let's call it the 
+                main solution) but want to use separate instances of Visual Studio to debug client and server 
+                projects you can create a (shadow) Visual Studio solution that references projects in the "main"
+                solution. Personally, this is my favorite approach. I typically use a Shadow solution for the 
+                client project(s). To set up a Shadow Solution:
+            </p>
+            <ul>
+                <li>Create a new Solution with a console project</li>
+                <li>Remove the console project</li>
+                <li>Use Add Existing Project to add client projects in the Main project to the Shadow solution</li>
+                <li>Launch the WebApi project in the Main solution</li>
+                <li>Launch the Client project in the Shadow solution</li>
+            </ul>
+        </li>
+    </ul>
+    {{>btmspacer}}
+</div>

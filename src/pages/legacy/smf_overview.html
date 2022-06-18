@@ -1,0 +1,75 @@
+---
+layout: docpage
+menu0: legacy
+---
+
+<div class=lz-r-content>
+    <h3>Software Management Framework</h3>
+    <p>LazyStack SMF is now depreciated in favor of the new LazyStack SaaS project and use of AWS ControlTower. However, LazyStack SMF is still a good tool for parties interested in the 'nuts and bolts' of using the AWS CLI to manipulate AWS Accounts and build a CI/CD toolchain using GitHub and AWS. We have retained this documentation for your review but recommend the new open-source LazyStack SaaS platform for new implementations.<br>
+    </p>
+    <p>
+        Use LazyStackSMF to setup an AWS Organization supporting multiple developers collaborating through GitHub with
+        GitHub Pull Requests. Provide application test accounts supporting Continuous Integration and Continuous
+        Deployment. Provide application production accounts with Continuous Deployment. The workstation on which this
+        setup is run is called the "Management Workstation" and will be configured with a number of LazyStack automation
+        scripts to make creating and managing your AWS Organization a snap. A Development Workstation can also be a
+        Management Workstation.
+    </p>
+    <p></p>
+    <p>Setting up secure AWS Organizations and accounts correctly the first time can be tricky. LazyStack SMF sets up
+        AWS services and security infrastructure according to AWS best practices. 
+    </p>
+    <p>LazyStack SMF has extensive documentation that serves as a “blueprint” for a development shop wanting to get
+        started with AWS/.NET serverless application development. The LazyStack SMF is comprised of PowerShell
+        management scripts and CloudFormation templates that automate everything that can be automated in setting up and
+        managing a comprehensive serverless stack development pipeline using AWS Services and GitHub. LazyStack SMF also
+        works seamlessly with our LazyStack Model Driven Development (MDD) tool.
+    </p>
+    <p>The LazyStack Software Management Framework (SMF) ensures your collaborative development process, test process,
+        and production
+        deployments are managed efficiently and securely.
+    </p>
+
+    <p>The LazyStack SMF provides an end-to-end Software Management Framework integrating AWS Services, GitHub and the
+        LazyStack developer tools. In the Install process, the following AWS Organization structure was created.</p>
+    <img src="/assets/img/LazyStackSMFSetup_2.svg" width="100%">
+    <p></p>
+    <p>The LazyStackSMF provides a collaborative workflow based on "Feature Branch Development using GitHub Pull
+        Requests".</p>
+    <img src="/assets/img/LazyStackSMFSetup10.svg" width="100%">
+    <p></p>
+    <p>A high-level "AWS" view of this organization looks like this:</p>
+    <img src="/assets/img/AwsSetup2.svg" width="100%">
+    <p> </p>
+    <p>In the diagram above, GitHub integration is shown and GitHub Pull Requests are used to coordinate the
+        review and approval of features coded by a developer. In this diagram we see:
+    </p>
+    <ul>
+        <li>Developers publish from their workstation directly to their AWS "sandbox" Account</li>
+        <li>Pull Request creation or update publish PR Stacks in the Test Account. This is accomplished using
+            AWS CodeBuild projects connected to GitHub WebHooks.
+        </li>
+        <li>Pull Request Merges publish Prod Stack in the Production Account. This is also accomplished
+            using AWS CodeBuild projects connected to GitHub WebHooks.
+        </li>
+    </ul>
+
+
+    <p>An abstract view of the steps in the collaborative development process looks like this:
+    </p>
+    <img src="/assets/img/LazyStackSMF20.svg" width="100%">
+    <p></p>
+    <h5>PR Stack Review</h5>
+    <p> A PR Stack is named after the PR branch that created it. This means there can be many PR Stacks deployed in the
+        System Test
+        account at the same time. To review a Pull Request Stack, you need to know how to connect to it. With that in
+        mind,
+        the CI/CD pipeline that creates the PR Stack also generates and adds a AwsSettings.json file to the PR branch in
+        the repository.
+        This file is usually found at Stacks/Test/AwsSettings.json. For more information on AwsSettings.json file,
+        click <a href="/clientsdk/clientsdk_awssettings.html">here </a>. The LazyStack Tutorial covers the use of
+        AwsSettings.json
+        files, see <a href="/tutorial/tutorial_vswin_petstoretest.html">Configure PetStoreTests Project</a>.
+    </p>
+    {{>btmspacer}}
+</div>

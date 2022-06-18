@@ -1,0 +1,193 @@
+---
+layout: docpage
+menu0: mdd
+menu1: tutorials
+menu2: vswin
+---
+
+<div class=lz-r-content>
+    <h3>Building the PetStore Solution</h3>
+    <p>In this lesson step we will build the initial PetStore solution using the LazyStack Visual Studio Extension.</p>
+
+    <p><strong>This tutorial assumes you are using the Windows Visual Studio IDE.</strong></p>
+    <h4>2.1 Create PetStore solution</h4>
+    <ol>
+        <li><a href="/mdd/install/mdd_install_visualstudio.html" {{>newtab}}>Configure your developer workstation with Visual Studio IDE for Windows</a></li>
+        <li>Launch Visual Studio.</li>
+        <li>Click on Create a new project. The "Create a new project" dialog appears.</li>
+        <li>Type "LazyStackWebApi" into the search field. A list of project templates is presented.</li>
+        <li>Double Click on the LazyStackWebApi project template. The "Configure your new project" dialog appears.</li>
+        <li>Enter "PetStore" as the Project Name.</li>
+        <li>Edit the Location to point to the LazyStackTutorial folder.</li>
+        <li>Uncheck the 'Place solution and project in the same directory' checkbox.</li>
+        <li>Click on the Create button. A solution with your PetStore WebApi project is created.</li>
+        <li>Select Visual Studio menu item "Build &RightArrow; Rebuild Solution." The solution compiles successfully.</li>
+    </ol>
+   <h4>2.2 Add External LazyStack Projects</h4>
+   <ol>
+       <li>Add External LazyStackAuth project
+           <ol type="a">
+            <li>Right Click on "Solution 'PetStore' in the Solution Explorer pane. The context menu appears." </li>
+            <li>Select "Add &rightarrow; Exiting Project ..". The Add Exiting Project dialog appears.</li>
+            <li>Select LazyStackTutorial\LazyStack\LazyStackAuth\LazyStackAuth.csproj. The project is added to your solution.</li>
+           </ol>
+       </li>
+       <li>Add External LazyStackDynamoDBRepo project
+        <ol type="a">
+         <li>Right Click on "Solution 'PetStore' in the Solution Explorer pane. The context menu appears." </li>
+         <li>Select "Add &rightarrow; Exiting Project ..". The Add Exiting Project dialog appears.</li>
+         <li>Select LazyStackTutorial\LazyStack\LazyStackDynamoDBRepo\LazyStackDynamoDBRepo.csproj. The project is added to your solution.</li>
+        </ol>
+    </li>
+   </ol>
+   <p>Note: In a production application you may choose to use the corresponding NuGet packages instead of using 
+       these projects directly. In this tutorial it is useful to be able to debug into these projects to understand 
+       how their features are implemented.
+   </p>
+
+    <h4>2.3 Download PetStore.yaml and run LazyStack Generator</h4>
+    <ol>
+        <li><a href="/assets/tutorial/PetStore.yaml" download="PetStore.yaml">Click to Download PetStore.yaml file</a></li>
+        <li>Move PetStore.yaml from your Downloads folder to the PetStore Solution root folder.</li>
+        <li>Select Visual Studio menu item "Tools/LazyStack - Generate Projects". Projects and Solution Items folder
+            are created.
+            <ul>
+                <li>Controllers folder
+                    <ul>
+                        <li>OrderController project</li>
+                        <li>PetController project</li>
+                    </ul>
+                </li>
+                <li>Lambdas folder
+                    <ul>
+                        <li>Order project</li>
+                        <li>Pet project</li>
+                    </ul>
+                </li>
+                <li>"Solution Items" folder (files are in the solution's root folder)
+                    <ul>
+
+                        <li>LazyStack.yaml</li>
+                        <li>LocalApis.json</li>
+                        <li>PetStore.yaml</li>
+                        <li>SAM_Review.yaml</li>
+                    </ul>
+                </li>
+                <li>Stacks folder
+                    <ul>
+                        <li>Dev folder
+                            <ul>
+                                <li>serverless.template</li>
+                            </ul>
+                        </li>
+                        <li>Test folder
+                            <ul>
+                                <li>serverless.template</li>
+                            </ul>
+                        </li>
+                        <li>Prod folder
+                            <ul>
+                                <li>serverless.template</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    </li>
+                <li>PetStoreClientSDK project</li>
+                <li>PetStoreSchema project</li>
+            </ul>
+        </li>
+    </ol>
+    <p>Note the PetStore.yaml file you dropped into the Solution's root folder is now visible in the 
+        "Solution Items" solution folder. LazyStack also created default LazyStack.yaml and default LocalApis.yaml 
+        files for you and these are also in the "Solution Items" solution folder. 
+    </p>
+<h4>2.4 Review the LazyStack.yaml file</h4>
+    <p>The Generate Projects command created a default LazyStack.yaml file in your solution's root 
+        folder. The file is now visible in the "Solution Items" folder in the solution explorer. The top of your 
+        LazyStack.yaml file should look like this:
+    </p>
+<pre><code class="language-yaml">
+LazyStackDirectivesVersion: 1.1.0
+Stacks:
+  Dev:
+    ProfileName: default
+    RegionName: us-east-1
+    StackName: PetStoreDev 
+    Stage: Dev
+    UriCodeTarget: Debug/net6.0
+  Test:
+    Stage: Test
+    UriCodeTarget: Release/net6.0
+  Prod:
+    Stage: Prod
+    UriCodeTarget: Release/net6.0
+ProjectOptions: 
+  NugetPackageVersions:
+    Amazon.Lambda.AspNetCoreServer: 7.1.0
+    AWSSDK.Extensions.NETCore.Setup: 3.7.2
+    JsonSubTypes: 1.8.0
+    LazyStackAuth: 1.4.0
+    Newtonsoft.Json: 13.0.1
+    Swashbuckle.AspNetCore: 6.2.3
+    System.ComponentModel.Annotations: 5.0.0
+    System.IdentityModel.Tokens.Jwt: 6.14.1
+  ClientSDKProjects:
+    PackageReferences:
+      LazyStackAuth: ''
+      System.ComponentModel.Annotations: ''
+      JsonSubTypes: ''
+      Newtonsoft.Json: ''
+  SchemaProjects:
+    PackageReferences:
+      Newtonsoft.Json: ''
+  LambdaProjects:
+    Runtime: dotnet6
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: ''
+      Amazon.Lambda.AspNetCoreServer: ''
+  WebApiProjects:
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: ''
+      Swashbuckle.AspNetCore: ''
+  ControllerProjects:
+    PackageReferences:
+      System.IdentityModel.Tokens.Jwt: ''</code></pre>
+<h4>2.5 Review the SAM_Review.yaml</h4>
+<p>The SAM_Review.yaml file was generated in the solution folder. This file contains the stack configuration 
+    without stack environment specific content inserted. Stack environments might include Dev, Test and Prod. Fully 
+    constituted templates are placed in the serverless.template files placed in the stack environment folder. 
+    For instance, the Stacks\Dev\serverless.template file is the template you will later use to publish the PetStoreDev 
+    stack to AWS. 
+    </p>
+<p>You never edit the SAM_Review.yaml file directly.</p>
+<ol>
+    <li>Open the Solution Items\SAM_Review.yaml file.</li>
+    <li>Review contents. No need to understand all this content now.</li>
+</ol>
+<p>The SAM_Review.yaml file will be updated with new content as we add and configure AWS stack resources during the tutorial.
+    This file is regenerated each time you execute LazyStack -- Generate Projects.
+</p>
+
+<h4>2.6 Review serverless.template file</h4>
+<p> LazyStack Generate Projects process generates one serverless.template file for each environment. In this case, 
+    we have one Stacks Environment called "Dev" so a serverless.template file is generated in the 
+    Stacks\Dev folder. 
+</p>
+<p>You want to review the SAM template we will later publish to AWS. You never edit this file directly.</p>
+<ol>
+    <li>Open the Stacks\Dev\serverless.template file.</li>
+    <li>Review contents. No need to understand all this content now.</li>
+</ol>
+<p>The serverless.template file will be updated with new content as we add and configure AWS stack resources during the tutorial.
+    This file is regenerated each time you execute LazyStack -- Generate Projects.
+</p>
+
+<h4>Step Summary</h4>
+<p>In this lesson step we created a PetStore solution using the LazyStackWebApi project template, 
+    downloaded a OpenApi Specification called PetStore.yaml and then used the Tools &RightArrow; LazyStack - 
+    Generate Projects to generate projects and configuration files for our stack. We then updated the 
+    LazyStack.yaml file AWS ProfileName and RegionName.
+</p>
+{{>btmspacer}}
+</div>

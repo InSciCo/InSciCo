@@ -1,0 +1,36 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: generator
+menu3: project
+---
+
+<div class=lz-r-content>
+  <h3>ProjectOptions Directive</h3>
+    <h4>Properties</h4>
+    <p>The Properties directive allows you to assign AWS::Serverless::Function properties to all Lambda projects or an 
+      individual Lambda project. You can also accomplish this under the <a href="/userguide/generator_awsresources.html">AwsResources Directive</a>.</p>
+      <p>Here is an example from the PetStore LazyStack.yaml.</p>
+<pre><code class="language-yaml">ProjectOptions:
+  LambdaProjects:
+    Runtime: dotnetcore3.1
+    Properties:
+      MemorySize: 128
+      Timeout: 30
+      Tracing: Active
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: LZDDB01
+      Environment:
+        Variables:
+          TABLE_NAME:
+            Ref: LZDDB01
+          TABLE_ARN:
+            Fn::GetAtt: LZDDB01.Arn
+ 
+  </code>
+
+    {{>btmspacer}}      
+</div>

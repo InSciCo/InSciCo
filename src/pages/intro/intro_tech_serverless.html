@@ -1,0 +1,42 @@
+---
+layout: docpage
+menu0: tech
+---
+
+<div class=lz-r-content>
+    <h3>Why AWS Serverless Application Model?</h3>
+    <ul>
+        <li>
+            <p>Ability to signup/manage large numbers of users for free. Cognito allows 50,000 Monthly Active Users
+                (&ldquo;MAU&rdquo;) before you start paying for user management activities like Sign-up, Sign-in,
+                Reset-Password, Update Email and more. This allows mobile apps to be widely used before costs start to
+                accrue.
+                Our assumption, here at LazyStack, is that you should have a pretty good idea of how successful your
+                mobile
+                app will be before you hit 50,000 MAU and may even have some monetization from your app to offset cloud
+                hosting costs by that time.</p>
+        </li>
+        <li>
+            <p>Encryption-at-rest is free in the DynamoDB. Encryption-at-rest is absolutely necessary for any
+                application
+                that wants to comply with existing and emerging data privacy regulations. Even on AWS RDS, encryption at
+                rest
+                is not available in the free-tier services.</p>
+        </li>
+    </ul>
+    <p>Please note, that in our opinion, both Google and Azure are also great IaaS providers and we may implement
+        LazyStack support for those providers in the future. However, our mission is to allow developers to quickly
+        field
+        mobile applications using scalable cloud based resources at the lowest initial cost, without sacrificing
+        security,
+        scalability or features; we could do this only on AWS when we started this project.</p>
+    <p>Our focused passion is automating stacks based on the .NET/AWS marriage; hopefully we can help those of you
+        who
+        need or want to use that powerful combination as well. We are aware that PaaS pricing and features change all
+        the
+        time in the &ldquo;cloud wars&rdquo; so be sure to check on current pricing and features before picking the
+        best
+        cloud provider for your application stack and be sure to let us know what you find if any
+        &ldquo;game-changers&rdquo; emerge. </p>
+        {{>btmspacer}}
+</div>

@@ -1,0 +1,43 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: stacks
+menu3: lambdas 
+---
+
+<div class=lz-r-content>
+    <h3>Controllers</h3>
+
+    <h4>Amazon.Lambda.AspNetCoreServer Class</h4>
+    <p>Amazon.Lambda.AspNetCoreServer makes it easy to run ASP.NET Core Web API applications as AWS Lambda functions.
+        Using this class makes it possible to use what you already know about Microsoft WebApi projects in your
+        Lambda Function development; Dependency Injection, Configuration Extensions, Controllers, etc. -- all that good
+        stuff is at your disposal.
+    </p>
+    
+    <p>Microsoft WebApi projects use dependency injection to reference one or more classes derived from
+        Microsoft.AspNetCore.Mvc.ControllerBase. Controller classes implement Lambda Function Event methods 
+        that call an implementation of the interface that you provide.</p>
+    
+    <p>One controller class is generated for each OpenApi tag. For instance, in the example below, the
+         tag named "order" generates the interface IOrderController and class OrderController.</p>
+    <p></p>
+
+    
+        <img src="/assets/img/OpenApiToClass.svg"/>
+    
+    <p></p>    
+        <p>Note that LazyStack instructs NSwag to generate controller methods that return an ActionResult.</p>
+
+        <p>When you add routes to your OpenApi specification, 
+            LazyStack uses NSwag to create/update your controller projects.
+        </p>
+
+    <p>LazyStack generates a Lambda Function project and a Controller project for each tag. 
+        A Controller class is referenced in the local WebApi project as well as a Lambda Function project. This is done to 
+        facilitate simple local debugging of the Controller classes using the local WebApi project and the development 
+        of test suites. The local WebApi project references all Controller classes in the solution while each Lambda 
+        Function references only a single Controller class. </p>
+        {{>btmspacer}}
+</div>

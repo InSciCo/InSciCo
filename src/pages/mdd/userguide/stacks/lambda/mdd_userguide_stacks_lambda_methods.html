@@ -1,0 +1,76 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: stacks
+menu3: lambdas  
+---
+
+<div class=lz-r-content>
+    <h3>AWS::Serverless::Function Event Methods</h3>
+    <p>For each OpenApi tag, LazyStack inserts an AWS::Serverless::Function resource into the serverless.template file.
+        Under that resource, each of the routes is represented by an Events entry. Below, we trace the GET /order/{order} 
+        endpoint from the OpenApi specification, through the AWS Serverless Template Event to the OrderController namespace.
+    </p>
+    <p>
+    <img src="/assets/img/LambdaEventMapping.svg"/>
+    </p>
+    
+    <h4>Routes to Lambda Methods</h4>
+    <table data-layout="default">
+        <colgroup>
+            <col style="width: 167.0px;" />
+            <col style="width: 95.0px;" />
+            <col style="width: 207.0px;" />
+            <col style="width: 288.0px;" />
+        </colgroup>
+        <tbody>
+            <tr class="text-left">
+                <th colspan="2">
+                    <p><strong>Route</strong></p>
+                </th>
+                <th>
+                    <p><strong>Lambda Function</strong></p>
+                </th>
+                <th>
+                    <p><strong>Event Method</strong></p>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p>/order/{orderId}</p>
+                </td>
+                <td>
+                    <p>GET</p>
+                </td>
+                <td>
+                    <p>Order</p>
+                </td>
+                <td>
+                    <p>GetOrderById(int64 Id)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>/pet/{petId}</p>
+                </td>
+                <td>
+                    <p>GET</p>
+                </td>
+                <td>
+                    <p>Pet</p>
+                </td>
+                <td>
+                    <p>GetPetById(int64 Id)</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h4>Default Event Method Names</h4>
+    <p>The OpenApi Operation object field operationId is optional. If unspecified, LazyStack uses the path and
+        operation to generate event method names. For instance, without the operationId &ldquo;getOrderById&rdquo; the route
+        &lsquo;/order/{orderId}&rsquo; GET would generate the method name &ldquo;OrderOrderIdGet&rdquo;. </p>
+    
+        {{>btmspacer}}
+</div>

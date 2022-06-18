@@ -1,0 +1,39 @@
+---
+layout: docpage
+menu0: libs
+menu1: dynamo
+---
+
+<div class=lz-r-content>
+<h3>DynamoDB Introduction</h3>
+<p><quote>"Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance 
+    with seamless scalability. You can use Amazon DynamoDB to create a database table that can store and 
+    retrieve any amount of data, and serve any level of request traffic. Amazon DynamoDB automatically spreads 
+    the data and traffic for the table over a sufficient number of servers to handle the request capacity 
+    specified by the customer and the amount of data stored, while maintaining consistent and fast performance."</quote>
+    <a href="https://docs.aws.amazon.com/dynamodb/?id=docs_gateway"{{>newtab}}>AWS DynamoDB</a></p>
+
+    <p>DynamoDB offers a few key advantages over other AWS database offerings:
+        <ul>
+            <li>Encryption at rest - very important for security sensitive stacks.</li>
+            <li>No need for a Virtual Private Cloud (VPC) to be fully secure.</li>
+            <li>Available in the Free-Tier.</li>
+        </ul>
+    </p>
+    <p>DynamoDB is a very fast and very scalable NoSQL database. Here are some of its defining features and limitations:
+        <ul>
+            <li>Primary Key is comprised of a Partition Key (PK) and optional Sort Key (SK).</li>
+            <li>Up to five optional secondary indices.</li>
+            <li>Up to 20 Global Secondary indices.</li>
+            <li>Optional ACID transaction support.</li>
+            <li>Data is encrypted at rest.</li>
+    </p>
+    <p>AWS recommends that each application use a single DynamoDB table. This seems strange at first because we are used 
+        to equating entities to tables where each table has a column for each entity attribute. Instead, in DynamoDB we 
+        treat each "table" as a separate database.
+    </p>
+    <h4>Defining Entities using PK and SK Conventions</h4>
+    <p>Coming Soon</p>
+
+    {{>btmspacer}}
+</div>

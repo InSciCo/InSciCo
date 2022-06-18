@@ -1,0 +1,20 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: generator
+---
+
+<div class=lz-r-content>
+    <h3>LazyStack Generate AWS Settings</h3>
+        <p>The LazyStack tools are available as .NET Tools and as a Visual Studio IDE (Windows) Extension. </p>
+
+        <p>The .NET Tools command has this syntax:</p>
+        <pre><code class="language-bash">lazystack settings &lt;stackname> [&lt;filepath>] [-p &lt;profilename>]</code></pre>
+        <p>This command is also available in the Visual Studio IDE (Windows) Tools menu.</p>
+        <p>This command uses AWS Cloud Formation to retrieve settings from the specified &lt;stackname> and then write these settings 
+            out to "AwsSettings.json" or to the specified &lt;filepath>. Your "default" AWS profile will be used unless you specify 
+            a different profile with the -p option.
+        </p>
+        {{>btmspacer}}
+</div>

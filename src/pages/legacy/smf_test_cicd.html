@@ -1,0 +1,128 @@
+---
+layout: docpage
+menu0: legacy
+menu1: configure
+---
+
+<div class=lz-r-content>
+    <h4>SMF 3.2 Configure Continuous Integration and Continuous Deployment for System Test Account Stack</h4>
+    <dl>
+        <dt>Prerequisites:</dt>
+        <dd>- Create Test Account (3.1) complete</dd>
+        <dd>- Create GitHub Repository (4.1) complete</dd>
+        <dt>Estimated Time: 2 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>  
+    <p>This script deploys two CodeBuild project stacks to a System Test Account:</p>
+    <ul>
+        <li>Test_CodeBuild_PR_Create.yaml defines the first CodeBuild project stack</li>
+        <li>Test_CodeBuild_PR_Merge.yaml defines the second CodeBuild project stack</li>
+    </ul>
+    <p>These .yaml template files are in your OrgMgmt folder.</p>
+
+    <p>Each project is associated with a GitHub repository containing a serverless application stack.
+        Test_CodeBuild_PR_Create.yaml defines a CodeBuild project stack that builds, tests and publishes
+        an application stack when a Pull Request is created or updated in the GitHub repository.
+        The published stack is called the PR stack. The stack is named based on the 
+        PR branch name.
+        Test_CodeBuild_PR_Merge.yaml defines a CodeBuild project stack that deletes the PR stack
+        when a Pull Request is merged in the GitHub application repository.</p>
+
+    
+    <p>You repeat this step for each GitHub repository used in a Test System Account.</p>
+
+    <ol>
+        <li>Open a PowerShell Terminal.</li>
+        <li>CD into the OrgMgmt folder. Using your OrgCod in place of "Org"</li>
+        <li>Execute the Test_CodeBuild_Deploy.ps1 script. 
+            <pre><code class="language-powershell">. .\Test_CodeBuild_Deploy.ps1</code></pre><br>
+            Here is a script run with sample inputs:
+            <pre><code class="language-powershell">
+Test_CodeBuild_Deploy.ps1 - V1.0.0
+This script deploys two CodeBuild project stacks to a System Test Account.
+   - Test_CodeBuild_Create.yaml defines the first CodeBuild project stack
+   - Test_CodeBuild_Merge.yaml defines the second CodeBuild project stack
+Each project is associated with a GitHub repository containing a serverless application stack.
+
+Test_CodeBuild_Create.yaml defines a CodeBuild project stack that builds, tests and publishes
+an application stack when a Pull Request is created or updated in the GitHub repository.
+The published stack is called the PR stack. The stack is named based on the PR branch name.
+
+Test_CodeBuild_Merge.yaml defines a CodeBuild project stack that deletes an application stack
+when a Pull Request is merged in the GitHub application repository.
+
+Note: Press return to accept a default values.
+Enter your OrgCode: Az
+Enter your AWS CLI Management Account Profile (default: AzMgmt):
+Enter Region (default us-east-1):
+Enter the SysCode (ex: Pet):Tut
+Enter the System Test Account Name (default: AzTutTest):
+Enter the application stack's GitHub Repo URL (example: https://github.com/myorg/myrepo.git): https://github.com/myorg/OrgDevJoePetStore.git
+Enter your repo short name (default: orgdevjoepetstore):
+Enter your LazyStackSmfUtil stack's GitHub Repo URL (example: https://github.com/myorg/LazyStackSmfUtil.git): https://github.com/myorg/LazyStackSmfUtil.git
+Enter PR Create template name (default: Test_CodeBuild_PR_Create.yaml)
+Enter PR Merge template name (default: Test_CodeBuild_PR_Merge.yaml)
+
+Please Test and confirm the following:
+    OrgCode: Az 
+    SysCode: Tut
+    AWS CLI Management Account Profile: AzMgmt
+    AWS Region: us-east-1
+    System Test Account name: AzTutMgmt
+    GitHub Repo URL: https://github.com/myorg.OrgDevJoePetStore.git
+    Repo short name: orgdevjoepetstore
+    
+    CodeBuild PR Create project stack name: orgdevjoepetstore_pr_create
+    CodeBuild PR Create project template: Test_CodeBuild_PR_Create.yaml
+    CodeBuild PR Merge project stack name: orgdevjoepetstore_pr_merge
+    CodeBuild PR Merge project template: Test_CodeBuild_PR_Merge.yaml
+Continue y/n y
+Processing Starting
+Deploying orgdevjoepetstore_pr_create AWS CodeBuild project to AzTutTest account.
+Deploying orgdevjoepetstore_pr_merge AWS CodeBuild project to AzTutTest account.
+Processing Complete</code></pre>
+        </li>
+    </ol>
+<h4>Modifying the CodeBuild Project Stack Templates</h4>
+<p>It is often necessary to modify the CodeBuild Project Stack templates to accommodate 
+    your specific application stack build, test and deploy process. This is best accomplished by 
+    making copies of the Test_CodeBuild_PR_Create.yaml and Test_CodeBuild_PR_Merge.yaml files 
+    and editing them as necessary. Then, reference edited templates when running the 
+    Test_CodeBuild_Deploy.ps1 script. The usual  edits will be in the CodeBuild Project Script 
+    section. This script section contains a simple csh script that makes calls to dotnet 
+     and the AWS SAM CLI as shown below:<br>
+</p>
+<ul>
+    <li>Test_CodeBuild_PR_Create.yaml - script
+        <pre><code class="language-powershell"># csh script                                                                    
+# stack names can not include / characters so we replace with -
+- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
+- dotnet build --configuration Release
+# ${S3} is replaced during cloudformation template processing with S3 name
+# $stack is replaced by csh
+- eval "aws cloudformation delete-stack --stack-name $stack"</code></pre> 
+    </li>
+    <li>Test_CodeBuild_Merge.yaml - script section
+        <pre><code class="language-powershell"># csh script                                                                    
+# stack names can not include / characters so we replace with -
+- stack=$(echo $CODEBUILD_WEBHOOK_TRIGGER | sed 's/\//-/g')
+- dotnet build --configuration Release
+# $stack is replaced by csh
+- eval "aws cloudformation delete-stack --stack-name $stack"</code></pre> 
+    </li>
+</ul>
+<h4>Updating CodeBuild Projects</h4>
+<p>You can rerun this script anytime you need to update CodeBuild Projects.</p>
+
+<h4>Step Summary</h4>
+<p>In this step we deployed two CodeBuild project stacks that reference a 
+    GitHub repository. When Pull Requests are created or updated the 
+    CodeBuild project stack, defined by the Test_CodeBuild_Create.yaml template,
+    builds, tests and deploys a PR stack.
+</p>
+<p>When Pull Requests are merged the CodeBuild project stack, defined by the 
+    Test_CodeBuild_Merge.yaml template, deletes the PR stack.
+</p>
+{{>btmspacer}}
+</div>

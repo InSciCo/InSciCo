@@ -61,6 +61,12 @@
 //  56. Xy Grid
 
 @import 'util/util';
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Macondo+Sans);
+@import url(family=Tangerine:bold,bolditalic|Inconsolata:italic|Droid+Sans);
+@import url(family=Smooch);
+@import url(family=Pacifico);
+@import url(family=Merriweather);
 
 // 1. Global
 // ---------
@@ -82,7 +88,12 @@ $black:#d5dbdb; // modified
 $white: #181525;// modified
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+//$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+//$body-font-family: 'Open Sans', sans-serif;
+//$body-font-family: 'Tangerine', 'Inconsolata', 'Droid Sans', sans-serif;
+//$body-font-family: Smooch, sans-serif;
+//$body-font-family: 'Pacifico';
+$body-font-family: 'Merriweather', sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -90,7 +101,7 @@ $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
-$global-menu-padding: 0.7rem 1rem;
+$global-menu-padding: 0.3rem .5rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
@@ -260,7 +271,7 @@ $accordionmenu-border: null;
 $accordionmenu-submenu-toggle-background: null;
 $accordion-submenu-toggle-border: $accordionmenu-border;
 $accordionmenu-submenu-toggle-width: 40px;
-$accordionmenu-submenu-toggle-height: $accordionmenu-submenu-toggle-width;
+$accordionmenu-submenu-toggle-height: 20px;
 $accordionmenu-arrow-size: 6px;
 
 // 9. Badge

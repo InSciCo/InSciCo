@@ -1,0 +1,61 @@
+---
+layout: docpage
+menu0: saas
+---
+<div class=lz-r-content>
+    <h3>LazyStack SaaS Platform Features</h3>
+    <p>The LazyStack SaaS platform builds and updates your multi-tenant Software as a Service application. It performs two essential tasks:</p>
+    <ul>
+        <li>Building and deploying tenant resources when tenants are on-boarded</li>
+        <li>Building and deploying application resources when code or system configuration changes</li>
+    </ul>
+    <ul>Multi-tenant features:
+            <ul>
+                <li>Tenant self-onboarding</li>
+                <li>Tenant data is fully isolated</li>
+                <li>Multiple Apps Supported, for example:
+                    <ul>
+                        <li>Admin App</li>
+                        <li>Employee App</li>
+                        <li>Consumer App</li>
+                    </ul>
+                </li>
+                <li>Tenant apps each have their own CloudFront distribution
+                    <ul>
+                        <li>Highest performance</li>
+                        <li>Increased security</li>
+                        <li>Custom domain or subdomains may be used for each tenant app</li>
+                        <li>Supports bespoke client apps - even apps authored by the tenant</li>
+                        <li>Each App may call different backend-services</li>
+                        <li>Each tenant app may reference tenant specific assets</li>
+                    </ul>
+                </li>
+                <li></li>
+            </ul>
+        <li>DevOps features:
+            <ul>
+                <li>LazyStack GitHub App integrates repositories with CI/CD pipelines</li>
+                <li>Automated configuration and deployment of Serverless AWS services like:
+                    <ul>
+                        <li>Cognito - user sign-up, sign-in etc.</li>
+                        <li>API Gateways - REST endpoints that call resources like Lambda Functions</li>
+                        <li>Lambdas - serverless functions</li>
+                        <li>DynamoDB - NoSQL database service</li>
+                        <li>CloudFront - Content Delivery Network service</li>
+                        <li>Route53 - domain name and routing management service</li>
+                        <li>EventBridge - enterprise service bus service</li>
+                        <li>Simple Queue Service - event queue service</li>
+                        <li>Step Functions - state machine service</li>
+                        <li>Secrets Manager - secure secret management service</li>
+                        <li>CloudWatch logs - logging service</li>
+                        <li>CodeBuild - build application code on AWS virtual machines</li>
+                        <li>CloudFormation - resource deployment service</li>
+                    </ul>
+                </li>
+                <li>Customer can edit/enhance CI/CD pipelines</li>
+            </ul>
+        </li>
+    </ul>
+
+        {{>btmspacer}}
+</div>

@@ -1,0 +1,52 @@
+---
+layout: docpage
+menu0: legacy
+menu1: configure
+---
+
+<div class=lz-r-content>
+    <h4>SMF 3.1 Create GitHub Repository</h4>
+    <dl>
+        <dt>Prerequisites: Create GitHub Account (1.4) complete</dt>
+        <dt>Estimated Time: 2 minutes</dt>
+        <dt>Estimated Cost: none</dt>
+    </dl>
+    <p>See this <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository"
+        {{> newtab}}> Creating a new repository</a> documentation on GitHub.</p>
+    <p>Note: The new repository must be accessible from the "Personal account" used to generate 
+        the "Personal Access Token" in "Create GitHub Account" (step 1.4). We suggest this repository be part of 
+        a GitHub Organization.
+    </p>
+    <ol>
+        <li>Log in to GitHub.</li>
+        <li>Create the repository if you don't already have one for this stack.
+            <ol>
+                <li>Switch to the GitHub Organization. This done using the drop-down combo in the upper left corner 
+                    of the GitHub dashboard.
+                </li>
+                <li>Click on the "New" button, next to the Repositories heading, to create a new repository. The 
+                    "Create a new repository" page appears.
+                </li>
+                <li>Enter a Repository name. If this is a repository for a developer who will be performing the 
+                    SMF Tutorial, we suggest you use the developer's account name with PetStore appended. ex:
+                    OrgDevJoePetStore.
+                </li>
+                <li>Enter a repository description. Example: "Joe's SMF Tutorial Repository"</li>
+                <li>Click on the "Private" radio button to make the repository private.</li>
+                <li>Check the "Add a README file"</li>
+                <li>Check the "Add a .gitignore file" checkbox. The .gitignore template drop-down menu appears.</li>
+                <li>Select "VisualStudio" from the .gitignore template drop-down menu.</li>
+                <li>Check the "Choose a license" checkbox. The License drop-down menu appears.</li>
+                <li>Select "MIT License" from the License drop-down menu.</li>
+                <li>Click the "Create repository" button.</li>
+
+            </ol>
+        </li>
+        <li>Navigate to the Code tab for the repository.</li>
+        <li>Click on the "Code" button. The download options drop-down menu appears.</li>
+        <li>Under the HTTPS option you will see the url for your repository.</li>
+        <li>Click the clipboard option next to the URL to copy that URL.</li>
+        <li>Make a note of this URL as you will need it in the following steps.</li>
+    </ol>
+    {{>btmspacer}}
+</div>

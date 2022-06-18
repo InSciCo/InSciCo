@@ -1,0 +1,79 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide 
+menu2: sdk
+---
+
+<div class=lz-r-content>
+    <h3>AWS Settings</h3>
+    <p>Client applications need configuration information to initialize their communication 
+        with your AWS Stack. This is provided by an LazyStack generated AwsSettings.json file.
+    </p>
+<pre><code class="language-csharp">
+{
+  "Aws": {
+    "StackName": "PetStoreDev",
+    "ClientId": "abcdefabcdefabcdefabcdefab",
+    "UserPoolId": "us-east-1_qgsWr0nRS",
+    "IdentityPoolId": "us-east-1:144ed90a-8b2b-4882-982c-123456789012",
+    "Region": "us-east-1",
+    "ApiGateways": {
+      "HttpApiSecure": {
+        "Type": "HttpApi",
+        "Scheme": "https",
+        "Id": "abcdefabcd",
+        "Service": "execute-api",
+        "Host": "amazonaws.com",
+        "Port": 443,
+        "Stage": "Dev",
+        "SecurityLevel": 1
+      },
+      "ApiSecure": {
+        "Type": "Api",
+        "Scheme": "https",
+        "Id": "abcdefabcd",
+        "Service": "execute-api",
+        "Host": "amazonaws.com",
+        "Port": 443,
+        "Stage": "Dev",
+        "SecurityLevel": 2
+      }
+    }
+  }
+}
+</code></pre>      
+
+<h4>Security Levels</h4>
+<ol start="0">
+  <li>None 
+    <p>The ApiGateway allows any valid HttpRequest.</p>
+  </li>
+  <li>JWT
+    <p>The ApiGateway requires the HttpRequest Authorization Header contain a valid 
+      Jason Web Token issued by Cognito.
+    </p>
+  </li>
+  <li>AwsSignatureVersion4
+    <p>The ApiGateway requires the HttpRequest Authorization Header contain a 
+      computed signature of the HttpRequest. This means every HttpRequest has a 
+      unique signature computed on the client and then computed again by the 
+      ApiGateway. The results must match for the HttpRequest to be processed.
+    </p>
+  </li>
+</ol>
+
+<p>You may generate the AwsSettings.json file for the Development environment using the LazyStack 
+    Visual Studio IDE extension command: "Tools -> LazyStack - Generate Dev_AwsSettings.json". This 
+    file is generated into the Solution's root folder and is visible in the Solution Explorer "Solution Items" 
+    folder. 
+</p>
+<p>The LazyStack AWS Settings Generator generates the AwsSettings file using your default AWS profile and
+    making calls against AWS CloudFormation to retrieve published stack information. It also uses 
+    the Solution's serverless.template file to get the SecurityLevel of each ApiGateway.
+</p>
+<p>To generate an AwsSettings file for another stack, say your production stack, switch to the appropriate 
+    AWS profile and use the NET CLI command.
+</p>
+{{>btmspacer}}
+</div>
