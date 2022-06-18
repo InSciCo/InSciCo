@@ -1,0 +1,44 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: generator
+menu3: project
+---
+
+<div class=lz-r-content>
+  <h3>ProjectOptions Directive</h3>
+
+    <h4>ServiceRegistrations</h4>
+    <p>For Lambda projects and WepApi projects, you often want to register classes 
+      for Dependency Injection. LazyStack generates a Startup class method ConfigureSvcs()
+      and inserts service registration statements into it. Consider the following 
+      service registration:</p>
+    
+    <pre><code class="language-yaml">  
+  LambdaProjects:
+    ServiceRegistrations:
+    - services.AddSingleton&lt;PetStoreRepo.IPetStoreRepo,PetStoreRepo.PetStoreRepo&gt:(); </code></pre>
+    <p>The LazyStack generated ConfigureSvcs method in the lambda projects would look like this:</p>
+    <pre><code class="language-csharp">public partial class Startup
+{
+    public void ConfigureSvcs(IServiceCollection services)
+    {
+        services.AddSingleton&lt;PetStoreRepo.IPetStoreRepo,PetStoreRepo.PetStoreRepo&gt;();
+    }
+}</code></pre>
+
+    <p>In this particular example we are adding a singleton but you can use any valid service 
+      registration statement. Note that we do not need to add Controller classes with an explicit 
+      service call because the Startup routine also includes the usual services.AddControllers()
+      call.
+    </p>
+    <h4>Project Types</h4>
+    <p>Project types supporting ServiceRegistrations include:</p>
+    <ul>
+      <li>LambdaProjects</li>
+      <li>WebApiProjects</li>
+    </ul>
+    <p><em>Note: LazyStack only generates a single WepApiProject.</em></p>
+    {{>btmspacer}}
+</div>

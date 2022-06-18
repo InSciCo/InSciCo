@@ -1,0 +1,60 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: generator
+menu3: project
+---
+
+<div class=lz-r-content>
+    <h3>ProjectOptions Directive</h3>
+    <p>This directive allows you to add/override options for project files and code generated in
+        LazyStack projects. These options include:</p>
+        <ul>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_nugetpackageversions.html">NugetPackageReferences</a> - specify the versions of NuGet packages used in projects.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_packagereferences.html">PackageReferences</a> - specify the package references to insert into a project file.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_projectreferences.html">ProjectReferences</a> - specify the project references to insert into a project file.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_serviceregistrations.html">ServiceRegistrations</a> - specify class DI registrations for a project.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_properties.html">Properties</a> - specify properties to add to the project file.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_runtime.html">Runtime</a> - specify what AWS Lambda Runtime to use.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_typescriptclients.html">TypeScriptClients</a> - generate TypeScript clients for popular SPA frameworks.</li>
+        </ul>
+        
+<pre><code class="language-yaml">
+ProjectOptions:
+  NugetPackageVersions:
+    System.ComponentModel.Annotations: '5.0.0'
+    JsonSubTypes: '1.8.0'
+    Newtonsoft.Json: '12.0.3'
+    AWSSDK.Extensions.NETCore.Setup: '3.3.101'
+    Amazon.Lambda.AspNetCoreServer: '5.2.0'
+    Swashbuckle.AspNetCore: '5.6.2'    
+    LazyStackAuth: '1.0.0'
+  ClientSDKProjects:
+    PackageReferences:
+      LazyStackAuth: ''
+      System.ComponentModel.Annotations: ''
+      JsonSubTypes: ''
+      Newtonsoft.Json: ''
+  SchemaProjects:
+    PackageReferences:
+      Newtonsoft.Json: ''
+  LambdaProjects: 
+    Runtime: 'dotnetcore3.1'
+    PackageReferences:
+      AWSSDK.Extensions.NETCore.Setup: ''
+      Amazon.Lambda.AspNetCoreServer: ''
+  TypeScriptClients:
+    Axios:
+      TypeScriptGeneratorSettings:
+        ExtensionsCode: LzClientBaseAxios.ts_tpl 
+      Template: Axios 
+      UseTransformOptionsMethod: true 
+      ClassName: PetStore 
+      ClientBaseClass: LzClientBaseAxios 
+      ConfigurationClass: any
+  </code></pre>
+    
+
+  {{>btmspacer}}
+</div>

@@ -1,0 +1,100 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: generator
+---
+
+<div class=lz-r-content>
+    <h3>Stacks Directive</h3>
+    <p>It is common practice to have different instances of an application stack to support Development, Test and 
+        Production stacks. The configuration of each of these application stack instances vary so LazyStack 
+        allows you to define stacks with unique configurations. LazyStack requires at least one Stack 
+        Definition called "Dev". LazyStack following example defines additional stacks Test and Prod.
+    </p>
+<pre><code class="language-yaml">
+Stacks:
+  Dev:
+    ProfileName: default
+    RegionName: us-east-1 
+    StackName: PetStoreDev
+    Stage: Dev
+    UriCodeTarget: Debug/net6.0
+  Test:
+    Stage: Test
+    UriCodeTarget: Debug/net6.0
+  Prod:
+    Stage: Prod
+    UriCodeTarget: Release/net6.0</us-east-1></code></pre>
+    <p><i>Note forward slash in UriCodeTarget property values.</i></p>
+
+    <h4>Stacks Directive Properties</h4>
+    <ul>
+        <li><strong>ProfileName - (Dev stack only)</strong>
+          <p> ProfileName is the AWS profile that contains your credentials for accessing an AWS account 
+            with a specific role. We recommend that each developer to have their own separate AWS 
+            development account. In most SDLC flows the developer does not have access to a production account.</p>
+            <p> The ProfileName "default" is created for you when you install the AWS CLI. You may have 
+            multiple profiles where each profile allows you access to different AWS accounts or different access 
+            privileges in an account. We strongly recommend that you do not use your development account to host 
+            production stacks. Create a separate account for production and use a production profile to access it. 
+            Updating a production stack with a development stack by mistake is not a happy time.</p>
+        </li>
+        <li><strong>RegionName - (Dev stack only)</strong>
+          <p> RegionName is the AWS region your stack is deployed to. RegionName is only relevant for the 
+            Dev stack. The Test and Prod regions are usually determined by your CI/CD pipelines.
+          </p>   
+
+        </li>
+        <li><strong>StackName - (Dev stack only)</strong>
+          <p>StackName is the the AWS logical stack name. The LazyStack convention used to name stacks is 
+            to append the stack name to the application name. In this example the application name is "PetStore" and 
+            the Stack is "Dev" so the StackName is "PetStoreDev". The StackName directive is only relevant for the 
+            Dev stack. The Test and Prod stack names are usually determined by your CI/CD pipelines.</p>
+            
+        </li>
+        <li><strong>Stage</strong>
+          <p>The ApiGateway stage.</p>
+        </li>
+        <li><strong>UriCodeTarget</strong>
+          <p> UriCodeTarget is the build target to deploy. Usually one of: 
+            <ul>
+              <li>Debug/net6.0</li>
+              <li>Release/net6.0</li>
+            </ul>
+          </p>            
+        </li>
+    </ul>
+    
+    <h4>How Stack Environments are used</h4>
+    <p>When you run Generate Projects, a Stacks directory is created in your Solution Project's root directory. Then
+      a sub-directory for each environment is created under that and an serverless.template file is placed into 
+    that sub-directory. These serverless.template files contain the necessary information to publish an application 
+    stack to AWS for that environment. For example, the Stacks Directive shown above would produce the following
+     directory structure. </p>
+     <pre><code class="language-powershell">
+PetStore
+  Stacks
+    Dev 
+      serverless.template 
+    Test 
+      serverless.template
+    Prod
+      serverless.template</code></pre>
+
+<p>The Dev stack is used when you publish to your AWS Account from your Workstation. The Test and Prod stacks are used 
+  by CI/CD scripts in LazyStack SMF.
+</p>
+<i>Note: After you publish a Dev stack you will also use LazyStack Generate Settings to generate an AwsSettings.json file 
+  in the Stacks Dev folder. AwsSettings.json files contain the connection information necessary for client applications 
+  to call the stack.
+</i>
+<p></p>
+<h4>AwsSettings.json for Test and Prod Stacks</h4>
+<p>Test and Prod stacks are published by the LazyStack SMF CI/CD CodeBuild processes. The CodeBuild process generates 
+  an AwsSettings.json file for the published stack and places that AwsSettings.json file in the appropriate 
+  stacks folder in GitHub. Do a GitHub Pull to receive the latest AwsSettings.json file for the Test or Prod stack to 
+  use in your client app.
+</p>
+{{>btmspacer}}
+</div>

@@ -1,0 +1,95 @@
+---
+layout: docpage
+menu0: mdd
+menu1: tutorials
+menu2: vsmac 
+---
+
+<div class=lz-r-content>
+<h3>Configure LazyStack Projects and DynamoDB</h3>
+<p>In this step we make some additions to the LazyStack.yaml file to support the use of DynamoDB and configure 
+  the Lambda and WebApi projects to reference the new PetStoreRepo project. Before we look at 
+    the LazyStack.yaml configuration directives in detail, here is a high-level summary of what we need to do:
+</p>
+<ul>
+  <li>Use <a href="/mdd/userguide/generator/mdd_userguide_generator_apitagmap.html"{{>newtab}}>ApiTagMap</a> directive to map API endpoints to two ApiGateways.</li>
+  <li>Use <a href="/mdd/userguide/generator/mdd_userguide_generator_projectoptions.html"{{>newtab}}>ProjectOptions</a> directive to configure these project options
+      <ul>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_properties.html"{{>newtab}}>Properties</a></li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_projectreferences.html"{{>newtab}}>ProjectReferences</a> - tell Lambda projects and 
+            WebApi projects about the new PetStoreRepo project.</li>
+          <li><a href="/mdd/userguide/generator/mdd_userguide_generator_serviceregistrations.html"{{>newtab}}>ServiceRegistrations</a> - use dependency injection 
+            to get instances of PetStoreRepo and DynamoDB.</li>
+      </ul>
+  </li>
+  <li>Use <a href="/mdd/userguide/generator/mdd_userguide_generator_awsresources.html"{{>newtab}}>AwsResources</a> directive to define AWS::DynamoDB::Table 
+    resource for our stack.</li>
+</ul>
+<p>When you execute LazyStack - Generate Projects, the following projects are regenerated:</p>
+<ul>
+  <li>Controller projects</li>
+  <li>Lambda projects</li>
+  <li>PetStoreClientSDK project</li>
+  <li>PetStoreSchema project</li>
+</ul>
+<p>These generated projects should not be edited as your changes would be lost.</p>
+<p>In addition to the generated projects, portions of the WebApi project "PetStore" are updated with each execution of 
+  LazyStack - Generate Projects. 
+</p>
+<p>LazyStack - Generate Projects does not update or modify any other projects in your solution.</p>
+<h4>5.1 Update LazyStack.yaml and Generate Projects</h4>
+<ol>
+   <li>Download this <a href="/assets/tutorial/code/LazyStack.yaml" download="LazyStack.yaml">LazyStack.yaml</a> file and move it into the 
+    solution's root folder.</li>
+    <li>Open the LazyStack.yaml file and edit the ProfileName and RegionName values if necessary.</li>
+    <li>Save the LazyStack.yaml file.</li>
+    <li>Select "Tools &RightArrow; LazyStack - Generate Projects". 
+        <p>You can view the LazyStack log in the Application Output panel.</p>
+    </li> 
+    <li>Rebuild Solution. All projects in the solution are compiled successfully.</li>
+</ol>
+<h4>5.2 Update WebApi project (PetStore) launchSettings.json file</h4>
+<ol>
+    <li>Open the PetStore\Properties\launchSettings.json file.</li>
+    <li>Add the "TABLE_NAME" environmental variable as shown below on line 25.</li>
+<pre class="line-numbers"><code class="language-json">
+{
+    "iisSettings": {
+      "windowsAuthentication": false, 
+      "anonymousAuthentication": true, 
+      "iisExpress": {
+        "applicationUrl": "http://localhost:62817",
+        "sslPort": 44399
+      }
+    },
+    "profiles": {
+      "IIS Express": {
+        "commandName": "IISExpress",
+        "launchBrowser": true,
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+      },
+      "PetStore": {
+        "commandName": "Project",
+        "launchBrowser": true,
+        "applicationUrl": "https://localhost:5001;http://localhost:5000",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development",
+          "TABLE_NAME": "PetStoreDev-DB"
+        }
+      }
+    }
+  }
+</code></pre>
+<li>Save the file.</li>
+</ol>
+<p></p>
+<h4>Step Summary</h4>
+<p>In this step we updated the LazyStack.yaml file to create a DynamoDB resource and configure the 
+    WebApi (PetStore) project and Lambdas projects to reference the PetStoreRepo project. We also 
+    inserted an environment variable "TABLE_NAME" in the WebApi project's launchSettings.json file to 
+    reference a table called "PetStoreDev-DB" in the DynamoDb resource.
+</p>
+{{>btmspacer}}
+</div> 

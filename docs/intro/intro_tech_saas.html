@@ -1,0 +1,846 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property='og:title' content='LazyStack.io' />
+    <meta property='og:image' content='https://lazystack.io/assets/img/ThreeGreatTechnologies.png' />
+    <meta property='og:description'
+        content='LazyStack is a tool that ingests an OpenApi (swagger) REST API specification and generates the AWS Server Application Model (SAM) template and the C# AWS Lambda projects necessary to stand up a fully featured commercial-grade application stack in AWS. It also generates a client application SDK making it simple to call that stack from C# applications.' />
+    <meta property='og:url' content='https://lazystack.io' />
+
+    <title>LazyStack</title>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+    <link href="/assets/prism/prism.css" rel="stylesheet" />
+    <link href="/assets/prism/prismoverride.css" rel="stylesheet" />
+    <link href="/assets/theme/lessons.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/assets/mobile/jquery.mobile-events.min.js"></script>
+    <script>
+        var prevPage = "";
+        var nextPage = "";
+        var curPageFound = false;
+        var page = "";
+        var pageTransitionActive = false;
+        function loadMenuPageList() {
+            var menupages = document.getElementsByClassName("menupage");
+            for (var i = 0; i < menupages.length; i++) {
+                page = menupages[i].getElementsByTagName('a')[0].href;
+                if (page != "") {
+                    if (curPageFound) {
+                        nextPage = page;
+                        break;
+                    }
+                    // check if current page found
+                    if (page == document.location.href) {
+                        curPageFound = true;
+                    } else {
+                        prevPage = page;
+                    }
+                }
+            }
+        }
+        function gotoPrevPage() {
+            if (prevPage != "") {
+                page = prevPage;
+                var elem = $('#docpage');
+                pageTransitionActive = true;
+                Foundation.Motion.animateOut(elem, 'slide-right');
+            }
+        }
+        function gotoNextPage() {
+            if (nextPage != "") {
+                page = nextPage;
+                var elem = $('#docpage');
+                pageTransitionActive = true;
+                Foundation.Motion.animateOut(elem, 'slide-left');
+            }
+        }
+
+        function finishPageTransition() {
+            if(page != "") {
+                pageTransitionActive = false;
+                window.location.href= page;
+               }
+        }
+
+
+    </script>
+    <script>
+        function scrollToTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera            
+        }
+    </script>
+</head>
+
+<body >
+<div class="grid-container" data-sticky-container>
+    <div id="touch-zone" class="grid-x" 
+        data-sticky 
+        data-sticky-on="small"
+        data-margin-top="0"
+        style="background-image: url('/assets/img/pic14.jpg');
+            height: 70px;">
+        <div class="cell small-1" 
+            data-responsive-toggle="docmenu" 
+            data-hide-for="medium">
+            <button class="menu-icon" 
+                type="button" 
+                style="margin: 20px 10px;"
+                data-toggle 
+                onclick="scrollToTop()"></button>
+        </div>
+        <div  class="cell auto ">
+            <div
+                style="
+                border: .125rem solid;
+                border-radius: 13px;
+                background-color: rgba(0, 0, 0, .40);
+                width: auto;
+                padding: 2px 10px 7px 10px;
+                margin: 10px;
+                width:235px
+                ">
+                <span style=
+                    "font-size: 28px;
+                    color: rgba(180, 23, 186, 1);
+                    ">
+                    <img src="/assets/img/lazyface.png" style="max-height: 40px; margin-top: -5px;"/>  
+                    <span style="margin-left: -5px;">LazyStack</span>
+                </span>
+            </div>
+        </div>            
+        <div class="cell shrink" style="padding: 5px 0px 0px 0px;">
+            <img 
+                src="/assets/img/NavLeft.svg" 
+                style="object-fit: scale-down;
+                height: 50px;
+                width: 38px;
+                padding: 10px 0px 0px 0px;
+                " 
+                onClick="gotoPrevPage()"
+            />
+            <img 
+                src="/assets/img/NavRight.svg" 
+                style="object-fit: scale-down;
+                height: 50px;
+                width: 38px;
+                padding: 10px 0px 0px 0px;
+                " 
+                onClick="gotoNextPage()"
+            />
+
+        </div>
+    </div>
+
+    <div id="docpage" class="grid-x" style="padding: 10px 0px 0px 0px;">
+        <div class="cell medium-3 ">
+            
+            <ul class="vertical menu accordion-menu" id="docmenu" data-accordion-menu 
+                data-submenu-toggle="true">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/intro/intro_business_saas.html">Business Stakeholders Intro</a>
+                    <ul class="menu vertical nested ">
+            
+                        <li class=" menupage">
+                            <a href="/intro/intro_business_saas.html">Startup In-a-Box</a>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/intro/intro_business_mdd.html">Go to Market Fast</a>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/intro/intro_business_serverless.html">Scale Your Vision</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/intro/intro_tech_saas.html">Technical Stakeholders Intro</a>
+                    <ul class="menu vertical nested is-active">
+                        <li class="is-active menupage"><a
+                                href="/intro/intro_tech_saas.html">LazyStack SaaS</a>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/intro/intro_tech_mdd.html">LazyStack MDD</a>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/intro/intro_tech_serverless.html">AWS Serverless</a>
+                        </li>            
+                        <li class=" menupage">
+                            <a href="/intro/intro_tech_security.html">Security First</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" menupage">
+                    <a href="/saas/saas.html">LazyStack SaaS</a>
+                    <ul class="menu vertical nested ">
+                        <li class=" menupage">
+                            <a href="/saas/saas_features.html">Features</a>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/saas/arch/saas_arch.html">Architecture</a>    
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/saas/arch/saas_arch_spa.html">SPA</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/saas/arch/saas_arch_assets.html">Assets</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/saas/arch/saas_arch_api.html">ApiGateway</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/saas/arch/saas_arch_cf.html">CloudFront</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/saas/saas_ce.html">Community Edition</a>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/saas/saas_ee.html">Enterprise Edition</a>
+                        </li>
+            
+                    </ul>
+                </li>
+            
+                <li class=" menupage"><a href="/mdd/mdd.html">LazyStack MDD</a>
+                    <ul class="menu vertical nested ">
+                        <li class=" menupage">
+                            <a href="/mdd/install/mdd_install_overview.html">Installation</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/mdd/install/mdd_install_config_dev_profile.html">1) Configure Workstation</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/mdd/install/mdd_install_netcore_cli.html">2) .NET CLI Tool</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/mdd/install/mdd_install_visualstudio.html">3) VS IDE Windows</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/mdd/install/mdd_install_visualstudio_mac.html">4) VS IDE MacOS</a>
+                                </li>
+                            </ul>                
+                        </li>
+                        <li class=" menupage">
+                            <a href="/mdd/tutorial/mdd_tutorial_intro.html">Tutorials</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/mdd/tutorial/mdd_tutorial_vswin_overview.html">Visual Studio Windows</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_lazystack.html">1) Clone LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_petstore.html">2) PetStore</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_repo.html">3) PetStoreRepo Project</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_controllers.html">4) ControllerImpl Projects</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_configure.html">5) Configure LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_publishtoaws.html">6) Publish to AWS</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_testlocalwebapi.html">7) Test Local WebAPI</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_petstoretest.html">8) PetStore Test</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vswin_consoleapp.html">9) Console App</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/mdd/tutorial/mdd_tutorial_vsmac_overview.html">Visual Studio MacOS</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_lazystack.html">1) Clone LazyStack</a>
+                                        </li>                    
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_petstore.html">2) PetStore</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_repo.html">3) PetStoreRepo Project</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_controllers.html">4) ControllerImpl Projects</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_configure.html">5) Configure LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_publishtoaws.html">6) Publish to AWS</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_testlocalwebapi.html">7) Test Local WebAPI</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_petstoretest.html">8) PetStore Test</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_vsmac_consoleapp.html">9) Console App</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/mdd/tutorial/mdd_tutorial_cli_overview.html">.NET CLI</a>
+                                    <ul class="menu vertical nested ">
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_lazystack.html">1) Clone LazyStack</a>
+                                        </li>                       
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_petstore.html">2) PetStore</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_repo.html">3) PetStoreRepo Project</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_controllers.html">4) ControllerImpl Projects</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_configure.html">5) Configure LazyStack</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_publishtoaws.html">6) Publish to AWS</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_testlocalwebapi.html">7) Test Local WebAPI</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_petstoretest.html">8) PetStore Test</a>
+                                        </li>
+                                        <li class=" menupage">
+                                            <a href="/mdd/tutorial/mdd_tutorial_cli_consoleapp.html">9) Console App</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=" menupage">
+                            <a href="/mdd/userguide/mdd_userguide_overview.html">UserGuide</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_tools_overview.html">Tools</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_overview.html">Generate Projects</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_stacks.html">Stacks Directive</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_defaultapi.html">DefaultApi Directive</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_apitagmap.html">ApiTagMap Directive</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_awsresources.html">AwsResources Directive</a>
+                                        </li>
+                                        <li class=" menupage"> 
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_projectoptions.html">Project Options Directive</a>
+                                            <ul class="menu vertical nested ">
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_nugetpackageversions.html">NugetPackageVersions</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_packagereferences.html">PackageReferences</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_projectreferences.html">ProjectReferences</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_serviceregistrations.html">ServiceRegistrations</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_propertygroup.html">PropertyGroup</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_properties.html">Properties</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_runtime.html">Runtime</a>
+                                                </li>
+                                                <li  class=" menupage">
+                                                    <a href="/mdd/userguide/generator/mdd_userguide_generator_typescriptclients.html">TypeScriptClients</a>
+                                                </li>
+                                            </ul>
+                                        </li> 
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_awstemplate.html">AwsTemplate</a>
+                                        </li>                    
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_warningescapedcharacters.html">Warning Escaped Characters</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_mergepriority.html">Resource Merge Priority</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/generator/mdd_userguide_generator_aws_settings.html">Generate AWS Settings</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/mdd/userguide/stacks/mdd_userguide_stacks_overview.html">Serverless Stacks</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/stacks/mdd_userguide_stacks_aws_serverless.html">AWS Serverless Stacks</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/stacks/mdd_userguide_stacks_lazystack_stacks.html">LazyStack MDD Generator</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/stacks/mdd_userguide_stacks_openapi.html">OpenAPI Specification</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/stacks/mdd_userguide_stacks_cognito.html">AWS Cognito</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/stacks/apigateway/mdd_userguide_stacks_apigateway_overview.html">Api Gateways</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/stacks/apigateway/mdd_userguide_stacks_apigateway_multiplegateways.html">Multiple Api Gateways</a>
+                                        </li>
+                    
+                                        <li class=" menupage">
+                                            <a href="/mdd/userguide/stacks/lambda/mdd_userguide_stacks_lambda_overview.html">Lambdas</a>
+                                            <ul class="menu vertical nested ">
+                                                 <li  class=" menupage">
+                                                    <a href="/mdd/userguide/stacks/lambda/mdd_userguide_stacks_lambda_function.html">Lambda Functions</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/mdd/userguide/stacks/lambda/mdd_userguide_stacks_lambda_controllers.html">Controllers</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/mdd/userguide/stacks/lambda/mdd_userguide_stacks_lambda_methods.html">Event Methods</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/mdd/userguide/stacks/lambda/mdd_userguide_stacks_lambda_debugging.html">Debugging</a>
+                                                 </li>
+                                                 <li  class=" menupage">
+                                                    <a href="/mdd/userguide/stacks/lambda/mdd_userguide_stacks_lambda_tests.html">Test Projects</a>
+                                                 </li>
+                                            </ul>
+                        
+                                        </li>
+            
+                                    </ul>
+                                </li>
+                                <li class=" menupage">
+                                    <a  href="/mdd/userguide/clientsdk/mdd_userguide_clientsdk_overview.html">Client SDK</a>
+                                    <ul class="menu vertical nested ">
+                                        <li  class=" menupage">
+                                            <a  href="/mdd/userguide/clientsdk/mdd_userguide_clientsdk_clientsdk.html">C# ClientSDK Project</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a  href="/mdd/userguide/clientsdk/mdd_userguide_clientsdk_schema.html">C# Schema Project</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/clientsdk/mdd_userguide_clientsdk_using.html">Using C# ClientSDK</a>
+                                        </li>
+                                        <li  class=" menupage">
+                                            <a href="/mdd/userguide/clientsdk/mdd_userguide_clientsdk_awssettings.html">AwsSettings</a>
+                                        </li>
+                                    </ul>
+                                </li>
+            
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            
+                <li class=" menupage">
+                    <a  href="/libraries/libraries_overview.html">LazyStack Libraries</a>
+            
+                    <ul class="menu vertical nested ">
+                        <li class=" menupage"> 
+                            <a href="/libraries/lazystackauth/libraries_lazystackauth.html">LazyStackAuth</a>
+            
+                            <ul class="menu vertical nested ">
+                                <li  class=" menupage">
+                                    <a  href="/libraries/lazystackauth/libraries_lazystackauth_authmessages.html">AuthMessages</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a  href="/libraries/lazystackauth/libraries_lazystackauth_authprovider.html">AuthProvider</a>
+                                </li>
+            
+                                <li  class=" menupage">
+                                    <a  href="/libraries/lazystackauth/libraries_lazystackauth_authprocess.html">AuthProcess</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a  href="/libraries/lazystackauth/libraries_lazystackauth_lzhttpclient.html">LzHttpClient</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li  class=" menupage">
+                            <a  href="/libraries/getawssettings/libraries_getawssettings.html">GetAwsSettings</a>
+                        </li>
+                        <li class=" menupage">
+                            <a  href="/libraries/dynamodb/libraries_dynamodb.html">DynamoDBRepo</a>
+                            <ul class="menu vertical nested ">
+                                <li  class=" menupage">
+                                    <a  href="/libraries/dynamodb/libraries_dynamodb_ermodel.html">PetStore ER Model</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a  href="/libraries/dynamodb/libraries_dynamodb_intro.html">DynamoDB Intro</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" menupage">
+                    <a href="/roadmap/roadmap_overview.html">Product RoadMap</a>
+                    <ul class="menu vertical nested ">
+                        <li  class=" menupage">
+                            <a  href="/roadmap/saas.html">SaaS</a>
+                        </li>            <li  class=" menupage">
+                            <a  href="/roadmap/mdd.html">MDD</a>
+                        </li>
+                        <li  class=" menupage">
+                            <a  href="/roadmap/lazystackrepo.html">Libraries</a>
+                        </li>
+            
+                        <li  class=" menupage">
+                            <a  href="/roadmap/smf.html">SMF</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" menupage">
+                    <a href="/contact/contact_contact.html">Contact Us</a>
+                </li>
+            
+                <li class=" menupage">
+                    <a href="/legacy/smf_overview.html">Legacy SMF Project</a>
+                    <ul class="menu vertical nested ">
+                        <li class=" menupage">
+                            <a href="/legacy/intro_techoverviewsmf.html">Software Mgmt. Framework</a> 
+                        </li>
+                        <li><a href="/legacy/smf_create_org_checklist.html">Configure SMF</a>
+                            <ul class="menu vertical nested ">
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_create_org_checklist.html">Preparation Checklist</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_create_github_acct.html">1) Create GitHub Account</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_config_mgmt_workstation.html">2) Configure Workstation</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_create_mgmt_acct.html">3) AWS Mgmt. Account</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_create_org.html">4) Create AWS Org</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_create_dev_acct.html">5) Create Dev Account(s)</a>
+                                </li>
+                                <li class=" menupage">
+                                    <a href="/legacy/smf_awsdepguide.html">Deployment Summary</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/legacy/smf_devsandbox.html">SMF User Guide</a>
+                            <ul  class="menu vertical nested ">
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_devsandbox.html">Developer Sandbox</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_gitrepos.html">Git Repository Integration</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_devworkflow.html">Developer Workflow</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_namedprofiles.html">Named Profiles</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_lzconfigure.html">LzConfigure Script</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_lznewdevacct.html">LzNewDevAccount Script</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_lzupdatedevcreds.html">LzUpdateDevCreds Script</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_lzdeploypipeline.html">LzDeployPipeline Script</a>
+                                </li>
+                                <li  class=" menupage">
+                                    <a href="/legacy/smf_lzrotatekeys.html">Rotating Keys</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" menupage">
+                    <a href="/privacy.html">Privacy</a>
+                </li>
+            
+            </ul>
+            <!--</div>-->        </div>
+        <div class="cell small-12 medium-9" style="padding: 10px 0px 0px 0px;">
+<div class=lz-r-content>
+    <h3>LazyStackSaaS Platform</h3>
+    <h5>Note - LazyStackSaaS is currently in Alpha with select partners. Beta release is expected in late June or early July. If you would like to try out LazyStackSaaS in the Beta program and receive direct support, please contact us. Support for beta users that agree to be reference accounts is free.</h5>    
+    <p>LazyStack manages the configuration and deployment of multi-tenant SaaS applications that follow the AWS Serverless Application Model (SAM). When deploying a SAM application we configure services instead of dedicated servers.</p>
+    <p>AWS provides hundreds of managed services. These services automatically scale, are distributed and highly secure. A typical SAM stack for a web application would use services like these:</p>
+    <img src="/assets/img/LazyStackSaaS_Tech_10.drawio.svg" width="100%">
+    <p></p>
+    <h5>Services</h5>
+    <ul>
+        <li><strong>Cognito</strong> - user management, sign-up, sign-in, etc.</li>
+        <li><strong>S3</strong> - file storage at scale
+            <ul>
+                <li>SPA code bucket - the web application code to download to the browser</li>
+                <li>Assets bucket - content like images, configuration, videos etc.</li>
+            </ul>
+        </li>
+        <li><strong>ApiGateway</strong> - http endpoints that may call other services like Lambdas</li>
+        <li><strong>Lambdas</strong> - event-driven compute service</li>
+        <li><strong>CloudFront</strong> - content delivery network
+            <ul>
+                <li>orchestrate and optimize access to other AWS resources</li>
+                <li>cache content at internet edge-locations to minimize latency</li>
+                <li>improved security (adding tenantKey header to calls made to ApiGateway origins)</li>
+            </ul>
+        <li><strong>Database</strong> - NoSQL, NoSQL and Network databases as a service</li>
+    </ul>
+    <p>The common theme across all these services is they are largely maintenance free once configured and deployed.</p>
+    <p>Simple SAM applications are usually deployed as a collection of AWS resources (services) called a "stack". SAM templates contain the stack configuration and are used by the CloudFormation tool to deploy the stack.</p>
+    <p>Complex SAM applications can be comprised of multiple stacks and access resources configured separately from any stack. Later on, we will see how this feature becomes important for multi-tenancy implementation.</p>
+
+   <h4>Continuous Integration and Continuous Deployment (CI/CD)</h4>
+    <p>It's important to manage updates to your client app and Lambda code. One simple way to do this is with the AWS CodeBuild service. This service can pull source code from your GitHub repositories, build the code, and deploy the complied code to the SPA code bucket and Lambda service.</p>
+    <img src="/assets/img/LazyStackSaaS_Tech_30.drawio.svg" width="100%">
+    <p></p>
+
+    <h4>Multi-Tenancy</h4>
+    <p>Traditional SaaS Multi-Tenant architectures evolved to align service costs to the expected revenue on a tenant by tenant basis. The Serverless Application Model fundamentally changes the way we think about multi-tenancy because the use of AWS services inherently address this problem through service elasticity; which means that there is little to no charge for configured but idle resources. Here is a quick break down of the service elasticity pros and cons of commonly used AWS Services.</p>
+    <table>
+        <tr>
+            <td>Service</td>
+            <td>Pros</td>
+            <td>Cons</td>
+        </tr>
+        <tr>
+            <td>Cognito</td>
+            <td>Fully elastic. Large free tier allocation.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>S3</td>
+            <td>Fully elastic. Large free tier allocation.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>ApiGateway</td>
+            <td>Fully elastic. Large free tier allocation.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>Lambdas</td>
+            <td>Fully elastic.</td>
+            <td>Startup time latency. Can be addressed using provisioned concurrency at additional cost.</td>
+        </tr>
+        <tr>
+            <td>CloudFront</td>
+            <td>Fully elastic.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>DynamoDB Database</td>
+            <td>Fully elastic.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>RDS</td>
+            <td>Partially elastic.</td>
+            <td>There are idle state charges.</td>
+        </tr>
+    </table>
+    
+    <p> In the following sections we describe a Serverless Application Model Multi-Tenant SaaS Architecture.
+
+    <h4>Serverless Application Model Multi-Tenant SaaS Architecture</h4>
+    <p>When using SAM, it can be argued that it is possible to provision every tenant with their own stack. Then the problem is reduced to managing these stacks efficiently. While this is a viable approach, we believe there is still value in sharing some types of resources among tenants. These include the ApiGateways, Lambdas and client app code.</p>
+    <p>ApiGateway and Lambdas are convenient to define with a SAM template and deploy with CloudFront. This deployment process takes some time and as most tenants would use the same ApiGateway and Lambdas, there is no reason to do a separate deployment for each tenant. These "application service stacks" are one of the key resources shared by tenants. However, LazyStack has the ability to provision different application service stacks for different tenants to support use-cases like AB deployments, product options, and bespoke lambdas.</p>
+    <p>Web app client code is often compiled and/or packaged for deployment into a S3 SPA bucket. This can be a time consuming process and need not be performed for every tenant. Instead, tenants can be configured to share the same S3 SPA bucket. LazyStack provides CI/CD pipelines that allow the client app to be pulled from any GitHub repo and deployed with a customized CodeBuild script. This feature can be used to support use-cases like AB deployments, product options, and bespoke client apps.</p>
+    <p></p>
+
+    <h4>LazyStack Multi-Tenant SaaS Platform Use-Cases</h4>
+    <p>Sometimes an example is the best way to illustrate a concept and provide insight to new architectures. In the following sections we present examples of how tenants onboard with a hypothetical SaaS application, LazyMagic.net. </p>
+
+    <h5>LazyMagic.net Magic Schools App</h5>
+    <p>Are your teachers a little absent-minded, are your students losing their pets or aperating into the wrong class dungeons, are your ghosts acting up? If so, you need the the LazyMagic.com app.</p>
+    <p>LazyMagic allows your magic shool to create tenants for each magical house and tailor the app for that house's specific needs. Individual houses signup and use the Head of House App and Student App. Optionally, your school may signup and use the Headmaster and Teacher app to see activity across house apps. LazyMagic.net offers the following apps:</p>
+    <ul>
+        <li>Headmaster app - used by a school head master.</li>
+        <li>Teacher App - used by teachers.</li>
+        <li>Head of House App - used by the Head of House.</li>
+        <li>Student App - used by students.</li>
+    </ul>
+    <p>Tenants may also create their own tenant apps that use the secure APIs provided by the LazyMagic.net platform! LazyMagic.net will handle the deployment of these bespoke apps for you.</p>
+
+    <h5>Breaking News! Hogwart's Ravenclaw house now using LazyMagic.</h5>
+    <p>Ravenclaw on-boards as a LazyMagic.net tenant account. The following cloud service resources are automatically configured to support a Head of House and Student App for Ravenclaw.</p>
+    <img src="/assets/img/LazyStackSaaS_Magic10.drawio.svg" width="100%"">
+    <p></p>
+    <h6>Ravenclaw Tenant Configuration</h6>
+    <ul>
+        <li>The Head of House app is accessed using the <strong>hoh-ravenclaw</strong>.lazymagic.net subdomain</li>
+        <li>Ravenclaw is using the standard Head of House app and standard Head of House ApiGateway</li>
+        <li>The Student app is accessed using the <strong>ravenclaw</strong>.lazymagic.net subdomain</li>
+        <li>Ravenclaw is using the standard Student app and standard Student ApiGateway</li>
+        <li>Both apps share an isolated Ravenclaw database and content in the Ravenclaw assets bucket</li>
+        <li>Both apps are configured with Ravenclaw branding and Ravenclaw content drawn from the Ravenclaw assets bucket</li>
+    </ul>
+    <p>Both applications have their own CloudFront Distributions and the CloudFront distribution determines which collection of service resources are available to the app.</p>
+    <p>LazyStack SaaS deployed the ApiGateways and associated Lambdas using SAM templates and CloudFormation. All other resources used in this tenancy were dynamically provisioned using calls to the AWS SDK.</p>
+
+    <h5>Hogwart's Gryffindor house students build their own student app!</h5>
+
+    <p>Not to be outdone, Gryffindor house is also using LazyMagic, and in their usual daring and courageous way have created their own bespoke student app using the secure and robust LazyMagic.net APIs.</p>
+    <img src="/assets/img/LazyStackSaaS_Magic20.drawio.svg" width="100%">
+    <p></p>
+    <h5>Gryffindor Tenant Configuration</h5>
+    <ul>
+        <li>The Head of House app is accessed using the <strong>hoh-gryffindor</strong>.lazymagic.net subdomain</li>
+        <li>Gryffindor is using the standard Head of House app and standard Head of House ApiGateway</li>
+        <li>The Student app is accessed using the <strong>gryffindor</strong>.lazymagic.net subdomain</li>
+        <li>Gryffindor is using a bespoke Student app standard Student ApiGateway</li>
+        <li>Gryffindor is using GitHub and the LazyStack SaaS GitHub app to enable CI/CD of their client app.</li>
+        <li>Both apps share an isolated Gryffindor database and content in the Gryffindor assets bucket</li>
+        <li>Both apps are configured with Gryffindor branding and Gryffindor content drawn from the Gryffindor assets bucket</li>
+    </ul>
+    <p>Both applications have their own CloudFront Distributions and the CloudFront distribution determines which collection of service resources are available to the app.</p>    
+
+    <h5>Hogwart's Headmaster, Dumbledore, reigns in the chaos!</h5>
+    <p>Headmaster Dumbledore signs up for a Hogwarts school tenant and additional house tenants for Hufflepuff and Slytherin. The house tenants use their Head of House apps to give the Gryffindor tenant access to their isolated house databases. Since Hogwarts owns the Hogwarts.edu domain, this domain name is used instead of LazyMagic.net and all five tenants now use the hogwarts.edu domain.</p>
+    <img src="/assets/img/LazyStackSaaS_Magic30.drawio.svg" width="100%">
+    <p></p>
+    <h5>Hogwarts Tenant Configuration</h5>
+    <ul>
+        <li>The <string>Hogwarts.edu</string> domain is used instead of lazymagic.net</li>
+        <li>Hogwarts choose to use the standard Headmaster app and standard HeaderMaster ApiGateway</li>
+        <li>Hogwarts choose to use the standard Teacher app and standard Teacher ApiGateway</li>
+        <li>The Headmaster app is accessed using the Headmaster.hogwarts.edu subdomain</li>
+        <li>The Teacher app is accessed using the teacher.hogwarts.edu subdomain</li>
+        <li>Both apps share an isolated Hogwarts database and content in the Hogwarts assets bucket</li>
+        <li>Both apps have access to the Ravenclaw, Gryffindor, Hufflepuff and Slytherin databases</li>
+    </ul>
+    <p></p>
+    <p>Now teachers can add or subtract points from the houses and let student's know which dungeon to aperate into! Students and teachers can report ghosts that are acting up. Life is better at Hogwarts.</p>
+
+    <h4>Hogwarts Configuration Overview</h4>
+    <table>
+        <tr>
+            <td>Tenant / App URL</td>
+            <td>App</td>
+            <td>AssetsBucket</td>
+            <td>ApiGateway</td>
+            <td>Database(s)</td>
+        </tr>
+        <tr>
+            <td>Hogwarts<br><i>Headmaster.hogwarts.edu</i></td>
+            <td>Standard<br>Headmaster App</td>
+            <td>Hogwarts</td>
+            <td>HeadmasterApi</td>
+            <td>Hogwarts<br>Ravenclaw<br>Gryffindor<br>Hufflepuff<br>Slytherin</td>
+        </tr>
+        <tr>
+            <td>Hogwarts<br><i>teacher.hogwarts.edu</i></td>
+            <td>Standard<br>Teacher App</td>
+            <td>Hogwarts</td>
+            <td>TeacherApi</td>
+            <td>Hogwarts<br>Ravenclaw<br>Gryffindor<br>Hufflepuff<br>Slytherin</td>
+        </tr>
+        <tr>
+            <td>Ravenclaw<br><i>ravenclaw.hogwarts.edu</i></td>
+            <td>Standard<br>Student App</td>
+            <td>Ravenclaw</td>
+            <td>StudentApi</td>
+            <td>Ravenclaw</td>
+        </tr>
+        <tr>
+            <td>Gryffindor<br><i>gryffindor.hogwarts.edu</i></td>
+            <td>Bespoke<br>Student App</td>
+            <td>Gryffindor</td>
+            <td>StudentApi</td>
+            <td>Gryffindor</td>
+        </tr>
+        <tr>
+            <td>Hufflepuff<br><i>hufflepuff.hogwarts.edu</i></td>
+            <td>Standard<br>Student App</td>
+            <td>Hufflepuff</td>
+            <td>StudentApi</td>
+            <td>Hufflepuff</td>
+        </tr>        
+        <tr>
+            <td>Sytherin<br><i>sytherin.hogwarts.edu</i></td>
+            <td>Standard<br>Student App</td>
+            <td>Sytherin</td>
+            <td>StudentApi</td>
+            <td>Sytherin</td>
+        </tr>
+    </table>    
+    <h3>Summary</h3>
+    <p>In the LazyStack Multi-Tenancy SaaS platform, tenants are configured to use shared or isolated resources through service configurations. Each tenant app has its own CloudFront Distribution. Tenants are further configured for access to isolated or shared resources including:</p>
+    <ul>
+        <li>SPA App - tenants may all share a standard App in a shared S3 bucket or have their own bespoke app in a S3 bucket only they can access</li>
+        <li>Assets - each tenant has a tenant specific assets S3 bucket containing branding, configuration and tenant specific content</li>
+        <li>ApiGateway - tenant apps may all access one of the standard ApiGateways or bespoke ApiGateways (with bespoke Lambdas) may be configured </li>
+    </ul>
+    <p>Configuring all these resources manually would be a daunting and error prone task. LazyStack automates all this configuration and deployment to take maximum advantage of the AWS Serverless Application Model and deliver a scalable, secure and efficient multi-tenant SaaS application platform.</p>
+
+    <div style="height:100px"></div>
+</div>
+        </div>
+    </div>
+</div>
+   
+    
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/prism/prism.js"></script>
+    <script>loadMenuPageList();</script>
+    <script>
+
+        $(function() {
+            var nohover = window.matchMedia("(any-hover: none)").matches;
+            if(nohover) {
+                console.log("Enabling swipe on doc page");
+                // If there is no pointing device (probably a mobile device)
+                // then enable swipe on the doc page as well
+                $('#docpage').on('swipeleft', function(e) { gotoNextPage(); })
+                            .on('swiperight', function(e) { gotoPrevPage(); })
+            }
+
+            $('#touch-zone').on('swipeleft', function(e) { gotoNextPage(); })
+                            .on('swiperight', function(e) { gotoPrevPage(); })
+        });
+
+        $(function () {
+            $('#docpage').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+            function(e) {
+                if(pageTransitionActive) { //ToDo - there should be a better way to do this. Out of time, revisit later.
+                    finishPageTransition();
+                }
+            }) 
+           
+        });
+        
+    </script>
+</body>
+
+</html>

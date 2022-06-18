@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LazyStackAuth;
@@ -11,8 +8,8 @@ namespace PetStoreConsoleApp
 {
     class Program
     {
-        static IAuthProcess authProcess;
-        static IConfiguration appConfig;
+        static IAuthProcess? authProcess;
+        static IConfiguration? appConfig;
         static string currentLanguage = "en-US";
 
         static async Task Main(string[] args)
@@ -57,7 +54,7 @@ namespace PetStoreConsoleApp
             serviceProvider = services.BuildServiceProvider();
 
             var authProvider = serviceProvider.GetService<IAuthProvider>() as AuthProviderCognito;
-            var authProcess = serviceProvider.GetService<IAuthProcess>();
+            authProcess = serviceProvider.GetService<IAuthProcess>();
             var lzHttpClient = new LzHttpClient(appConfig, authProvider, "Local");
             // Init PetStore library -- provides easy to use calls against AWS ApiGateways
             var petStore = new PetStore(lzHttpClient);
@@ -65,9 +62,9 @@ namespace PetStoreConsoleApp
             // Ask the user if they want to use LocalApi Controller Calls
             // Note that this does not influence calls to Cognito for authentication
             Console.WriteLine("Welcome to the PetStoreConsoleApp program");
-            Console.Write("Use LocalApi? y/n:");
+            Console.Write("Use LocalApi? Y/n:");
             var useLocalApi = Console.ReadLine();
-            lzHttpClient.UseLocalApi = useLocalApi.Equals("Y", StringComparison.OrdinalIgnoreCase);
+            lzHttpClient.UseLocalApi = (useLocalApi == null) ? true : useLocalApi.Equals("Y", StringComparison.OrdinalIgnoreCase);
 
             var input = string.Empty;
             var alertMsg = string.Empty;
@@ -80,7 +77,6 @@ namespace PetStoreConsoleApp
                     : string.Empty;
                 if (!string.IsNullOrEmpty(alertMsg))
                     Console.WriteLine($"Alert: {alertMsg}");
-
 
                 switch (authProcess.CurrentAuthProcess)
                 {
@@ -281,7 +277,7 @@ namespace PetStoreConsoleApp
                                     : await authProcess.VerifyNewPasswordAsync();
                                 break;
 
-                            case AuthChallengeEnum.NewEmail:
+                            case AuthChallengeEnum.NewEmail: 
                                 Console.Write($"{prompt}: ");
                                 authProcess.NewEmail = Console.ReadLine();
                                 lastAuthEvent = string.IsNullOrEmpty(authProcess.NewEmail)
@@ -309,6 +305,8 @@ namespace PetStoreConsoleApp
     
         static async Task<AuthEventEnum> CancelAsync()
         {
+            if (appConfig == null || authProcess == null)
+                throw new Exception("appConfig or authProcess is null");
             var msg = appConfig[$"AuthProcessMessages:{currentLanguage}:{authProcess.CurrentAuthProcess}"];
             Console.WriteLine($"Canceling {msg} process");
             return await authProcess.CancelAsync();

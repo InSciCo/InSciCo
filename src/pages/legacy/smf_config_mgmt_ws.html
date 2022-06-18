@@ -1,0 +1,43 @@
+---
+layout: docpage
+menu0: legacy
+menu1: smf
+---
+
+<div class=lz-r-content>
+    <h4>SMF 1.1 Configure Management Workstation</h4>
+    <dl>
+        <dt>Prerequisites: Configure GitHub Account complete</dt>
+        <dt>Estimated Time:  to 10 minutes</dt> 
+        <dt>Estimated Cost: none</dt> 
+        <dt>Perform this step on the Management Workstation.</dt>
+    </dl>    
+
+    <p>We provide Microsoft PowerShell scripts to automate various steps in the setup and management 
+        of your AWS Organization. You will not need to learn PowerShell scripting to use 
+        these scripts. If you have Windows 10, PowerShell is already installed. If you are using 
+        MacOS or some variant of Linux, PowerShell is available to install.
+    </p>
+    <p>The scripts call the AWS CLI to configure your AWS Organization. They are easy to 
+        read and heavily commented. We encourage you to read through the scripts and 
+        follow the documentation links provided in the scripts to learn more about the 
+        powerful commands in the AWS CLI. 
+    </p>
+
+    <ol>
+        <!-- Install PowerShell -->
+        <li><a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.1" {{>newtab}}>
+            Install PowerShell<br></a> * If you are running Windows 10, PowerShell is already installed.</li>
+        <br>
+
+        <li>Open a PowerShell terminal with "Run as Administrator" and issue the following command to change the PowerShell script execution permissions:
+            <pre><code class="language-powershell">Set-ExecutionPolicy RemoteSigned</code></pre>
+            This will allow you to run PowerShell scripts on the local computer which is generally necessary for the Management Workstation.</li>
+        <br>
+
+    </ol>
+    <h5>Step Summary</h5>
+    <p>In this step we installed and configured PowerShell to run LazyStack PowerShell scripts.
+    </p>
+    {{>btmspacer}}
+</div>

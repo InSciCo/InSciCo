@@ -1,0 +1,220 @@
+---
+layout: docpage
+menu0: tech
+---
+<div class=lz-r-content>
+    <h3>LazyStackSaaS Platform</h3>
+    <h5>Note - LazyStackSaaS is currently in Alpha with select partners. Beta release is expected in late June or early July. If you would like to try out LazyStackSaaS in the Beta program and receive direct support, please contact us. Support for beta users that agree to be reference accounts is free.</h5>    
+    <p>LazyStack manages the configuration and deployment of multi-tenant SaaS applications that follow the AWS Serverless Application Model (SAM). When deploying a SAM application we configure services instead of dedicated servers.</p>
+    <p>AWS provides hundreds of managed services. These services automatically scale, are distributed and highly secure. A typical SAM stack for a web application would use services like these:</p>
+    <img src="/assets/img/LazyStackSaaS_Tech_10.drawio.svg" width="100%">
+    <p></p>
+    <h5>Services</h5>
+    <ul>
+        <li><strong>Cognito</strong> - user management, sign-up, sign-in, etc.</li>
+        <li><strong>S3</strong> - file storage at scale
+            <ul>
+                <li>SPA code bucket - the web application code to download to the browser</li>
+                <li>Assets bucket - content like images, configuration, videos etc.</li>
+            </ul>
+        </li>
+        <li><strong>ApiGateway</strong> - http endpoints that may call other services like Lambdas</li>
+        <li><strong>Lambdas</strong> - event-driven compute service</li>
+        <li><strong>CloudFront</strong> - content delivery network
+            <ul>
+                <li>orchestrate and optimize access to other AWS resources</li>
+                <li>cache content at internet edge-locations to minimize latency</li>
+                <li>improved security (adding tenantKey header to calls made to ApiGateway origins)</li>
+            </ul>
+        <li><strong>Database</strong> - NoSQL, NoSQL and Network databases as a service</li>
+    </ul>
+    <p>The common theme across all these services is they are largely maintenance free once configured and deployed.</p>
+    <p>Simple SAM applications are usually deployed as a collection of AWS resources (services) called a "stack". SAM templates contain the stack configuration and are used by the CloudFormation tool to deploy the stack.</p>
+    <p>Complex SAM applications can be comprised of multiple stacks and access resources configured separately from any stack. Later on, we will see how this feature becomes important for multi-tenancy implementation.</p>
+
+   <h4>Continuous Integration and Continuous Deployment (CI/CD)</h4>
+    <p>It's important to manage updates to your client app and Lambda code. One simple way to do this is with the AWS CodeBuild service. This service can pull source code from your GitHub repositories, build the code, and deploy the complied code to the SPA code bucket and Lambda service.</p>
+    <img src="/assets/img/LazyStackSaaS_Tech_30.drawio.svg" width="100%">
+    <p></p>
+
+    <h4>Multi-Tenancy</h4>
+    <p>Traditional SaaS Multi-Tenant architectures evolved to align service costs to the expected revenue on a tenant by tenant basis. The Serverless Application Model fundamentally changes the way we think about multi-tenancy because the use of AWS services inherently address this problem through service elasticity; which means that there is little to no charge for configured but idle resources. Here is a quick break down of the service elasticity pros and cons of commonly used AWS Services.</p>
+    <table>
+        <tr>
+            <td>Service</td>
+            <td>Pros</td>
+            <td>Cons</td>
+        </tr>
+        <tr>
+            <td>Cognito</td>
+            <td>Fully elastic. Large free tier allocation.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>S3</td>
+            <td>Fully elastic. Large free tier allocation.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>ApiGateway</td>
+            <td>Fully elastic. Large free tier allocation.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>Lambdas</td>
+            <td>Fully elastic.</td>
+            <td>Startup time latency. Can be addressed using provisioned concurrency at additional cost.</td>
+        </tr>
+        <tr>
+            <td>CloudFront</td>
+            <td>Fully elastic.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>DynamoDB Database</td>
+            <td>Fully elastic.</td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td>RDS</td>
+            <td>Partially elastic.</td>
+            <td>There are idle state charges.</td>
+        </tr>
+    </table>
+    
+    <p> In the following sections we describe a Serverless Application Model Multi-Tenant SaaS Architecture.
+
+    <h4>Serverless Application Model Multi-Tenant SaaS Architecture</h4>
+    <p>When using SAM, it can be argued that it is possible to provision every tenant with their own stack. Then the problem is reduced to managing these stacks efficiently. While this is a viable approach, we believe there is still value in sharing some types of resources among tenants. These include the ApiGateways, Lambdas and client app code.</p>
+    <p>ApiGateway and Lambdas are convenient to define with a SAM template and deploy with CloudFront. This deployment process takes some time and as most tenants would use the same ApiGateway and Lambdas, there is no reason to do a separate deployment for each tenant. These "application service stacks" are one of the key resources shared by tenants. However, LazyStack has the ability to provision different application service stacks for different tenants to support use-cases like AB deployments, product options, and bespoke lambdas.</p>
+    <p>Web app client code is often compiled and/or packaged for deployment into a S3 SPA bucket. This can be a time consuming process and need not be performed for every tenant. Instead, tenants can be configured to share the same S3 SPA bucket. LazyStack provides CI/CD pipelines that allow the client app to be pulled from any GitHub repo and deployed with a customized CodeBuild script. This feature can be used to support use-cases like AB deployments, product options, and bespoke client apps.</p>
+    <p></p>
+
+    <h4>LazyStack Multi-Tenant SaaS Platform Use-Cases</h4>
+    <p>Sometimes an example is the best way to illustrate a concept and provide insight to new architectures. In the following sections we present examples of how tenants onboard with a hypothetical SaaS application, LazyMagic.net. </p>
+
+    <h5>LazyMagic.net Magic Schools App</h5>
+    <p>Are your teachers a little absent-minded, are your students losing their pets or aperating into the wrong class dungeons, are your ghosts acting up? If so, you need the the LazyMagic.com app.</p>
+    <p>LazyMagic allows your magic shool to create tenants for each magical house and tailor the app for that house's specific needs. Individual houses signup and use the Head of House App and Student App. Optionally, your school may signup and use the Headmaster and Teacher app to see activity across house apps. LazyMagic.net offers the following apps:</p>
+    <ul>
+        <li>Headmaster app - used by a school head master.</li>
+        <li>Teacher App - used by teachers.</li>
+        <li>Head of House App - used by the Head of House.</li>
+        <li>Student App - used by students.</li>
+    </ul>
+    <p>Tenants may also create their own tenant apps that use the secure APIs provided by the LazyMagic.net platform! LazyMagic.net will handle the deployment of these bespoke apps for you.</p>
+
+    <h5>Breaking News! Hogwart's Ravenclaw house now using LazyMagic.</h5>
+    <p>Ravenclaw on-boards as a LazyMagic.net tenant account. The following cloud service resources are automatically configured to support a Head of House and Student App for Ravenclaw.</p>
+    <img src="/assets/img/LazyStackSaaS_Magic10.drawio.svg" width="100%"">
+    <p></p>
+    <h6>Ravenclaw Tenant Configuration</h6>
+    <ul>
+        <li>The Head of House app is accessed using the <strong>hoh-ravenclaw</strong>.lazymagic.net subdomain</li>
+        <li>Ravenclaw is using the standard Head of House app and standard Head of House ApiGateway</li>
+        <li>The Student app is accessed using the <strong>ravenclaw</strong>.lazymagic.net subdomain</li>
+        <li>Ravenclaw is using the standard Student app and standard Student ApiGateway</li>
+        <li>Both apps share an isolated Ravenclaw database and content in the Ravenclaw assets bucket</li>
+        <li>Both apps are configured with Ravenclaw branding and Ravenclaw content drawn from the Ravenclaw assets bucket</li>
+    </ul>
+    <p>Both applications have their own CloudFront Distributions and the CloudFront distribution determines which collection of service resources are available to the app.</p>
+    <p>LazyStack SaaS deployed the ApiGateways and associated Lambdas using SAM templates and CloudFormation. All other resources used in this tenancy were dynamically provisioned using calls to the AWS SDK.</p>
+
+    <h5>Hogwart's Gryffindor house students build their own student app!</h5>
+
+    <p>Not to be outdone, Gryffindor house is also using LazyMagic, and in their usual daring and courageous way have created their own bespoke student app using the secure and robust LazyMagic.net APIs.</p>
+    <img src="/assets/img/LazyStackSaaS_Magic20.drawio.svg" width="100%">
+    <p></p>
+    <h5>Gryffindor Tenant Configuration</h5>
+    <ul>
+        <li>The Head of House app is accessed using the <strong>hoh-gryffindor</strong>.lazymagic.net subdomain</li>
+        <li>Gryffindor is using the standard Head of House app and standard Head of House ApiGateway</li>
+        <li>The Student app is accessed using the <strong>gryffindor</strong>.lazymagic.net subdomain</li>
+        <li>Gryffindor is using a bespoke Student app standard Student ApiGateway</li>
+        <li>Gryffindor is using GitHub and the LazyStack SaaS GitHub app to enable CI/CD of their client app.</li>
+        <li>Both apps share an isolated Gryffindor database and content in the Gryffindor assets bucket</li>
+        <li>Both apps are configured with Gryffindor branding and Gryffindor content drawn from the Gryffindor assets bucket</li>
+    </ul>
+    <p>Both applications have their own CloudFront Distributions and the CloudFront distribution determines which collection of service resources are available to the app.</p>    
+
+    <h5>Hogwart's Headmaster, Dumbledore, reigns in the chaos!</h5>
+    <p>Headmaster Dumbledore signs up for a Hogwarts school tenant and additional house tenants for Hufflepuff and Slytherin. The house tenants use their Head of House apps to give the Gryffindor tenant access to their isolated house databases. Since Hogwarts owns the Hogwarts.edu domain, this domain name is used instead of LazyMagic.net and all five tenants now use the hogwarts.edu domain.</p>
+    <img src="/assets/img/LazyStackSaaS_Magic30.drawio.svg" width="100%">
+    <p></p>
+    <h5>Hogwarts Tenant Configuration</h5>
+    <ul>
+        <li>The <string>Hogwarts.edu</string> domain is used instead of lazymagic.net</li>
+        <li>Hogwarts choose to use the standard Headmaster app and standard HeaderMaster ApiGateway</li>
+        <li>Hogwarts choose to use the standard Teacher app and standard Teacher ApiGateway</li>
+        <li>The Headmaster app is accessed using the Headmaster.hogwarts.edu subdomain</li>
+        <li>The Teacher app is accessed using the teacher.hogwarts.edu subdomain</li>
+        <li>Both apps share an isolated Hogwarts database and content in the Hogwarts assets bucket</li>
+        <li>Both apps have access to the Ravenclaw, Gryffindor, Hufflepuff and Slytherin databases</li>
+    </ul>
+    <p></p>
+    <p>Now teachers can add or subtract points from the houses and let student's know which dungeon to aperate into! Students and teachers can report ghosts that are acting up. Life is better at Hogwarts.</p>
+
+    <h4>Hogwarts Configuration Overview</h4>
+    <table>
+        <tr>
+            <td>Tenant / App URL</td>
+            <td>App</td>
+            <td>AssetsBucket</td>
+            <td>ApiGateway</td>
+            <td>Database(s)</td>
+        </tr>
+        <tr>
+            <td>Hogwarts<br><i>Headmaster.hogwarts.edu</i></td>
+            <td>Standard<br>Headmaster App</td>
+            <td>Hogwarts</td>
+            <td>HeadmasterApi</td>
+            <td>Hogwarts<br>Ravenclaw<br>Gryffindor<br>Hufflepuff<br>Slytherin</td>
+        </tr>
+        <tr>
+            <td>Hogwarts<br><i>teacher.hogwarts.edu</i></td>
+            <td>Standard<br>Teacher App</td>
+            <td>Hogwarts</td>
+            <td>TeacherApi</td>
+            <td>Hogwarts<br>Ravenclaw<br>Gryffindor<br>Hufflepuff<br>Slytherin</td>
+        </tr>
+        <tr>
+            <td>Ravenclaw<br><i>ravenclaw.hogwarts.edu</i></td>
+            <td>Standard<br>Student App</td>
+            <td>Ravenclaw</td>
+            <td>StudentApi</td>
+            <td>Ravenclaw</td>
+        </tr>
+        <tr>
+            <td>Gryffindor<br><i>gryffindor.hogwarts.edu</i></td>
+            <td>Bespoke<br>Student App</td>
+            <td>Gryffindor</td>
+            <td>StudentApi</td>
+            <td>Gryffindor</td>
+        </tr>
+        <tr>
+            <td>Hufflepuff<br><i>hufflepuff.hogwarts.edu</i></td>
+            <td>Standard<br>Student App</td>
+            <td>Hufflepuff</td>
+            <td>StudentApi</td>
+            <td>Hufflepuff</td>
+        </tr>        
+        <tr>
+            <td>Sytherin<br><i>sytherin.hogwarts.edu</i></td>
+            <td>Standard<br>Student App</td>
+            <td>Sytherin</td>
+            <td>StudentApi</td>
+            <td>Sytherin</td>
+        </tr>
+    </table>    
+    <h3>Summary</h3>
+    <p>In the LazyStack Multi-Tenancy SaaS platform, tenants are configured to use shared or isolated resources through service configurations. Each tenant app has its own CloudFront Distribution. Tenants are further configured for access to isolated or shared resources including:</p>
+    <ul>
+        <li>SPA App - tenants may all share a standard App in a shared S3 bucket or have their own bespoke app in a S3 bucket only they can access</li>
+        <li>Assets - each tenant has a tenant specific assets S3 bucket containing branding, configuration and tenant specific content</li>
+        <li>ApiGateway - tenant apps may all access one of the standard ApiGateways or bespoke ApiGateways (with bespoke Lambdas) may be configured </li>
+    </ul>
+    <p>Configuring all these resources manually would be a daunting and error prone task. LazyStack automates all this configuration and deployment to take maximum advantage of the AWS Serverless Application Model and deliver a scalable, secure and efficient multi-tenant SaaS application platform.</p>
+
+    {{>btmspacer}}
+
+</div>

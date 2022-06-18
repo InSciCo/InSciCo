@@ -1,0 +1,39 @@
+---
+layout: docpage
+menu0: mdd
+menu1: tutorials
+menu2: vsmac
+---
+
+<div class=lz-r-content>
+    <h3>Test Local WebApi</h3>
+    <p>In this step we will use a browser page to make calls against the local WebApi (PetStore) project.</p>
+
+<h4>7.1 Test WebApi using Browser</h4>
+<ol>
+    <li>Set the startup project to PetStore.</li>
+    <li>Start Debugging the PetStore project. A browser tab opens showing the Swagger PetStoreAPI.
+        <ul>
+            <li>You may see a Security Warning dialog "Invalid development certificate found".
+                Select "Run" if this dialog appears. You will then be prompted for your password. Provide the 
+                password and click the "Always Allow" button.
+            </li>
+        </ul>
+    </li>
+    <li>Execute the "/pet/seedPets" call. (Note: You need to click on "Try it Out".)
+         Two pets are added to the DynamoDB table.</li>
+    <li>Execute /pet/findByStatus with petStatus = 0. Two pet records are returned in the Response body.</li>
+    <li>Stop Debugging.</li>
+</ol>
+<h5>Step Summary</h5>
+<p>In this step we launched the local WebApi (PetStore) project and then made calls against it using the local server's 
+    Swagger page. Our call to "/pet/seedPets" executed the PetStoreRepo project's PetRepo.SeedPetsAsync() method.
+    The local WebApi (PetStore) project used your local AWS credentials to access the PetStoreDev stack DynamoDB resource.
+</p>
+
+<p>In addition to making calls using the browser, later lesson steps will demonstrate making calls against the 
+    WebApi (PetStore) project from client apps. This allows you to debug both the client code and controller code 
+    at the same time.
+</p>
+{{>btmspacer}}
+</div>

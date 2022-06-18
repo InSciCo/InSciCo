@@ -1,0 +1,132 @@
+---
+layout: docpage
+menu0: mdd
+menu1: userguide
+menu2: generator
+---
+
+<div class=lz-r-content>
+    <h3>ApiTagMap Directive</h3>
+    <p>Use the ApiTagMap directive to use multiple API Gateway configurations in your application stack. </p>
+<pre><code class="language-yaml">
+ApiTagMap:
+    HttpApiSecure:
+    - pet # The HttpApiSecure ApiGateway will call the Pet Lambda
+    ApiSecure:
+    - order # The ApiSecure ApiGateway will call the Order Lambda</code></pre>
+    <p>See the <a href="/stacks/lambda/lambda_overview.html"{{>newtab}}>Lambdas</a> documentation for more details on how OpenApi tags 
+        map to ApiGateway endpoints and Lambda methods.</p>
+    <p>The following table shows how these mappings and routes associated with the tags generate lambda function methods:
+    </p>
+    <table data-layout="default">
+        <colgroup>
+            <col style="width: 155.0px;" />
+            <col style="width: 210.0px;" />
+            <col style="width: 201.0px;" />
+            <col style="width: 191.0px;" />
+        </colgroup>
+        <tbody>
+            <tr class="text-left">
+                <th>
+                    <p><strong>API Configuration</strong></p>
+                </th>
+                <th>
+                    <p><strong>Route</strong></p>
+                </th>
+                <th>
+                    <p><strong>Lambda</strong></p>
+                </th>
+                <th>
+                    <p><strong>Method</strong></p>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>ApiSecure</strong></p>
+                </td>
+                <td>
+                    <p>GET /order/{orderId}</p>
+                </td>
+                <td>
+                    <p>Order</p>
+                </td>
+                <td>
+                    <p>GetOrderById(int64 orderId)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>HttpApiSecure</strong></p>
+                </td>
+                <td>
+                    <p>GET /pet/{petId}</p>
+                </td>
+                <td>
+                    <p>Pet</p>
+                </td>
+                <td>
+                    <p>GetPetById(int64 petId)</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Here is another example where two lambdas are mapped to one ApiGateway:</p>
+<pre><code class="language-yaml">
+ApiTagMap:
+    HttpApiSecure:
+    - pet # The HttpApiSecure ApiGateway will call the Pet Lambda
+    - order # the HttpApiSecure ApiGateway will call the Order Lambda</code></pre>
+        <table data-layout="default">
+            <colgroup>
+                <col style="width: 155.0px;" />
+                <col style="width: 210.0px;" />
+                <col style="width: 201.0px;" />
+                <col style="width: 191.0px;" />
+            </colgroup>
+            <tbody>
+                <tr class="text-left">
+                    <th>
+                        <p><strong>API Configuration</strong></p>
+                    </th>
+                    <th>
+                        <p><strong>Route</strong></p>
+                    </th>
+                    <th>
+                        <p><strong>Lambda</strong></p>
+                    </th>
+                    <th>
+                        <p><strong>Method</strong></p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>HttpApiSecure</strong></p>
+                    </td>
+                    <td>
+                        <p>GET /order/{orderId}</p>
+                    </td>
+                    <td>
+                        <p>Order</p>
+                    </td>
+                    <td>
+                        <p>GetOrderById(int64 orderId)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>HttpApiSecure</strong></p>
+                    </td>
+                    <td>
+                        <p>GET /pet/{petId}</p>
+                    </td>
+                    <td>
+                        <p>Pet</p>
+                    </td>
+                    <td>
+                        <p>GetPetById(int64 petId)</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {{>btmspacer}}
+</div>

@@ -1,0 +1,114 @@
+---
+layout: docpage
+menu0: saas
+---
+ <div class=lz-r-content>
+    <h3>LazyStackSaaS Platform Technical Overview</h3>
+
+    <h5>Note - LazyStackSaaS is currently in Alpha with select partners. Beta release is expected in late June or early July. If you would like to try out LazyStackSaaS in the Beta program and receive direct support, please contact us. Support for beta users that agree to be reference accounts is free.</h5>
+
+    <p>Note: We strongly recommend that you use AWS ControlTower to create and manage multiple AWS accounts under an AWS Organization. ControlTower makes it easy to create and manage those accounts. We also recommend you configure AWS Single Sign-On as it enhances your team's ability to easily switch among AWS account they need access to.</p>
+
+    <h4>Platform Architecture</h4>
+    
+    <p>LazyStack is itself a SAM application, made available in the AWS Serverless Application Repository.  You deploy the LazyStackSaaS stack using the AWS Console or AWS CLI into a "Deployment Management Account". The LazyStack SaaS stack presents a Web UI you use to manage your deployments.</p>
+    <p>The LazyStack application configures multi-tenant application resources in one or more target accounts.</p>
+    
+    <img src="/assets/img/LazyStackSaaS_Tech_40.drawio.svg" width="100%">
+    <p></p>
+    <h5>Trust Relationships Among AWS Accounts</h5>
+    <ul>
+        <li>Target Account Trusts Tooling Account to
+            <ul>
+                <li>Run Codebuild</li>
+                <li>Update S3 Buckets</li>
+                <li>CRUDL Tenant Resources 
+                    <ul>
+                        <li>CloudFront Distributions</li>
+                        <li>S3 Asset Buckets</li>
+                        <li>CRUD DynamoDB Tables (A table contains a tenant database)</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Tooling Account Trust Target Accounts to
+            <ul>
+                <li>Post Events to the Tooling Account LazyStack event bus</li>
+            </ul>
+        </li>
+    </ul>
+    <h5>GitHub Commit Process Flow</h5>
+    <ol>
+        <li>LazyStack GitHub App sends GitHub repository commit event to LazyStack API</li>
+        <li>GitHubApp Lambda places event on LazyStack EventBridge</li>
+        <li>EventBridge runs LazyStack EventHandler.Build
+            <ol>
+                <li>Foreach Target account using GitHub repository specified in event
+                    <ol>
+                        <li>Update Account Policies</li>
+                        <li>Build Account Service Stacks</li>
+                        <li>Build SPA Code</li>
+                        <li>CRUD Tenant Resources</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <p>The Build method performs a dependency analysis step to determine what resources need to be created, updated, deleted, built and deployed.</p>
+    <p>Multiple GitHub Repositories may be associated with build targets in the Target Account. The Build method uses permissions provided by the LazyStack GitHub App to check for changes in each of these during the dependency analysis step.</p>
+    <p>It is important to note that LazyStack manages some Tenant Account resources programmatically outside the context of a SAM stack. This is done for performance reasons. The resources managed directly include:</p>
+    <ul>
+        <li>S3 Account Policies Bucket</li>
+        <li>S3 SPA Code bucket - create by Account Build, content updated by CodeBuild Process</li>
+        <li>S3 Artifacts bucket
+            <ul>
+                <li>Build method creates CodeBuild source zip files and writes them into the Artifacts Bucket. These source sip files contain all the necessary code to checkout and build the necessary repositories. Note that the git commands in these script files use time-limited GitHub credentials that expire within a few minutes. </li>
+                <li>CodeBuild runs CloudFormation SAM which packages lambdas for Service Stacks and copies these packages into Artifacts bucket</li>
+            </ul>
+        </li>
+        <li>Tenant CloudFront Distributions</li>
+        <li>Tenant S3 Assets buckets</li>
+        <li>Tenant DynamoDB Table (a DynamoDB Table contains Tenant Database)</li>
+        <li>TenantKey database (a DynamoDB table used resolve database associations for CloudFront origins). Your application is passed a TenantKey in from the CloudFront distribution. Your Lambdas use the TenantKey to discover which Tenant made the API call. The TenantKey database contains the name of the Tenant database associated with the TenantKey.</li>
+    </ul>
+  
+    <h5>GitHub Repository References</h5>
+    <p>There are usually numerous repositories associated with each Target Account. These repositories may exist in different GitHub accounts. Typical repositories include:</p>
+    <ul>
+        <li>Account Policies - a GitHub repo containing the policies and templates used in the LazyStack AccountBuild process</li>
+        <li>Service Stack - GitHub repo containing a service stack template and code</li>
+        <li>SPA - GitHub repo containing the source code for building the SPA client app</li>
+        <li>Seed Assets - a GitHub repo containing seed assets for client apps</li>
+    </ul>
+    <p>When configuring the Target Account, you specify which repo branch is associated with each service and client app. Each time the Build method is run, the commit key for that branch is stored. The next time the Build method is run, the previously stored commit key is compared with the latest commit, reported by the GitHub repo, to determine if the repository content has changed. Repository change causes resource updates, builds etc.</p>
+    <h5>Getting Started Overview</h5>
+    <h6>Prerequisites</h6>
+    <ul>
+        <li>AWS Organization containing
+            <ul>
+                <li>Deployment Management Account</li>
+                <li>Deployment Target Account(s), you can start with one and add more accounts as required.</li>
+            </ul>
+        </li>
+        <li>GitHub Enterprise account</li>
+    </ul>
+    <h6>Installation Overview</h6>
+    <ol>
+        <li>Fork GitHub LazyStackSaaSTemplates repo. This repo contains policies and scripts your team can modify</li>
+        <li>Use this <a href="">link</a> to request access to the LazyStackSaaS application in the AWS Serverless Application Repository - there is no charge for using LazyStackCE</li>
+        <li>Use the AWS Console or AWS CLI to install the LazyStackSaaS Application into the Deployment Management Account</li>
+        <li>Use the AWS CloudFront console to get the URL associated with the LazyStackSaaS application - This is your LazyStackSaaS console app endpoint</li>
+        <li>In your browser, access the LazyStackSaaS console app to
+            <ul>
+                <li>Configure the application LazyStackSaaS will manage</li>
+                <li>Modify, if necessary, the policies and scripts contained in your fork of the LazyStackSaaTemplates repo</li>
+            </ul>
+        </li>
+        <li>Install GitHub LazyStackSaaS app. This app provides your LazyStackSaaS instance access to repos in your GitHub account.</li>
+        <li>Configure GitHub LazyStackSaaS app with access to </li>
+        <li></li>
+    </ol>
+
+    <p></p>
+    {{>btmspacer}}
+</div>
