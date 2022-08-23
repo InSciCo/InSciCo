@@ -34,3 +34,4 @@ A forever free version of the LazyStack Generator is available in the Visual Stu
 
 ## Insight Sciences Corporation (InSciCo)
 LazyStack is sponsored by InSciCo.
+

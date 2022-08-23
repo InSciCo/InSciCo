@@ -602,32 +602,32 @@
         <li>Calling the stack using the PetStoreClientSDK library.</li>
     </ul>
     <h4>8.1 Configure a Gmail Account</h4>
-    <p>The automated tests we will create in this step require a Gmail account. AWS Cognito will email authorization codes 
-        to that Gmail account during the tests. For instance, the sign-up process will email the new user a 
-        authorization code. Our sign-up process test must log into the user's Gmail account, find the email containing 
+    <p>The automated tests we will create in this step require an IMAP account with subaddressing capabilities. 
+        For example, Gmail, Outlook or AWS WorkMail will work just fine. AWS Cognito will email authorization codes 
+        to an email account during the tests. For instance, the sign-up process will email the new user a 
+        authorization code. Our sign-up process test must log into the user's email account, find the email containing 
         the authorization code and then use that code to finalize the sign-up process. </p>
         <p>AWS Cognito requires each user to have a unique email address. We don't want to create a new 
             email address each time we run the tests and deleting users from the Cognito User Pool is not
             convenient or always what we what.
         </p>
-        <p>Lucky for us, Gmail has a nifty feature that allows you to use an email address 
+        <p>Lucky for us, email subaddressing is a nifty feature that allows you to use a dynamic email address 
         alias. For example, if you email address is myemail@gmail.com, you can send email to that address with 
         the alias myemail+01@gmail.com. As far as AWS Cognito is concerned, this alias is a unique email address.
         This means we can use a single Gmail account to create and test multiple AWS Cognito accounts where each 
         of the AWS Cognito accounts is associated with a unique Gmail address alias.
         </p>
+        <p>For the purposes of this demo we will use the AWS WorkMail service. AWS WorkMail accounts currently 
+            cost $4/mo but you get a free 30 day trail. One nice feature of the AWS WorkMail service is that 
+            it offers a "free" subdomain so you don't have to configure any domains or spend a lot of time 
+            setting things up.
+        </p>
     <ol>
-        <li>Create a new Gmail account. We suggest you create a Gmail account just for this purpose and not use 
-            any existing Gmail account.</li>
-        <li>Open your Google Account Settings.</li>
-        <li>Select Security from menu.</li>
-        <li>Select "Less secure app access" and turn on access.</li>
+        <li>Follow the instructions <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/howto-start.html">here</a>. 
+        to create a Amazon WorkMail site. Choose to use a free testing domain provided by Amazon WorkMail and 
+        select an available "alias" to use. Test domains have the form: <i>alias</i>.awsapps.com. Add a 
+        single user called "test".</li>
     </ol>
-    <p>Warning: Google really doesn't like your account to allow "less secure 
-        app access". They will regularly reset this setting to "on" without your permission, without warning, 
-        and without notification. Before running this test suite in the future, you must check your Google 
-        account settings to make sure this setting is off.
-    </p>
     
     
     <h4>8.2 Create PetStoreTests Project</h4>
@@ -665,13 +665,13 @@
     
     &lt;ItemGroup>
         &lt;PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-        &lt;PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+        &lt;PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
         &lt;PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
-        &lt;PackageReference Include="coverlet.collector" Version="3.1.0" />
+        &lt;PackageReference Include="coverlet.collector" Version="3.1.2" />
     &lt;/ItemGroup>
     
     &lt;ItemGroup>
-        &lt;PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
+        &lt;PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
         &lt;PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
         &lt;ProjectReference Include="..\PetStoreClientSDK\PetStoreClientSDK.csproj" />
         &lt;EmbeddedResource Include="..\Stacks\Dev\AwsSettings.json" />
@@ -685,11 +685,26 @@
         <li>Build the project.
             <pre><code class="language-bash">dotnet build</code></pre>
         </li>
-        <li>Set Gmail:Email user secret value:
-            <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Email" "myemail@Gmail.com" </code></pre>
-        </li>
-        <li>Set Gmail:Password user secret value:
-            <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "Gmail:Password" "maypassword" </code></pre>
+        <li>Set User Secret Values
+            <ol>
+                <li>Open a Terminal Window</li>
+                <li>CD into the LazyStackTutorial/PetStore folder.</li>
+                <li>Set EmailAccount:Domain user secret value (edit the region if necessary):
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "EmailAccount:Domain" "imap.mai.us-east-1.awsapps.com" </code></pre>
+                </li>
+                <li>Set EmailAccount:Port user secret value:
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "EmailAccount:Port" "993" </code></pre>
+                </li>
+                <li>Set EmailAccount:UseSSL user secret value:
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "EmailAccount:UseSSL" "true" </code></pre>
+                </li>                                
+                <li>Set EmailAccount:Email user secret value (edit the alias value):
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "EmailAccount:Email" "test@alias.awsapps.com" </code></pre>
+                </li>
+                <li>Set EmailAccount:Password user secret value:
+                    <pre><code class="language-bash">dotnet user-secrets -p PetStoreTests set "EmailAccount:Password" "maypassword" </code></pre>
+                </li>
+            </ol>
         </li>
     </ol>
     

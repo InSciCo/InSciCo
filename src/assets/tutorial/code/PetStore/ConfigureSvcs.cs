@@ -8,7 +8,14 @@ namespace PetStore
     {
         public void ConfigureSvcs(IServiceCollection services)
         {
-
+            services.AddSingleton<PetStoreRepo.Models.IPetRepo, PetStoreRepo.Models.PetRepo>();
+            services.AddSingleton<PetStoreRepo.Models.IOrderRepo, PetStoreRepo.Models.OrderRepo>();
+            services.AddSingleton<PetStoreRepo.Models.ITagRepo,PetStoreRepo.Models.TagRepo>();
+            services.AddSingleton<PetStoreRepo.Models.ICategoryRepo,PetStoreRepo.Models.CategoryRepo>();
+            services.AddScoped<PetController.IPetController, PetControllerImpl.PetControllerImpl>();
+            services.AddScoped<OrderController.IOrderController, OrderControllerImpl.OrderControllerImpl>();
+            services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
+            services.AddAWSService<Amazon.DynamoDBv2.IAmazonDynamoDB>();
         }
     }
 }

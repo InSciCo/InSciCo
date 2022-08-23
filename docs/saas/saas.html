@@ -594,8 +594,11 @@
  <div class=lz-r-content>
     <h3>LazyStackSaaS Platform Technical Overview</h3>
 
-    <h5>Note - LazyStackSaaS is currently in Alpha with select partners. Beta release is expected in late June or early July. If you would like to try out LazyStackSaaS in the Beta program and receive direct support, please contact us. Support for beta users that agree to be reference accounts is free.</h5>
-
+    <h5>Note - LazyStackSaaS is currently in Alpha with select partners. Beta release is expected in late December 
+        2022. If you would like to try out LazyStackSaaS in the Beta program and receive direct support, please 
+        contact us. Support for beta users that agree to be reference accounts is free. If you are interested in 
+        joining the current Alpha program to receive early access to the tool, 
+        please <a href="/contact/contact_contact.html">contactc us</a>.</h5>
     <p>Note: We strongly recommend that you use AWS ControlTower to create and manage multiple AWS accounts under an AWS Organization. ControlTower makes it easy to create and manage those accounts. We also recommend you configure AWS Single Sign-On as it enhances your team's ability to easily switch among AWS account they need access to.</p>
 
     <h4>Platform Architecture</h4>
@@ -670,35 +673,6 @@
         <li>Seed Assets - a GitHub repo containing seed assets for client apps</li>
     </ul>
     <p>When configuring the Target Account, you specify which repo branch is associated with each service and client app. Each time the Build method is run, the commit key for that branch is stored. The next time the Build method is run, the previously stored commit key is compared with the latest commit, reported by the GitHub repo, to determine if the repository content has changed. Repository change causes resource updates, builds etc.</p>
-    <h5>Getting Started Overview</h5>
-    <h6>Prerequisites</h6>
-    <ul>
-        <li>AWS Organization containing
-            <ul>
-                <li>Deployment Management Account</li>
-                <li>Deployment Target Account(s), you can start with one and add more accounts as required.</li>
-            </ul>
-        </li>
-        <li>GitHub Enterprise account</li>
-    </ul>
-    <h6>Installation Overview</h6>
-    <ol>
-        <li>Fork GitHub LazyStackSaaSTemplates repo. This repo contains policies and scripts your team can modify</li>
-        <li>Use this <a href="">link</a> to request access to the LazyStackSaaS application in the AWS Serverless Application Repository - there is no charge for using LazyStackCE</li>
-        <li>Use the AWS Console or AWS CLI to install the LazyStackSaaS Application into the Deployment Management Account</li>
-        <li>Use the AWS CloudFront console to get the URL associated with the LazyStackSaaS application - This is your LazyStackSaaS console app endpoint</li>
-        <li>In your browser, access the LazyStackSaaS console app to
-            <ul>
-                <li>Configure the application LazyStackSaaS will manage</li>
-                <li>Modify, if necessary, the policies and scripts contained in your fork of the LazyStackSaaTemplates repo</li>
-            </ul>
-        </li>
-        <li>Install GitHub LazyStackSaaS app. This app provides your LazyStackSaaS instance access to repos in your GitHub account.</li>
-        <li>Configure GitHub LazyStackSaaS app with access to </li>
-        <li></li>
-    </ol>
-
-    <p></p>
     <div style="height:100px"></div></div>
         </div>
     </div>
